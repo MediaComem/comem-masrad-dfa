@@ -6,7 +6,7 @@
 * Plan
  * Intro / Roadmap
  * Bootstrap html : templating, sélectionner quelques composants "méritants" (du button à dropdown) 
-  * les faire pratiquer (exos - voici le résultat à construire, à vous de jouer) pour les mettre à l'aise / autonomie pour explorer tous les autres composants
+  - les faire pratiquer (exos - voici le résultat à construire, à vous de jouer) pour les mettre à l'aise / autonomie pour explorer tous les autres composants
   * aria-xxx (une ptite slide accessiblity)
  * Bootstrap composants javascript (sachant qu'avec Angular on fait la version directive https://angular-ui.github.io/bootstrap) -- ces composants reposent sur du JS, mais je n'ai rien à écrire JS
  * JavaScript (comment organiser tout ça au mieux, progressif, au bon moment)
