@@ -2,7 +2,6 @@
 
 [Plan](http://www.mas-rad.ch/programme/cas-dar/module-dfa.aspx)
 
-Plan
 * Intro / Roadmap
 * Bootstrap html : templating, sélectionner quelques composants "méritants" (du button à dropdown) 
  * les faire pratiquer (exos - voici le résultat à construire, à vous de jouer) pour les mettre à l'aise / autonomie pour explorer tous les autres composants
