@@ -1,5 +1,24 @@
 # MAS-RAD DFA course
 
+## Plan
+
+* Intro/Roadmap
+* (cli)
+* (node.js)
+* (npm)
+* Boostrap
+  * Base
+    * Changement sur balise de base
+    * Classes simples ajoutées
+    * Utilisation d'icônes
+  * Composants
+    * Concept des composants
+    * Composants principaux
+    * Exemples
+    * Exercices
+  
+## Notes
+
 [Plan](http://www.mas-rad.ch/programme/cas-dar/module-dfa.aspx)
 
 * Intro / Roadmap
