@@ -3,20 +3,52 @@
 ## Plan
 
 * Intro/Roadmap
-* (cli)
-* (node.js)
-* (npm)
+* (**cli** ? Puisqu'on va utiliser `live-server`)
+* (**node.js** ?)
+* (**npm** ? Pour installer `live-server`)
 * Boostrap
   * Base
     * Changement sur balise de base
     * Classes simples ajoutées
     * Utilisation d'icônes
+    * Balise aria
   * Composants
     * Concept des composants
     * Composants principaux
     * Exemples
     * Exercices
-  
+* (**JavaScript** ?)
+* jQuery
+  * Base
+    * Présentation
+    * Manipulation de DOM
+    * Événements
+  * AJAX
+    * Qu'est-ce que c'est ?
+    * À quoi ça sert ?
+    * AJAX avec jQuery
+    * Callback
+    * Exemples
+    * Exercice
+* Angular
+  * **Getting started**
+  * UI router
+  * Ui-Bootstrap
+    * Pourquoi ?
+    * Comment intégrer ? (virer bootstrap.js)
+    * Exemples de composants + js
+    * Exercice
+* Projet Citizen Engagement
+  * Introduction
+  * Préparation (groupe + déploiement de l'api)
+  * Authentification ensemble
+  * Mockup
+* Suppléments
+  * **Javascript - Closure**
+  * **Javascript - Prototype**
+  * Javascript - Promise
+  * Geolocation API + MapBox + Leaflet
+
 ## Notes
 
 [Plan](http://www.mas-rad.ch/programme/cas-dar/module-dfa.aspx)
