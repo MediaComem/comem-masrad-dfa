@@ -15,8 +15,9 @@
   * Composants
     * Concept des composants
     * Composants principaux
-    * Exemples
-    * Exercices
+    * Exemples 
+  * Responsive
+  * Exercices
 * (**JavaScript** ?)
 * jQuery
   * Base
@@ -24,6 +25,7 @@
     * Manipulation de DOM
     * Événements
   * AJAX
+    * Historique
     * Qu'est-ce que c'est ?
     * À quoi ça sert ?
     * AJAX avec jQuery
