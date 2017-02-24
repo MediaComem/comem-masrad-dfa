@@ -3,9 +3,7 @@
 ## Plan
 
 * Intro/Roadmap
-* (**cli** ? Puisqu'on va utiliser `live-server`)
-* (**node.js** ?)
-* (**npm** ? Pour installer `live-server`)
+* Mise en place de projets (node.js, npm, live-server, nouveau projet)
 * Boostrap
   * Base
     * Changement sur balise de base
