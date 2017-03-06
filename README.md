@@ -1,4 +1,4 @@
-# MAS-RAD -- Module Développement Frontend Avancé (DFA)
+# MAS-RAD -- Advanced Front-end Development (DFA)
 
 The goal of this course is to discover concepts and tools to organize the front-end side of a web application and enrich the user interface/experience according to current good practices.
 
