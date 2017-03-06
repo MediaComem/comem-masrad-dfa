@@ -1,75 +1,39 @@
-# MAS-RAD -- module Développement frontend avancé (DFA)
+# MAS-RAD -- Module Développement Frontend Avancé (DFA)
 
-## Plan
+The goal of this course is to discover concepts and tools to organize the front-end side of a web application and enrich the user interface/experience according to current good practices.
 
-* Intro/Roadmap
-* Mise en place de projets (node.js, npm, live-server, nouveau projet)
-* Boostrap
-  * Base
-    * Changement sur balise de base
-    * Classes simples ajoutées
-    * Utilisation d'icônes
-    * Balise aria
-  * Composants
-    * Concept des composants
-    * Composants principaux
-    * Exemples 
-  * Responsive
-  * Exercices
-* (**JavaScript** ?)
-* jQuery
-  * Base
-    * Présentation
-    * Manipulation de DOM
-    * Événements
-  * AJAX
-    * Historique
-    * Qu'est-ce que c'est ?
-    * À quoi ça sert ?
-    * AJAX avec jQuery
-    * Callback
-    * Exemples
-    * Exercice
-* Angular
-  * **Getting started**
-  * UI router
-  * Ui-Bootstrap
-    * Pourquoi ?
-    * Comment intégrer ? (virer bootstrap.js)
-    * Exemples de composants + js
-    * Exercice
-* Projet Citizen Engagement
-  * Introduction
-  * Préparation (groupe + déploiement de l'api)
-  * Authentification ensemble
-  * Mockup
-* Suppléments
-  * **Javascript - Closure**
-  * **Javascript - Prototype**
-  * Javascript - Promise
-  * Geolocation API + MapBox + Leaflet
+You will:
 
-## Notes
+* learn how to make good use of a CSS framework to build a responsive HTML user interface
+* learn how to manipulate the DOM API with or without a library
+* learn how the use of a framework does help to organize the front-end code of a single page application
+* learn how to manage asynchronous communications with a Web API on the back-end
 
-[Plan](http://www.mas-rad.ch/programme/cas-dar/module-dfa.aspx)
+This course is based on [COMEM+][comem] [web development courses][comem-webdev] taught at [HEIG-VD][heig].
 
-* Intro / Roadmap
-* Bootstrap html : templating, sélectionner quelques composants "méritants" (du button à dropdown) 
- * les faire pratiquer (exos - voici le résultat à construire, à vous de jouer) pour les mettre à l'aise / autonomie pour explorer tous les autres composants
- * aria-xxx (une ptite slide accessiblity)
-* Bootstrap composants javascript (sachant qu'avec Angular on fait la version directive https://angular-ui.github.io/bootstrap) -- ces composants reposent sur du JS, mais je n'ai rien à écrire JS
-* JavaScript (comment organiser tout ça au mieux, progressif, au bon moment)
- * basics -> closures, prototypes (même qu'une intro qui résonne avec leurs cours POO du CAS IPL, voire sans exo)
- * jquery dom/ajax callback -> promises (au bon moment ?)
-* Angular getting started
+##Prerequisite
+* Basics of HTML, CSS and JavaScript
+* Use of [command line](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/cli/)
+* Use (ideally) of [Git](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git/), [Git branching](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-branching/) and [Collaborating with Git on GitHub](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-collaborating/) 
+
+##Plan
+
+* Introduction to Advanced Frontend Development
+* [Setting up an HTML project using live-server)](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup)
+* [Bootstrap basics](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics)
+* [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management)
+* Bootstrap exercice
+* [JavaScript basics and more](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js)
+* [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures/)
+* [JavaScript prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes/)
+* JavaScript DOM API
+* First steps with jQuery library
+* Learning AJAX with jQuery
+* [Getting started with Angular](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular/)
 * Angular UI router
 * Angular with Bootstrap
-* (Git si demande)
-* Citizen science project
- * déployer l'API par groupe (heroku)
- * authentification
- * mockup
- * composants complémentaires : Geoloc API + MapBox (leaflet)
- * et puis go ...
-* définir critères d'évaluations (les règles du jeu)
+* Citizen Engagement project
 
+[comem]: http://www.heig-vd.ch/comem
+[comem-webdev]: https://github.com/MediaComem/comem-webdev
+[heig]: http://www.heig-vd.ch
