@@ -1,4 +1,4 @@
-# MAS-RAD DFA course
+# MAS-RAD -- module Développement frontend avancé (DFA)
 
 ## Plan
 
