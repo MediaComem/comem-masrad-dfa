@@ -32,9 +32,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * Angular with Bootstrap
 * Citizen Engagement project
 * Additional concepts and tools
-    * [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-    * [JavaScript prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-    * JavaScript promises
+    * [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme) / [prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme) / [promises](http)
     * [W3C Geolocation API](https://www.w3.org/TR/geolocation-API/)
     * [MapBox.js library](https://www.mapbox.com/mapbox.js/api/v3.0.1/) (based on Leaflet)
 
