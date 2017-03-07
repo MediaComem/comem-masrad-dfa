@@ -19,7 +19,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 ##Plan
 
 * Introduction to Advanced Frontend Development
-* [Setting up an HTML project using live-server)](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup)
+* [Setting up an HTML project using live-server](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup?home=MediaComem/comem-masrad-dfa#readme)
 * [Bootstrap basics](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics)
 * [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management)
 * Bootstrap exercice
