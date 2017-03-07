@@ -24,8 +24,6 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * Bootstrap exercice
 * [JavaScript basics and more](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-* [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-* [JavaScript prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * JavaScript DOM API
 * First steps with jQuery library
 * Learning AJAX with jQuery
@@ -33,6 +31,13 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * Angular UI router
 * Angular with Bootstrap
 * Citizen Engagement project
+* Additional concepts and tools
+    * [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme)
+    * [JavaScript prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme)
+    * JavaScript promises
+    * [W3C Geolocation API](https://www.w3.org/TR/geolocation-API/)
+    * [MapBox.js library](https://www.mapbox.com/mapbox.js/api/v3.0.1/) (based on Leaflet)
+
 
 [comem]: http://www.heig-vd.ch/comem
 [comem-webdev]: https://github.com/MediaComem/comem-webdev
