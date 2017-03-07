@@ -11,12 +11,12 @@ You will:
 
 This course is based on [COMEM+][comem] [web development courses][comem-webdev] taught at [HEIG-VD][heig].
 
-##Prerequisite
+## Prerequisite
 * Basics of HTML, CSS and JavaScript
 * Use of [command line][cli]
 * Use of [Git][git], [Git branching][git-b] and [Collaborating with Git on GitHub][collab]
 
-##Plan
+## Plan
 
 * [Introduction to Advanced Frontend Development][dfa]
 * [Setting up an HTML project using live-server][projset]
@@ -31,12 +31,14 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * Angular UI router
 * Angular with Bootstrap
 * Citizen Engagement project
-* Additional concepts and tools
-    * [JavaScript - closures][js-clos]
-    * [JavaScript - prototypes][js-prot]
-    * JavaScript - promises
-    * [W3C Geolocation API][geo-api]
-    * [MapBox.js library][mapbox] (based on Leaflet)
+
+
+## Additional concepts and tools
+* [JavaScript - closures][js-clos]
+* [JavaScript - prototypes][js-prot]
+* JavaScript - promises
+* [W3C Geolocation API][geo-api]
+* [MapBox.js library][mapbox] (based on Leaflet)
 
 
 [comem]: http://www.heig-vd.ch/comem
@@ -55,6 +57,5 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[js-prom]:
 [geo-api]: https://www.w3.org/TR/geolocation-API/
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
