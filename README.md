@@ -18,11 +18,11 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 
 ##Plan
 
-* Introduction to Advanced Frontend Development
+* [Introduction to Advanced Frontend Development](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-intro?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * [Setting up an HTML project using live-server](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * [Bootstrap basics](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-* Bootstrap exercice
+* [Bootstrap exercice](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-exercise?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * [JavaScript basics and more](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * JavaScript DOM API
 * First steps with jQuery library
