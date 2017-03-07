@@ -13,23 +13,23 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 
 ##Prerequisite
 * Basics of HTML, CSS and JavaScript
-* Use of [command line](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/cli/)
-* Use (ideally) of [Git](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git/), [Git branching](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-branching/) and [Collaborating with Git on GitHub](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-collaborating/) 
+* Use of [command line](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/cli?home=MediaComem%2Fcomem-masrad-dfa%23readme)
+* Use of [Git](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git?home=MediaComem%2Fcomem-masrad-dfa%23readme), [Git branching](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-branching?home=MediaComem%2Fcomem-masrad-dfa%23readme) and [Collaborating with Git on GitHub](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-collaborating?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 
 ##Plan
 
 * Introduction to Advanced Frontend Development
 * [Setting up an HTML project using live-server](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-* [Bootstrap basics](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics)
-* [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management)
+* [Bootstrap basics](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics?home=MediaComem%2Fcomem-masrad-dfa%23readme)
+* [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * Bootstrap exercice
-* [JavaScript basics and more](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js)
-* [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures/)
-* [JavaScript prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes/)
+* [JavaScript basics and more](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme)
+* [JavaScript closures](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme)
+* [JavaScript prototypes](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * JavaScript DOM API
 * First steps with jQuery library
 * Learning AJAX with jQuery
-* [Getting started with Angular](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular/)
+* [Getting started with Angular](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * Angular UI router
 * Angular with Bootstrap
 * Citizen Engagement project
