@@ -22,7 +22,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [Setting up an HTML project using live-server][projset]
 * [Bootstrap basics][bb]
 * [Bootstrap layout management][blm]
-* [Bootstrap exercice][bex]
+* [Bootstrap practice][bex]
 * [JavaScript basics and more][js-bas]
 * JavaScript DOM API
 * First steps with jQuery library
@@ -52,7 +52,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [projset]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [bb]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [blm]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[bex]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-exercise?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[bex]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-practice?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-bas]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
