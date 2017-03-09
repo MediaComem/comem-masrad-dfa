@@ -25,7 +25,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [Bootstrap practice][bex]
 * [JavaScript basics and more][js-bas]
 * [JavaScript DOM API][js-dom]
-* First steps with jQuery library
+* [First steps with jQuery library][jq-dom]
 * Learning AJAX with jQuery
 * [Getting started with Angular][ng]
 * Angular UI router
