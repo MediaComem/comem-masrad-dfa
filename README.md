@@ -24,7 +24,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [Bootstrap layout management](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * [Bootstrap exercice](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-exercise?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * [JavaScript basics and more](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme)
-* JavaScript DOM API
+* [JavaScript DOM API](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme)
 * First steps with jQuery library
 * Learning AJAX with jQuery
 * [Getting started with Angular](https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme)
