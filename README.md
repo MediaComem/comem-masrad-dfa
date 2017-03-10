@@ -49,12 +49,12 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [collab]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-collaborating?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [dfa]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-intro?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [projset]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[bb]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-basics?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[bb]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [blm]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [bex]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-practice?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-bas]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[jq-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/jquery-dom-basics?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[jq-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/jquery-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
