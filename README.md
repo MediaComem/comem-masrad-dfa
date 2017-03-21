@@ -27,6 +27,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [JavaScript DOM API][js-dom]
 * [First steps with jQuery library][jq-dom]
 * [Learning AJAX with or without jQuery][js-ajax]
+* [RESTful APIs][rest]
 * [Getting started with Angular][ng]
 * [Angular UI router][ng-ui-router]
 * Angular with Bootstrap
@@ -65,3 +66,4 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [geo-api]: https://www.w3.org/TR/geolocation-API/
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
+[rest]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/rest?home=MediaComem%2Fcomem-masrad-dfa%23readme
