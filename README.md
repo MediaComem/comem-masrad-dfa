@@ -28,14 +28,15 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [First steps with jQuery library][jq-dom]
 * [Learning AJAX with or without jQuery][js-ajax]
 * [Getting started with Angular][ng]
-* Angular UI router
+* [Angular UI router][ng-ui-router]
 * Angular with Bootstrap
 * Citizen Engagement project
 
 ## Additional concepts and tools
 * [JavaScript - closures][js-clos]
 * [JavaScript - prototypes][js-prot]
-* JavaScript - promises
+* [JavaScript - promises][js-prom]
+* [Promises in Angular][ng-prom]
 * [W3C Geolocation API][geo-api]
 * [MapBox.js library][mapbox] (based on Leaflet)
 
@@ -57,7 +58,10 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [js-ajax]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-ajax?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [jq-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/jquery-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[ng-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[ng-ui-router]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-ui-router?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[js-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [geo-api]: https://www.w3.org/TR/geolocation-API/
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
