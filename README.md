@@ -28,7 +28,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [First steps with jQuery library][jq-dom]
 * [Learning AJAX with or without jQuery][js-ajax]
 * [RESTful APIs][rest]
-* [Getting started with Angular][ng]
+* [Getting started with Angular][ng] ([exercise][ng-exercise])
 * [Angular UI router][ng-ui-router]
 * Angular with Bootstrap
 * Citizen Engagement project
@@ -59,6 +59,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [js-ajax]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-ajax?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [jq-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/jquery-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[ng-exercise]: https://github.com/MediaComem/comem-masrad-dfa-angular-exercise
 [ng-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng-ui-router]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-ui-router?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
