@@ -30,8 +30,8 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [Learning AJAX with or without jQuery][js-ajax]
 * [RESTful APIs][rest]
 * [Getting started with Angular][ng] ([exercise][ng-exercise])
-* [Angular UI router][ng-ui-router]
-* Angular with Bootstrap
+* [Angular UI router][ng-ui-router] ([exercise][ng-ui-router-exercise])
+* [Angular with Bootstrap][ng-bootstrap]
 * Citizen Engagement project
 
 ## Additional concepts and tools
@@ -73,9 +73,11 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [js-ajax]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-ajax?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [jq-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/jquery-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[ng-bootstrap]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-ui-bootstrap?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng-exercise]: https://github.com/MediaComem/comem-masrad-dfa-angular-exercise
 [ng-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [ng-ui-router]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-ui-router?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
