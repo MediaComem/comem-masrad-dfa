@@ -12,6 +12,7 @@ You will:
 This course is based on [COMEM+][comem] [web development courses][comem-webdev] taught at [HEIG-VD][heig].
 
 ## Prerequisite
+
 * Basics of HTML, CSS and JavaScript
 * Use of [command line][cli]
 * Use of [Git][git], [Git branching][git-b] and [Collaborating with Git on GitHub][collab]
@@ -34,12 +35,23 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * Citizen Engagement project
 
 ## Additional concepts and tools
+
 * [JavaScript - closures][js-clos]
 * [JavaScript - prototypes][js-prot]
 * [JavaScript - promises][js-prom]
 * [Promises in Angular][ng-prom]
 * [W3C Geolocation API][geo-api]
 * [MapBox.js library][mapbox] (based on Leaflet)
+
+## Documentation
+
+* [Citizen Engagement API][citizen-engagement-api-docs]
+
+## Useful links
+
+* [Citizen Engagement API][citizen-engagement-api] (implementation & docs source)
+* [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
+
 
 
 [comem]: http://www.heig-vd.ch/comem
@@ -54,6 +66,8 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [bb]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [blm]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [bex]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-practice?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[citizen-engagement-api]: https://github.com/MediaComem/comem-citizen-engagement-api
+[citizen-engagement-api-docs]: https://mediacomem.github.io/comem-citizen-engagement-api/
 [js-bas]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-ajax]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-ajax?home=MediaComem%2Fcomem-masrad-dfa%23readme
@@ -68,3 +82,4 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [geo-api]: https://www.w3.org/TR/geolocation-API/
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
 [rest]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/rest?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
