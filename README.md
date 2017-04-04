@@ -33,6 +33,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [Angular UI router][ng-ui-router] ([exercise][ng-ui-router-exercise])
 * [Angular with Bootstrap][ng-bootstrap]
 * Citizen Engagement project
+* [Angular Auth Starter][ng-starter]
 
 ## Additional concepts and tools
 
@@ -85,3 +86,5 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
 [rest]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/rest?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
+[ng-starter]: 
+https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-auth-starter/
