@@ -82,7 +82,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[geo-api]: https://www.w3.org/TR/geolocation-API/
+[geo-api]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
 [rest]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/rest?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
