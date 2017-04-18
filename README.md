@@ -42,7 +42,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 * [JavaScript - promises][js-prom]
 * [Promises in Angular][ng-prom]
 * [W3C Geolocation API][geo-api]
-* [MapBox.js library][mapbox] (based on Leaflet)
+* [Angular Leaflet][angular-leafet]
 
 ## Documentation
 
@@ -88,3 +88,4 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
 [ng-starter]: 
 https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-auth-starter/
+[angular-leafet]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-leaflet/
