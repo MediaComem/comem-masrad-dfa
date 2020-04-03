@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular Geolocation (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
+    <meta charset='utf-8'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/f73761e1e7e330ba6b909a2a39de567f649c950a/subjects/angular-geolocation/README.md&quot;}'>
+  </head>
+  <body>
+    <textarea id='source'>
+# Angular Geolocation
+
+Learn to use the Geolocation API in an Angular app.
+
+This material is part of the [mobile development course](https://github.com/MediaComem/comem-devmobil) for [Media Engineering](https://heig-vd.ch/formations/bachelor/filieres/ingenierie-des-medias).
+
+
+**You will need**
+
+* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+* [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+
+**Recommended reading**
+
+* [Angular][ng]
+
+
+
+---
+## Introduction
+
+.breadcrumbs[<a href="#1">Angular Geolocation</a>]
+
+Web Browser provides an [Geolocation API][geoapi-doc] that allow developers to access the geolocation of their users.
+
+But, as usual, it's not advised to use this API directly inside an Angular App ; you need a service that wraps this API to be complient with Angular.
+
+We'll use [ngGeolocation][ngloc].
+
+To include it in your project, download the `.js` file [here][ngloc-file] and save it somewhere in your project.
+
+Include the file in your `index.html`, and the module in your app's dependencies:
+
+```html
+<script type="text/javascript" src="assets/js/ngGeolocation.min.js"></script>
+```
+
+```js
+angular.module('app', [..., `'ngGeolocation'`]);
+```
+
+---
+class: middle
+## Use the API
+
+.breadcrumbs[<a href="#1">Angular Geolocation</a>]
+
+
+
+You'll need to add the `$geolocation` service as a depency to the controller in which you want to access the API.
+
+```js
+angular.module("app").controller("myController", function (`$geolocation`) {
+  // ...
+}
+```
+---
+### `.getCurrentPosition()`
+
+.breadcrumbs[<a href="#1">Angular Geolocation</a> > <a href="#3">Use the API</a>]
+
+Then, you can use the `.getCurrentPosition()` method to access the current user's position:
+
+> The user will be asked if he/she accepts to reveal it's location
+
+```js
+angular.module("app").controller("myController", function ($geolocation) {
+  // Previous code
+
+  $geolocation.getCurrentPosition()
+    .then(function (position) {
+      // This will be executed when the location is accessed
+      console.log(position)
+    }, function (error) {
+      // This will be executed if the user denies access
+      // or the browser doesn't support the Geolocation API
+      console.log(error);
+    })
+}
+```
+> Getting the location is an **asynchronous** operation.
+
+Use `position.coords.latitude` and `position.coords.longitude` to actually get the position's coordinates
+
+---
+### `.watchPosition()`
+
+.breadcrumbs[<a href="#1">Angular Geolocation</a> > <a href="#3">Use the API</a>]
+
+You could want to access the user location on a regular bassis. To do this, you mustn't call the `.getCurrentLocation()` each time.
+
+You'll use the `.watchPosition()` method.
+
+```js
+angular.module("app").controller("myController", function ($geolocation) {
+  // Previous code
+  `$geolocation.watchPosition()`;
+}
+```
+This method will get the user's location regularly and store the result in the `$geolocation.position` property.
+
+> Getting the location is still an **asynchronous** operation.
+> 
+> Meaning, that if you'd try to access `$geolocation.position` right after calling the method, you'll get an `undefined`.
+
+Delete the watch using the `$geolocation.clearWatch()` method.
+
+---
+#### `$geolocation.position`
+
+.breadcrumbs[<a href="#1">Angular Geolocation</a> > <a href="#3">Use the API</a> > <a href="#5">`.watchPosition()`</a>]
+
+If the position can be accessed, `$geolocation.position` will have a Position object.
+
+With it, your can access `$geolocation.position.coords.latitude` and `$geolocation.position.coords.longitude` for the coordinates.
+
+When `.watchPosition()` detects a new position, it fires an event, called `$geolocation.position.changed` to which you can listen.
+
+----
+
+If something went wrong and the position could not be accessed, `$geolocation.position` will contain and Error object.
+
+To know the reason of the error, access the `$geolocation.position.error.message`.
+
+When `.watchPosition()` detects and error, it fires an event, called `$geolocation.position.error` to which you can listen.
+
+---
+## Resources
+
+.breadcrumbs[<a href="#1">Angular Geolocation</a>]
+
+**Documentation**
+
+* [ngGeolocation - Documentation][ngloc-doc]
+
+[ng]: ../angular
+[chrome]: https://www.google.com/chrome/
+[sublime]: https://www.sublimetext.com/
+[geoapi-doc]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
+[ngloc]: https://github.com/ninjatronic/ngGeolocation
+[ngloc-file]: https://github.com/ninjatronic/ngGeolocation/blob/master/ngGeolocation.min.js
+[ngloc-doc]: https://github.com/ninjatronic/ngGeolocation/wiki/API-Reference
+    </textarea>
+    <script src='https://embed.runkit.com'></script>
+    <script src='../../subject-4c6b3528ffec9c553fd8.js'></script>
+  </body>
+</html>
