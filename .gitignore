@@ -1,2 +1,4 @@
-node_modules/
-build/
+/*.log
+/build
+/node_modules
+/tmp
