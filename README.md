@@ -4,56 +4,54 @@ The goal of this course is to discover concepts and tools to organize the front-
 
 You will:
 
-* learn how to make good use of a CSS framework to build a responsive HTML user interface
-* learn how to manipulate the DOM API with or without a library
-* learn how the use of a framework does help to organize the front-end code of a single page application
-* learn how to manage asynchronous communications with a Web API on the back-end
+- learn how to make good use of a CSS framework to build a responsive HTML user interface
+- learn how to manipulate the DOM API with or without a library
+- learn how the use of a framework does help to organize the front-end code of a single page application
+- learn how to manage asynchronous communications with a Web API on the back-end
 
 This course is based on [COMEM+][comem] [web development courses][comem-webdev] taught at [HEIG-VD][heig].
 
 ## Prerequisite
 
-* Basics of HTML, CSS and JavaScript
-* Use of [command line][cli]
-* Use of [Git][git], [Git branching][git-b] and [Collaborating with Git on GitHub][collab]
+- Basics of HTML, CSS and JavaScript
+- Use of [command line][cli]
+- Use of [Git][git], [Git branching][git-b] and [Collaborating with Git on GitHub][collab]
 
 ## Plan
 
-* [Introduction to Advanced Frontend Development][dfa]
-* [Setting up an HTML project using live-server][projset]
-* [Bootstrap basics][bb]
-* [Bootstrap layout management][blm]
-* [Bootstrap practice][bex]
-* [JavaScript basics and more][js-bas]
-* [JavaScript DOM API][js-dom]
-* [First steps with jQuery library][jq-dom]
-* [Learning AJAX with or without jQuery][js-ajax]
-* [RESTful APIs][rest]
-* [Getting started with Angular][ng] ([exercise][ng-exercise])
-* [Angular UI router][ng-ui-router] ([exercise][ng-ui-router-exercise])
-* [Angular with Bootstrap][ng-bootstrap]
-* Citizen Engagement project
-* [Angular Auth Starter][ng-starter]
+- [Introduction to Advanced Frontend Development][dfa]
+- [Setting up an HTML project using live-server][projset]
+- [Bootstrap basics][bb]
+- [Bootstrap layout management][blm]
+- [Bootstrap practice][bex]
+- [JavaScript basics and more][js-bas]
+- [JavaScript DOM API][js-dom]
+- [First steps with jQuery library][jq-dom]
+- [Learning AJAX with or without jQuery][js-ajax]
+- [RESTful APIs][rest]
+- [Getting started with Angular][ng] ([exercise][ng-exercise])
+- [Angular UI router][ng-ui-router] ([exercise][ng-ui-router-exercise])
+- [Angular with Bootstrap][ng-bootstrap]
+- Citizen Engagement project
+- [Angular Auth Starter][ng-starter]
 
 ## Additional concepts and tools
 
-* [JavaScript - closures][js-clos]
-* [JavaScript - prototypes][js-prot]
-* [JavaScript - promises][js-prom]
-* [Promises in Angular][ng-prom]
-* [Angular Geolocation][geo-api]
-* [Angular Leaflet][angular-leafet]
+- [JavaScript - closures][js-clos]
+- [JavaScript - prototypes][js-prot]
+- [JavaScript - promises][js-prom]
+- [Promises in Angular][ng-prom]
+- [Angular Geolocation][geo-api]
+- [Angular Leaflet][angular-leafet]
 
 ## Documentation
 
-* [Citizen Engagement API][citizen-engagement-api-docs]
+- [Citizen Engagement API][citizen-engagement-api-docs]
 
 ## Useful links
 
-* [Citizen Engagement API][citizen-engagement-api] (implementation & docs source)
-* [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
-
-
+- [Citizen Engagement API][citizen-engagement-api] (implementation & docs source)
+- [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
 
 [comem]: http://www.heig-vd.ch/comem
 [comem-webdev]: https://github.com/MediaComem/comem-webdev
@@ -86,6 +84,5 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
 [rest]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/rest?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
-[ng-starter]: 
-https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-auth-starter/
+[ng-starter]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-auth-starter/
 [angular-leafet]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-leaflet/
