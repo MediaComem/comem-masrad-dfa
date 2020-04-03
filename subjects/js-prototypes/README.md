@@ -6,14 +6,15 @@ Learn about prototypal inheritance in JavaScript.
 
 **You will need**
 
-- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
 
 **Recommended reading**
 
-- [JavaScript][subject-js]
+* [JavaScript][subject-js]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 
 - [Prototypal inheritance](#prototypal-inheritance)
   - [The prototype chain](#the-prototype-chain)
@@ -27,6 +28,8 @@ Learn about prototypal inheritance in JavaScript.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
+
 ## Prototypal inheritance
 
 <!-- slide-front-matter class: center, middle -->
@@ -39,6 +42,8 @@ Learn about prototypal inheritance in JavaScript.
 > While this is often considered to be one of JavaScript's weaknesses,
 > the prototypal inheritance model itself is, in fact, **more powerful than the classic model**.
 > It is, for example, fairly trivial to build a classic model on top of a prototypal model.
+
+
 
 ### The prototype chain
 
@@ -66,6 +71,8 @@ console.log(Object.getPrototypeOf(o) === Object.prototype); // true
 When trying to **access a property** of an object,
 the property will not only be sought **on the object** but **also on the prototype of the object**,
 the prototype of the prototype, and so on until either a property with a matching name is found or the end of the prototype chain is reached.
+
+
 
 ### Creating plain JavaScript objects
 
@@ -95,6 +102,8 @@ console.log(prototypeOfObject === null); // true
 Note that when we tried to access `foo`,
 a property that doesn't exist on `person` or on `Object.prototype`, we got `undefined`.
 
+
+
 ### Creating objects with `Object.create`
 
 <runkit></runkit>
@@ -106,7 +115,7 @@ This means that our new object, instead of having `Object.prototype` as its prot
 will have the object we passed to `Object.create` as its prototype:
 
 ```js
-const person = { firstName: "Bob", lastName: "Page" };
+const person = { firstName: 'Bob', lastName: 'Page' };
 
 // Create an object with a prototype.
 const child = `Object.create(person)`;
@@ -129,7 +138,7 @@ console.log(prototypeOfPerson === Object.prototype); // true
 But what can we do with that object?
 
 ```js
-const person = { firstName: "Bob", lastName: "Page" };
+const person = { firstName: 'Bob', lastName: 'Page' };
 
 // Create an object with a prototype.
 const child = Object.create(person);
@@ -179,7 +188,7 @@ Since `person` is the prototype of `child`, and it has a `firstName` property, w
 But what can we do with that object?
 
 ```js
-const person = { firstName: "Bob", lastName: "Page" };
+const person = { firstName: 'Bob', lastName: 'Page' };
 
 // Create an object with a prototype.
 const child = Object.create(person);
@@ -222,6 +231,8 @@ When you access `child.lastName`, it returns its prototype's property:
 
 <p class='center'><img src='images/prototype-chain-overwrite-2.png' /></p>
 
+
+
 ### Creating objects with a constructor function
 
 <runkit></runkit>
@@ -233,10 +244,10 @@ function Person(first, last) {
 }
 
 // Check that our function has an associated prototype object.
-console.log(typeof Person.prototype); // "object"
+console.log(typeof(Person.prototype)); // "object"
 
 // Create an object by calling the function as a constructor.
-`const child = new Person`("Bob", "Page");
+`const child = new Person`('Bob', 'Page');
 
 let prototypeOfChild = Object.getPrototypeOf(child);
 console.log(`prototypeOfChild === Person.prototype`); // true
@@ -250,16 +261,18 @@ console.log(prototypeOfPerson === Object.prototype); // true
 **Every function has an associated prototype object** which you can access by its `prototype` property.
 When you use that function **as a constructor with `new`**, the prototype of the created object will be the function's prototype object.
 
+
+
 ### What does this mean?
 
 Let's combine two of the important things we just learned:
 
 <!-- slide-column -->
 
-- When **accessing a property** that doesn't exist on an object,
+* When **accessing a property** that doesn't exist on an object,
   JavaScript will **look up the prototype chain** and attempt to find it on the object's prototype,
   the prototype's prototype, and so on.
-- When **creating an object by calling a constructor function**,
+* When **creating an object by calling a constructor function**,
   the prototype of the created object will be the **function's associated prototype object**.
 
 <!-- slide-column 30 -->
@@ -274,11 +287,13 @@ Wait, what?
 This means that **if we attach things to a function's prototype object**,
 these things will be **available on any object constructed with that function**.
 
+
+
 ## Implementing a class-like structure with prototypes
 
 <runkit></runkit>
 
-Welcome to your first _JavaScript-class-without-a-class_:
+Welcome to your first *JavaScript-class-without-a-class*:
 
 ```js
 // Define a "class".
@@ -293,7 +308,7 @@ Person.prototype.getFullName = function() {
 };
 
 // Construct an object.
-const person = new Person("Bob", "Page");
+const person = new Person('Bob', 'Page');
 // Access properties like before.
 console.log(person.first); // "Bob"
 // Call a method.
@@ -301,6 +316,8 @@ console.log(person.getFullName()); // "Bob Page"
 ```
 
 <p class='center'><img src='images/prototype-chain-function.png' /></p>
+
+
 
 ### The value of `this`
 
@@ -315,7 +332,7 @@ the keyword **`this`** always refers to **the object the function was called on*
 const o = {
   value: 24,
   getValue: function() {
-    return `this`.value;
+    return `this`.value
   }
 };
 
@@ -343,22 +360,26 @@ By the way, it's best to use the second structure rather than the first.
 Why? Because in the first example, a **new function** will be created every time you create an object this way.
 In the second example, only one `getValue` function is defined and attached to the prototype, and it's **reused** for every object that's an instance of `Foo`.
 
+
+
 ## Resources
 
 **Documentation**
 
-- [`Object`][js-object]
-- [`Object.create`][js-object-create]
-- [`this`][js-this]
-- [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+* [`Object`][js-object]
+* [`Object.create`][js-object-create]
+* [`this`][js-this]
+* [Inheritance and the prototype chain](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
 **Further reading**
 
-- [A Plain English Guide to JavaScript Prototypes](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
-- [Prototypes in JavaScript](https://hackernoon.com/prototypes-in-javascript-5bba2990e04b)
-- [Understanding Prototypes and Inheritance in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-prototypes-and-inheritance-in-javascript)
-- [The Modern JavaScript Tutorial: Mixins](https://javascript.info/mixins)
-- [A fresh look at JavaScript mixins](https://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/)
+* [A Plain English Guide to JavaScript Prototypes](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
+* [Prototypes in JavaScript](https://hackernoon.com/prototypes-in-javascript-5bba2990e04b)
+* [Understanding Prototypes and Inheritance in JavaScript](https://www.digitalocean.com/community/tutorials/understanding-prototypes-and-inheritance-in-javascript)
+* [The Modern JavaScript Tutorial: Mixins](https://javascript.info/mixins)
+* [A fresh look at JavaScript mixins](https://javascriptweblog.wordpress.com/2011/05/31/a-fresh-look-at-javascript-mixins/)
+
+
 
 [chrome]: https://www.google.com/chrome/
 [js-object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object

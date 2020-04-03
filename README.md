@@ -1,15 +1,16 @@
-# MAS-RAD -- Advanced Front-end Development (DFA)
+# MAS-RAD | CAS-DAR | Advanced Front-end Development (DFA)
 
 The goal of this course is to discover concepts and tools to organize the front-end side of a web application and enrich the user interface/experience according to current good practices.
 
 You will:
 
 - learn how to make good use of a CSS framework to build a responsive HTML user interface
-- learn how to manipulate the DOM API with or without a library
+- learn (or review) how to manipulate the DOM API with or without a library
+- learn how to manage asynchronous communications with a Web API on the back end
 - learn how the use of a framework does help to organize the front-end code of a single page application
-- learn how to manage asynchronous communications with a Web API on the back-end
+- be introduced to frameworks that help you develop and build your web application for multiple devices
 
-This course is based on [COMEM+][comem] [web development courses][comem-webdev] taught at [HEIG-VD][heig].
+This course uses subjects from or based on [COMEM+][comem] [architecture & deployment][comem-archidep], [web-oriented architecture][comem-archioweb] and [mobile development][comem-devmobil] taught to students of [Media Engineering][im] at [HEIG-VD][heig].
 
 ## Prerequisite
 
@@ -19,7 +20,7 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 
 ## Plan
 
-- [Introduction to Advanced Frontend Development][dfa]
+- [Introduction][dfa]
 - [Setting up an HTML project using live-server][projset]
 - [Bootstrap basics][bb]
 - [Bootstrap layout management][blm]
@@ -53,36 +54,38 @@ This course is based on [COMEM+][comem] [web development courses][comem-webdev] 
 - [Citizen Engagement API][citizen-engagement-api] (implementation & docs source)
 - [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
 
-[comem]: http://www.heig-vd.ch/comem
-[comem-webdev]: https://github.com/MediaComem/comem-webdev
-[heig]: http://www.heig-vd.ch
-[cli]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/cli?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[git]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[git-b]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-branching?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[collab]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/git-collaborating?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[dfa]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-intro?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[projset]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-project-setup?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[bb]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[blm]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/bootstrap-layout-management?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[bex]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/masrad-bootstrap-practice?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[angular-leafet]: https://mediacomem.github.io/comem-archidep/latest/subjects/angular-leaflet/
+[bb]: subjects/bootstrap
+[blm]: subjects/bootstrap-layout-management
+[bex]: subjects/masrad-bootstrap-practice
 [citizen-engagement-api]: https://github.com/MediaComem/comem-citizen-engagement-api
 [citizen-engagement-api-docs]: https://mediacomem.github.io/comem-citizen-engagement-api/
-[js-bas]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[js-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[js-ajax]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-ajax?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[jq-dom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/jquery-dom?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[ng]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[ng-bootstrap]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-ui-bootstrap?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[ng-exercise]: https://github.com/MediaComem/comem-masrad-dfa-angular-exercise
-[ng-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[ng-ui-router]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-ui-router?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
-[js-clos]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-closures?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[js-prom]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-promises?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[js-prot]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/js-prototypes?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[geo-api]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-geolocation/
+[cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[comem]: http://www.heig-vd.ch/comem
+[comem-archioweb]: https://mediacomem.github.io/comem-archioweb/latest/
+[comem-archidep]: https://mediacomem.github.io/comem-archidep/latest/
+[comem-devmobil]: https://mediacomem.github.io/comem-devmobil/latest/
+[collab]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-collaborating?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[dfa]: subjects/masrad-intro
+[git]: https://mediacomem.github.io/comem-archidep/latest/subjects/git/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[git-b]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-branching?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[geo-api]: subjects/angular-geolocation/
+[heig]: http://www.heig-vd.ch
+[jq-dom]: subjects/jquery-dom
+[js-ajax]: subjects/js-ajax
+[js-bas]: subjects/js
+[js-dom]: subjects/js-dom
+[js-clos]: subjects/js-closures
+[js-prom]: subjects/js-promises
+[js-prot]: subjects/js-prototypes
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
-[rest]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/rest?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[ng]: subjects/angular
+[ng-bootstrap]: subjects/angular-ui-bootstrap
+[ng-exercise]: https://github.com/MediaComem/comem-masrad-dfa-angular-exercise
+[ng-prom]: subjects/angular-promises
+[ng-starter]: subjects/angular-auth-starter/
+[ng-ui-router]: subjects/angular-ui-router
+[ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
+[projset]: subjects/masrad-project-setup
+[rest]: subjects/rest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
-[ng-starter]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-auth-starter/
-[angular-leafet]: https://mediacomem.github.io/comem-webdev-docs/2017/subjects/angular-leaflet/
