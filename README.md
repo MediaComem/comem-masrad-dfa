@@ -66,7 +66,7 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 [comem-archidep]: https://mediacomem.github.io/comem-archidep/latest/
 [comem-devmobil]: https://mediacomem.github.io/comem-devmobil/latest/
 [collab]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-collaborating?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[dfa]: subjects/masrad-intro
+[dfa]: subjects/intro
 [git]: https://mediacomem.github.io/comem-archidep/latest/subjects/git/?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [git-b]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-branching?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [geo-api]: subjects/angular-geolocation/
