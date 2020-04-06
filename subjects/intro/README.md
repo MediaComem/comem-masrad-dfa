@@ -94,7 +94,7 @@ In your case, a Citizen Engagement application must allow citizens to:
 
 - **register a new account** and **log in/out** to the app
 - **report an issue** at a specific location, with a description, a type, one or more pictures and optional tags
-- **manage the issues they posted** (update, delete)
+- **manage the issues they reported** (update, delete)
 - **see issues on a map** of the area and **see the details** of those issues
 - **filter issues** so as to see only some of them (on the map and/or in other screens)
 - **search issues** (on the map and/or in other screens)
@@ -153,7 +153,7 @@ Whichever's the subject you'll choose, your app must:
 
 ## Delivery
 
-Each person or group must send an e-mail **no later than May 8th 2020** to [Mathias Oberson](mailto:mathias@squareservice.ch) with
+Each person or group must send an e-mail **no later than July 9th 2020** to [Mathias Oberson](mailto:mathias@squareservice.ch) with
 
 - either the link to your Git source code repository (e.g. on GitHub) - this is the preferred method - or with an archive of your source code (don't forget to comment it!)
 - only what is required to make your app run
