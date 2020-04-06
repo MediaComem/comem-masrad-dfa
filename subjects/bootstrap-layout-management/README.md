@@ -25,7 +25,12 @@ Learn how Bootstrap helps you structure your HTML layouts, using both its grid s
 - [Bootstrap Grid System](#bootstrap-grid-system)
   - [Creating `.row`](#creating-row)
   - [Adding columns](#adding-columns)
+    - [Column wrapping](#column-wrapping)
+    - [Offseting columns](#offseting-columns)
   - [Responsivness](#responsivness)
+    - [Example](#example)
+    - [What if..?](#what-if)
+    - [Flexibility](#flexibility)
   - [Responsive utilities](#responsive-utilities)
 - [Resources](#resources)
 

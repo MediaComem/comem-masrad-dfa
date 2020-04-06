@@ -21,6 +21,7 @@ Learn to use the Geolocation API in an Angular app.
 - [Use the API](#use-the-api)
   - [`.getCurrentPosition()`](#getcurrentposition)
   - [`.watchPosition()`](#watchposition)
+    - [`$geolocation.position`](#geolocationposition)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

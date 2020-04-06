@@ -1,12 +1,18 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [MAS-RAD -- Advanced Front-end Development (DFA)](#mas-rad----advanced-front-end-development-dfa)
-  - [Citizen engagement](#citizen-engagement)
-  - [Report a problem](#report-a-problem)
-  - [Front-end](#front-end)
+  - [Course deliverable](#course-deliverable)
+  - [Front end](#front-end)
   - [Back-end](#back-end)
-  - [Features requirements](#features-requirements)
+  - [Application subjects](#application-subjects)
+    - [Citizen Engagement](#citizen-engagement)
+      - [Report a problem](#report-a-problem)
+      - [Features requirements](#features-requirements)
+    - [Travel Log](#travel-log)
+      - [Create a Trip](#create-a-trip)
+      - [Features requirements](#features-requirements-1)
   - [Implementation requirements](#implementation-requirements)
   - [Delivery](#delivery)
 

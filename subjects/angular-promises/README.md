@@ -15,9 +15,13 @@ Learn how promises are integrated into Angular and how to use them.
 - [The `$q` service](#the-q-service)
   - [Creating promises with `$q`](#creating-promises-with-q)
   - [Transforming asynchronous callbacks into promises](#transforming-asynchronous-callbacks-into-promises)
+    - [Deferred objects](#deferred-objects)
+    - [Deferred object example](#deferred-object-example)
   - [Do not overuse deferred objects](#do-not-overuse-deferred-objects)
+    - [Do not make it a promise if it's one already](#do-not-make-it-a-promise-if-its-one-already)
 - [Promises and `$http`](#promises-and-http)
   - [Sequential HTTP requests](#sequential-http-requests)
+    - [Flattening sequential HTTP requests with chained promises](#flattening-sequential-http-requests-with-chained-promises)
   - [Recursive HTTP requests](#recursive-http-requests)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

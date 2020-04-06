@@ -57,7 +57,7 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 [angular-leafet]: https://mediacomem.github.io/comem-archidep/latest/subjects/angular-leaflet/
 [bb]: subjects/bootstrap
 [blm]: subjects/bootstrap-layout-management
-[bex]: subjects/masrad-bootstrap-practice
+[bex]: subjects/bootstrap-practice
 [citizen-engagement-api]: https://github.com/MediaComem/comem-citizen-engagement-api
 [citizen-engagement-api-docs]: https://mediacomem.github.io/comem-citizen-engagement-api/
 [cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=MediaComem%2Fcomem-masrad-dfa%23readme
@@ -86,6 +86,6 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 [ng-starter]: subjects/angular-auth-starter/
 [ng-ui-router]: subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
-[projset]: subjects/masrad-project-setup
+[projset]: subjects/project-setup
 [rest]: subjects/rest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo

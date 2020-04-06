@@ -1,17 +1,17 @@
-# Project Setup
+# Course Setup
 
-We will see what we need to do to setup our development environment.
+We will see what we need to install and setup for this course.
 
 <!-- slide-include ../../BANNER.md -->
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-* [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Visual Studio Code][vscode] (recommended, although any editor could do)
 
 **Recommended reading**
 
-* [Command Line][cli]
+- [Command Line][cli]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -25,6 +25,7 @@ We will see what we need to do to setup our development environment.
   - [Create `index.html`](#create-indexhtml)
 - [Access your project](#access-your-project)
   - [What does `live-server` do](#what-does-live-server-do)
+    - [Let's see...](#lets-see)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -50,6 +51,7 @@ In this terminal, type the following command:
 ```bash
 $> node --version
 ```
+
 > You should see in return the version number of your node installation (should be `v6.10.0`)
 
 ## Install `live-server`
@@ -69,6 +71,7 @@ Open your **Terminal** (if you closed it before), and type the following command
 ```bash
 $> npm install -g live-server
 ```
+
 > You should see some activity in your screen, meaning that the package is being installed.
 
 ### Check
@@ -78,6 +81,7 @@ When the installation is complete and the screen stand still, you can **check** 
 ```bash
 $> live-server
 ```
+
 Your browser should open a page at `127.0.0.1:8080`.
 
 That page should return an error: **that's normal**.
@@ -91,19 +95,19 @@ You will need a project directory for both **this course** and **the project** y
 Right now, create an empty directory called `dfa-course` somewhere on your filesystem.
 
 > This `dfa-course` project folder is where we will put most of the examples and exercices that we will see in the course.
-> 
+>
 > Right now, it's completely empty.
-> 
+>
 > **Whenever we refer to** "your project" **in the slides, we are talking about this `dfa-course` directory**.
 
 ### Create `index.html`
 
-Most (*if not all*) web project directories have an `index.html` file endpoint:
+Most (_if not all_) web project directories have an `index.html` file endpoint:
 
-* In WebSite, this is the **landing page**.
-* In WebApplication, this is the **page that loads the app**.
+- In WebSite, this is the **landing page**.
+- In WebApplication, this is the **page that loads the app**.
 
-----
+---
 
 For this `dfa-course`, we **provide** you with the **content** of your `index.html` page.
 
@@ -120,11 +124,13 @@ Open a terminal, and go to your project directory:
 ```bash
 $> cd path/to/your/project
 ```
+
 Then, type the command that starts `live-server`:
 
 ```bash
 $> live-server
 ```
+
 Identically to the last time, your browser should open at `127.0.0.1:8080`.
 
 But this time, you should see this:
@@ -135,7 +141,7 @@ But this time, you should see this:
 
 `live-server` is two things.
 
-----
+---
 
 **It's a simple Local Web Server.**
 
@@ -143,7 +149,7 @@ That means it can serve the files contained in a directory, here the `index.html
 
 > `live-server` expects an `index.html` file at the root of the directory.
 
-----
+---
 
 **It has Live-Reload.**
 
@@ -157,20 +163,22 @@ Whenever it detects a **change on one of these files**, it automatically **reloa
 
 With `live-server` started and your WebSite open in your broswer...
 
-Open your `index.html` file in your text editor (*if you closed it before*), and change this line...
+Open your `index.html` file in your text editor (_if you closed it before_), and change this line...
 
 ```html
 ...
-  <h1>Hello, world!</h1>
+<h1>Hello, world!</h1>
 ...
 ```
+
 ...with this line:
 
 ```html
 ...
-  <h1>Hello, Yverdon!</h1>
+<h1>Hello, Yverdon!</h1>
 ...
 ```
+
 **Save** your file and **go to your browser** to see that the changes have been detected and **applied**.
 
 **Revert** the line to its previous state, **save again** and see how magically the web page has changed.
@@ -179,10 +187,10 @@ Open your `index.html` file in your text editor (*if you closed it before*), and
 
 **Documentation**
 
-* [live-server][l-s]
+- [live-server][l-s]
 
 [chrome]: https://www.google.com/chrome/
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [node-dl]: https://nodejs.org/en/download/
 [git]: ../git/
 [cli]: ../cli/
