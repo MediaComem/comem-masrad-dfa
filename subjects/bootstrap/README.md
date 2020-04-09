@@ -791,16 +791,16 @@ To fix this, we need to **add some padding** to the element that encloses our co
 Let's change our content element from a `<div>` to a `<main>`:
 
 ```html
-<body>
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <!-- navbar content -->
-  </nav>
+&lt;body
+<nav class="navbar navbar-default navbar-fixed-top">
+  <!-- navbar content -->
+</nav>
+*
+<main class="container">
+  <!-- main content -->
   *
-  <main class="container">
-    <!-- main content -->
-    *
-  </main>
-</body>
+</main>
+&lt;/body>
 ```
 
 To add it padding, we need to define a custom style.
