@@ -6,17 +6,16 @@ Kickstart your Citizen Engagement project by implementing a complete authentific
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-* [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
 
 **Recommended reading**
 
-* [Angular][ng]
-* [Angular UI Router][ng-router]
+- [Angular][ng]
+- [Angular UI Router][ng-router]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [First step](#first-step)
 - [What is contained in the base project](#what-is-contained-in-the-base-project)
@@ -59,16 +58,17 @@ $> git clone git@github.com:MediaComem/comem-webdev-angular-auth-starter.git
 ## What is contained in the base project
 
 This project already contains some basic structure. That is:
-* The `angular` framework
-* The `angular-ui-router` library
-* The `lodash`library *(not required, but could prove usefull for your project)*
-* The `moment` library *(not required, but could prove usefull for your project)*
-* The `Bootstrap CSS` framework
-* An `index.html` file that includes all preceding frameworks/libraires
-* An `app.js` file that contains:
-  * The main `angular` module, named `app`
-  * A `config` function attached to this `app` module with one predefined route, `home`
-* An almost blank `main.html` template, used by the `home` state
+
+- The `angular` framework
+- The `angular-ui-router` library
+- The `lodash`library _(not required, but could prove usefull for your project)_
+- The `moment` library _(not required, but could prove usefull for your project)_
+- The `Bootstrap CSS` framework
+- An `index.html` file that includes all preceding frameworks/libraires
+- An `app.js` file that contains:
+  - The main `angular` module, named `app`
+  - A `config` function attached to this `app` module with one predefined route, `home`
+- An almost blank `main.html` template, used by the `home` state
 
 ## The log in page
 
@@ -80,15 +80,16 @@ In the `templates` directory, create a new file called `login.html` and put in t
 <form id="login" name="loginForm">
   <div class="form-group">
     <label for="username">Username</label>
-    <input required type="text" id="username" class="form-control">
+    <input required type="text" id="username" class="form-control" />
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input required type="password" class="form-control" id="password">
+    <input required type="password" class="form-control" id="password" />
   </div>
   <button class="btn btn-success">Log in</button>
 </form>
 ```
+
 > We will complete this template throughout the slides.
 
 ### Add the controller
@@ -98,7 +99,7 @@ To control this page, i.e. the form, the button and the data, we will need a con
 In the `js` directory, create a new file called `login-ctrl.js`, and add in the following code:
 
 ```js
-angular.module('app').controller('LoginCtrl', function() {
+angular.module("app").controller("LoginCtrl", function () {
   var login = this;
 });
 ```
@@ -115,12 +116,13 @@ Open it and, right after the `home` state declaration, add a new state that poin
 
 ```js
 // After home state
-$stateProvider.state('login', {
-    url: '/login',
-    templateUrl: './templates/login.html',
-    controller: 'LoginCtrl as login'
+$stateProvider.state("login", {
+  url: "/login",
+  templateUrl: "./templates/login.html",
+  controller: "LoginCtrl as login",
 });
 ```
+
 To try it, go to your app, and access the [url defined in this new state][login].
 
 You should see the form.
@@ -144,11 +146,11 @@ login.user = {};
 In our `login.html`, use the `ng-model` directive to bind each input to this object:
 
 ```html
-<input [...] id="username" [...] `ng-model="login.user.name"`>
+<input [...] id="username" [...] `ng-model="login.user.name" ` />
 ```
 
 ```html
-<input [...] id="password" `ng-model="login.user.password"`>
+<input [...] id="password" `ng-model="login.user.password" ` />
 ```
 
 > Angular will automatically create the `name` and `password` property to the `user` object, event though we didn't explicitly declared them.
@@ -160,21 +162,23 @@ These binded values will be used by a function triggered when our user click on 
 In `login-ctrl.js`, add this code at the end of the controller function:
 
 ```js
-login.connect = function() {
+login.connect = function () {
   console.log(login.user);
 };
 ```
+
 And bind this function to the click on the button, using `ng-click`:
 
 ```html
-<button class="btn btn-success" `ng-click="login.connect()"`>Log in</button>
+<button class="btn btn-success" `ng-click="login.connect()" `>Log in</button>
 ```
+
 > Try filling your form and clicking on the button with your console open
 
 To ensure that the click is only possible when the form is valid, add this:
 
 ```html
-<button [...] `ng-disabled="loginForm.$invalid"`>Log in</button>
+<button [...] `ng-disabled="loginForm.$invalid" `>Log in</button>
 ```
 
 ## Manage the authentication
@@ -186,14 +190,15 @@ To manage this information, let's create an angular service that we'll call `Aut
 In the `js` directory, create a new file, called `auth-service.js`, and add this code:
 
 ```js
-angular.module('app').factory('AuthService', function() {
+angular.module("app").factory("AuthService", function () {
   var service = {};
 
   return service;
 });
 ```
+
 > It doesn't do much for now...
-> 
+>
 > Again, don't forget to add the `auth-service.js` file to your `index.html` script inclusions.
 
 ### Complete the service
@@ -210,7 +215,7 @@ Let's prepare it for that:
 angular.module('app').factory('AuthService', function() {
   var service = {
 *   token: null,
-*    
+*
 *   setToken: function(token) {
 *     service.token = token;
 *   }
@@ -223,32 +228,36 @@ angular.module('app').factory('AuthService', function() {
   return service;
 });
 ```
+
 ## Get the authentication token
 
 To effectively get the token, we'll need :
-* The angular `$http` service to call the API and retrieve the result
-* Our brand new `AuthService` to store the token we'll receive
-* The `$state` service to redirect the user when he's logged in
+
+- The angular `$http` service to call the API and retrieve the result
+- Our brand new `AuthService` to store the token we'll receive
+- The `$state` service to redirect the user when he's logged in
 
 In `login-ctrl.js` add the correct dependencies to the controller:
 
 ```js
 [...].controller('LoginCtrl', function(`AuthService, $http, $state`) {
 ```
+
 Then, complete the `connect` function:
 
 ```js
-login.connect = function() {
+login.connect = function () {
   $http({
-    method: 'POST',
-    url: 'https://citizen-api.herokuapp.com/api/auth',
-    data: login.user
-  }).then(function(res) {
+    method: "POST",
+    url: "https://citizen-api.herokuapp.com/api/auth",
+    data: login.user,
+  }).then(function (res) {
     AuthService.setToken(res.data.token);
-    $state.go('home');
+    $state.go("home");
   });
 };
 ```
+
 ### Add error handling
 
 Right now, if an error occurs, we don't do anything, which is not good.
@@ -260,6 +269,7 @@ Let's add some HTML at the end of our `login.html`, which will not be visible un
 ```html
 <div class="alert alert-danger" ng-if="login.error">{{ login.error }}</div>
 ```
+
 And update our `connect` function in `login-ctrl.js`:
 
 ```js
@@ -275,6 +285,7 @@ login.connect = function() {
 * });
 };
 ```
+
 ## Restrict access
 
 We can now use our `AuthService` to restrict access to our app to only logged in users.
@@ -284,15 +295,16 @@ This can be done in a `run` block, using the `$stateChangeStart` event of Angula
 Add this at the end of your `app.js` file:
 
 ```js
-angular.module('app').run(function(AuthService, $rootScope, $state) {
-    $rootScope.$on('$stateChangeStart', function(event, toState) {
-        if (!AuthService.token && toState.name !== 'login') {
-            event.preventDefault();
-            $state.go('login');
-        }
-    });
+angular.module("app").run(function (AuthService, $rootScope, $state) {
+  $rootScope.$on("$stateChangeStart", function (event, toState) {
+    if (!AuthService.token && toState.name !== "login") {
+      event.preventDefault();
+      $state.go("login");
+    }
+  });
 });
 ```
+
 > This basically detects any time the user tries to go to antoher state, and check if he's not logged in (`!AuthService.token`) and tries to go to any other state than the `login` one (`toState.name !== 'login'`).
 
 > If this is the case, the transition is prevented (`event.preventDefault()`) and the user is redirected to the `login` state (`$state.go('login')`).
@@ -305,15 +317,16 @@ That's perfectly normal: your `AuthService` is recreated each time, and thus the
 
 To keep the connected state, we'll need to store this token in a more persistant manner, in this case the `localStorage`.
 
-To follow the "*Angular Way*", we will not use the `localStorage` API directly, but rather use a library that provides a dedicated angular service.
+To follow the "_Angular Way_", we will not use the `localStorage` API directly, but rather use a library that provides a dedicated angular service.
 
 This library is [Angular Storage][ng-store].
 
 Download the `js` file [here][dl-ng-store], and save it in your `assets/js` directory.
 
 > Don't forget to:
-> * Include the `js` file in your `index.html` script inclusions
-> * Register the `angular-storage` module in your `app` module dependencies
+>
+> - Include the `js` file in your `index.html` script inclusions
+> - Register the `angular-storage` module in your `app` module dependencies
 
 ### Update our app
 
@@ -336,6 +349,7 @@ angular.module('app').factory('AuthService', function(`store`) {
   return service;
 });
 ```
+
 > This way, each time we reload, the `AuthService` will try to get the `token` from `localStorage`.
 
 > It the `auth-token` key doesn't exist, `token` will be `null` and the user will be considered as not logged in.
@@ -350,14 +364,16 @@ Add a new file on the `templates` directory, name it `second.html` and add this 
 <h1>Second Page</h1>
 <button class="btn btn-default">Log out</button>
 ```
+
 Add a new `state` in `app.js`, after the `login` one:
 
 ```js
-$stateProvider.state('second', {
-    url: '/second',
-    templateUrl: './templates/second.html'
+$stateProvider.state("second", {
+  url: "/second",
+  templateUrl: "./templates/second.html",
 });
 ```
+
 > If you delete the `auth-token` key in your `localStorage` and try to reload the `/second` page, you should be redirected to the `/login` page instead.
 
 ## Log out
@@ -367,10 +383,11 @@ Now that we can log in, let's implement a log out feature.
 To do so, we'll create a new controller, `LogoutCtrl`, in a `logout-ctrl.js` file inside the `js` directory, with this code:
 
 ```js
-angular.module('app').controller('LogoutCtrl', function() {
+angular.module("app").controller("LogoutCtrl", function () {
   var logout = this;
 });
 ```
+
 This controller will have to delete the `token` from the `localStorage` when the user log out, and then redirect to the `login` page.
 
 So it needs two dependencies:
@@ -395,16 +412,21 @@ angular.module('app').controller('LogoutCtrl', function(AuthService, $state) {
 * }
 });
 ```
+
 We can now call this function by reacting to a click on the button inside the `second.html` page:
 
 ```html
-<button 
+<button
   class="btn btn-default"
-  `ng-controller="LogoutCtrl as logout"`
-  `ng-click="logout.disconnect()"`>
+  `ng-controller="LogoutCtrl as logout"
+  `
+  `ng-click="logout.disconnect()"
+  `
+>
   Log out
 </button>
 ```
+
 ## Add the header
 
 Nearly every URL of the Citizen Engagment API requires a logged in user to be executed.
@@ -424,6 +446,7 @@ $http({
 *   }
 }).then(/* ... */).catch(/* ... */)
 ```
+
 > Adding manually this header for each API call will quickly become annoying. We can automate this using an angular interceptor.
 
 ## Interceptor 2000©
@@ -433,15 +456,15 @@ An **Interceptor** is nothing more than a special angular service, that will int
 To create the interceptor, in the `js` directory, create a new `auth-interceptor.js` file, and add this:
 
 ```js
-angular.module('app').factory('AuthInterceptor', function(AuthService) {
+angular.module("app").factory("AuthInterceptor", function (AuthService) {
   return {
     request: function (config) {
       if (AuthService.token) {
         config.headers.Authorization = "Bearer " + AuthService.token;
       }
       return config;
-    }
-  }
+    },
+  };
 });
 ```
 
@@ -456,8 +479,9 @@ For the interceptor to kick in, you'll need to register it in your `$http` servi
 To do that, in your `config` block in `app.js`, add a dependency to the `$httpProvider` and the following code at the end of the function:
 
 ```js
-$httpProvider.interceptors.push('AuthInterceptor');
+$httpProvider.interceptors.push("AuthInterceptor");
 ```
+
 This tells the `$http` service that all requests must be given to `AuthInterceptor` prior to being executed.
 
 You can now omit the `Authorization` header from your manual calls.
@@ -466,10 +490,13 @@ So the previous example could now be:
 
 ```js
 $http({
-    method: 'GET',
-    url: 'https://citizen-api.herokuapp.com/api/issueTypes',
-}).then(/* ... */).catch(/* ... */)
+  method: "GET",
+  url: "https://citizen-api.herokuapp.com/api/issueTypes",
+})
+  .then(/* ... */)
+  .catch(/* ... */);
 ```
+
 > No `Authorizazion` header! Yet it will still be applied, thanks to the **Inteceptor**.
 
 ## Conclusion
@@ -485,6 +512,7 @@ You'll obviously have to adapt the given templates to your design and site.
 > The complete code for this course can be download from GitHub [here][solution].
 
 > If you previously cloned the repo, you can just do:
+
 ```bash
 $> git checkout solution
 ```
@@ -492,7 +520,7 @@ $> git checkout solution
 [ng]: ../angular
 [ng-router]: ../angular-ui-router
 [chrome]: https://www.google.com/chrome/
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [ng-storage]: https://github.com/auth0/angular-storage/blob/master/dist/angular-storage.min.js
 [git-proj]: https://github.com/MediaComem/comem-webdev-angular-auth-starter
 [html5mode]: ../angular-ui-router/#13

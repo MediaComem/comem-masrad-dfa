@@ -16,7 +16,6 @@ We will see what we need to install and setup for this course.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Install Node.js](#install-nodejs)
   - [Check](#check)
 - [Install `live-server`](#install-live-server)
@@ -30,15 +29,23 @@ We will see what we need to install and setup for this course.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Install Node.js
+## Node.js
 
-Node.js is a tool that allows developping back-end application with JavaScript, which we will not do in this DFA course.
+<!-- slide-front-matter class: center, middle, image-header -->
 
-> We will need it to install a very useful tool.
+<p class='center'><img src='images/node-js-logo.png' width='40%' /></p>
 
-To install Node.js, go to the [download page][node-dl], get the installer for your system and **launch it**.
+Node.js is a JavaScript engine that you can install on your machine to execute JavaScript programs without using a browser.
 
-<p class='shadow center'><img src='images/node-dl.jpg' width='100%' /></p>
+It's primarily used to develop both back-end web applications and tools.
+
+During this course, we won't use it directly, but we will use tools that need Node.js to run.
+
+### Install Node.js
+
+To install Node.js, go to the [official website][node-dl] and download the installer for the latest **LTS** version for your system, then **launch it**.
+
+<p class='shadow center'><img src='images/node-dl.png' width='100%' /></p>
 
 > If you want more information about Node.js, see [here][node-js].
 
@@ -52,17 +59,23 @@ In this terminal, type the following command:
 $> node --version
 ```
 
-> You should see in return the version number of your node installation (should be `v6.10.0`)
+> You should see in return the version number of your node installation (should be `v12.16.1` or above)
 
-## Install `live-server`
+### NPM
 
-Node.js gives you another command that we are going to use: `npm`
+Tools and other useful utilities that require Node.js to run are bundled into **packages for Node.js** that other developers can install on their machine.
 
-`npm` stands for **N**ode **P**ackages **M**anager and is a tool you can use to download other useful tools, that could help you improve your development experience.
+To manage those packages, every Node.js installation comes with **a dedicated tool** called `npm`, which stands for **N**ode **P**ackages **M**anager.
+
+Every package that can be installed on your machine is available through the **npm repository**, which you can browse thanks to its [own officiel website][npmjs].
 
 > If you want more information about `npm`, see [here][npm]
 
-We will download **one of this tool**: `live-server`.
+For now, we will install one of those useful tools, called `live-server`.
+
+> Later on, we will use `npm` to install many more packages, and you probably will too for your final project
+
+## Install `live-server`
 
 > We'll see later what this tool does.
 
@@ -72,11 +85,13 @@ Open your **Terminal** (if you closed it before), and type the following command
 $> npm install -g live-server
 ```
 
-> You should see some activity in your screen, meaning that the package is being installed.
+> `npm install` allows you to install one or more packages on your system.
+
+You should see some activity in your screen, meaning that the package is being installed.
 
 ### Check
 
-When the installation is complete and the screen stand still, you can **check** that the installation went OK by typing:
+When the installation is complete and the screen stand still, you can **check** that the installation went OK by just typing:
 
 ```bash
 $> live-server
@@ -84,11 +99,11 @@ $> live-server
 
 Your browser should open a page at `127.0.0.1:8080`.
 
-That page should return an error: **that's normal**.
+That page should return an error: **this is expected**.
 
 ## Create project directory
 
-A **project directory** is a simple directory where all the files for a specific WebSite or WebApplication are stored.
+A **project directory** is simply a directory where all files for a specific web site or web application are stored.
 
 You will need a project directory for both **this course** and **the project** you'll have to deliver at the end.
 
@@ -107,31 +122,31 @@ Most (_if not all_) web project directories have an `index.html` file endpoint:
 - In WebSite, this is the **landing page**.
 - In WebApplication, this is the **page that loads the app**.
 
----
+<hr>
 
 For this `dfa-course`, we **provide** you with the **content** of your `index.html` page.
 
 Go to [this page][index-gist], and **save it** at the root of your project directory, under the name `index.html`.
 
-> Hit `Ctrl + S` while on the page to save it on your file system.
+> Hit `Ctrl + S` while on the page to save it on your file system, or select all the text and copy-paste it on an empty new file.
 
 ## Access your project
 
 Now that your project has an `index.html` file, we can see what `live-server` is all about.
 
-Open a terminal, and go to your project directory:
+Open a terminal, and go to the root of your project directory:
 
 ```bash
 $> cd path/to/your/project
 ```
 
-Then, type the command that starts `live-server`:
+Then, type the command `live-server`, which starts the tool:
 
 ```bash
 $> live-server
 ```
 
-Identically to the last time, your browser should open at `127.0.0.1:8080`.
+Like the last time, your browser should open a new tab at `127.0.0.1:8080`.
 
 But this time, you should see this:
 
@@ -141,29 +156,29 @@ But this time, you should see this:
 
 `live-server` is two things.
 
----
+<hr>
 
 **It's a simple Local Web Server.**
 
-That means it can serve the files contained in a directory, here the `index.html` file in your `dfa-course` directory, **as if they were on a distant server**.
+That means it can serve files contained in a directory, here the `index.html` file in your `dfa-course` directory, **as if they were provided through a distant server**.
 
-> `live-server` expects an `index.html` file at the root of the directory.
+> `live-server` expects an `index.html` file at the root of the directory. If it does not find one, it will display the content of the diretory.
 
----
+<hr>
 
 **It has Live-Reload.**
 
-With Live-Reload, `live-server` is able to activly watch **all the files** in the directory it's serving.
+With Live-Reload, `live-server` is able to activly watch **all files** in the directory it's currently serving.
 
-Whenever it detects a **change on one of these files**, it automatically **reloads the webpage** to reflect those changes.
+Whenever a **save** is detected **on one of these files**, it automatically **reloads the tab** to reflect those changes.
 
 > For `live-server` to detect the changes, you **have to save the file**.
 
 #### Let's see...
 
-With `live-server` started and your WebSite open in your broswer...
+> With `live-server` started and your project directory opened in your broswer...
 
-Open your `index.html` file in your text editor (_if you closed it before_), and change this line...
+Open `index.html` in your text editor (_if you closed it before_), and change this line...
 
 ```html
 ...
@@ -171,7 +186,7 @@ Open your `index.html` file in your text editor (_if you closed it before_), and
 ...
 ```
 
-...with this line:
+...to this line:
 
 ```html
 ...
@@ -179,22 +194,42 @@ Open your `index.html` file in your text editor (_if you closed it before_), and
 ...
 ```
 
-**Save** your file and **go to your browser** to see that the changes have been detected and **applied**.
+**Save** the file and **go back to the tab in your browser** to see that the changes have been detected and **applied**.
 
 **Revert** the line to its previous state, **save again** and see how magically the web page has changed.
+
+## (Optional) VS Code Live Share
+
+For those of you who are using or will use VS Code (which I personally recommand), I advise you to install at least the Live Share plugins expansion pack.
+
+Live Share is a pack of additional plugins for VS Code that allow **a user to start a collaborating session** from VS Code, invite others to **collaborate with him in real-time** (very much like Google Docs does), and share local resources across the network.
+
+It also provides **textual and voiced chat** for people in the same sharing session.
+
+Considering the current Covid-19 situation, those Live Share features might come handy for **advanced distant support** later in the course (and espacially during the project).
+
+To install Live Share, first install [VS Code][vscode], then [the dedicated Expansion Pack][live-share-pack].
+
+> Note that you can [join a session event without VS Code][browser-live-share] (but not start one).
 
 ## Resources
 
 **Documentation**
 
+- [node.js][node-dl]
+- [npm][npmjs]
 - [live-server][l-s]
+- [Live Share][live-share]
 
+[browser-live-share]: https://docs.microsoft.com/en-us/visualstudio/liveshare/quickstart/browser-join
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
-[node-dl]: https://nodejs.org/en/download/
-[git]: ../git/
-[cli]: ../cli/
-[node-js]: ../node/
-[npm]: ../npm/
+[node-dl]: https://nodejs.org/en/
+[cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[live-share]: https://visualstudio.microsoft.com/fr/services/live-share/
+[live-share-pack]: https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack
+[node-js]: https://mediacomem.github.io/comem-archioweb/latest/subjects/node/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[npmjs]: https://www.npmjs.com/
+[npm]: https://mediacomem.github.io/comem-archioweb/latest/subjects/npm/?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [index-gist]: https://gist.githubusercontent.com/Tazaf/420a368389367a83fcfb96ab3a51bf8a/raw/1c5af02f1dd3248189b8e6869a02c5133232db7b/index.html
 [l-s]: https://www.npmjs.com/package/live-server

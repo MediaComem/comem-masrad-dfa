@@ -6,16 +6,15 @@ Learn to use the Geolocation API in an Angular app.
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-* [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
 
 **Recommended reading**
 
-* [Angular][ng]
+- [Angular][ng]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Introduction](#introduction)
 - [Use the API](#use-the-api)
@@ -57,6 +56,7 @@ angular.module("app").controller("myController", function (`$geolocation`) {
   // ...
 }
 ```
+
 ### `.getCurrentPosition()`
 
 Then, you can use the `.getCurrentPosition()` method to access the current user's position:
@@ -78,6 +78,7 @@ angular.module("app").controller("myController", function ($geolocation) {
     })
 }
 ```
+
 > Getting the location is an **asynchronous** operation.
 
 Use `position.coords.latitude` and `position.coords.longitude` to actually get the position's coordinates
@@ -94,10 +95,11 @@ angular.module("app").controller("myController", function ($geolocation) {
   `$geolocation.watchPosition()`;
 }
 ```
+
 This method will get the user's location regularly and store the result in the `$geolocation.position` property.
 
 > Getting the location is still an **asynchronous** operation.
-> 
+>
 > Meaning, that if you'd try to access `$geolocation.position` right after calling the method, you'll get an `undefined`.
 
 Delete the watch using the `$geolocation.clearWatch()` method.
@@ -110,7 +112,7 @@ With it, your can access `$geolocation.position.coords.latitude` and `$geolocati
 
 When `.watchPosition()` detects a new position, it fires an event, called `$geolocation.position.changed` to which you can listen.
 
-----
+---
 
 If something went wrong and the position could not be accessed, `$geolocation.position` will contain and Error object.
 
@@ -122,11 +124,11 @@ When `.watchPosition()` detects and error, it fires an event, called `$geolocati
 
 **Documentation**
 
-* [ngGeolocation - Documentation][ngloc-doc]
+- [ngGeolocation - Documentation][ngloc-doc]
 
 [ng]: ../angular
 [chrome]: https://www.google.com/chrome/
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [geoapi-doc]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
 [ngloc]: https://github.com/ninjatronic/ngGeolocation
 [ngloc-file]: https://github.com/ninjatronic/ngGeolocation/blob/master/ngGeolocation.min.js

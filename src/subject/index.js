@@ -20,7 +20,7 @@ import heArcLogo from "./assets/he-arc.png";
 subject.setLogo({
   url: "https://www.he-arc.ch/ingenierie/mas-rad-cas-dar",
   imageUrl: heArcLogo,
-  height: 60
+  height: 60,
 });
 
 subject.afterStart(() => RunkitController.start()).start();

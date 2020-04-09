@@ -7,7 +7,7 @@ Learn how to use the jQuery library for manipulating the DOM of a WebPage and, t
 **You will need**
 
 - [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Visual Studio Code][vscode] (recommended, although any editor could do)
 - [Live-Server][ls] (should already be installed)
 
 **Recommended reading**
@@ -17,7 +17,6 @@ Learn how to use the jQuery library for manipulating the DOM of a WebPage and, t
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [What is jQuery](#what-is-jquery)
 - [Example file](#example-file)
@@ -99,13 +98,13 @@ Learn how to use the jQuery library for manipulating the DOM of a WebPage and, t
 
 > jQuery is a JavaScript (_hereafter JS_) library created in 2006 by John Resig, and originally designed to ease the creation of client-side JS script, especially regarding DOM manipulation.
 
-> **This slide-deck is based on the `3.1.1` version of jQuery.**
+> **This subject is based on the `3.1.1` version of jQuery.**
 >
 > **As such, some examples could be out-of-date.**
 
 ## Example file
 
-The rest of this slide-deck will rely on [this `index.html` file][ex-file] as context.
+The rest of this subject will rely on [this `index.html` file][ex-file] as context.
 
 Be sure to download it and place it in a new project directory (e.g. `jquery-course`), if you want to try and follow with the examples.
 
@@ -205,7 +204,7 @@ Live reload enabled.
 
 ## jQuery documentation
 
-Everything that is presented in this slide-deck can also be found in **the jQuery documentation**, along with lot of **examples** and **information**.
+Everything that is presented in this subject can also be found in **the jQuery documentation**, along with lot of **examples** and **information**.
 
 We highly recommend that you check it out.
 
@@ -449,7 +448,7 @@ In order to select another discussion, we need to add a `click` event to the **l
 Add this code in your `script.js` file:
 
 ```js
-$("a.list-group-item").click(function(event) {
+$("a.list-group-item").click(function (event) {
   console.log(event);
 });
 ```
@@ -465,7 +464,7 @@ When writing event callback functions you might want to retrieve **the DOM eleme
 You can do that with the property `currentTarget` of the event object:
 
 ```js
-$("a.list-group-item").click(function(event) {
+$("a.list-group-item").click(function (event) {
   console.log(`event.currentTarget`);
 });
 ```
@@ -473,7 +472,7 @@ $("a.list-group-item").click(function(event) {
 More simply, use the `this` keyword to achieve the **same purpose**:
 
 ```js
-$("a.list-group-item").click(function(event) {
+$("a.list-group-item").click(function (event) {
   console.log(`this`);
 });
 ```
@@ -483,7 +482,7 @@ Since we are using jQuery, we'd prefer retrieving a **jQuery object** representi
 Do that by passing `this` to the `$()` function:
 
 ```js
-$("a.list-group-item").click(function(event) {
+$("a.list-group-item").click(function (event) {
   console.log(`$(this)`);
 });
 ```
@@ -618,7 +617,7 @@ $("#align-btns button")...
 > Let's use the second paramter of `$()` to retrieve the buttons, and then attach them the event:
 
 ```js
-$("button", $("#align-btns")).click(function(event) {
+$("button", $("#align-btns")).click(function (event) {
   console.log(this);
 });
 ```
@@ -735,9 +734,7 @@ jQuery allows you to call **several methods on the same line**.
 In our case, we can do that...
 
 ```js
-$(this)
-  .addClass("active")
-  .blur();
+$(this).addClass("active").blur();
 ```
 
 ...because the `addClass()` returns the object that called it, here `$(this)`, on which we can call `.blur()` right away.
@@ -837,12 +834,10 @@ $("button", $("#align-btns")).click(function(event) {
 Using a `if ... else if ... else` structure, we can complete our test:
 
 ```js
-$("button", $("#align-btns")).click(function(event) {
+$("button", $("#align-btns")).click(function (event) {
   // Change the active state when a button is clicked
   $("button", $("#align-btns")).removeClass("active");
-  $(this)
-    .addClass("active")
-    .blur();
+  $(this).addClass("active").blur();
 
   if (`$("span", this).hasClass("glyphicon-align-right")`) {
     // The clicked button is the one to align to the right
@@ -904,19 +899,13 @@ $("button", $("#align-btns")).click(changeAlignment);
 function changeAlignment(event) {
   // Change the active state when a button is clicked
   $("button", $("#align-btns")).removeClass("active");
-  $(this)
-    .addClass("active")
-    .blur();
+  $(this).addClass("active").blur();
 
   // React to the adequate clicked button
   if ($("span", this).hasClass("glyphicon-align-right")) {
-    $("#message")
-      .removeClass("text-left text-center")
-      .addClass("text-right");
+    $("#message").removeClass("text-left text-center").addClass("text-right");
   } else if ($("span", this).hasClass("glyphicon-align-center")) {
-    $("#message")
-      .removeClass("text-right text-left")
-      .addClass("text-center");
+    $("#message").removeClass("text-right text-left").addClass("text-center");
   } else {
     $("#message").removeClass("text-right text-center");
   }
@@ -953,7 +942,7 @@ At the **line 138**, add this `id` to the `<button>` element:
 The "Send" button is **also situated inside the form**. So we need to **cancel** its default behavior when it's clicked:
 
 ```js
-$("#send-btn").click(function(event) {
+$("#send-btn").click(function (event) {
   // Do the thing!
 
   event.preventDefault();
@@ -1061,7 +1050,7 @@ $("#message").parent();
 Now that we can access the right element, let's add the class:
 
 ```js
-$("#send-btn").click(function(event) {
+$("#send-btn").click(function (event) {
   /* Preceding code */
   if (msgValue === "") {
     $("#message")`.parent()`.addClass("has-error");
@@ -1224,7 +1213,7 @@ var $msgTemplate = $(template);
 With the addition of these lines, our JS code for the new feature should be:
 
 ```js
-$("#send-btn").click(function(event) {
+$("#send-btn").click(function (event) {
   // Getting the "New message" input
   var $message = $("#message");
 
@@ -1404,9 +1393,7 @@ function createNewMessage(event) {
     if (alignment) $msgTemplate.addClass(alignment);
 
     // Add the template to the page
-    $("#dialog")
-      .find("div.row")
-      .append($msgTemplate);
+    $("#dialog").find("div.row").append($msgTemplate);
     $message.val("");
   }
   event.preventDefault();
@@ -1426,7 +1413,7 @@ Our event should be attached to all the `button` elements that contains a `span.
 ```js
 $("span.glyphicon-trash")
   .parent()
-  .click(function(event) {});
+  .click(function (event) {});
 ```
 
 But since the event is on the `button` element, we need to **travel up the DOM tree** to find the `button`s parent that correspond to the complete message.
@@ -1434,11 +1421,7 @@ But since the event is on the `button` element, we need to **travel up the DOM t
 We could use the `.parent()` method to travel up step by step, which would give a code like this:
 
 ```js
-$(this)
-  .parent()
-  .parent()
-  .parent()
-  .remove();
+$(this).parent().parent().parent().remove();
 ```
 
 > This works... but it's certainly not a good option.
@@ -1457,7 +1440,7 @@ We can then use the `.closest()` method and give it the selector of the element 
 ```js
 $("span.glyphicon-trash")
   .parent()
-  .click(function(event) {
+  .click(function (event) {
     console.log($(this).closest("div.col-md-8"));
   });
 ```
@@ -1469,10 +1452,8 @@ Let's remove it!
 ```js
 $("span.glyphicon-trash")
   .parent()
-  .click(function(event) {
-    $(this)
-      .closest("div.col-md-8")
-      .remove();
+  .click(function (event) {
+    $(this).closest("div.col-md-8").remove();
   });
 ```
 
@@ -1512,12 +1493,10 @@ In our case, we want to register on event on the `#dialog` element, but trigger 
 > The arguments are : the `name` of the event, the `selector` of the descendant element, and the `function` to activate.
 
 ```js
-$("#dialog").on("click", "button", function(event) {
+$("#dialog").on("click", "button", function (event) {
   // 'this' still represent the clicked button
   // So we can reuse the same code as before.
-  $(this)
-    .closest("div.col-md-8")
-    .remove();
+  $(this).closest("div.col-md-8").remove();
 });
 ```
 
@@ -1534,9 +1513,7 @@ $("#dialog").on("click", "button", removeMessage);
 function removeMessage(event) {
   // 'this' still represent the clicked button
   // So we can reuse the same code as before.
-  $(this)
-    .closest("div.col-md-8")
-    .remove();
+  $(this).closest("div.col-md-8").remove();
 }
 ```
 
@@ -1561,7 +1538,7 @@ The complete code for this example application can be found [here][complete].
 
 - [Tips for good jQuery selectors][5-tips-selec]
 
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [chrome]: https://www.google.com/chrome/
 [js]: ../js
 [bs]: ../bootstrap

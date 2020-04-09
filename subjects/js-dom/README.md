@@ -7,7 +7,7 @@ Learn or rediscover how to use the DOM API to manipulate the underlying HTML obj
 **You will need**
 
 - [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Visual Studio Code][vscode] (recommended, although any editor could do)
 
 **Recommended reading**
 
@@ -17,7 +17,6 @@ Learn or rediscover how to use the DOM API to manipulate the underlying HTML obj
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Starting file](#starting-file)
 - [Document Object Model (DOM)](#document-object-model-dom)
@@ -217,6 +216,6 @@ You will find the final HTML file for this course [here][fef]
 [js-bas]: ../js
 [projset]: ../masrad-project-setup
 [chrome]: https://www.google.com/chrome/
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/9f1dec778546a4d9741f1d17b08212c5606c26ca/index.html
 [fef]: https://gist.githubusercontent.com/oertz/164a883774727e34fd9190e6abf84bd2

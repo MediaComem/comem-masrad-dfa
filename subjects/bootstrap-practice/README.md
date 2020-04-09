@@ -6,19 +6,18 @@ Hands-on practice on the use of Bootstrap to create a WebPage.
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-* [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
-* [Live-Server][ls] (should already be installed)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Live-Server][ls] (should already be installed)
 
 **Recommended reading**
 
-* [Project setup][projset]
-* [Bootstrap][bb]
-* [Bootstrap - Layout management][blm]
+- [Project setup][projset]
+- [Bootstrap][bb]
+- [Bootstrap - Layout management][blm]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [What to do?](#what-to-do)
 - [How to approach it?](#how-to-approach-it)
@@ -60,7 +59,9 @@ Try to do the same.
 > The **ONLY** custom CSS needed is the one that adds the margin on the content, due to the navbar being fixed to the top.
 
 ```css
-main { margin-top: 60px; }
+main {
+  margin-top: 60px;
+}
 ```
 
 You can add this CSS directly in a `<script>` tag at the end of your `<head>` element, or create a new CSS file; your choice.
@@ -69,19 +70,20 @@ You can add this CSS directly in a `<script>` tag at the end of your `<head>` el
 
 This exercice will require you to use:
 
-* Navbar
-* List
-* Panel
-* Form
-* Grid System
+- Navbar
+- List
+- Panel
+- Form
+- Grid System
 
 > To complete this practice, you'll need to look up in the documentation how to use:
-* [Labels][labels]
-* [Alerts][alert]
-* [Button groups][btn-group]
-* [Simple text in navbar][nav-text]
-* [Nested columns][nest]
-* the `active` class on the navbar and the list-group elements
+
+- [Labels][labels]
+- [Alerts][alert]
+- [Button groups][btn-group]
+- [Simple text in navbar][nav-text]
+- [Nested columns][nest]
+- the `active` class on the navbar and the list-group elements
 
 ## Disclaimer
 
@@ -100,6 +102,6 @@ This exercice will require you to use:
 [bb]: ../bootstrap
 [blm]: ../bootstrap-layout-management
 [projset]: ../masrad-project-setup
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [chrome]: https://www.google.com/chrome/
 [ls]: https://www.npmjs.com/package/live-server

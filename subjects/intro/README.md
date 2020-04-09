@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [MAS-RAD -- Advanced Front-end Development (DFA)](#mas-rad----advanced-front-end-development-dfa)
   - [Course deliverable](#course-deliverable)
   - [Front end](#front-end)
@@ -28,7 +27,10 @@ The goal of this course is to discover concepts and tools to organize the front-
 - learn how the use of a framework does help to organize the front-end code of a single page application
 - be introduced to frameworks that help you develop and build your web application for multiple devices
 
-Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa](https://github.com/MediaComem/comem-masrad-dfa)
+Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa][dfa-site]
+
+**Don't forget to enroll yourself in [this course's Microsoft Teams][ms-team]**
+]
 
 ## Course deliverable
 
@@ -63,10 +65,10 @@ In this course, the focus is on the front-end side of the web application, build
 
 Your web application will make use of a REST web service backend that is already implemented and ready to be used.
 
-| _App Subject_          | _Link_                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------- |
-| **Citizen Engagement** | [API Documentation](https://mediacomem.github.io/comem-citizen-engagement-api/) |
-| **Travel Log**         | [API Documentation](https://comem-travel-log-api.herokuapp.com/)                |
+| _App Subject_          | _Link_                           |
+| ---------------------- | -------------------------------- |
+| **Citizen Engagement** | [API Documentation][citizen-api] |
+| **Travel Log**         | [API Documentation][travel-api]  |
 
 > We'll see later on this course how to call and exploit those APIs
 
@@ -82,7 +84,7 @@ Your web application will make use of a REST web service backend that is already
 
 ### Citizen Engagement
 
-This idea is inspired from the UK [FixMyStreet platform](https://www.fixmystreet.com/) you may know.
+This idea is inspired from the UK [FixMyStreet platform][fixmystreet] you may know.
 
 <img src='images/fixmystreet.png' width='100%' />
 
@@ -106,7 +108,7 @@ In your case, a Citizen Engagement application must allow citizens to:
 - **search issues** (on the map and/or in other screens)
 - **post comments** on issues and **see comments** for an issue somewhere in the app
 
-> To better get what is expected, just [watch this video](https://www.youtube.com/watch?v=wki0t178x2k&feature=youtu.be).
+> To better get what is expected, just [watch this video][citizen-video].
 
 - _Bonus - Staff member features_:
   - log in to the app, update issues' status, and close or reject them
@@ -115,7 +117,7 @@ In your case, a Citizen Engagement application must allow citizens to:
 
 ### Travel Log
 
-This idea is somewhat inspired by the [Trip feature of TripAdvisor](https://fr.tripadvisor.ch/Trips/).
+This idea is somewhat inspired by the [Trip feature of TripAdvisor][tripadvisor].
 
 <img src='images/tripadvisor-trips.png' width='100%' />
 
@@ -159,8 +161,17 @@ Whichever's the subject you'll choose, your app must:
 
 ## Delivery
 
-Each person or group must send an e-mail **no later than July 9th 2020** to [Mathias Oberson](mailto:mathias@squareservice.ch) with
+Each person or group must send an e-mail **no later than July 9th 2020** to [Mathias Oberson][mob] with
 
 - either the link to your Git source code repository (e.g. on GitHub) - this is the preferred method - or with an archive of your source code (don't forget to comment it!)
 - only what is required to make your app run
 - a documentation (e.g. README file) that presents your approach, the organization of your solution and optionally some information to know how to make it run
+
+[citizen-api]: https://mediacomem.github.io/comem-citizen-engagement-api/
+[citizen-video]: https://www.youtube.com/watch?v=wki0t178x2k&feature=youtu.be
+[dfa-site]: https://github.com/MediaComem/comem-masrad-dfa
+[fixmystreet]: https://www.fixmystreet.com/
+[mon]: mailto:mathias@he-arc.ch
+[ms-team]: https://teams.microsoft.com/l/team/19%3afcbfad4d3c8b409b8f683132c5fe527c%40thread.tacv2/conversations?groupId=b475ad95-6078-4856-bbd6-fa6e64316983&tenantId=a372f724-c0b2-4ea0-abfb-0eb8c6f84e40
+[travel-api]: https://comem-travel-log-api.herokuapp.com/
+[tripadvisor]: https://fr.tripadvisor.ch/Trips/

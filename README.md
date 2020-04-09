@@ -21,10 +21,11 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 ## Plan
 
 - [Introduction][dfa]
-- [Setting up an HTML project using live-server][projset]
-- [Bootstrap basics][bb]
-- [Bootstrap layout management][blm]
-- [Bootstrap practice][bex]
+- [Setting up your environment][setup]
+- Bootstrap
+  - [Basics][bb]
+  - [Layout management][blm]
+  - [Practice][bex]
 - [JavaScript basics and more][js-bas]
 - [JavaScript DOM API][js-dom]
 - [First steps with jQuery library][jq-dom]
@@ -86,6 +87,6 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 [ng-starter]: subjects/angular-auth-starter/
 [ng-ui-router]: subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
-[projset]: subjects/project-setup
+[setup]: subjects/setup
 [rest]: subjects/rest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo

@@ -24,6 +24,7 @@
     "watch": "courses-md watch"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "courses-md": "~0.5.0",
     "doctoc": "^1.4.0",
     "font-awesome": "^4.7.0",
