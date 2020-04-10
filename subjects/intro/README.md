@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [MAS-RAD -- Advanced Front-end Development (DFA)](#mas-rad----advanced-front-end-development-dfa)
   - [Course deliverable](#course-deliverable)
   - [Front end](#front-end)
@@ -28,9 +29,6 @@ The goal of this course is to discover concepts and tools to organize the front-
 - be introduced to frameworks that help you develop and build your web application for multiple devices
 
 Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa][dfa-site]
-
-**Don't forget to enroll yourself in [this course's Microsoft Teams][ms-team]**
-]
 
 ## Course deliverable
 
@@ -171,7 +169,7 @@ Each person or group must send an e-mail **no later than July 9th 2020** to [Mat
 [citizen-video]: https://www.youtube.com/watch?v=wki0t178x2k&feature=youtu.be
 [dfa-site]: https://github.com/MediaComem/comem-masrad-dfa
 [fixmystreet]: https://www.fixmystreet.com/
-[mon]: mailto:mathias@he-arc.ch
+[mob]: mailto:mathias@he-arc.ch
 [ms-team]: https://teams.microsoft.com/l/team/19%3afcbfad4d3c8b409b8f683132c5fe527c%40thread.tacv2/conversations?groupId=b475ad95-6078-4856-bbd6-fa6e64316983&tenantId=a372f724-c0b2-4ea0-abfb-0eb8c6f84e40
 [travel-api]: https://comem-travel-log-api.herokuapp.com/
 [tripadvisor]: https://fr.tripadvisor.ch/Trips/

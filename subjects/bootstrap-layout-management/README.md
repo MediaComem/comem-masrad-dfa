@@ -17,6 +17,7 @@ Learn how Bootstrap helps you structure your HTML layouts, using both its grid s
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Example file](#example-file)
 - [Default HTML layout](#default-html-layout)
   - [Altering the default layout](#altering-the-default-layout)
@@ -74,7 +75,7 @@ Using these properties can be quite tedious, especially if you want something **
 
 ## Grid systems
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 A Grid System is a way of creating layouts that's been inherited from graphic designers.
 
@@ -82,11 +83,11 @@ The idea is quite simple: you divide the space at your disposal in **columns** (
 
 When you place your elements on the layout, they **must** be as wide as one or more columns.
 
-<!--slide-column -->
+<!--slide-column 50 -->
 
 <p><img src="images/grid-example.jpg" width="500px" /></p>
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 > An element mustn't stop in the **middle of a column**. That would completely defeat the purpose of having a grid system in place.
 

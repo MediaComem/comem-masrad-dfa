@@ -18,6 +18,7 @@ Learn how to use the Bootstrap JS plugins within an AngularJS app.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Bootstrap JS](#bootstrap-js)
   - [Include Bootstrap JS](#include-bootstrap-js)
 - [What can it do?](#what-can-it-do)

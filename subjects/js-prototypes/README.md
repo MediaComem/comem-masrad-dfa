@@ -269,9 +269,11 @@ When you use that function **as a constructor with `new`**, the prototype of the
 
 ### What does this mean?
 
+<!-- slide-column 100 -->
+
 Let's combine two of the important things we just learned:
 
-<!-- slide-column -->
+<!-- slide-column 70 -->
 
 * When **accessing a property** that doesn't exist on an object,
   JavaScript will **look up the prototype chain** and attempt to find it on the object's prototype,
@@ -286,7 +288,7 @@ Let's combine two of the important things we just learned:
 Wait, what?
 </p>
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 This means that **if we attach things to a function's prototype object**,
 these things will be **available on any object constructed with that function**.
@@ -325,12 +327,14 @@ console.log(person.getFullName()); // "Bob Page"
 
 ### The value of `this`
 
+<!-- slide-column 100 -->
+
 <runkit></runkit>
 
 Note that **when calling a function on an object**,
 the keyword **`this`** always refers to **the object the function was called on**.
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 ```js
 const o = {
@@ -343,7 +347,7 @@ const o = {
 console.log(`o`.getValue()); // 24
 ```
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 ```js
 function Foo() {
@@ -358,9 +362,10 @@ const `o` = new Foo();
 console.log(`o`.getValue()); // 42
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 By the way, it's best to use the second structure rather than the first.
+
 Why? Because in the first example, a **new function** will be created every time you create an object this way.
 In the second example, only one `getValue` function is defined and attached to the prototype, and it's **reused** for every object that's an instance of `Foo`.
 

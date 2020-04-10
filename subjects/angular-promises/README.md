@@ -52,10 +52,12 @@ which is a [Promises/A+][promises-spec]-compliant implementation of promises ins
 
 ### Creating promises with `$q`
 
+<!-- slide-column 100 -->
+
 If you have an asynchronous operation or piece of code that **does not already return a promise**,
 here's a few ways you can create promises with the `$q` service:
 
-<!-- slide-column -->
+<!-- slide-column 45 -->
 
 ```js
 // Create a resolved promise
@@ -75,7 +77,7 @@ promise.catch(function(err) {
 });
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 ```js
 // Execute asynchronous operations in parallel

@@ -17,6 +17,7 @@ Kickstart your Citizen Engagement project by implementing a complete authentific
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [First step](#first-step)
 - [What is contained in the base project](#what-is-contained-in-the-base-project)
 - [The log in page](#the-log-in-page)

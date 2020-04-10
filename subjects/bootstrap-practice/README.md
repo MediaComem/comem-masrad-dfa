@@ -19,6 +19,7 @@ Hands-on practice on the use of Bootstrap to create a WebPage.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [What to do?](#what-to-do)
 - [How to approach it?](#how-to-approach-it)
 - [Custom CSS](#custom-css)

@@ -20,6 +20,7 @@ We will talk about a technology called **AJAX (Asynchronous JavaScript and XML)*
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [AJAX technology](#ajax-technology)
 - [Classic model](#classic-model)
 - [Asynchronous model](#asynchronous-model)

@@ -137,7 +137,7 @@ It takes **2 callback functions**:
 
 ### English, please?
 
-<!-- slide-column -->
+<!-- slide-column 70 -->
 
 Imagine you are a **kid**.
 Your mom **promises** you that she'll get you a **new phone next week**.
@@ -149,7 +149,7 @@ Your mom can either **really buy** you a brand new phone, or **stand you up** an
 
 <img src='images/phone-gift.png' class='w70' />
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 That's a promise.
 A promise has 3 states; it can be:
@@ -547,6 +547,8 @@ rejectedPromise.then(function onResolved(value) {
 
 ### Chaining `.then()` calls
 
+<!-- slide-column 100 -->
+
 <runkit except='0'></runkit>
 
 Promises are chainable; the `then()` function also **returns a promise**:
@@ -559,7 +561,7 @@ Will `promise2` be resolved or rejected?
 That depends on `phonePromise`, `onResolved` and `onRejected`.
 The simplest case is this one:
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 ```js
 let promise1 = Promise.resolve('ok');
@@ -572,7 +574,7 @@ promise2.then(function(value) {
 });
 ```
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 ```js
 const reason = new Error('bug');
@@ -587,7 +589,7 @@ promise2.then(function(value) {
 });
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 If neither `onResolved` nor `onRejected` is given, `promise2` will have **the same state** as `promise1`
 (i.e. it will be resolved when `promise1` is resolved, or rejected when `promise1` is rejected).
@@ -781,7 +783,7 @@ phonePromise`.then(showOff)`.then(onResolved, onRejected);
 
 ### Resolving promises in chains
 
-<!-- slide-column -->
+<!-- slide-column 35 -->
 
 That second promise we wrote looks a bit complicated.
 All we're doing is immediately resolving it with a message:
@@ -828,6 +830,8 @@ function showOff(phone) {
 ```
 
 <!-- slide-container -->
+
+<!-- slide-column 100 -->
 
 In this promise chain, the 3 `showOff()` functions above are **equivalent**:
 
@@ -886,6 +890,8 @@ function showOff(phone) {
 ```
 
 <!-- slide-container -->
+
+<!-- slide-column 100 -->
 
 In this promise chain, the 3 `showOff()` functions above are **equivalent**:
 
@@ -1117,17 +1123,17 @@ Promise.resolve().then(createDirector).then(createMovie)
 
 ### Triumph over the callback hell
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 Promises are one solution to the infamous **callback hell** or **pyramid of doom**.
 
 Asynchronous code tends to be **nested** very deeply and be quite difficult to read and maintain.
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 <img src='images/callback-hell.png' class='w100' />
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 Our previous example showed us that we can execute **successive asynchronous calls without nesting**:
 
@@ -1229,7 +1235,7 @@ Now we have **flat code and automatic error handling**.
 
 This behavior enables complex asynchronous workflows with smart error handling:
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 ```js
 `asyncThing1`().then(function() {
@@ -1249,11 +1255,11 @@ This behavior enables complex asynchronous workflows with smart error handling:
 })
 ```
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 <img src='images/complex-promise-chain.png' class='w100' />
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 Promises are a **powerful abstraction** that make it **easy to compose asynchronous workflows**.
 
@@ -1348,6 +1354,8 @@ Promise.all(promises).then(function(results) {
 
 ### The problem with promises
 
+<!-- slide-column 100 -->
+
 <runkit></runkit>
 
 Promises are powerful, but they're still an **asynchronous construct** that's hard to reason about:
@@ -1375,7 +1383,7 @@ console.log('Computing in progress...');
 computeAllTheThings(); // 24 (3s later)
 ```
 
-<!-- slide-column -->
+<!-- slide-column 45 -->
 
 ```js
 function multiply(value, by) {
@@ -1391,7 +1399,7 @@ function computeAllTheThings() {
 computeAllTheThings(); // 24
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 It's still **better than traditional callbacks** because it helps us **avoid nesting** and has **error-handling**,
 but it's just easier to understand **synchronous execution**.
@@ -1399,6 +1407,8 @@ but it's just easier to understand **synchronous execution**.
 
 
 ### Async functions and the `await` operator
+
+<!-- slide-column 100 -->
 
 <runkit></runkit>
 
@@ -1426,7 +1436,7 @@ console.log('Computing in progress...');
 computeAllTheThings(); // 24 (3s later)
 ```
 
-<!-- slide-column -->
+<!-- slide-column 45 -->
 
 ```js
 function multiply(value, by) {
@@ -1442,7 +1452,7 @@ function computeAllTheThings() {
 computeAllTheThings(); // 24
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 Our **asynchronous code** on the left now **looks synchronous** and is much easier to understand.
 At the same time, it **retains its asynchronous and non-blocking properties**.

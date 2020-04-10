@@ -16,8 +16,11 @@ We will see what we need to install and setup for this course.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Install Node.js](#install-nodejs)
+
+- [Node.js](#nodejs)
+  - [Install Node.js](#install-nodejs)
   - [Check](#check)
+  - [NPM](#npm)
 - [Install `live-server`](#install-live-server)
   - [Check](#check-1)
 - [Create project directory](#create-project-directory)
@@ -25,6 +28,7 @@ We will see what we need to install and setup for this course.
 - [Access your project](#access-your-project)
   - [What does `live-server` do](#what-does-live-server-do)
     - [Let's see...](#lets-see)
+- [(Optional) VS Code Live Share](#optional-vs-code-live-share)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

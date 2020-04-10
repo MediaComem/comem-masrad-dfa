@@ -145,7 +145,7 @@ The types are:
 * Undefined
 * Symbol (**ES6**)
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 > Note that `null` is a type, but `typeof null === object`.
 > This is a [remnant][js-typeof-null] from the first version of JavaScript.
@@ -550,7 +550,7 @@ function Starship(name, designation) {
 let discovery = new Starship("Discovery", "NCC-1031");
 console.log(discovery);
 // Starship {name: "Discovery", designation: "NCC-1031"}
-``` 
+```
 
 > It's possible to implement class-like structures with **constructor functions** and **prototypes**.
 > JavaScript **ES6** also adds **actual classes** (based on **prototypes**).
@@ -852,7 +852,7 @@ The destructuring assignment syntax makes it possible to **unpack values from ar
 
 ### Array destructuring
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 Basic variable assignment.
 
@@ -865,7 +865,7 @@ console.log(two); // "two"
 console.log(three); // "three"
 ```
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 Equivalent without destructuring.
 
@@ -880,7 +880,7 @@ console.log(two); // "two"
 console.log(three); // "three"
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 You can also use destructuring separately from the variables' declaration:
 
@@ -927,7 +927,7 @@ console.log(h); // [2, 3]
 
 ### Object destructuring
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 Basic variable assignment.
 
@@ -939,7 +939,7 @@ console.log(p); // 42
 console.log(q); // true
 ```
 
-<!-- slide-column -->
+<!-- slide-column 50 -->
 
 Equivalent without destructuring.
 
@@ -952,7 +952,7 @@ console.log(p); // 42
 console.log(q); // true
 ```
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 You can also use destructuring separately from the variables' declaration
 (but you have to put it within parentheses):

@@ -18,6 +18,7 @@ Learn how to use the jQuery library for manipulating the DOM of a WebPage and, t
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [What is jQuery](#what-is-jquery)
 - [Example file](#example-file)
 - [Learn by example](#learn-by-example)

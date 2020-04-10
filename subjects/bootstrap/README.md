@@ -16,40 +16,41 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [What is Bootstrap?](#what-is-bootstrap)
 - [Why Bootstrap?](#why-bootstrap)
-- [Use Bootstrap](#use-bootstrap)
+  - [CDN](#cdn)
   - [Download locally](#download-locally)
   - [How do I know it's working?](#how-do-i-know-its-working)
 - [What does it do?](#what-does-it-do)
 - [Bootstrap documentation](#bootstrap-documentation)
   - [Screen-readers helpers](#screen-readers-helpers)
-- [Element styles](#element-styles)
-  - [Which elements?](#which-elements)
+- [Element default styles](#element-default-styles)
   - [Examples](#examples)
   - [Why put styles on element?](#why-put-styles-on-element)
-  - [Normalization](#normalization)
-- [New classes](#new-classes)
-  - [Start again](#start-again)
+  - [Normalization (or Reboot)](#normalization-or-reboot)
+- [Layout](#layout)
   - [Container](#container)
     - [`.container`](#container)
     - [Illustration](#illustration)
-  - [Tables](#tables)
-    - [More table classes](#more-table-classes)
+- [Tables](#tables)
+  - [More table classes](#more-table-classes)
+- [Colors](#colors)
+  - [Color utilities](#color-utilities)
+- [Components](#components)
   - [Buttons](#buttons)
     - [The `.btn` class](#the-btn-class)
     - [Additionnal classes](#additionnal-classes)
     - [Try it!](#try-it)
     - [Size control](#size-control)
-  - [Icons](#icons)
   - [Forms](#forms)
     - [`.form-control`](#form-control)
     - [`.form-group`](#form-group)
     - [`.form-inline`](#form-inline)
-  - [Color classes](#color-classes)
-- [Components](#components)
-  - [Forms... again](#forms-again)
+    - [Checkboxes](#checkboxes)
+    - [Radio buttons](#radio-buttons)
   - [Navbar](#navbar)
+    - [Navbar styling](#navbar-styling)
     - [Navbar content](#navbar-content)
     - [Navbar Brand](#navbar-brand)
     - [Fixed navbar](#fixed-navbar)
@@ -73,6 +74,9 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/cancel-bootstrap.css">
 
 ## What is Bootstrap?
 
@@ -416,13 +420,22 @@ For example, if you'd want to have a table that has **all the preceding styles**
 
 Bootstrap defines some default colors:
 
-| Name      | Result                                             |
-| --------- | -------------------------------------------------- |
-| `primary` | <span class="text-primary">oihergfoihergoih</span> |
+| _Name_      | _Usage_                                                                          |
+| ----------- | -------------------------------------------------------------------------------- |
+| `primary`   | <span class="text-primary">Represent the main color of your website/theme</span> |
+| `secondary` | <span class="text-secondary">Use it as accent color</span>                       |
+| `success`   | <span class="text-success">Use it for success messages or actions</span>         |
+| `danger`    | <span class="text-danger">Use it when something goes wrong</span>                |
+| `warning`   | <span class="text-warning">Use it to warn the user of something</span>           |
+| `info`      | <span class="text-info">Use it for harmless information messages</span>          |
+| `light`     | <span class="text-light bg-dark">Use it for better constrast if needed</span>    |
+| `dark`      | <span class="text-dark">A black-ish color</span>                                 |
 
-_Primary_, _Success_, _Info_, _Warning_ and _Danger_.
+### Color utilities
 
-Those colors can be directly applied on some specific components, but can also be used for text color and background color on almost any HTML element on the page using some utility classes.
+Those colors can be directly applied on some specific components, but can also be used for the text or background color of almost any HTML element.
+
+Add them a `text-` prefix to style the text, or `bg-` prefix for the background.
 
 > Using them along other pre-defined Bootstrap classes could have no effect.
 
@@ -434,10 +447,16 @@ Add this before the `<h2>Tables</h2>` element:
 <p class="`text-success`">This text uses the success color scheme.</p>
 <p class="`bg-warning`">This paragraph has a warning colored background.</p>
 <p class="`bg-info`">This paragraph has an info colored background.</p>
-<p class="`bg-danger` `text-danger`">Full danger!</p>
+<p class="`bg-danger` `text-light`">Colored background and colored text</p>
 ```
 
-<p class='shadow'><img src='images/color-schemes.jpg' width='60%' /></p>
+<div class="color-examples shadow">
+  <p class="text-primary">This text uses the primary color scheme.</p>
+  <p class="text-success">This text uses the success color scheme.</p>
+  <p class="bg-warning">This paragraph has a warning colored background.</p>
+  <p class="bg-info">This paragraph has an info colored background.</p>
+  <p class="bg-danger text-light">Colored background and colored text</p>
+</div>
 
 ## Components
 
@@ -447,7 +466,9 @@ They could be very simple and straight forward elements, like buttons, or an ens
 
 Bootstrap provides a certain amount of those components and the documentation explains what classes to add on which HTML elements and how those elements should be organized for the component to render correctly.
 
-> Note that some components require the use of JavaScript to work as expected. We will not see how to use thos JavaScript feature in this course.
+> Note that some components require the use of JavaScript to work as expected.
+>
+> We will not see how to use those JavaScript feature in this course.
 
 ### Buttons
 
@@ -467,7 +488,12 @@ Let's add some buttons to the `index.html` page. Add the following snippet right
 
 > Right now, this should give you this:
 
-<p class="shadow"><img src='images/new-buttons-btn.jpg' width='40%' /></p>
+<div class="live-example shadow">
+    <a href="#">Link</a>
+    <button>Button</button>
+    <input type="submit" value="Input Submit" />
+    <input type="button" value="Input Button" />
+</div>
 
 > It's doesn't look like much. Let's remedy that.
 
@@ -486,7 +512,12 @@ To properly use any of the button styles, you **must** add the special class `.b
 
 The result should be:
 
-<p class="shadow"><img src='images/buttons-btn.png' width='40%' /></p>
+<div class="live-example shadow">
+  <a href="#" class="btn">Link</a>
+  <button class="btn">Button</button>
+  <input type="submit" value="Input Submit" class="btn" />
+  <input type="button" value="Input Button" class="btn" />
+</div>
 
 The `.btn` class is used to add to the element all the styles that are **common** among all button styles.
 
@@ -494,17 +525,33 @@ The `.btn` class is used to add to the element all the styles that are **common*
 
 #### Additionnal classes
 
-Bootstrap defines **seven button styles**, each with its own class to add to an element **that already have** the `.btn` class:
+Bootstrap defines **a button style for each predefined colors**, with its own class to add to an element **that already have** the `.btn` class:
 
-| Style   | CSS class      | Result                                             |
-| :------ | :------------- | :------------------------------------------------- |
-| Default | `.btn-default` | <button class="btn btn-default">Click me!</button> |
-| Primary | `.btn-primary` | <button class="btn btn-primary">Click me!</button> |
-| Success | `.btn-success` | <button class="btn btn-success">Click me!</button> |
-| Info    | `.btn-info`    | <button class="btn btn-info">Click me!</button>    |
-| Warning | `.btn-warning` | <button class="btn btn-warning">Click me!</button> |
-| Danger  | `.btn-danger`  | <button class="btn btn-danger">Click me!</button>  |
-| Link    | `.btn-link`    | <button class="btn btn-link">Click me!</button>    |
+> Those classes simply prefix the color name with `btn-`.
+
+| Style     | CSS class        | Result                                               |
+| :-------- | :--------------- | :--------------------------------------------------- |
+| Default   | `.btn-default`   | <button class="btn btn-default">Click me!</button>   |
+| Primary   | `.btn-primary`   | <button class="btn btn-primary">Click me!</button>   |
+| Secondary | `.btn-secondary` | <button class="btn btn-secondary">Click me!</button> |
+| Success   | `.btn-success`   | <button class="btn btn-success">Click me!</button>   |
+| Info      | `.btn-info`      | <button class="btn btn-info">Click me!</button>      |
+| Warning   | `.btn-warning`   | <button class="btn btn-warning">Click me!</button>   |
+| Danger    | `.btn-danger`    | <button class="btn btn-danger">Click me!</button>    |
+| Link      | `.btn-link`      | <button class="btn btn-link">Click me!</button>      |
+
+#### Inverted buttons
+
+Using `btn-outline-` instead of `btn-` as a prefix before the color name allows you to style your button with and inverted rendering:
+
+| CSS class        | Result                                               |
+| :--------------- | :--------------------------------------------------- |
+| `.btn-outline-primary`   | <button class="btn btn-outline-primary">Click me!</button>   |
+| `.btn-outline-secondary` | <button class="btn btn-outline-secondary">Click me!</button> |
+| `.btn-outline-success`   | <button class="btn btn-outline-success">Click me!</button>   |
+| `.btn-outline-info`      | <button class="btn btn-outline-info">Click me!</button>      |
+| `.btn-outline-warning`   | <button class="btn btn-outline-warning">Click me!</button>   |
+| `.btn-outline-danger`    | <button class="btn btn-outline-danger">Click me!</button>    |
 
 #### Try it!
 
@@ -513,37 +560,41 @@ Add a:
 - `.btn-default` class to the `<a>` element
 - `.btn-info` class to the `<button>` element
 - `.btn-success` class to the `<input type="submit">` element
-- `.btn-danger` class to the `<input type="button">` element
+- `.btn-outline-danger` class to the `<input type="button">` element
 
 <hr>
 
 The result should look like this:
 
-<p class="shadow"><img src='images/final-buttons.jpg' width='40%' /></p>
+<div class="live-example shadow">
+  <a href="#" class="btn btn-default">Link</a>
+  <button class="btn btn-info">Button</button>
+  <input type="submit" value="Input Submit" class="btn btn-success" />
+  <input type="button" value="Input Button" class="btn btn-outline-danger" />
+</div>
 
 #### Size control
 
 You can also change the overall size of your button, using three additionnal classes.
 
-Add the `.btn-lg` class to the `<a>` element to see it **larger**:
+Add the `.btn-lg` class to the `<button>` element to see it **larger**:
 
 ```html
-<a href="#" `class`="btn btn-default `btn-lg`">Link</a>
+<button class="btn btn-info `btn-lg`">Button</button>
 ```
 
-Add the `.btn-sm` class to the `<input type="submit">` element to see it **a bit smaller**:
+Add the `.btn-sm` class to the `<input type="button">` element to see it **a bit smaller**:
 
 ```html
-<input type="submit" value="Input Submit" `class`="btn btn-success `btn-sm`" />
+<input type="button" value="Input Button" class="btn btn-danger `btn-sm`" />
 ```
 
-Add the `.btn-xs` class to the `<input type="button">` element to see it **extra smaller**:
-
-```html
-<input type="button" value="Input Button" `class`="btn btn-danger `btn-xs`" />
-```
-
-<p class="shadow"><img src='images/buttons-size.jpg' width='40%' /></p>
+<div class="live-example shadow">
+  <a href="#" class="btn btn-default">Link</a>
+  <button class="btn btn-info btn-lg">Button</button>
+  <input type="submit" value="Input Submit" class="btn btn-success" />
+  <input type="button" value="Input Button" class="btn btn-outline-danger btn-sm" />
+</div>
 
 ### Forms
 
@@ -631,138 +682,213 @@ If you'd rather prefer to have you form displayed inline, juste add the `.form-i
 
 Be aware that not all forms can be put inline. If your form is too big, it won't render correctly.
 
-### Forms... again
+#### Checkboxes
 
-There's two components that are related to forms, that we didn't see before:
+Bootstrap provides an HTML component for checkboxes to ensure a proper rendering and behavior.
 
-- Checkboxes
-- Radio buttons
+To add a checkbox to your `<form>`, you should use this **expected HTML markup**:
 
-Both these components need **specific HTML markup** to function correctly in Bootstrap forms. In both case, the markup is **similar**:
-
-<!-- slide-column -->
-
-**Checkbox**
+<!-- prettier-ignore-start -->
 
 ```html
-<div class="checkbox">
-  <label>
-    <input type="checkbox" />
+*<div class="form-check">
+  <input class="`form-check-input`" type="checkbox" value="" id="defaultCheck1"/>
+  <label class="`form-check-label`" for="defaultCheck1">
     Remember me
   </label>
-</div>
+*</div>
 ```
 
-<!-- slide-column -->
+<!-- prettier-ignore-stop -->
 
-**Radio button**
+<div class="live-example shadow" style="line-height: 1.5">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+    <label class="form-check-label" for="defaultCheck1">
+      Remember me
+    </label>
+  </div>
+</div>
+
+#### Radio buttons
+
+The same goes for the radio buttons, and the expected HTML markup is pretty similar:
+
+> As usual the `name` attribute should be the same for related radio buttons
+
+<!-- prettier-ignore-start -->
 
 ```html
-<div class="radio">
-  <label>
-    <input type="radio" name="gender" />
-    Female
+*<div class="form-check">
+  <input class="`form-check-input`" type="radio" name="`directions`" id="leftDirection" value="left" checked/>
+  <label class="`form-check-label`" for="leftDirection">
+    Left
   </label>
+*</div>
+
+*<div class="form-check">
+  <input class="`form-check-input`" type="radio" name="`directions`" id="rightDirection" value="right"/>
+  <label class="`form-check-label`" for="rightDirection">
+    Right
+  </label>
+*</div>
+```
+
+<!-- prettier-ignore-stop -->
+
+<div class="live-example shadow" style="line-height: 1.5">
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="directions" id="leftDirection" value="left" checked>
+    <label class="form-check-label" for="leftDirection">
+      Left
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="directions" id="rightDirection" value="right">
+    <label class="form-check-label" for="rightDirection">
+      Right
+    </label>
+  </div>
 </div>
-```
-
-<!-- slide-container -->
-
-> With this markup, checkboxes and radio button **spacing is optimal**, and clicking on the label is considered **clicking on the checkbox or radio button**.
-
-<!-- slide-notes -->
-
-Let's update our first form by adding a checkbox and some radio buttons:
-
-```html
-<h2>Forms</h2>
-<form>
-  <!-- other form elements -->
-  *
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" name="remember" id="remember" />
-      Remember me!
-    </label>
-  </div>
-  *
-  <div class="radio">
-    <label>
-      <input type="radio" name="gender" id="male" value="male" />
-      Male
-    </label>
-  </div>
-  *
-  <div class="radio">
-    <label>
-      <input type="radio" name="gender" id="female" value="female" />
-      Female
-    </label>
-  </div>
-  <input type="submit" name="send" class="btn btn-success" />
-</form>
-```
 
 ### Navbar
 
-To create a navigation bar in your WebSite, you can use the **navbar** component.
+To create a navigation bar in your application, you can use the **navbar** component.
 
-Add these lines right after your opening `<body>` tag:
-
-```html
-<nav class="navbar navbar-default"></nav>
-```
-
-> The `.navbar-default` class has an effect on the style of the navbar. You could replace it by the `.navbar-inverse` class for a dark navbar.
-
-This code adds a blank navbar, that takes up all the screen space available.
-
-> If you'd prefer a navbar that is as wide as the main content, simply move the code inside the `<div class="container">`.
-
-#### Navbar content
-
-Let's move our main title from the content of the page to the content of the navbar.
-
-Delete the `<h1>` from your code, and add its text inside the `<nav>` tag:
+Add these lines right after your opening `<body>` tag and before the `<div class="container">`:
 
 ```html
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand bg-light">
   Bootstrap Initiation
 </nav>
 ```
 
-> See how the text is stuck on the upper-left corner?
->
-> The **navbar** component needs a container to properly space its content.
+This should add the text at the top of your page with a light-grey background.
 
-Wrap the text inside the navbar with a `<div>` having the `.container` or `.container-fluid` class, as you see fit:
+It currently doesn't look that much better than a simple `<div>` with some text in it...
+
+But thanks to the `.navbar` class, it opens up a lot of customization and fine-tuning.
+
+#### Navbar width
+
+You might have noticed an alignment difference between your navbar and the main content.
+
+This is because the main content is inside a `div.container` that limits the maximum width, while the navbar doesn't.
+
+Depending on your design, you might want the navbar to only extends as wide as the main content.
+
+If this is the case, simply add a `.container` class to the `<nav>` element:
 
 ```html
-<nav class="navbar navbar-default">
-  *
+<nav class="navbar navbar-expand bg-light `container`">
+  Bootstrap Initiation
+</nav>
+```
+If you'd like the navbar to be as wide as possible but restrict **the width of its content**, then add a `div.container` **as the first child** of the navbar:
+
+<!-- prettier-ignore-start -->
+
+```html
+<nav class="navbar navbar-expand bg-light">
+* <div class="container">
+    Bootstrap Initiation
+* </div>
+</nav>
+```
+
+<!-- prettier-ignore-stop -->
+
+> This is the markup that will be used for the rest of this subject
+
+#### Navbar Brand
+
+Usually, the navbar is where the logo or the brand of the web site or web application is located.
+
+In our example, _"Bootstrap Initiation"_ could be seen as our brand.
+
+To tell the navbar what element is the brand, wrap the brand content in an element (like `<div>`, `<span>` or `<a>`) and add it the `.navbar-brand` class:
+
+```html
+<nav class="navbar navbar-expand bg-light">
   <div class="container">
-    Bootstrap Initiation *
+    <a href="/" class="navbar-brand">Bootstrap Initiation</span>
   </div>
 </nav>
 ```
 
-#### Navbar Brand
-
-Usually, the navbar is where the logo or the brand of the WebSite is placed.
-
-For us, "Bootstrap Initiation" could be seen as the brand of our page.
-
-To tell the navbar what element is the brand, use the `.navbar-brand` class on an `<a>` element:
-
-```html
-<div class="container">
-  <a class="`navbar-brand`" href="#">Bootstrap Initiation</a>
-</div>
-```
-
 > Making the brand element a link to the homepage is a good practice, hence the use of an `<a>` element here.
 
-This will fit our title nicely inside the Navbar.
+This will render the brand content a little differently than the rest of the navbar.
+
+#### Navbar theming
+
+You can easily theme your navbar using the [color utility classes](#21) we saw earlier. Let's change the background color of our navbar:
+
+```html
+<nav class="navbar navbar-expand `bg-primary`">
+```
+It worked, but we have a little issue of readability here, as the text of the brand element does not contrast very well with the background.
+
+You could add some classes to this element, but you'd have to do this for every other element added to the navbar.
+
+Instead, use one of the following classes on the `<nav>` element to let Bootstrap handle the contrast:
+
+| Class           | Use when                                                |
+| --------------- | ------------------------------------------------------- |
+| `.navbar-light` | The background is light and the content will be darker  |
+| `.navbar-dark`  | The background is dark and the content will be lighter  |
+
+In our case, the `primary` color is a dark one. Hence, we should add the `.navbar-dark` class to our navbar:
+
+```html
+<nav class="navbar navbar-expand `navbar-dark` bg-primary">
+```
+
+#### Navbar links
+
+As its name implies, the navbar is usually ideal for navigation, and you'll probably want to add links to it.
+
+In our case, the navigation could be going to the `compare.html` page (_assuming you still have it_).
+
+Let's add this right after our `<a class="navbar-brand">` element:
+
+```html
+*<div class="collapse navbar-collapse">
+  <ul class="`navbar-nav`">
+    <li class="`nav-item`">
+      <a href="compare.html" class="`nav-link`">Compare</a>
+    </li>
+  </ul>
+*</div>
+```
+> The `div.collapse.navbar-collapse` is necessary for the responsive behavior of the navbar, which we sadly won't see in details on this course.
+
+Notice the `.navbar-nav > .navbar-item > .nav-link` hierarchy.
+
+> If you don't like the idea of using a list for navbar links, [you can do without](https://getbootstrap.com/docs/4.4/components/navbar/#nav).
+
+#### Navbar buttons
+
+Now, let's say we'd like to add a _button_ in our navbar.
+
+Simply add any element with the button classes to the navbar:
+
+```html
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <div class="container">
+    <span class="navbar-brand">Bootstrap Initiation</span>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+      </ul>
+*     <a class="btn btn-outline-light" href="#">Go to top</a>
+    </div>
+  </div>
+</nav>
+```
+
+> Notice how the button is aligned to the right of the navbar. This is because it's placed outside the `div.collapse.navbar-collapse` element.
+
+> Place it inside the `div` to align it to the left.
 
 #### Fixed navbar
 
@@ -770,12 +896,12 @@ If you scroll in your `index.html` page, you'll see that the navbar **scrolls wi
 
 You may want to have a navbar that's **constantly fixed** to the top of the screen.
 
-To do this, add the `.navbar-fixed-top` class to your `<navbar>` element.
+To do this, add the `.fixed-top` class to your `<navbar>` element.
 
-> Using the `.navbar-fixed-bottom` class allows you to create footer.
+> Using the `.fixed-bottom` class will stick the navbar to the bottom of the page.
 
 ```html
-<nav class="navbar navbar-default `navbar-fixed-top`">
+<nav class="navbar navbar-expand navbar-dark bg-primary `fixed-top`">
   <!-- navbar content -->
 </nav>
 ```
@@ -786,112 +912,37 @@ But, damn!, now our navbar **overlaps** our content...
 
 To fix this, we need to **add some padding** to the element that encloses our content.
 
-#### Fix the fixed navbar
+#### Fixing the fixed navbar
 
-Let's change our content element from a `<div>` to a `<main>`:
+Let's change our content element from a `<div>` to a `<main>` (for better semantics):
 
 ```html
 &lt;body
 <nav class="navbar navbar-default navbar-fixed-top">
   <!-- navbar content -->
 </nav>
-*
-<main class="container">
+*<main class="container">
   <!-- main content -->
-  *
-</main>
+*</main>
 &lt;/body>
 ```
 
-To add it padding, we need to define a custom style.
+To add some padding, let's define a custom stylesheet.
 
 1. In your project directory, create a `css` directory if it doesn't exist yet
 2. In this `css` directory, create a new `style.css`, and open it
 3. Add this line, and save the file:
 
-```css
-main {
-  padding: 60px;
-}
-```
+  ```css
+    /* The actual padding value will depend on your design */
+    main { padding: 56px; }
+  ```
 
 1. Include the new CSS file in your `index.html`, between the `<head>` tags:
 
-```html
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-```
-
-#### Navbar links
-
-As its name implies, the navbar is usually ideal for navigation.
-
-To add links inside your navbar, you need to use an `<ul>` element with the `.nav` and `.navbar-nav` classes.
-
-> The `<li>`s inside this `<ul>` doesn't need any particulier class.
-
-In our case, the navigation could be going to the `compare.html` page (_assuming you still have it_).
-
-Let's add this right after our `<a class="navbar-brand">` element:
-
-```html
-<ul class="nav navbar-nav">
-  <li><a href="compare.html">Compare</a></li>
-</ul>
-```
-
-#### Navbar buttons
-
-Now, let's say we'd like a kind of _button_ in our navbar that scrolls up to the top of the page.
-
-Simply adding a _button_ to the navbar will not quite do the trick:
-
-```html
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <a class="navbar-brand">Bootstrap Initiation</a>
-    <ul class="nav navbar-nav">
-      <li><a href="compare.html">Compare</a></li>
-    </ul>
-    * <a class="btn btn-default" href="#">Go to top</a>
-  </div>
-</nav>
-```
-
-> This button will be stuck to the top of the navbar.
-
-To add proper spacing, you need to add the `.navbar-btn` class:
-
-```html
-...
-<a class="btn btn-default `navbar-btn`" href="#">Go to top</a>
-...
-```
-
-#### Navbar alignment
-
-Finally, we would like this _button_ to be aligned to the far right of the bar.
-
-There's two classes to use when you want to align things in your navbar:
-
-- `.navbar-left` will align elements to the left of the navbar
-- `.navbar-right` will align elements to the right of the navbar
-
-> However, due to a [bug in Bootstrap's v3 navbar][bug-nav], you can't just use it on the button.
-
-> Doing so will result in **an error in the left margin**.
-
-To add proper positionning:
-
-1. Wrap your content around a new `<div>` with a `.collapse` and `.navbar-collapse` classes
-2. Add the `.navbar-right` to the `<div>`
-
-```html
-...
-<div class="`collapse navbar-collapse` `navbar-right`">
-  <a class="btn btn-link navbar-btn" href="#">Go to top</a>
-</div>
-...
-```
+  ```html
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  ```
 
 ### Lists
 
@@ -902,9 +953,9 @@ However, the framework also supports more advanced list options.
 To create a "stack-style" list, add :
 
 - a `.list-group` class to the `<ul>` element
-- a `.list-group-item` to the `<li>` elements.
+- a `.list-group-item` to each `<li>` elements.
 
-Add this code right before the `<h2>Color classes<h2>` element:
+Add this code right before the `<h2>Forms</h2>` element:
 
 ```html
 <h2>Lists</h2>
@@ -915,49 +966,25 @@ Add this code right before the `<h2>Color classes<h2>` element:
   <li class="`list-group-item`">Voyager</li>
   <li class="`list-group-item`">Enterprise</li>
   <li class="`list-group-item`">Discovery</li>
+  <li class="`list-group-item`">Picard</li>
 </ul>
 ```
 
-#### Badges
-
-If you think about social applications like Whatsapp or ToDo applications like Wunderlist, you probably remember little numbers (called **badges**) at the right-end of a list element:
-
-<p class='center'><img class='shadow' src='images/badges-examples.jpg' width='60%' /></p>
-
-You can add them in your list (or anywhere) by adding a `<span>` element with the `.badge` class:
-
-```html
-<li class="list-group-item">
-  The Original Series `<span class="badge">3</span>`
-</li>
-<li class="list-group-item">
-  The Next Generation `<span class="badge">7</span>`
-</li>
-<li class="list-group-item">
-  Deep Space Nine `<span class="badge">7</span>`/li>
-</li>
-<li class="list-group-item">Voyager `<span class="badge">7</span>`</li>
-<li class="list-group-item">Enterprise `<span class="badge">4</span>`</li>
-<li class="list-group-item">Discovery `<span class="badge"></span>`</li>
-```
-
-> Notice how the last one **doesn't show up**? That's because empty badges will be automatically hidden from the view.
-
 #### Link elements
 
-If you'd like your list elements to be links, you need to tweek a little your HTML structure:
+If you'd like your list elements to be clickable, you need to tweek a little your HTML structure:
 
-- the `<ul>` become a `<div>`
-- the `<li>`s become `<a>`s
+- the `<ul>` becomes a `<div>`
+- each `<li>` becomes and `<a>` with an additional `.list-group-item-action` class
 
 ```html
 <`div` class="list-group">
-  <`a` class="list-group-item"><!-- content --></`a`>
-  <`a` class="list-group-item"><!-- content --></`a`>
-  <`a` class="list-group-item"><!-- content --></`a`>
-  <`a` class="list-group-item"><!-- content --></`a`>
-  <`a` class="list-group-item"><!-- content --></`a`>
-  <`a` class="list-group-item"><!-- content --></`a`>
+  <`a` class="list-group-item list-group-item-action"><!-- content --></`a`>
+  <`a` class="list-group-item list-group-item-action"><!-- content --></`a`>
+  <`a` class="list-group-item list-group-item-action"><!-- content --></`a`>
+  <`a` class="list-group-item list-group-item-action"><!-- content --></`a`>
+  <`a` class="list-group-item list-group-item-action"><!-- content --></`a`>
+  <`a` class="list-group-item list-group-item-action"><!-- content --></`a`>
 </`div`>
 ```
 
@@ -966,19 +993,17 @@ If you'd like your list elements to be links, you need to tweek a little your HT
 You can now add a `href` attribute to any list item:
 
 ```html
-<a
-  class="list-group-item"
-  `href="https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series"
-  `
-  >The Original Series <span class="badge">3</span></a
->
+<a class="list-group-item list-group-item-action"
+  `href="https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series"`>
+  The Original Series
+</a>
 ```
 
 #### I want more!
 
 Just putting a single line of text inside a list item is sometimes not enough.
 
-Again, think of any instant messaging app on smartphone/tablet or desktop, where you could have, in each list item:
+Think of any instant messaging application (Whatsapp, Slack, Messenger, ...) where you could have, in each list item:
 
 - The name of your contact
 - Its profile picture
@@ -990,255 +1015,158 @@ Let's create a second list right below the `<h2>Lists</h2>` element:
 
 ```html
 <div class="list-group">
-  <a class="list-group-item"></a>
-  <a class="list-group-item"></a>
-  <a class="list-group-item"></a>
+  <a class="list-group-item list-group-item-action"></a>
+  <a class="list-group-item list-group-item-action"></a>
+  <a class="list-group-item list-group-item-action"></a>
 </div>
 ```
-
 #### Custom list item
 
-You can add some HTML elements within the `<a>` list-items to enrich them.
-
-Add a title by using the `.list-group-item-heading` class on an element:
-
-```html
-<a class="list-group-item">
-  *
-  <h4 class="list-group-item-heading">James T. Kirk</h4>
-</a>
-```
-
-Add some text by using the `.list-group-item-text` class on a `<p>`:
-
-```html
-<a class="list-group-item">
-  <h4 class="list-group-item-heading">James T. Kirk</h4>
-  *
-  <p class="list-group-item-text">Beam me up, Scotty!</p>
-</a>
-```
+You can add any kind of HTML within the `<a>` list-items to enrich them.
 
 > Custom list item can also be used with `<li>` elements.
 
-You are free to add almost any kind of custom HTML inside a list item.
-
-> You'll obvisouly need to add some custom CSS to this custom HTML.
+```html
+<a class="list-group-item list-group-item-action">
+* <h5>James T. Kirk</h5>
+* <p>Beam me up, Scotty!</p>
+</a>
+```
+You don't need to add extra classes to the custom content, unless you want to customize it depending on your needs, of course.
 
 #### Contextual list item colors
 
-Any element within a `.list-group` list can be added one of the [Bootstrap color classes](./#32).
+Any element within a `.list-group` list can be colored with one of the [predefined color](#21).
 
-> But using the `.text-*` or the `.bg-*` classes won't work here!
+> Note that using the `text-` or the `bg-` prefixes won't work here!
 
-Use a `.list-group-item-*` class for the color to properly apply:
+Use a `list-group-item-` prefix before the color you want to apply:
 
 ```html
 <div class="list-group">
-  <a class="list-group-item list-group-item-success"><!-- content --></a>
-  <a class="list-group-item list-group-item-info"><!-- content --></a>
-  <a class="list-group-item list-group-item-danger"><!-- content --></a>
+  <a class="list-group-item list-group-item-action `list-group-item-success`">
+    <!-- content -->
+  </a>
+  <a class="list-group-item list-group-item-action `list-group-item-info`">
+    <!-- content -->
+  </a>
+  <a class="list-group-item list-group-item-action `list-group-item-danger`">
+    <!-- content -->
+  </a>
 </div>
 ```
+### Badges
 
-> As a reminder, here are the color suffixes available:
->
-> - `primary` (strong navy blue)
-> - `success` (pale green)
-> - `info` (pale sky blue)
-> - `warning` (pale orange)
-> - `danger` (pale red)
+<!-- slide-column 50 -->
+If you have used some kind of web applications, you probably have seen little numbers in list elements or icons.
 
-## Panel
+<!-- slide-column 50 -->
+<p class='center'><img class='shadow' src='images/badges-examples.jpg' /></p>
 
-Panels are component designed for structuring content, and as such appear as visible blocks on the page (think Facebook's statuses).
+<!-- slide-column 100 -->
+Bootstrap provides a similar component, called a _badge_. Use a `<span>` element with the `.badge` class anywhere in your app to add a badge:
 
-To create a panel, the markup is quite simple: just create a `<div>` with the `.panel` class (and the `.panel-default` class for now).
+```html
+<a class="list-group-item list-group-item-action  list-group-item-success">
+  <h5 class="d-flex justify-content-between">
+    <span>Jame T. Kirk</span>
+*   <span class="badge">3</span>
+  </h5>
+  <p>Beam me up, Scotty!</p>
+</a>
+```
+As it is, a `.badge` class only adds spacing and style the content. You can add color to the badge by prefixing the color name with a `badge-` prefix:
+
+```html
+<span class="badge `badge-light`">3</span>
+```
+
+## Cards
+
+Cards are component designed for structuring content, and as such appear as visible blocks on the page (think Facebook's statuses).
+
+To create a card, the markup is quite simple: just create a `<div>` with the `.card` class.
 
 Put this right before the `<h2>Lists</h2>?`:
 
 ```html
 <h2>Panels</h2>
-<div class="`panel panel-default`">
+<div class="`card`">
   Today, I ate an apple. It was tasty
 </div>
 ```
 
-> You see that the content is placed inside some kind of round-cornered block.
+You see that the content is placed inside some kind of round-cornered block.
 
-> But the spacing is quite not right...
+But the spacing is quite not right...
 
-### Panel's content
+### Card's body
 
-For correct spacing, the content of a panel **must be** placed inside a `<div>` with the `.panel-body` class:
+For correct spacing, the content of a panel **should be** placed inside a `<div>` with the `.card-body` class:
 
 ```html
-<div class="panel panel-default">
-  <div class="`panel-body`">
+<div class="card">
+  <div class="`card-body`">
     Today, I ate an apple. It was tasty
   </div>
 </div>
 ```
 
-> You can see that the title is highlighted by a different color than the content.
+### Header/Footer
 
-### Panel's title
-
-Panels being block of content, you might want to indicate what is its actual content.
-
-For doing so, you can use a **panel heading**.
-
-Create a new `<div>` witht the `.panel-heading` class, and place your text inside:
-
-> The new `div.panel-heading` must be placed before the `div.panel-body`.
+You can add a **header** and a **footer** to a card, to better structure its content.
 
 ```html
-<div class="panel panel-default">
-  *
-  <div class="panel-heading">
-    * John Doe commented on that: *
-  </div>
-  <div class="panel-body">
+<div class="card">
+* <div class="card-header">
+*   John Doe commented on that:
+* </div>
+  <div class="card-body">
     Today, I ate an apple. It was tasty
   </div>
+* <div class="card-footer">
+*   <button class="btn btn-light btn-sm">Like</button>
+* </div>
 </div>
 ```
 
-### Panel's footer
+### Card styling
 
-With certain use-case, you could want a special zone at the bottom of your panel to put, for example, action button or less important information.
-
-To do that, add after the `div.panel-body` a new `<div>` with the `.panel-footer` class:
+You can directly use any [color utility classes](#21) to style the different parts of your card:
 
 ```html
-<div class="panel panel-default">
-  <div class="panel-heading">
+<div class="card `text-primary bg-warning`">
+  <div class="card-header `text-danger`">
     John Doe commented on that:
   </div>
-  <div class="panel-body">
+  <div class="card-body `bg-dark`">
     Today, I ate an apple. It was tasty
   </div>
-  *
-  <div class="panel-footer">
-    *
-    <button class="btn btn-default">
-      * <span class="glyphicon glyphicon-thumbs-up"></span> Like *
-    </button>
-    *
-    <button class="btn btn-default">
-      * <span class="glyphicon glyphicon-pencil"></span> Comment *
-    </button>
-    *
-    <button class="btn btn-default">
-      * <span class="glyphicon glyphicon-share"></span> Share *
-    </button>
-    *
+  <div class="card-footer `bg-info`">
+    <button class="btn btn-light btn-sm">Like</button>
   </div>
 </div>
 ```
 
-### Panel's color
+### Card features
 
-One more time, Bootstrap allows you to add color to your component, using the same color schemes than usual.
+Cards are very powerful components with many features and use case available through many classes.
 
-Replace the `.panel-default` with one of the available classes to use these color schemes:
+You can:
 
-- `.panel-default`
-- `.panel-primary`
-- `.panel-success`
-- `.panel-info`
-- `.panel-warning`
-- `.panel-danger`
+- Add cover images
+- Display lists or tables
+- Tweek their size or their content alignment
+- Add navigation elements inside them
+- ...
 
-```html
-<div class="panel `panel-info`">
-  <!-- panel-content -->
-</div>
-```
-
-> Note that this will only change the color of **the title and the border**. The footer will stay grey-ish.
-
-### Expand panel's body
-
-Adding a **table** or a **list group** inside a panel render it in a seamless fashion, perfectly intergrating this table or list group to the panel's design.
-
-Simply add a `<table>` with the `.table` class **after** your `div.panel-body`:
-
-```html
-<div class="panel panel-default">
-  <div class="panel-heading">
-    John Doe commented on that:
-  </div>
-  <div class="panel-body">
-    Today, I ate an apple. It was tasty
-  </div>
-  *
-  <table class="table">
-    *
-    <thead>
-      *
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-      </tr>
-      *
-    </thead>
-    *
-    <tbody>
-      *
-      <tr>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      *
-      <tr>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-      *
-      <tr>
-        <td>Larry</td>
-        <td>the Bird</td>
-      </tr>
-      *
-    </tbody>
-    *
-  </table>
-  <div class="panel-footer">
-    <!-- foter-content -->
-  </div>
-</div>
-```
-
-#### List group in body
-
-For a list group, its the same idea.
-
-> Remove the table from the panel.
-
-Add your new `<ul>` witht the `.list-group` class directly after the `div.panel-body`:
-
-```html
-<div class="panel panel-default">
-  <div class="panel-heading">
-    John Doe commented on that:
-  </div>
-  <div class="panel-body">
-    Today, I ate an apple. It was tasty
-  </div>
-  *
-  <div class="list-group">
-    * <a class="list-group-item">Golden</a> *
-    <a class="list-group-item">Grany</a> *
-    <a class="list-group-item">Williams</a> *
-  </div>
-  <div class="panel-footer">
-    <!-- foter-content -->
-  </div>
-</div>
-```
+The [documentation is choke full of information][bs-card] about them ; you're strongly advised to go check it out, then try and experiment with all the possibilities.
 
 ## Resources
+
+> There are A LOT of other components and features we didn't cover in this subject.
+
+> Again... check the doc to see what Bootstrap offers and try them out.
 
 You will find the final HTML file for this course [here][final-file].
 
@@ -1251,6 +1179,7 @@ You will find the final HTML file for this course [here][final-file].
 
 - [Bootstrap - Layout management][bsm]
 
+[bs-card]: https://getbootstrap.com/docs/4.4/components/card/
 [vscode]: https://code.visualstudio.com/
 [bootstrap-css]: http://getbootstrap.com/docs/
 [bootstrap-reboot]: https://getbootstrap.com/docs/4.4/content/reboot/

@@ -149,7 +149,7 @@ and respond by generating HTML **Views** from the **Model**.
 
 ### DOM manipulation and AJAX requests
 
-<!-- slide-column -->
+<!-- slide-column 60 -->
 
 Serving dynamic HTML from the server works, but each user action requires that a **complete page be loaded** from the server.
 
@@ -162,7 +162,7 @@ To improve user experience:
 
 <img src='images/jquery-ajax.gif' class='w100' />
 
-<!-- slide-container -->
+<!-- slide-column 100 -->
 
 This allows you to load data from the server in the background and **dynamically update the page** without reloading.
 
