@@ -6,7 +6,6 @@ import { RunkitController } from "./runkit";
 
 import "font-awesome/css/font-awesome.css";
 
-import "./assets/bootstrap-btn.css";
 import "tippy.js/dist/tippy.css";
 import "./assets/fonts/DroidSerif/DroidSerif.css";
 import "./assets/fonts/UbuntuMono/UbuntuMono.css";

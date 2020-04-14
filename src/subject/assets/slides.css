@@ -202,3 +202,9 @@ p.shadow {
 .slide-logo {
   margin-left: 10px;
 }
+
+.live-example {
+  padding: 10px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}

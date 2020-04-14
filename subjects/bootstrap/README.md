@@ -1189,7 +1189,7 @@ You will find the final HTML file for this course [here][final-file].
 [dl-bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/download/#compiled-css-and-js
 [normalize]: https://necolas.github.io/normalize.css/
 [bootstrap-glyphicons]: http://getbootstrap.com/components/#glyphicons-glyphs
-[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/9f1dec778546a4d9741f1d17b08212c5606c26ca/index.html
+[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/5121ddfc54a4dd9f68946a37bd2aba4791548eb1/index.html
 [bsm]: ../bootstrap-layout-management
 [setup]: ../setup
 [aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
