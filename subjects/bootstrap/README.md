@@ -143,7 +143,7 @@ bootstrap-4.4.1-dist/
       └─ [some files]
 ```
 
-Copy the complete `css` folder and place it at the root of your project directory, at the same level than `index.html`, then add this `<link>` tag at the bottom of your `<head>` tag in your `index.html` file:
+Create a `css` folder at the root of your poject directory, at the same level than `index.html`. Copy in this new directory the file `bootstrap.min.css` from the `bootstrap-4.4.1-dist/css` directory, then add this `<link>` tag at the bottom of your `<head>` tag in your `index.html` file:
 
 ```html
 <head>
