@@ -41,6 +41,7 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
   - [Buttons](#buttons)
     - [The `.btn` class](#the-btn-class)
     - [Additionnal classes](#additionnal-classes)
+    - [Inverted buttons](#inverted-buttons)
     - [Try it!](#try-it)
     - [Size control](#size-control)
   - [Forms](#forms)
@@ -50,27 +51,26 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
     - [Checkboxes](#checkboxes)
     - [Radio buttons](#radio-buttons)
   - [Navbar](#navbar)
-    - [Navbar styling](#navbar-styling)
-    - [Navbar content](#navbar-content)
+    - [Navbar width](#navbar-width)
     - [Navbar Brand](#navbar-brand)
-    - [Fixed navbar](#fixed-navbar)
-    - [Fix the fixed navbar](#fix-the-fixed-navbar)
+    - [Navbar theming](#navbar-theming)
     - [Navbar links](#navbar-links)
     - [Navbar buttons](#navbar-buttons)
-    - [Navbar alignment](#navbar-alignment)
+    - [Fixed navbar](#fixed-navbar)
+    - [Fixing the fixed navbar](#fixing-the-fixed-navbar)
   - [Lists](#lists)
-    - [Badges](#badges)
     - [Link elements](#link-elements)
     - [I want more!](#i-want-more)
     - [Custom list item](#custom-list-item)
     - [Contextual list item colors](#contextual-list-item-colors)
-- [Panel](#panel)
-  - [Panel's content](#panels-content)
-  - [Panel's title](#panels-title)
-  - [Panel's footer](#panels-footer)
-  - [Panel's color](#panels-color)
-  - [Expand panel's body](#expand-panels-body)
-    - [List group in body](#list-group-in-body)
+  - [Badges](#badges)
+- [Cards](#cards)
+  - [Card's body](#cards-body)
+  - [Header/Footer](#headerfooter)
+  - [Card styling](#card-styling)
+  - [Card features](#card-features)
+- [Icons](#icons)
+  - [Usage](#usage)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -1087,10 +1087,10 @@ Cards are component designed for structuring content, and as such appear as visi
 
 To create a card, the markup is quite simple: just create a `<div>` with the `.card` class.
 
-Put this right before the `<h2>Lists</h2>?`:
+Put this right before the `<h2>Lists</h2>`:
 
 ```html
-<h2>Panels</h2>
+<h2>Cards</h2>
 <div class="`card`">
   Today, I ate an apple. It was tasty
 </div>
@@ -1162,6 +1162,41 @@ You can:
 
 The [documentation is choke full of information][bs-card] about them ; you're strongly advised to go check it out, then try and experiment with all the possibilities.
 
+## Icons
+
+Bootstrap doesn't come with a bundle icon set since its version 4. As a result, you need to include yourself an icon library, would you want to use one.
+
+The documentation recommand you some libraries, tested and used by the people behind Bootstrap. One of them is the **Font Awesome** library, which has [a huge amount of icons][fa-icons] to choose from.
+
+> The Free version restrict you to only one icon style
+
+You can include the **Font Awesome Library** with a many number of way, the easier one being through a CDN. Add the following line in the `<head>` of your `index.html`:
+
+```html
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    rel="stylesheet">
+```
+### Usage
+
+Once the CSS is included, you can add icons to your page by using an `<i>` element, with the class `.fas` and the name of the icon.
+
+You can find the complete HTML to include by browsing the [icon library][fa-icons], clicking on the one you want to include (for example, ["align-left"][fa-align-left]), then clicking on **the HTML code in the header of the page** to copy it.
+
+<p class='center'><img src='images/fa-html-link.png' width='60%' /></p>
+
+You'll just have to paste this HTML on your page to add the icon.
+
+Add this before the `<h2>Cards</h2>`:
+
+```html
+<h2>Icons</h2>
+<div>
+  <button class="btn btn-light">`<i class="fas fa-align-right">`</i></button>
+  <button class="btn btn-light">`<i class="fas fa-align-center">`</i></button>
+  <button class="btn btn-light">`<i class="fas fa-align-left">`</i></button>
+</div>
+```
+
 ## Resources
 
 > There are A LOT of other components and features we didn't cover in this subject.
@@ -1179,6 +1214,8 @@ You will find the final HTML file for this course [here][final-file].
 
 - [Bootstrap - Layout management][bsm]
 
+[fa-icons]: https://fontawesome.com/icons?d=gallery&m=free
+[fa-align-left]: https://fontawesome.com/icons/align-left?style=solid
 [bs-card]: https://getbootstrap.com/docs/4.4/components/card/
 [vscode]: https://code.visualstudio.com/
 [bootstrap-css]: http://getbootstrap.com/docs/
@@ -1189,7 +1226,7 @@ You will find the final HTML file for this course [here][final-file].
 [dl-bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/download/#compiled-css-and-js
 [normalize]: https://necolas.github.io/normalize.css/
 [bootstrap-glyphicons]: http://getbootstrap.com/components/#glyphicons-glyphs
-[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/5121ddfc54a4dd9f68946a37bd2aba4791548eb1/index.html
+[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/ddae9363bc48d59df2e5f4c8d89b4f33b1cbc415/index.html
 [bsm]: ../bootstrap-layout-management
 [setup]: ../setup
 [aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA

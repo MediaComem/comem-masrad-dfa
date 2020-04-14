@@ -2,19 +2,20 @@
 
 <!-- slide-include ../../BANNER.md -->
 
-Hands-on practice on the use of Bootstrap to create a WebPage.
+Hands-on practice on the use of Bootstrap to create a static web page.
 
 **You will need**
 
 - [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Visual Studio Code][vscode] (recommended, although any editor could do)
 - [Live-Server][ls] (should already be installed)
 
-**Recommended reading**
-
-- [Project setup][projset]
+**Required reading**
 - [Bootstrap][bb]
 - [Bootstrap - Layout management][blm]
+
+**Recommended reading**
+- [Course setup][setup]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -32,18 +33,22 @@ Hands-on practice on the use of Bootstrap to create a WebPage.
 
 1. Create a new project directory in your file system (`bootstrap-practice`)
 2. Download the [basic HTML template][bht] and save it as `index.html`
-3. **Using only Bootstrap classes, recreate the following page:**
+3. **Using only Bootstrap classes, recreate the following page**.
 
 > Click on the image to see it full-screen.
 
-<a class="center" href="images/template.jpg" target="blank"><img src="images/template.jpg" class="shadow" width="70%" /></a>
+<a class="center" href="images/final-result.png" target="blank"><img src="images/final-result.png" class="shadow" width="50%" /></a>
+
+> Try to have a result as faithful as possible compared to the example. "The devil is in the details", as one said.
+
+> Don't hesitate to ask for more details about some particular elements of the page if you can not deduce it from the image.
 
 ## How to approach it?
 
 The steps could be:
 
 1. Analyze very thoroughly the screenshot
-2. Try and determine the major "blocks" of the layout
+2. Try and determine the major "sections" of the layout
 3. Try and determine how you will use the grid system
 4. Start by the navbar and footer
 5. Follow this by creating the list
@@ -53,56 +58,64 @@ The steps could be:
 
 **You don't have to add any additionnal CSS!**
 
-This practice was only realised using Bootstrap classes.
+This practice was only realised using Bootstrap classes. Try to do the same.
 
-Try to do the same.
+Yes, it could be sometimes easier to just write some custom classes and be done with it. But that would defeat the purpose of this practice :)
 
-> The **ONLY** custom CSS needed is the one that adds the margin on the content, due to the navbar being fixed to the top.
+The **ONLY** custom CSS needed is the one that adds the margin on the content, due to the navbar being fixed to the top.
 
 ```css
 main {
-  margin-top: 60px;
+  margin-top: 70px;
 }
 ```
 
-You can add this CSS directly in a `<script>` tag at the end of your `<head>` element, or create a new CSS file; your choice.
+> You can add this CSS directly in a `<script>` tag at the end of your `<head>` element, or create a new CSS file; your choice.
 
 ## References
 
 This exercice will require you to use:
 
-- Navbar
-- List
-- Panel
-- Form
-- Grid System
+- [Navbar][navbar]
+- [List groups][lists]
+- [Cards][cards]
+- [Badges][badges]
+- [Forms][forms]
+- [Grid System][grid]
 
 > To complete this practice, you'll need to look up in the documentation how to use:
 
-- [Labels][labels]
 - [Alerts][alert]
 - [Button groups][btn-group]
-- [Simple text in navbar][nav-text]
-- [Nested columns][nest]
-- the `active` class on the navbar and the list-group elements
+- [Nesting][nest]
+- The `.active` class [on the navbar][active-nav] and [the list-group elements][active-list]
+- Be sure to read and understand what Bootstrap offers in terms of [Flexbox][flexbox] classes.
 
 ## Disclaimer
 
 <!-- slide-front-matter class: center, middle, image-header -->
 
-> **Ask questions before throwing your computer through the window.**
+> **Ask questions before throwing your computer out the window.**
 
-> Bootstrap can be quite frustrating some times ;)
+> Bootstrap can be quite frustrating at first ;)
 
+[flexbox]: https://getbootstrap.com/docs/4.4/utilities/flex/
+[active-list]: https://getbootstrap.com/docs/4.3/components/list-group/#active-items
+[active-nav]: https://getbootstrap.com/docs/4.3/components/navbar/#nav
+[navbar]: https://getbootstrap.com/docs/4.3/components/navbar/
+[lists]: https://getbootstrap.com/docs/4.3/components/list-group/
+[cards]: https://getbootstrap.com/docs/4.3/components/card/
+[badges]: https://getbootstrap.com/docs/4.3/components/badge/
+[forms]: https://getbootstrap.com/docs/4.3/components/forms/
+[grid]: https://getbootstrap.com/docs/4.3/layout/grid/
 [bht]: https://gist.githubusercontent.com/Tazaf/420a368389367a83fcfb96ab3a51bf8a/raw/1c5af02f1dd3248189b8e6869a02c5133232db7b/index.html
-[labels]: http://getbootstrap.com/components/#labels
-[alert]: http://getbootstrap.com/components/#alerts
-[btn-group]: http://getbootstrap.com/components/#btn-groups
+[alert]: https://getbootstrap.com/docs/4.4/components/alerts/
+[btn-group]: https://getbootstrap.com/docs/4.3/components/button-group/
 [nav-text]: http://getbootstrap.com/components/#navbar-text
-[nest]: http://getbootstrap.com/css/#grid-nesting
+[nest]: https://getbootstrap.com/docs/4.3/layout/grid/#nesting
 [bb]: ../bootstrap
 [blm]: ../bootstrap-layout-management
-[projset]: ../masrad-project-setup
+[setup]: ../setup
 [vscode]: https://code.visualstudio.com/
 [chrome]: https://www.google.com/chrome/
 [ls]: https://www.npmjs.com/package/live-server

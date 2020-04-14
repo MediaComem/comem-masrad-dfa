@@ -15,7 +15,7 @@ Learn how Bootstrap helps you structure your HTML layouts, using both its grid s
 
 **Recommended reading**
 
-- [Project setup][projset]
+- [Course setup][setup]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -24,9 +24,10 @@ Learn how Bootstrap helps you structure your HTML layouts, using both its grid s
 - [Example file](#example-file)
 - [Default HTML layout](#default-html-layout)
   - [Altering the default layout](#altering-the-default-layout)
-- [Grid systems](#grid-systems)
+  - [Advanced CSS layout systems](#advanced-css-layout-systems)
+- [Grid Systems](#grid-systems)
 - [Bootstrap Grid System](#bootstrap-grid-system)
-  - [Creating `.row`](#creating-row)
+  - [Creating rows](#creating-rows)
   - [Adding columns](#adding-columns)
     - [Column wrapping](#column-wrapping)
     - [Offseting columns](#offseting-columns)
@@ -362,14 +363,14 @@ You will find the final HTML file for this course [here][fef]
 [grid-guide]: https://css-tricks.com/snippets/css/complete-guide-grid/
 [froggy]: https://flexboxfroggy.com/#fr
 [bootstrap]: ../bootstrap
-[projset]: ../masrad-project-setup
+[setup]: ../setup
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
-[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/5121ddfc54a4dd9f68946a37bd2aba4791548eb1/index.html
+[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/ddae9363bc48d59df2e5f4c8d89b4f33b1cbc415/index.html
 [block]: ./images/blocks.jpg
 [inline]: ./images/inline.jpg
 [gs]: https://getbootstrap.com/docs/4.4/layout/grid/
 [ru]: https://getbootstrap.com/docs/4.4/layout/utilities-for-layout/
-[fef]: https://gist.githubusercontent.com/Tazaf/329374f10e54818875620c9e03a2609a/raw/4e9b656d683986ec910b3632e699bc6eb7ab2c51/index.html
+[fef]: https://gist.githubusercontent.com/Tazaf/329374f10e54818875620c9e03a2609a/raw/d813d8a19e05aec4d7b8b8472ca649c25052ea87/index.html
 [bs-screen-sizes]: https://getbootstrap.com/docs/4.3/layout/grid/#grid-options
 [d-values]: https://getbootstrap.com/docs/4.3/utilities/display/#notation
