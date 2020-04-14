@@ -3,7 +3,7 @@
   <head>
     <title>Angular Geolocation (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/f73761e1e7e330ba6b909a2a39de567f649c950a/subjects/angular-geolocation/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/b9c14a6eabd53cd88f9d8b69127d802e999d071d/subjects/angular-geolocation/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -11,17 +11,17 @@
 
 Learn to use the Geolocation API in an Angular app.
 
-This material is part of the [mobile development course](https://github.com/MediaComem/comem-devmobil) for [Media Engineering](https://heig-vd.ch/formations/bachelor/filieres/ingenierie-des-medias).
+This material is part of the [Advanced Front-end Development](https://github.com/MediaComem/comem-masrad-dfa) for the [Master of Advances Studies in Rapid Application Development](https://www.he-arc.ch/ingenierie/mas-rad-cas-dar).
 
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-* [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
 
 **Recommended reading**
 
-* [Angular][ng]
+- [Angular][ng]
 
 
 
@@ -63,6 +63,7 @@ angular.module("app").controller("myController", function (`$geolocation`) {
   // ...
 }
 ```
+
 ---
 ### `.getCurrentPosition()`
 
@@ -87,6 +88,7 @@ angular.module("app").controller("myController", function ($geolocation) {
     })
 }
 ```
+
 > Getting the location is an **asynchronous** operation.
 
 Use `position.coords.latitude` and `position.coords.longitude` to actually get the position's coordinates
@@ -106,10 +108,11 @@ angular.module("app").controller("myController", function ($geolocation) {
   `$geolocation.watchPosition()`;
 }
 ```
+
 This method will get the user's location regularly and store the result in the `$geolocation.position` property.
 
 > Getting the location is still an **asynchronous** operation.
-> 
+>
 > Meaning, that if you'd try to access `$geolocation.position` right after calling the method, you'll get an `undefined`.
 
 Delete the watch using the `$geolocation.clearWatch()` method.
@@ -125,7 +128,7 @@ With it, your can access `$geolocation.position.coords.latitude` and `$geolocati
 
 When `.watchPosition()` detects a new position, it fires an event, called `$geolocation.position.changed` to which you can listen.
 
-----
+---
 
 If something went wrong and the position could not be accessed, `$geolocation.position` will contain and Error object.
 
@@ -140,17 +143,18 @@ When `.watchPosition()` detects and error, it fires an event, called `$geolocati
 
 **Documentation**
 
-* [ngGeolocation - Documentation][ngloc-doc]
+- [ngGeolocation - Documentation][ngloc-doc]
 
 [ng]: ../angular
 [chrome]: https://www.google.com/chrome/
-[sublime]: https://www.sublimetext.com/
+[vscode]: https://code.visualstudio.com/
 [geoapi-doc]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
 [ngloc]: https://github.com/ninjatronic/ngGeolocation
 [ngloc-file]: https://github.com/ninjatronic/ngGeolocation/blob/master/ngGeolocation.min.js
 [ngloc-doc]: https://github.com/ninjatronic/ngGeolocation/wiki/API-Reference
+
     </textarea>
     <script src='https://embed.runkit.com'></script>
-    <script src='../../subject-4c6b3528ffec9c553fd8.js'></script>
+    <script src='../../subject-593c5de278f551214999.js'></script>
   </body>
 </html>

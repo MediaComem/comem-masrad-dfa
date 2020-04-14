@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript Prototypes (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/f73761e1e7e330ba6b909a2a39de567f649c950a/subjects/js-prototypes/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/b9c14a6eabd53cd88f9d8b69127d802e999d071d/subjects/js-prototypes/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -11,7 +11,7 @@
 
 Learn about prototypal inheritance in JavaScript.
 
-This material is part of the [mobile development course](https://github.com/MediaComem/comem-devmobil) for [Media Engineering](https://heig-vd.ch/formations/bachelor/filieres/ingenierie-des-medias).
+This material is part of the [Advanced Front-end Development](https://github.com/MediaComem/comem-masrad-dfa) for the [Master of Advances Studies in Rapid Application Development](https://www.he-arc.ch/ingenierie/mas-rad-cas-dar).
 
 
 **You will need**
@@ -292,8 +292,12 @@ When you use that function **as a constructor with `new`**, the prototype of the
 
 .breadcrumbs[<a href="#1">JavaScript Prototypes</a> > <a href="#2">Prototypal inheritance</a>]
 
+.grid-100[
+
 Let's combine two of the important things we just learned:
 
+
+]
 .grid-70[
 
 * When **accessing a property** that doesn't exist on an object,
@@ -313,7 +317,7 @@ Wait, what?
 
 
 ]
-.container[
+.grid-100[
 
 This means that **if we attach things to a function's prototype object**,
 these things will be **available on any object constructed with that function**.
@@ -360,11 +364,15 @@ console.log(person.getFullName()); // "Bob Page"
 
 .breadcrumbs[<a href="#1">JavaScript Prototypes</a> > <a href="#12">Implementing a class-like structure with prototypes</a>]
 
+.grid-100[
+
 <runkit></runkit>
 
 Note that **when calling a function on an object**,
 the keyword **`this`** always refers to **the object the function was called on**.
 
+
+]
 .grid-50[
 
 ```js
@@ -397,9 +405,10 @@ console.log(`o`.getValue()); // 42
 
 
 ]
-.container[
+.grid-100[
 
 By the way, it's best to use the second structure rather than the first.
+
 Why? Because in the first example, a **new function** will be created every time you create an object this way.
 In the second example, only one `getValue` function is defined and attached to the prototype, and it's **reused** for every object that's an instance of `Foo`.
 
@@ -437,6 +446,6 @@ In the second example, only one `getValue` function is defined and attached to t
 
     </textarea>
     <script src='https://embed.runkit.com'></script>
-    <script src='../../subject-4c6b3528ffec9c553fd8.js'></script>
+    <script src='../../subject-593c5de278f551214999.js'></script>
   </body>
 </html>

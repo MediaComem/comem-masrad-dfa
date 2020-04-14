@@ -1,0 +1,23 @@
+.example-wrapper {
+  font-size: 10px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid pink;
+  background-color: rgba(255, 182, 193, 0.2);
+}
+
+.example-wrapper > .row > div:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.example-wrapper .example-column {
+  text-align: center;
+  background-color: #008b8b;
+  padding: 5px;
+}
+
+.example-wrapper code {
+  background-color: white;
+  border-radius: 3px;
+  padding: 1px;
+}

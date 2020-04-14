@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript Promises (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/f73761e1e7e330ba6b909a2a39de567f649c950a/subjects/js-promises/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/b9c14a6eabd53cd88f9d8b69127d802e999d071d/subjects/js-promises/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -116,7 +116,7 @@ Your mom can either **really buy** you a brand new phone, or **stand you up** an
 
 
 ]
-.container[
+.grid-100[
 
 That's a promise.
 A promise has 3 states; it can be:
@@ -566,6 +566,8 @@ class: center, middle
 
 .breadcrumbs[<a href="#1">JavaScript Promises</a> > <a href="#20">Chaining promises</a>]
 
+.grid-100[
+
 <runkit except='0'></runkit>
 
 Promises are chainable; the `then()` function also **returns a promise**:
@@ -578,6 +580,8 @@ Will `promise2` be resolved or rejected?
 That depends on `phonePromise`, `onResolved` and `onRejected`.
 The simplest case is this one:
 
+
+]
 .grid-50[
 
 ```js
@@ -610,7 +614,7 @@ promise2.then(function(value) {
 
 
 ]
-.container[
+.grid-100[
 
 If neither `onResolved` nor `onRejected` is given, `promise2` will have **the same state** as `promise1`
 (i.e. it will be resolved when `promise1` is resolved, or rejected when `promise1` is rejected).
@@ -891,6 +895,8 @@ function showOff(phone) {
 ]
 .container[
 
+.grid-100[
+
 In this promise chain, the 3 `showOff()` functions above are **equivalent**:
 
 ```js
@@ -899,6 +905,8 @@ phonePromise.then(showOff).then(onResolved, onRejected);
 
 
 
+
+]
 
 ]
 ---
@@ -970,6 +978,8 @@ function showOff(phone) {
 ]
 .container[
 
+.grid-100[
+
 In this promise chain, the 3 `showOff()` functions above are **equivalent**:
 
 ```js
@@ -978,6 +988,8 @@ phonePromise.then(showOff).then(onResolved, onRejected);
 
 
 
+
+]
 
 ]
 ---
@@ -1250,7 +1262,7 @@ Asynchronous code tends to be **nested** very deeply and be quite difficult to r
 
 
 ]
-.container[
+.grid-100[
 
 Our previous example showed us that we can execute **successive asynchronous calls without nesting**:
 
@@ -1394,7 +1406,7 @@ This behavior enables complex asynchronous workflows with smart error handling:
 
 
 ]
-.container[
+.grid-100[
 
 Promises are a **powerful abstraction** that make it **easy to compose asynchronous workflows**.
 
@@ -1507,10 +1519,14 @@ class: center, middle
 
 .breadcrumbs[<a href="#1">JavaScript Promises</a> > <a href="#48">`async`/`await`</a>]
 
+.grid-100[
+
 <runkit></runkit>
 
 Promises are powerful, but they're still an **asynchronous construct** that's hard to reason about:
 
+
+]
 .grid-55[
 
 ```js
@@ -1554,7 +1570,7 @@ computeAllTheThings(); // 24
 
 
 ]
-.container[
+.grid-100[
 
 It's still **better than traditional callbacks** because it helps us **avoid nesting** and has **error-handling**,
 but it's just easier to understand **synchronous execution**.
@@ -1568,11 +1584,15 @@ but it's just easier to understand **synchronous execution**.
 
 .breadcrumbs[<a href="#1">JavaScript Promises</a> > <a href="#48">`async`/`await`</a>]
 
+.grid-100[
+
 <runkit></runkit>
 
 By declaring a function with the `async` keyword,
 we can use the `await` operator inside it to **pause the execution of the function and wait for the promise to be resolved**.
 
+
+]
 .grid-55[
 
 ```js
@@ -1614,7 +1634,7 @@ computeAllTheThings(); // 24
 
 
 ]
-.container[
+.grid-100[
 
 Our **asynchronous code** on the left now **looks synchronous** and is much easier to understand.
 At the same time, it **retains its asynchronous and non-blocking properties**.
@@ -1824,6 +1844,6 @@ after
 
     </textarea>
     <script src='https://embed.runkit.com'></script>
-    <script src='../../subject-4c6b3528ffec9c553fd8.js'></script>
+    <script src='../../subject-593c5de278f551214999.js'></script>
   </body>
 </html>
