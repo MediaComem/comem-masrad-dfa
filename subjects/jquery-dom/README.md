@@ -1,6 +1,6 @@
 # jQuery - DOM Manipulation
 
-Learn how to use the jQuery library for manipulating the DOM of a WebPage and, thus, creating interactivity.
+Learn how to use the jQuery library to manipulate the DOM of a web page and creating interactivity.
 
 <!-- slide-include ../../BANNER.md -->
 
@@ -99,7 +99,7 @@ Learn how to use the jQuery library for manipulating the DOM of a WebPage and, t
 
 > jQuery is a JavaScript (_hereafter JS_) library created in 2006 by John Resig, and originally designed to ease the creation of client-side JS script, especially regarding DOM manipulation.
 
-> **This subject is based on the `3.1.1` version of jQuery.**
+> **This subject is based on the `3.4.1` version of jQuery.**
 >
 > **As such, some examples could be out-of-date.**
 
@@ -109,7 +109,7 @@ The rest of this subject will rely on [this `index.html` file][ex-file] as conte
 
 Be sure to download it and place it in a new project directory (e.g. `jquery-course`), if you want to try and follow with the examples.
 
-<p class="center"><img src="images/template.jpg" class="shadow" width="70%" /></p>
+<p class="center"><img src="images/final-result.png" class="shadow" width="70%" /></p>
 
 > Note that this example file includes Bootstrap through a CDN. Feel free to change that to a local link if you'd prefer ([see here][local-bs]).
 
@@ -137,11 +137,10 @@ To add jQuery in your project, you can include it via a CDN link, in your `index
 <body>
   ...
   <script
-    src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"
-  ></script>
-</body>
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+&lt;/body>
 ```
 
 You can also [download the complete file][dl-jquery], and save the file in a `js` directory in your project directory. Then, include the file in your `index.html`:
@@ -150,12 +149,12 @@ You can also [download the complete file][dl-jquery], and save the file in a `js
 <body>
   ...
   <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-</body>
+&lt;/body>
 ```
 
 > Wait... am I not supposed to put my `<script>` tags in the `<head>`?
 >
-> What are they doing right before the closing `</body>` tag?
+> What are they doing right before the closing `&lt/body>` tag?
 
 ### Script inclusions
 
@@ -167,7 +166,7 @@ Parsing the JS files **pauses the load of all other resources**, effectively blo
 
 > This can result in **slow loading pages**, especially when you have multiple or big scripts.
 
-Plus, loading JS files while the DOM is not forces you to start all your JS scripts with the `window.onlad = function {}` syntax.
+Plus, loading JS files while the DOM is not, forces you to start all your JS scripts with the `window.onlad = function {}` syntax.
 
 > With the `<script>` tag at the end of the HTML file, you can be sure that your JS is loaded **after** the DOM is.
 
@@ -175,13 +174,13 @@ Plus, loading JS files while the DOM is not forces you to start all your JS scri
 
 We will write our own JS code in a custom script file.
 
-In the `js` directory inside your project directory, create a new file `script.js` and include it at the bottom of your `index.html` page:
+In your project directory, create a new file `script.js` and include it at the bottom of your `index.html` page:
 
 ```html
 <body>
   ...
-  <script type="text/javascript" src="js/script.js"></script>
-</body>
+  <script type="text/javascript" src="script.js"></script>
+&lt;/body>
 ```
 
 > Be extra-sure to include your custom `script.js` file **after** the inclusion of the jQuery file.
@@ -194,10 +193,10 @@ Add the following line in your `script.js` file, and save it:
 console.log($("body").jquery);
 ```
 
-Start your project with `live-server` and access your browser console. You should see the following lines:
+Start `live-server` in your project directory and access your browser's console. You should see the following lines:
 
 ```bash
-3.1.1
+3.4.1
 Live reload enabled.
 ```
 
@@ -245,21 +244,21 @@ To select DOM elements and receive jQuery objects matching the selected elements
 | Id       | `#username` | `$("#username")` | **Unique** element with the `username` id |
 | Class    | `.row`      | `$(".row")`      | **All** elements with a `row` class       |
 
-> Using a jQuery selector will always return you an `array` of jQuery objects, even with an Id selector (that should return one element).
+> Using a jQuery selector will always return you an `array` of jQuery objects, even with an Id selector (which should return one element).
 
 ### Good selecting practice
 
-Selecting elements in jQuery being [very vast][css-select], you can easily write selectors that aren't optimals, performace-wise.
+The topic of selecting elements in jQuery being [very vast][css-select], you can easily write selectors that aren't optimals, performace-wise.
 
 > Traversing the DOM is a **costly operation**. Your jQuery selectors (and your CSS ones as well) should try to be **as to-the-point as possible**.
 
 There's many good practice regarding jQuery selectors. We are only going to see a few of them.
 
----
+<hr>
 
 > Note that the following example contains some jQuery method.
 >
-> **Don't mind them now, we will explicit these methods later on the course.**
+> **Don't mind them now, we will explicit those methods later on this subject.**
 
 #### Storing jQuery object
 
@@ -312,7 +311,7 @@ $("div.panel-body p:nth-of-type(2)");
 $("#the-one");
 ```
 
-#### Don't over do it
+#### Don't overdo it
 
 If you can't define `id` attributes in your HTML template, you'll need to use more complete selectors.
 
@@ -328,13 +327,13 @@ $("html body main.container div.list-group a.list-group-item h4");
 
 You need to be precise with your selector to avoir selecting things you don't want. But being over-precise is **as bad** as being too vague.
 
-> Knowing your HTML structure is **mandatory** when writing jQuery selectors.
-
 We could simplify the precedent example like this:
 
 ```js
 $("a.list-group-item h4");
 ```
+
+> Knowing your HTML structure is **mandatory** in order to write good jQuery selectors.
 
 #### Using `class` selector
 
@@ -372,7 +371,7 @@ Then, it will examine each of these `<h4>`, and reject the ones that don't have 
 
 > If you have many `<h4>` in your page or a far-too-precise selector, jQuery will take unnecessary time to process the selector.
 
-To solve this problem, you have to options:
+To solve this problem, you have two options:
 
 - Use the `.find()` method on the parent object.
 - Narrow the context by using the second parameter of the `$()` function.
@@ -395,7 +394,7 @@ We said before that `$()` is the function to use to **retrieve DOM elements**.
 
 Its first parameter is **the selector** for those elements.
 
-But the function also have a second parameter, that is the **context in which the search is conducted**.
+But the function also have a second (optional) parameter, which is the **context in which the search is conducted**.
 
 By default, the context is the complete HTML page, but you can pass it **any object representing a subset of the DOM**.
 
@@ -536,7 +535,7 @@ Trying to remove a CSS class from an element that **didn't have it** in the firs
 
 ### Change the content
 
-Now that we can change the selected discussion list item, we want to **remove the notification** about unread messages, that is the badge in the item.
+Now that we can changed the selected discussion list item, we want to **remove the notification** about unread messages, that is the badge in the item.
 
 For that we will **change the content** of the `span.badge` inside the list item.
 
@@ -589,13 +588,13 @@ $("a.list-group-item").click(`switchListItem`);
 
 For the next feature, we will need to **add some `id`** in our `index.html` page.
 
-At the **line 125**, add this `id` to the `<textarea>` element:
+At the **line 173**, add this `id` to the `<textarea>` element:
 
 ```html
 &lt;textarea id="`message`" [...] &gt;&lt;/textarea&gt;
 ```
 
-At the **line 127**, add this `id` to the `<div>` element:
+At the **line 178**, add this `id` to the `<div>` element:
 
 ```html
 <div class="btn-group btn-group-sm" id="`align-btns`"></div>
@@ -630,23 +629,22 @@ $("button", $("#align-btns")).click(function (event) {
 If you look closely to the HTML structure in which the `button`s are placed, you'll see that they are placed **inside a form**:
 
 ```html
-*
-<form>
+*<form>
   <!-- textarea element -->
-  <div class="btn-group btn-group-sm" id="align-btns">
-    <button class="btn btn-default active">
-      <span class="glyphicon glyphicon-align-left"></span>
+  <div class="btn-group btn-group-sm"
+    id="align-btns">
+    <button class="btn btn-outline-secondary active">
+      <i class="fas fa-align-left"></i>
     </button>
-    <button class="btn btn-default">
-      <span class="glyphicon glyphicon-align-center"></span>
+    <button class="btn btn-outline-secondary">
+      <i class="fas fa-align-center"></i>
     </button>
-    <button class="btn btn-default">
-      <span class="glyphicon glyphicon-align-right"></span>
+    <button class="btn btn-outline-secondary">
+      <i class="fas fa-align-right"></i>
     </button>
   </div>
   <!-- send button -->
-  *
-</form>
+*</form>
 ```
 
 > Clicking on a `<button>` that's placed inside a `<form>` will trigger the submission of said `<form>`.
@@ -655,7 +653,7 @@ If you look closely to the HTML structure in which the `button`s are placed, you
 
 ### Prevent default behavior
 
-Remember that the **callback function** called when an event is triggered has one parameter, that is **the triggered event object** ?
+Remember that the **callback function** called when an event is triggered has one parameter, which is **the triggered event object** ?
 
 This event object will **trigger the default behavior** attached to it **after** our code is executed, **unless we say it otherwise**.
 
@@ -694,7 +692,7 @@ $("button", $("#align-btns")).click(function(event) {
 
 > Go on your page, and click on the alignment button, then click somewhere else, and **observe how your button react**.
 
-> You should see that **its style changes**. On Chrome, when clicked, **a blue border is added**, that disappear when you click elsewhere.
+> You should see that **its style changes**. Thanks to Bootstrap, when a button is clicked, **a border is added**, that disappear when you click elsewhere.
 
 ### Managing the focus
 
@@ -702,7 +700,7 @@ This is related to the **focus**, that is an indication of the element in the pa
 
 Focusing in or out of an element is an **event** to which you can react with JS and/or jQuery.
 
-But you can also **force-activate** those event on elements within your code.
+But you can also **force-activate** those events on elements within your code.
 
 In our case, we want to **focus out of the button** once it has been clicked.
 
@@ -747,23 +745,23 @@ $(this).addClass("active").blur();
 Remember what the `.find()` method does?
 
 ```js
-$("#align-buttons").find("button");
+$("#align-btns").find("button");
 ```
 
-> The `.find()` method here will return all the `button` elements that it's found inside the `#align-buttons` element.
+> The `.find()` method here will return all the `button` elements that it's found inside the `#align-btns` element.
 
-Thus, methods chained after a call to `.find()` will **not be applied** to the `$("#align-buttons")` object:
+Thus, methods chained after a call to `.find()` will **not be applied** to the `$("#align-btns")` object:
 
 ```js
-$("#align-buttons").find("button")`.addClass("active")`;
+$("#align-btns").find("button")`.addClass("active")`;
 ```
 
 > The `active` class will be applied to each objects returned from `.find()`.
 
-If you'd want to apply the `.addClass()` method to the `$("#align-buttons")` object first, you'd need to write it like this:
+If you'd want to apply the `.addClass()` method to the `$("#align-btns")` object first, you'd need to write it like this:
 
 ```js
-$("#align-buttons")`.addClass("active")`.find("button");
+$("#align-btns")`.addClass("active")`.find("button");
 ```
 
 ### Planning the logic
@@ -789,20 +787,21 @@ To detect which button has been click we _could_ add an `id` to each button.
 But, in the HTML, we can see that there is already something that could help us in that task: the icon.
 
 ```html
-<div class="btn-group btn-group-sm" id="align-btns">
-  <button class="btn btn-default active">
-    * <span class="glyphicon glyphicon-align-left"></span>
+<div class="btn-group btn-group-sm"
+  id="align-btns">
+  <button class="btn btn-outline-secondary active">
+*   <i class="fas fa-align-left"></i>
   </button>
-  <button class="btn btn-default">
-    * <span class="glyphicon glyphicon-align-center"></span>
+  <button class="btn btn-outline-secondary">
+*   <i class="fas fa-align-center"></i>
   </button>
-  <button class="btn btn-default">
-    * <span class="glyphicon glyphicon-align-right"></span>
+  <button class="btn btn-outline-secondary">
+*   <i class="fas fa-align-right"></i>
   </button>
 </div>
 ```
 
-> We need to retrieve the `<span>` element inside the button, then check what class this `<span>` has.
+> We need to retrieve the `<i>` element inside the button, then check what class this `<i>` has.
 
 ### Do you have _any_ class?
 
@@ -815,14 +814,14 @@ The `.hasClass()` method can detect if the element possesses the class name give
 $("li.active").hasClass("active");
 ```
 
-Let's retrieve the `<span>` inside the `this` button and check, for example, if it has the `.glyphicon-align-right` class:
+Let's retrieve the `<i>` inside the clicked button and check, for example, if it has the `.fa-align-right` class:
 
 ```js
 $("button", $("#align-btns")).click(function(event) {
   /* Previous code */
   $(this).addClass("active").blur();
 
-* if ($("span", this).hasClass("glyphicon-align-right")) {
+* if ($("i", this).hasClass("fa-align-right")) {
     // The clicked button is the one for align to the right.
   }
 
@@ -840,10 +839,10 @@ $("button", $("#align-btns")).click(function (event) {
   $("button", $("#align-btns")).removeClass("active");
   $(this).addClass("active").blur();
 
-  if (`$("span", this).hasClass("glyphicon-align-right")`) {
+  if (`$("i", this).hasClass("fa-align-right")`) {
     // The clicked button is the one to align to the right
     console.log("Align to the right!");
-  } else if (`$("span", this).hasClass("glyphicon-align-center")`) {
+  } else if (`$("i", this).hasClass("fa-align-center")`) {
     // The clicked button is the one to align to the center
     console.log("Align to the center!");
   } else {
@@ -865,7 +864,7 @@ $("button", $("#align-btns")).click(function (event) {
 **When the** _align-right_ **button has been clicked:**
 
 ```js
-if ($("span", this).hasClass("glyphicon-align-right")) {
+if ($("i", this).hasClass("fa-align-right")) {
 *   $("#message").removeClass("text-left text-center").addClass("text-right");
 }
 ```
@@ -873,7 +872,7 @@ if ($("span", this).hasClass("glyphicon-align-right")) {
 **When the** _align-center_ **button has been clicked:**
 
 ```js
-else if ($("span", this).hasClass("glyphicon-align-center")) {
+else if ($("i", this).hasClass("fa-align-center")) {
 *   $("#message").removeClass("text-right text-left").addClass("text-center");
 }
 ```
@@ -903,9 +902,9 @@ function changeAlignment(event) {
   $(this).addClass("active").blur();
 
   // React to the adequate clicked button
-  if ($("span", this).hasClass("glyphicon-align-right")) {
+  if ($("i", this).hasClass("fa-align-right")) {
     $("#message").removeClass("text-left text-center").addClass("text-right");
-  } else if ($("span", this).hasClass("glyphicon-align-center")) {
+  } else if ($("i", this).hasClass("fa-align-center")) {
     $("#message").removeClass("text-right text-left").addClass("text-center");
   } else {
     $("#message").removeClass("text-right text-center");
@@ -924,13 +923,13 @@ function changeAlignment(event) {
 
 For the next feature, we will need to **add some `id`** in our `index.html` page.
 
-At the **line 83**, add this `id` to the `<div>` element:
+At the **line 120**, add this `id` to the `<div>` element:
 
 ```html
-<div class="panel-body" id="`dialog`"></div>
+<div class="card-body" id="`dialog`"></div>
 ```
 
-At the **line 138**, add this `id` to the `<button>` element:
+At the **line 190**, add this `id` to the `<button>` element:
 
 ```html
 <button class="btn btn-success pull-right btn-sm" id="`send-btn`"></button>
@@ -1017,50 +1016,22 @@ Now, if our new message is **empty**, we want to **notify the user** and **stop*
 
 There's **many ways** to notify the user when an error occurs in a form.
 
-As a matter of fact, Bootstrap provides you with some classes for this, that you can apply to **`.form-group` elements**:
+As a matter of fact, Bootstrap provides you with some classes for this, that you can apply to **[many form elements][bs-validation]**:
 
-- `.has-error`
-- `.has-warning`
-- `.has-success`
+- `.is-invalid`
+- `.is-valid`
 
-The one we'll use is `.has-error`:
+The one we'll use is `.is-invalid`:
 
 ```js
 $("#send-btn").click(function(event) {
   /* Preceding code */
   if (msgValue === "") {
-*   $("#message").addClass("has-error");
+*   $message.addClass("id-invalid");
   }
   /* Following code */
 });
 ```
-
-> This does nothing... because `#message` is not a `.form-group` element.
-
-### I'll notify your parent!
-
-In our HTML structure, the `#message` textarea is the direct children of a `.form-group` element.
-
-Let's use the `.parent()` jQuery method to access this direct parent:
-
-```js
-// Will return a jQuery object representing the .form-group element
-$("#message").parent();
-```
-
-Now that we can access the right element, let's add the class:
-
-```js
-$("#send-btn").click(function (event) {
-  /* Preceding code */
-  if (msgValue === "") {
-    $("#message")`.parent()`.addClass("has-error");
-  }
-  /* Following code */
-});
-```
-
-> Go on your page, and try to click on the "Send" button while having an empty textarea.
 
 ### What's your alignment?
 
@@ -1095,7 +1066,7 @@ $("#send-btn").click(function(event) {
   var msgValue = $message.val();
 
   if (msgValue === "") {
-    $("#message")`.parent()`.addClass("has-error");
+    $("#message").addClass("is-invalid");
   } else {
 *   var alignment = getAlignmentClass($message);
 
@@ -1107,54 +1078,53 @@ $("#send-btn").click(function(event) {
 
 ### Create the HTML structure
 
-We now have to create all the HTML structure necessary to add a new message to the dialog panel.
+We now have to create all the HTML structure necessary to add a new message to the dialog card.
 
-Since we are using Bootstrap, this is the complete structure we'll have to create:
+Since we are using Bootstrap, here is the complete structure we'll have to create (its exactly the one used for the messages already in the page):
 
 ```html
-<div class="col-md-8 col-md-offset-4">
+<div class="col-8 offset-4">
   <div class="alert alert-warning">
-    *
-    <span class="msg-content">
-      <!-- The text goes here -->
-      *
-    </span>
-    <div class="pull-right">
-      <small class="text-info"><!-- The time goes here --></small>
-      <button class="btn btn-link btn-xs">
-        <span class="glyphicon glyphicon-trash"></span>
-      </button>
+    <div class="d-flex justify-content-between align-items-center">
+*     <div class="msg-content flex-grow-1 mr-2">
+        <!-- The text goes here -->
+*     </div>
+      <div>
+        <small class="text-info"><!-- The time goes here --></small>
+        <button class="btn btn-link btn-sm">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>
+
 ```
 
-> Note we added a `span.msg-content` to easily pinpoint where the new message content should be placed.
+> The `div.msg-content` will help use insert the message in this tempalte later.
 
 #### The `$()` function, again
 
 With jQuery, you can create HTML elements using the `$()` function.
 
-If you pass a `string` as argument and this `string` looks like HTML, .
+If you pass a `string` as argument and this `string` looks like HTML, you'll get a jQuery object containing the corresponding node structure.
 
 ```js
 // Will create a new <p>
-$("<p>");
+var $p = $("<p>");
 ```
 
 You can even pass more complex HTML string to the function:
 
 ```js
 // Will create a new <p> and give it some content
-$("<p>This is a new paragraph with content</p>");
+var $p = $("<p>This is a new paragraph with content</p>");
 ```
 
-So... technically, we could create the new message by doing this:
+So... technically... we could create the new message by doing this:
 
 ```js
-$(
-  '<div class="col-md-8 col-md-offset-4"><div class="alert alert-warning"><!-- The text goes here --><div class="pull-right"><small class="text-info"><!-- The time goes here --></small><button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-trash"></span></button></div></div></div>'
-);
+$('<div class="col-md-8 col-md-offset-4"><div class="alert alert-warning"><!-- The text goes here --><div class="pull-right"><small class="text-info"><!-- The time goes here --></small><button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-trash"></span></button></div></div></div>');
 ```
 
 > This is obviously **not** a good solution:
@@ -1176,7 +1146,7 @@ We can achieve that by using a `<script>` tag with an **unrecognized** `type` pr
 <script type="`text/template`"></script>
 ```
 
-> Such `<script>` tags should be placed **at the end** of your `<body>` tag, but **before** your `.js` inclusions (around the **line 156**, in our example).
+> Such `<script>` tags should be placed **at the end** of your `<body>` tag, but **before** your `.js` inclusions (around the **line 203**, in our example).
 
 We then give it an `id` for future reference, and copy our HTML inside:
 
@@ -1223,7 +1193,7 @@ $("#send-btn").click(function (event) {
 
   if (msgValue === "") {
     // If the new message is emplty, show an error
-    $message.parent().addClass("has-error");
+    $message.addClass("is-invalid");
   } else {
     // Get the correct alignment
     var alignment = getAlignmentClass($message);
@@ -1243,7 +1213,7 @@ Next step is to **insert the values** for this new message. We have two values t
 - The new message content
 - The time at which the message has been sent
 
-Adding the new message is simple; we need to retrieve the `span.msg-content`, and insert the content of the `msgValue` variable.
+Adding the new message is simple ; we need to **retrieve the `div.msg-content`** in the template node tree, and **insert the content of the `msgValue` variable**.
 
 ```js
 $("#send-btn").click(function(event) {
@@ -1256,7 +1226,7 @@ $("#send-btn").click(function(event) {
     var template = $("#new-sent-message").html();
     var $msgTemplate = $(template);
 
-*   $("span.msg-content", $msgTemplate).text(msgValue);
+*   $("div.msg-content", $msgTemplate).text(msgValue);
 
   }
   event.preventDefault();
@@ -1269,21 +1239,25 @@ To get the message date, let's create a **function** that returns just that.
 
 We will use the JS Date feature for that.
 
-- The `Date.now()` method returns the current timestamp as an number
-- The `Date()` function create a new `Date` object based on a given timestamp
-- The `.getHours()` methid returns the hours of a `Date` object
-- The `.getMinutes()` method returns the minutes of a `Date` object
+- The `Date()` function creates a new `Date` object representing the current date
+- The `toLocalTimeStrin()` method of a `Date` object allows you to return a localized string representation of said date. You can pass an option object to change how the time is displayed.
+  > In our case, we will display the date in Swiss French format (with the `fr-CH` locale), and two digits for hours and minutes.
 
 Using all that together:
 
 ```js
 function getCurrentTime() {
-  var date = new Date(Date.now());
-  return date.getHours() + ":" + date.getMinutes();
+  var date = new Date();
+  return date.toLocaleTimeString("fr-CH", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
 ```
 
-Now, we get, in the new message template, the `small.text-info` element that'll contain the time and **insert** the new value:
+#### Add the date
+
+Back to our new message function, we get the `small.text-info` element from the new message template that'll contain the time and **insert** the correct value:
 
 ```js
 /* Previous code */
@@ -1318,7 +1292,7 @@ We have the **complete DOM structure** for our new message stored in **a jQuery 
 
 Let's **insert this new message in our page**. To do this, we'll use the `.append()` method.
 
-> This method append the given jQuery object at the end of the jQuery object that called the method.
+> This method append the given jQuery object at the end of the jQuery object on which the method is called.
 
 ```js
 $("#send-btn").click(function(event) {
@@ -1363,8 +1337,11 @@ function getAlignmentClass($ele) {
 ```js
 // Returns the current time in a HH:MM formatted string
 function getCurrentTime() {
-  var date = new Date(Date.now());
-  return date.getHours() + ":" + date.getMinutes();
+  var date = new Date();
+  return date.toLocaleTimeString("fr-CH", {
+    hour: "2-digit",
+    minute: "2-digit"
+  });
 }
 ```
 
@@ -1379,7 +1356,7 @@ function createNewMessage(event) {
   var msgValue = $message.val();
 
   if (msgValue === "") {
-    $message.parent().addClass("has-error");
+    $message.addClass("is-invalid");
   } else {
     // Get the correct alignment
     var alignment = getAlignmentClass($message);
@@ -1389,7 +1366,7 @@ function createNewMessage(event) {
     var $msgTemplate = $(template);
 
     // Insert the value in the tempalte
-    $("span.msg-content", $msgTemplate).text(msgValue);
+    $("div.msg-content", $msgTemplate).text(msgValue);
     $("small.text-info", $msgTemplate).text(getCurrentTime());
     if (alignment) $msgTemplate.addClass(alignment);
 
@@ -1409,12 +1386,10 @@ function createNewMessage(event) {
 
 Removing something in jQuery is quite simple. Just use the `.remove()` method on a jQuery object, and the DOM it represents will be **removed from the page**.
 
-Our event should be attached to all the `button` elements that contains a `span.glyphicon-trash` element:
+Our event should be attached to all the `button` elements that contains a `i.fa-trash-alt` element:
 
 ```js
-$("span.glyphicon-trash")
-  .parent()
-  .click(function (event) {});
+$("i.fa-trash-alt").parent().click(function (event) {});
 ```
 
 But since the event is on the `button` element, we need to **travel up the DOM tree** to find the `button`s parent that correspond to the complete message.
@@ -1434,28 +1409,24 @@ $(this).parent().parent().parent().remove();
 
 ### Get closer
 
-In our case, the element that we want to access is the `div.col-md-8`. But there's multiple `div.col-md-8` in our page, so we don't want any `div.col-md-8`; we want the closest one to our button.
+In our case, the element that we want to access is the `div.col-8`. But there's multiple `div.col-8` in our page, so we don't want any `div.col-8`; we want the closest one to our button.
 
 We can then use the `.closest()` method and give it the selector of the element we want to retrieve:
 
 ```js
-$("span.glyphicon-trash")
-  .parent()
-  .click(function (event) {
-    console.log($(this).closest("div.col-md-8"));
-  });
+$("i.fa-trash-alt").parent().click(function (event) {
+  console.log($(this).closest("div.col-8"));
+});
 ```
 
-> This will correctly return you the `<div>` that contains the message to remove.
+> This will correctly return you the `<div>` that contains the complete message to remove.
 
 Let's remove it!
 
 ```js
-$("span.glyphicon-trash")
-  .parent()
-  .click(function (event) {
-    $(this).closest("div.col-md-8").remove();
-  });
+$("i.fa-trash-alt").parent().click(function (event) {
+  $(this).closest("div.col-8").remove();
+});
 ```
 
 > Go on your page, and try to remove a message.
@@ -1464,11 +1435,11 @@ $("span.glyphicon-trash")
 
 ### Time paradox
 
-This behavior is caused by the way the JS code is interpreted by the browser.
+The fact that the DOM node is not removed is caused by the way the JS code is interpreted by the browser.
 
 Actually, the JS code is interpreted and executed when it's **firstly loaded by the HTML page**.
 
-This means that, when the browser loads the HTML page and found a `<script>` tag, it:
+This means that, when the browser loads the HTML page and finds a `<script>` tag, it:
 
 1. Loads the file
 1. Parses the code
@@ -1483,21 +1454,21 @@ So... when you create, at a later time, new DOM nodes, events **won't be attache
 
 ### Parent's responsibility
 
-To resolve this issue, the solution is to register the event **not on the element itself**, but on **one of its parents that is present** at page-load.
+To resolve this issue, the solution is to register the event **not on the element itself**, but on **one of its parents that is present** at page load.
 
 In our case, this parent could be the `#dialog` element.
 
-The `.on()` method allows you to register an event on an element that can be activated only when **triggered by a descendant** of this element, not the element itself.
+The `.on()` method allows you to register an event on a node that can only be **triggered by one of its  descendants**, not itself.
 
-In our case, we want to register on event on the `#dialog` element, but trigger it only when a `button` is clicked:
+In our case, we want to register an event on the `#dialog` element, but trigger it only when a child `button` is clicked:
 
-> The arguments are : the `name` of the event, the `selector` of the descendant element, and the `function` to activate.
+> The arguments are : the `name` of the event, the `selector` of the descendant element, and the callbakc `function`.
 
 ```js
 $("#dialog").on("click", "button", function (event) {
   // 'this' still represent the clicked button
   // So we can reuse the same code as before.
-  $(this).closest("div.col-md-8").remove();
+  $(this).closest("div.col-8").remove();
 });
 ```
 
@@ -1514,7 +1485,7 @@ $("#dialog").on("click", "button", removeMessage);
 function removeMessage(event) {
   // 'this' still represent the clicked button
   // So we can reuse the same code as before.
-  $(this).closest("div.col-md-8").remove();
+  $(this).closest("div.col-8").remove();
 }
 ```
 
@@ -1522,7 +1493,7 @@ function removeMessage(event) {
 
 <!-- slide-front-matter class: center, middle -->
 
-The complete code for this example application can be found [here][complete].
+The complete JS code for this example can be found [here][complete].
 
 > In this complete code, note that the event declarations have been put at the top of the file, and that the function comes after.
 >
@@ -1544,11 +1515,12 @@ The complete code for this example application can be found [here][complete].
 [js]: ../js
 [bs]: ../bootstrap
 [dl-jquery]: https://code.jquery.com/jquery-3.1.1.min.js
-[ex-file]: https://gist.githubusercontent.com/Tazaf/2ca35d60688eec1281fd9546abe1f76a
+[ex-file]: https://gist.githubusercontent.com/Tazaf/2ca35d60688eec1281fd9546abe1f76a/raw/index.html
 [jq-doc]: http://api.jquery.com/
 [ls]: https://www.npmjs.com/package/live-server
 [local-bs]: ../bootstrap-basics/#5
 [css-select]: https://www.w3schools.com/cssref/css_selectors.asp
 [5-tips-selec]: https://www.sitepoint.com/efficient-jquery-selectors/
 [jq-events]: https://api.jquery.com/category/events/
-[complete]: https://gist.githubusercontent.com/Tazaf/1eb7e4d4b2bd6a5508b6e2c88f6739c0
+[complete]: https://gist.githubusercontent.com/Tazaf/1eb7e4d4b2bd6a5508b6e2c88f6739c0/raw/script.js
+[bs-validation]: https://getbootstrap.com/docs/4.3/components/forms/#supported-elements
