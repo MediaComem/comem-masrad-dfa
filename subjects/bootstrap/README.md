@@ -617,13 +617,13 @@ Add the `.form-control` class to an `<input>` element to make it **full-width an
 
 > This class can be added to any type of input.
 
-Let's add a text input that'll receive the **username** of an hypothetic sign up form.
+Let's add a text input that'll receive the **first name** of an hypothetic sign up form.
 
 Add these lines at the beginning of the `<form>` element:
 
 ```html
-<label for="username">Username</label>
-<input type="text" id="username" `class="form-control" ` />
+<label for="firstname">First name</label>
+<input type="text" id="firstname" `class="form-control" ` />
 ```
 
 > The input is correctly displayed, but there's a spacing problem with the following button.
@@ -632,21 +632,18 @@ Add these lines at the beginning of the `<form>` element:
 
 To resolve any spacing problem that could be present in your form, be sure to wrap your form element in a `<div>` with the `.form-group` class.
 
-> Do this with the preceding **username** input **and** label.
+> Both the **firstname** input **and** label needs to be wrapped with the div.
 
-Let's complete our form by adding a password input that's to receive the **password** of our new user.
+Let's complete our form by adding a last name input that's to receive the **last name** of our new user.
 
 Add these lines before the `<input type="submit">`:
 
-<!-- prettier-ignore-start -->
-
 ```html
 *<div class="form-group">
-  <label for="password">Password</label>
-  <input type="password" id="password" class="form-control" />
+  <label for="lastname">Last name</label>
+  <input type="text" id="lastname" class="form-control" />
 *</div>
 ```
-<!-- prettier-ignore-end -->
 
 > Notice how the `<label>` **and** the `<input>` are grouped together inside the `div.form-group` element.
 
@@ -659,12 +656,12 @@ If you'd rather prefer to have you form displayed inline, juste add the `.form-i
 ```html
 <form `class="form-inline" `>
   <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" id="username" class="form-control" />
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" class="form-control" />
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" class="form-control" />
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" class="form-control" />
   </div>
   <input type="submit" class="btn btn-success" />
 </form>
@@ -674,7 +671,7 @@ If you'd rather prefer to have you form displayed inline, juste add the `.form-i
 
 ```html
 <div class="form-group">
-  <input type="password" id="..." class="..." `placeholder="Password" ` />
+  <input type="lastname" id="..." class="..." `placeholder="Last name" ` />
 </div>
 ```
 
@@ -878,10 +875,9 @@ Simply add any element with the button classes to the navbar:
   <div class="container">
     <span class="navbar-brand">Bootstrap Initiation</span>
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav">
-      </ul>
-*     <a class="btn btn-outline-light" href="#">Go to top</a>
+      <!-- navbar list -->
     </div>
+*   <a class="btn btn-outline-light" href="#">Go to top</a>
   </div>
 </nav>
 ```
@@ -1191,9 +1187,9 @@ Add this before the `<h2>Cards</h2>`:
 ```html
 <h2>Icons</h2>
 <div>
-  <button class="btn btn-light">`<i class="fas fa-align-right">`</i></button>
-  <button class="btn btn-light">`<i class="fas fa-align-center">`</i></button>
   <button class="btn btn-light">`<i class="fas fa-align-left">`</i></button>
+  <button class="btn btn-light">`<i class="fas fa-align-center">`</i></button>
+  <button class="btn btn-light">`<i class="fas fa-align-right">`</i></button>
 </div>
 ```
 
@@ -1226,7 +1222,7 @@ You will find the final HTML file for this course [here][final-file].
 [dl-bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/download/#compiled-css-and-js
 [normalize]: https://necolas.github.io/normalize.css/
 [bootstrap-glyphicons]: http://getbootstrap.com/components/#glyphicons-glyphs
-[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/ddae9363bc48d59df2e5f4c8d89b4f33b1cbc415/index.html
+[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
 [bsm]: ../bootstrap-layout-management
 [setup]: ../setup
 [aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA

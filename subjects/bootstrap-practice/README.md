@@ -108,7 +108,7 @@ This exercice will require you to use:
 [badges]: https://getbootstrap.com/docs/4.3/components/badge/
 [forms]: https://getbootstrap.com/docs/4.3/components/forms/
 [grid]: https://getbootstrap.com/docs/4.3/layout/grid/
-[bht]: https://gist.githubusercontent.com/Tazaf/420a368389367a83fcfb96ab3a51bf8a/raw/1c5af02f1dd3248189b8e6869a02c5133232db7b/index.html
+[bht]: https://gist.githubusercontent.com/Tazaf/420a368389367a83fcfb96ab3a51bf8a/raw/index.html
 [alert]: https://getbootstrap.com/docs/4.4/components/alerts/
 [btn-group]: https://getbootstrap.com/docs/4.3/components/button-group/
 [nav-text]: http://getbootstrap.com/components/#navbar-text

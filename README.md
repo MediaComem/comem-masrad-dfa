@@ -26,8 +26,9 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
   - [Basics][bb]
   - [Layout management][blm]
   - [Practice][bex]
-- [JavaScript basics and more][js-bas]
-- [JavaScript DOM API][js-dom]
+- JavaScript
+  - [Basics and more][js-bas]
+  - [DOM API][js-dom]
 - [First steps with jQuery library][jq-dom]
 - [Learning AJAX with or without jQuery][js-ajax]
 - [RESTful APIs][rest]

@@ -449,7 +449,7 @@ While seaching for examples on the web, you will stumble upon a strange syntax:
 let divideFunc = (nb1, nb2) => nb1 / nb2;
 ```
 
-You are facing the new **ES6** syntax for functions called **arrow functions**.
+You are facing the **ES6** syntax for functions called **arrow functions**.
 The example above is (mostly) equivalent to writing:
 
 ```js
@@ -483,6 +483,7 @@ But if your function has **no arguments**, you **MUST** add **empty parentheses*
 let callback = `()` => console.log("Timeout finished");
 setTimeout(callback, 1000);
 ```
+> As a rule of thumb, you should always use brackets.
 
 #### Body of arrow functions
 
@@ -498,14 +499,14 @@ The `return` keyword is **implicit** with one-line bodies that have no brackets:
 
 ```js
 // This arrow function will return the square root of the number
-let squareroot = number => `Math.sqrt(number)`;
+const squareroot = number => `Math.sqrt(number)`;
 console.log(squareroot(4)); // 2
 ```
 
 If the body has **more than one line**, you **MUST add brackets** `{}` around it (_and use the `return` keyword if necessary_):
 
 ```js
-let square = number => `{`
+const square = number => `{`
   `let result = number * number;`
   `return result;`
 `}`;
@@ -515,7 +516,7 @@ console.log(square(5)); // 25
 
 ## Constructors
 
-Though JavaScript doesn't really have classes **(until ES6)**, any function can behave like a **constructor** and create an object.
+Though JavaScript doesn't really have classes _per se_, any function can behave like a **constructor** and create an object.
 
 For a function to act as a constructor, you don't have to declare it differently than any other function.
 All you have to do is call the function with `new` like in most object-oriented languages:
@@ -532,14 +533,14 @@ console.log(discovery instanceof Starship); // true
 The `discovery` variable stores a new (and empty) object, of type `Starship`.
 
 > Note that there's **nothing special** about this function: calling it with `new` is what makes it a constructor.
+>
 > It's simply a **convention** to put the first letter in uppercase.
 
 ### The `this` keyword
 
-Calling a **constructor** function with `new` give you access to `this` in its body.
-That variable refers to the **object that is being created**.
+You can access the `this` keyword inside a function body. In this case, `this` refers to **the object that will be created** when calling this function as a **constructor** (with `new`).
 
-You can modify this object, for example to attach values you receive from arguments to it:
+You can modify this object, for example to attach it properties with values received as parameters:
 
 ```js
 function Starship(name, designation) {
@@ -553,10 +554,9 @@ console.log(discovery);
 ```
 
 > It's possible to implement class-like structures with **constructor functions** and **prototypes**.
-> JavaScript **ES6** also adds **actual classes** (based on **prototypes**).
+>
+> JavaScript **ES6** adds a new sytax for **classes** that looks very much like what you could find in Java, although the underlying mechanisms are still based on **prototypes**.
 > But that's outside the scope of this tutorial.
-
-
 
 ## Variables
 
@@ -577,9 +577,7 @@ let aNumber = 42;
 const aBoolean = true;
 ```
 
-Note that `var` always works, but `let` and `const` are only available in **ES6** and later versions.
-
-
+Note that `var` is valid whatever the ES version you're using, but `let` and `const` are only available in **ES6** and later versions.
 
 ### Dynamic or constant variables
 
@@ -608,8 +606,6 @@ const theMeaningOfLife = 42;
 
 theMeaningOfLife = 43; // TypeError: Assignment to constant variable.
 ```
-
-
 
 ### The function scope
 
@@ -641,8 +637,6 @@ logThings([ 'apple', 'banana', 'pear' ]);
 // "Iterator: 3"
 ```
 
-
-
 ### The block scope
 
 The `let` and `const` keywords introduced in **ES6** create **block-scoped** variables,
@@ -671,9 +665,7 @@ logThings([ 'apple', 'banana', 'pear' ]);
 // ReferenceError: thing is not defined
 ```
 
-It is recommended to use them in **ES6-compatible** environments.
-
-
+**It is recommended to use them in ES6-compatible environments**.
 
 ### The (evil) global scope
 
@@ -747,19 +739,19 @@ Just **don't do it**.
 
 <runkit disabled></runkit>
 
-In JavaScript, you (now) have 3 ways to use strings:
+In JavaScript, you have 3 ways of declaring strings:
 
 ```js
 // With single quotes: '
 let string = 'I\'m your "Wurst" nightmare: ' + worstNightmare;
 ```
-You have to **escape** all other single quotes, and use `+` to concatenate.
+> You have to **escape all other single quotes**, and use `+` to concatenate.
 
 ```js
 // With double quotes: "
 let string = "I'm your \"Wurst\" nightmare: " + worstNightmare;
 ```
-You have to escape all other double quotes, and use `+` to concatenate.
+> You have to **escape all other double quotes**, and use `+` to concatenate.
 
 **ES6** also adds the new **template literals**:
 
@@ -769,8 +761,8 @@ let string = \`I'm your "Wurst" nightmare: ${worstNightmare}`;
 ```
 
 You have to escape all other backticks, but you can use single and double quotes without escaping.
-To insert variables inside the string, use `${variable}`.
-(To do a back-tick use `Shift-^`, then hit the `Space` bar.)
+
+Expressions included as `${expression}` will be evaluated then concatenated.
 
 
 

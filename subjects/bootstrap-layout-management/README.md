@@ -366,11 +366,11 @@ You will find the final HTML file for this course [here][fef]
 [setup]: ../setup
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
-[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/ddae9363bc48d59df2e5f4c8d89b4f33b1cbc415/index.html
+[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
 [block]: ./images/blocks.jpg
 [inline]: ./images/inline.jpg
 [gs]: https://getbootstrap.com/docs/4.4/layout/grid/
 [ru]: https://getbootstrap.com/docs/4.4/layout/utilities-for-layout/
-[fef]: https://gist.githubusercontent.com/Tazaf/329374f10e54818875620c9e03a2609a/raw/d813d8a19e05aec4d7b8b8472ca649c25052ea87/index.html
+[fef]: https://gist.githubusercontent.com/Tazaf/329374f10e54818875620c9e03a2609a/raw/index.html
 [bs-screen-sizes]: https://getbootstrap.com/docs/4.3/layout/grid/#grid-options
 [d-values]: https://getbootstrap.com/docs/4.3/utilities/display/#notation

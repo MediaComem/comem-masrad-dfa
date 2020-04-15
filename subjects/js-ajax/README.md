@@ -515,7 +515,7 @@ You will find the final HTML file for this course here
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
 [ajsf]: https://gist.githubusercontent.com/oertz/f5b661e075aa59a326b2d56a4567495d
-[fef]: https://gist.githubusercontent.com/oertz/164a883774727e34fd9190e6abf84bd2/raw/95374b82a1fd742538dea9f72d9443d3dee5e08d/index.html
+[fef]: https://gist.githubusercontent.com/oertz/164a883774727e34fd9190e6abf84bd2/raw/index.html
 [xhr]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 [smsdoc]: https://api.jquery.com/category/ajax/shorthand-methods/
 [jqajdoc]: https://api.jquery.com/jQuery.ajax/
