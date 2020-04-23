@@ -32,7 +32,7 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
   - [Good selecting practice](#good-selecting-practice)
     - [Storing jQuery object](#storing-jquery-object)
     - [Use `id` selectors](#use-id-selectors)
-    - [Don't over do it](#dont-over-do-it)
+    - [Don't overdo it](#dont-overdo-it)
     - [Using `class` selector](#using-class-selector)
     - [Selecting order](#selecting-order)
       - [Try to `.find()` me](#try-to-find-me)
@@ -66,7 +66,6 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
   - [Get the value inside `#message`](#get-the-value-inside-message)
   - [Validation phase](#validation-phase)
     - [Error! Error! Err...](#error-error-err)
-  - [I'll notify your parent!](#ill-notify-your-parent)
   - [What's your alignment?](#whats-your-alignment)
     - [Use the function](#use-the-function)
   - [Create the HTML structure](#create-the-html-structure)
@@ -76,6 +75,7 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
   - [Code checkpoint](#code-checkpoint)
   - [Fill in the template](#fill-in-the-template)
   - [Getting the date](#getting-the-date)
+    - [Add the date](#add-the-date)
   - [Apply the alignment](#apply-the-alignment)
   - [Insert in the discussion](#insert-in-the-discussion)
   - [Complete code - Functions](#complete-code---functions)
@@ -275,7 +275,7 @@ $("article > p:first-child").append("<span>CLICK ME!</span>");
 **Way better!**
 
 ```js
-var `$firstSentences` = $("article > p:first-child");
+const `$firstSentences` = $("article > p:first-child");
 `$firstSentences`.addClass("catch-phrase");
 `$firstSentences`.text("This is a very pertinent article");
 `$firstSentences`.append("<span>CLICK ME!</span>");
@@ -402,7 +402,7 @@ For the previous example, we could write our selector like this:
 
 ```js
 // First, we retrieve all the list-group items
-var $listElements = $("a.list-group-item");
+const $listElements = $("a.list-group-item");
 
 // Then we search for <h4> element, but only in the subset of the Dom
 // contained in the previously retrieved elements
@@ -974,7 +974,7 @@ But since we will refer to the `#message` element **several time** in our code, 
 
 ```js
 $("#send-btn").click(function(event) {
-* var $message = $("#message");
+* const $message = $("#message");
 
   event.preventDefault();
 });
@@ -984,8 +984,8 @@ Now, we can get the value:
 
 ```js
 $("#send-btn").click(function(event) {
-  var $message = $("#message");
-* var msgValue = $message.val();
+  const $message = $("#message");
+* const msgValue = $message.val();
   event.preventDefault();
 });
 ```
@@ -1027,7 +1027,7 @@ The one we'll use is `.is-invalid`:
 $("#send-btn").click(function(event) {
   /* Preceding code */
   if (msgValue === "") {
-*   $message.addClass("id-invalid");
+*   $message.addClass("is-invalid");
   }
   /* Following code */
 });
@@ -1062,13 +1062,13 @@ Now, we can use our freshly created function to actually retrieve the desired al
 
 ```js
 $("#send-btn").click(function(event) {
-  var $message = $("#message");
-  var msgValue = $message.val();
+  const $message = $("#message");
+  const msgValue = $message.val();
 
   if (msgValue === "") {
     $("#message").addClass("is-invalid");
   } else {
-*   var alignment = getAlignmentClass($message);
+*   const alignment = getAlignmentClass($message);
 
     // Next operations...
   }
@@ -1111,20 +1111,20 @@ If you pass a `string` as argument and this `string` looks like HTML, you'll get
 
 ```js
 // Will create a new <p>
-var $p = $("<p>");
+const $html = $("<p>");
 ```
 
 You can even pass more complex HTML string to the function:
 
 ```js
 // Will create a new <p> and give it some content
-var $p = $("<p>This is a new paragraph with content</p>");
+const $html = $("<p>This is a new paragraph with content</p>");
 ```
 
 So... technically... we could create the new message by doing this:
 
 ```js
-$('<div class="col-md-8 col-md-offset-4"><div class="alert alert-warning"><!-- The text goes here --><div class="pull-right"><small class="text-info"><!-- The time goes here --></small><button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-trash"></span></button></div></div></div>');
+const $html = $('<div class="col-md-8 col-md-offset-4"><div class="alert alert-warning"><!-- The text goes here --><div class="pull-right"><small class="text-info"><!-- The time goes here --></small><button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-trash"></span></button></div></div></div>');
 ```
 
 > This is obviously **not** a good solution:
@@ -1164,7 +1164,7 @@ To retrieve the templates placed inside `<script>`, we need to do two operations
 Firstly, get the content of the `<script>` tag:
 
 ```js
-var template = $("#new-sent-message").text();
+const template = $("#new-sent-message").text();
 ```
 
 > This will return the HTML structure as a `string` (because unrecognized `<script>` content is interpreted as a simple `string`).
@@ -1172,7 +1172,7 @@ var template = $("#new-sent-message").text();
 Secondly, generate a new DOM based on this template:
 
 ```js
-var $msgTemplate = $(template);
+const $msgTemplate = $(template);
 ```
 
 > `$msgTemplate` now contains a jQuery object representing the desired HTML template.
@@ -1186,21 +1186,21 @@ With the addition of these lines, our JS code for the new feature should be:
 ```js
 $("#send-btn").click(function (event) {
   // Getting the "New message" input
-  var $message = $("#message");
+  const $message = $("#message");
 
   // Getting the new message text
-  var msgValue = $message.val();
+  const msgValue = $message.val();
 
   if (msgValue === "") {
     // If the new message is emplty, show an error
     $message.addClass("is-invalid");
   } else {
     // Get the correct alignment
-    var alignment = getAlignmentClass($message);
+    const alignment = getAlignmentClass($message);
 
     // Get the new message template
-    var template = $("#new-sent-message").html();
-    var $msgTemplate = $(template);
+    const template = $("#new-sent-message").html();
+    const $msgTemplate = $(template);
   }
   event.preventDefault();
 });
@@ -1220,11 +1220,11 @@ $("#send-btn").click(function(event) {
   /* Previous code */
   else {
     // Get the correct alignment
-    var alignment = getAlignmentClass($message);
+    const alignment = getAlignmentClass($message);
 
     // Get the new message template
-    var template = $("#new-sent-message").html();
-    var $msgTemplate = $(template);
+    const template = $("#new-sent-message").html();
+    const $msgTemplate = $(template);
 
 *   $("div.msg-content", $msgTemplate).text(msgValue);
 
@@ -1247,7 +1247,7 @@ Using all that together:
 
 ```js
 function getCurrentTime() {
-  var date = new Date();
+  const date = new Date();
   return date.toLocaleTimeString("fr-CH", {
     hour: "2-digit",
     minute: "2-digit"
@@ -1337,7 +1337,7 @@ function getAlignmentClass($ele) {
 ```js
 // Returns the current time in a HH:MM formatted string
 function getCurrentTime() {
-  var date = new Date();
+  const date = new Date();
   return date.toLocaleTimeString("fr-CH", {
     hour: "2-digit",
     minute: "2-digit"
@@ -1352,18 +1352,18 @@ $("#send-btn").click(createNewMessage);
 
 function createNewMessage(event) {
   // Getting the "New message" value
-  var $message = $("#message");
-  var msgValue = $message.val();
+  const $message = $("#message");
+  const msgValue = $message.val();
 
   if (msgValue === "") {
     $message.addClass("is-invalid");
   } else {
     // Get the correct alignment
-    var alignment = getAlignmentClass($message);
+    const alignment = getAlignmentClass($message);
 
     // Get the new message template
-    var template = $("#new-sent-message").text();
-    var $msgTemplate = $(template);
+    const template = $("#new-sent-message").text();
+    const $msgTemplate = $(template);
 
     // Insert the value in the tempalte
     $("div.msg-content", $msgTemplate).text(msgValue);

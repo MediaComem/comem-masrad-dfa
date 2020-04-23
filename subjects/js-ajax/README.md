@@ -1,17 +1,17 @@
 # Asynchronous browser/server interaction
 
-<!-- slide-include ../../BANNER.md -->
-
 We will talk about a technology called **AJAX (Asynchronous JavaScript and XML)** which allows in some ways to improve the user interface behaviour with a good effect on the user experience.
+
+<!-- slide-include ../../BANNER.md -->
 
 **You will need**
 
 - [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-- [Sublime Text][sublime] (recommended, any code editor will do... **except Notepad**)
+- [Visual Studio Code][vscode] (recommended, although any editor could do)
 
 **Recommended reading**
 
-- [Project setup][projset]
+- [Course setup][setup]
 - [Bootstrap][bootstrap]
 - [JavaScript][js-bas]
 - [DOM API][js-dom]
@@ -511,7 +511,7 @@ You will find the final HTML file for this course here
 [js-bas]: ../js
 [js-dom]: ../js-dom
 [jq-dom]: ../jquery-dom
-[projset]: ../masrad-project-setup
+[setup]: ../setup
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
 [ajsf]: https://gist.githubusercontent.com/oertz/f5b661e075aa59a326b2d56a4567495d

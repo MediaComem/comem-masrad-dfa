@@ -19,14 +19,15 @@ Learn or rediscover how to use the DOM API to manipulate the underlying HTML obj
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Starting file](#starting-file)
+- [Setup](#setup)
 - [Document Object Model (DOM)](#document-object-model-dom)
-  - [`Document` object and event handling](#document-object-and-event-handling)
+  - [`document` object and event handling](#document-object-and-event-handling)
   - [Example 1 - message alert](#example-1---message-alert)
-  - [Example 1 - display as the first child](#example-1---display-as-the-first-child)
-  - [Example 1 - up to you!](#example-1---up-to-you)
+    - [What have we done?!](#what-have-we-done)
+    - [Up to you!](#up-to-you)
   - [Example 2 - alignment buttons](#example-2---alignment-buttons)
-  - [Example 2 - align each paragraph](#example-2---align-each-paragraph)
+    - [Get the buttons](#get-the-buttons)
+    - [Align each paragraph](#align-each-paragraph)
   - [Exercice - up to you again!](#exercice---up-to-you-again)
 - [Resources](#resources)
 
@@ -67,14 +68,14 @@ Let's add the following javascript in `script.js`:
 > We know we shall avoid global variable, but for a small example like this, we can be tolerant ...
 
 ```js
-var content = {
+const content = {
   alertText:
     "The document and all sub-resources have finished loading. The state 'complete' indicates that the load event is about to fire. ",
   alertLink:
     "https://developer.mozilla.org/fr/docs/Web/API/Document/readyState",
 };
 
-document.onreadystatechange = function () {
+document.onreadystatechange = () => {
   if (document.readyState === "complete") {
     console.log(content.alertText);
   }
@@ -95,19 +96,19 @@ Let's add a dedicated function:
 
 ```js
 function alertOnComplete() {
-  var newDiv = document.createElement("div");
+  const newDiv = document.createElement("div");
   newDiv.setAttribute("class", "alert alert-warning");
-  var newText = document.createTextNode(content.alertText);
+  const newText = document.createTextNode(content.alertText);
   newDiv.appendChild(newText);
 
-  var mainContainer = document.getElementsByClassName("container").item(1);
+  const mainContainer = document.getElementsByClassName("container").item(1);
   mainContainer.appendChild(newDiv);
 }
 ```
 And call it when the document is ready by changing a line:
 
 ```js
-document.onreadystatechange = function () {
+document.onreadystatechange = () => {
   if (document.readyState === "complete") {
 *   alertOnComplete();
   }
@@ -123,16 +124,16 @@ Let's see what the code does:
 ```js
 function alertOnComplete() {
 * // We create a new `<div>` element
-  var newDiv = document.createElement("div");
+  const newDiv = document.createElement("div");
 * // We set a new `class` attribute to this `<div>` with the relevant class names
   newDiv.setAttribute("class", "alert alert-warning");
 * // We create a new text node with the text alert string
-  var newText = document.createTextNode(content.alertText);
+  const newText = document.createTextNode(content.alertText);
 * // We set this new text node as a child of the new div node
   newDiv.appendChild(newText);
 
 * // We get a list of elements with the .container class, and take the second one
-  var mainContainer = document.getElementsByClassName("container").item(1);
+  const mainContainer = document.getElementsByClassName("container").item(1);
 * // appendChild() appends a node at the end of another node's children
   mainContainer.appendChild(newDiv);
 }
@@ -164,7 +165,7 @@ This link should use the `alertLink` property defined on our `content` object to
 We want to enable these three alignment buttons we have in our user interface. Using them must align all `<p>` in the web page.
 
 <!-- slide-column 40 -->
-<p class="shadow"><img src='./images/alignment.png' /></p>
+<p class="shadow"><img src='./images/alignment.png' width="50%" /></p>
 
 <!-- slide-column 100 -->
 To do so, we need to add event listeners on those buttons. But we have a problem: how do we **get those specific buttons**?
@@ -191,13 +192,13 @@ Now, we can safely get all the buttons inside this `<div>` and be sure they're t
 ```js
 function enableAlignmentButtons() {
 * // First, we get the wrapping div
-  var wrappingDiv = document.getElementById("alignment-btns");
+  const wrappingDiv = document.getElementById("alignment-btns");
 * // Then, we get all the buttons inside it
-  var buttons = `wrappingDiv`.getElementsByTagName("button");
+  const buttons = `wrappingDiv`.getElementsByTagName("button");
 * // For each button in our div...
-  for (var i = 0; i < buttons.length; i++) {
+  for (const button of buttons) {
 *   // ...we tell the browser to execute alignAllText once it is clicked
-    buttons.item(i).addEventListener("click", `alignAllText`);
+    button.addEventListener("click", alignAllText)
   }
 }
 ```
@@ -221,9 +222,9 @@ Our `alignAllText()` function should then take this event as a parameter. We wil
 ```js
 function alignAllText(event) {
 * // currentTarget is the clicked button. The first child nodes is its icon
-  var icon = event.currentTarget.childNodes[0];
+  const icon = event.currentTarget.childNodes[0];
 * // With classList we can detect the type of the icon, and deduce the alignment
-  var alignment;
+  let alignment;
   if (icon.classList.contains("fa-align-left")) {
     alignment = "left";
   } else if (icon.classList.contains("fa-align-center")) {
@@ -232,13 +233,13 @@ function alignAllText(event) {
     alignment = "right";
   }
 * // We get all the paragraphs of the document
-  var pColl = document.getElementsByTagName("p");
+  const pColl = document.getElementsByTagName("p");
 * // For each of them...
-  for (var i = 0; i < pColl.length; i++) {
+  for (const p of pColl) {
 *   // We remove any text alignment class
-    pColl[i].classList.remove("text-left", "text-center", "text-right");
+    p.classList.remove("text-left", "text-center", "text-right");
 *   // We add an alignment class using the previously deduced alignment
-    pColl[i].classList.add(`text-${alignment}`);
+    p.classList.add(`text-${alignment}`);
   }
 }
 ```

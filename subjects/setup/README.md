@@ -41,7 +41,7 @@ We will see what we need to install and setup for this course.
 
 Node.js is a JavaScript engine that you can install on your machine to execute JavaScript programs without using a browser.
 
-It's primarily used to develop both back-end web applications and tools.
+It's primarily used to develop both backend web applications and tools.
 
 During this course, we won't use it directly, but we will use tools that need Node.js to run.
 

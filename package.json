@@ -1,21 +1,21 @@
 {
-  "name": "comem-devmobil",
+  "name": "comem-masrad-dfa",
   "version": "1.0.0",
-  "description": "COMEM+ mobile development course",
+  "description": "MAS-RAD | CAS-DAR | Advanced Front-end Development",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MediaComem/comem-devmobil.git"
+    "url": "git+https://github.com/MediaComem/comem-masrad-dfa.git"
   },
-  "author": "Mathias Oberson <mathias.oberson@heig-vd.ch>",
+  "author": "Mathias Oberson <mathias.oberson@he-arc.ch>",
   "contributors": [
     "Simon Oulevay <simon.oulevay@heig-vd.ch>"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MediaComem/comem-devmobil/issues"
+    "url": "https://github.com/MediaComem/comem-masrad-dfa/issues"
   },
-  "homepage": "https://github.com/MediaComem/comem-devmobil#readme",
+  "homepage": "https://github.com/MediaComem/comem-masrad-dfa#readme",
   "scripts": {
     "build": "courses-md build",
     "deploy": "courses-md publish",

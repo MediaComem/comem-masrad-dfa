@@ -217,7 +217,7 @@ They are invisible to human reader and only interpreted by assistive technologie
 
 Bootstrap comes with CSS styles that are applied to **HTML elements**, without **adding classes** to them.
 
-Some of the elements that are impacted are:
+Some of the elements impacted are:
 
 - `<h1>` to `<h6>`
 - `<small>` (an element that display smaller text)
@@ -462,13 +462,13 @@ Add this before the `<h2>Tables</h2>` element:
 
 Components are what a web page is composed of.
 
-They could be very simple and straight forward elements, like buttons, or an ensemble of elements forming a more advanced and featured component, like cards or lists.
+They could be very simple and straightforward elements, like buttons, or an ensemble of elements forming a more advanced and featured component, like cards or lists.
 
 Bootstrap provides a certain amount of those components and the documentation explains what classes to add on which HTML elements and how those elements should be organized for the component to render correctly.
 
 > Note that some components require the use of JavaScript to work as expected.
 >
-> We will not see how to use those JavaScript feature in this course.
+> We will not present those JavaScript-dependant components in this course.
 
 ### Buttons
 
@@ -519,9 +519,7 @@ The result should be:
   <input type="button" value="Input Button" class="btn" />
 </div>
 
-The `.btn` class is used to add to the element all the styles that are **common** among all button styles.
-
-> Each of the additionnal button class will add the styles that are specific to the style.
+The `.btn` class is used to add some basic styling that is **common** among all button styles.
 
 #### Additionnal classes
 
@@ -531,7 +529,6 @@ Bootstrap defines **a button style for each predefined colors**, with its own cl
 
 | Style     | CSS class        | Result                                               |
 | :-------- | :--------------- | :--------------------------------------------------- |
-| Default   | `.btn-default`   | <button class="btn btn-default">Click me!</button>   |
 | Primary   | `.btn-primary`   | <button class="btn btn-primary">Click me!</button>   |
 | Secondary | `.btn-secondary` | <button class="btn btn-secondary">Click me!</button> |
 | Success   | `.btn-success`   | <button class="btn btn-success">Click me!</button>   |
@@ -651,7 +648,7 @@ Add these lines before the `<input type="submit">`:
 
 By default, all elements with the `.form-control` class will be as wide as possible, and will be presented in a stack, i.e. one element in top of another.
 
-If you'd rather prefer to have you form displayed inline, juste add the `.form-inline` class to your top `<form>` element.
+If you'd rather have your form displayed inline, just add the `.form-inline` class to your top `<form>` element.
 
 ```html
 <form `class="form-inline" `>

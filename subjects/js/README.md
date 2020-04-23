@@ -61,8 +61,6 @@ and one of the three core technologies of the web.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
-
 ## What is JavaScript?
 
 <!-- slide-front-matter class: center, middle -->
@@ -72,33 +70,31 @@ and one of the three core technologies of the web.
 
 > JavaScript is **prototype**-based with **first-class functions**, making it a multi-paradigm language, supporting **object-oriented**, **imperative**, and **functional** programming styles.
 
-
-
 ### JavaScript is still evolving
 
 It has been standardized in the [ECMAScript][es] language specification.
 
-<img src='images/timeline.png' width='100%' />
+<p class="center"><img src='images/timeline.png' width='60%' /></p>
 
-* [**ECMAScript 2015** (also known as ECMAScript 6 or ES6)][es6] added iterators and for/of loops, Python-style [generators][js-generators] and generator expressions, [arrow functions][js-arrow-functions], binary data, typed arrays, collections (maps, sets and weak maps), [promises][js-promise], number and math enhancements, reflection, and [proxies][js-proxy].
+* [**ECMAScript 2015** (also known as ECMAScript 6 or ES6)][es6] added an enormous amount of new (drastic) features : iterators and for/of loops, Python-style [generators][js-generators] and generator expressions, [arrow functions][js-arrow-functions], binary data, typed arrays, collections (maps, sets and weak maps), [promises][js-promise], number and math enhancements, reflection, and [proxies][js-proxy].
+  > Since this huge release, it has been decided to make smaller and more frequent releases
 * [**ECMAScript 2017** (ES8)][es8] added [async/await functions][js-async] and [shared memory and atomics][js-shared-memory].
 * [**ECMAScript 2018** (ES9)][es9] added [asynchronous iteration][js-async-iteration] and more.
-* [**ECMAScript 2019**][es2019] is still being drafted.
-
-
+* And so on...
 
 ### JavaScript ES6+ support
 
-There are features from ES6 that are **not yet fully supported** on all browsers.
+Many features of ES6 are **supported by [the majority of modern browsers][caniuse-es6]**.
 
-In client-side code running in the **browser**,
-you should stick with **ES5** or use a JavaScript compiler like [Babel][babel] or a module bundler like [Webpack][webpack]
+This means that you could use them directly in JavaScript code running in the **browser**.
+
+If your user base might not have **up-to-date browsers** or ones that do not support those features, you should stick to **ES5** or use a JavaScript compiler like [Babel][babel] or a module bundler like [Webpack][webpack]
 to turn your ES6+ code into compatible ES5 code before releasing it.
 
 In server-side code running with the latest **Node.js** versions,
 all **ES6+** features are supported except for [imports][js-imports].
 
-
+> JavaScript examples in this course will use ES6 features when applicable
 
 ## JavaScript types
 
@@ -1109,7 +1105,7 @@ console.log(crew);
   https://www.w3schools.com/jsref/jsref_obj_array.asp
 
 
-
+[caniuse-es6]: https://caniuse.com/#search=es6
 [array-functions]: https://www.w3schools.com/jsref/jsref_obj_array.asp
 [babel]: http://babeljs.io
 [chrome]: https://www.google.com/chrome/
@@ -1118,6 +1114,7 @@ console.log(crew);
 [es8]: http://2ality.com/2016/02/ecmascript-2017.html
 [es9]: http://2ality.com/2017/02/ecmascript-2018.html
 [es2019]: http://2ality.com/2018/02/ecmascript-2019.html
+[es2020]: https://2ality.com/2019/12/ecmascript-2020.html
 [ex-function-as-argument]: http://codepen.io/AlphaHydrae/pen/dNBpPv?editors=0010
 [first-class-functions]: https://en.wikipedia.org/wiki/First-class_function
 [func-prog]: https://en.wikipedia.org/wiki/Functional_programming

@@ -10,7 +10,7 @@ You will:
 - learn how the use of a framework does help to organize the front-end code of a single page application
 - be introduced to frameworks that help you develop and build your web application for multiple devices
 
-This course uses subjects from or based on [COMEM+][comem] [architecture & deployment][comem-archidep], [web-oriented architecture][comem-archioweb] and [mobile development][comem-devmobil] taught to students of [Media Engineering][im] at [HEIG-VD][heig].
+_This course uses subjects from or based on [COMEM+][comem] [architecture & deployment][comem-archidep], [web-oriented architecture][comem-archioweb] and [mobile development][comem-devmobil] courses taught to students of [Media Engineering][im] at [HEIG-VD][heig]._
 
 ## Prerequisite
 
@@ -22,34 +22,58 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 
 - [Introduction][dfa]
 - [Setting up your environment][setup]
+
 - Bootstrap
-  - [Basics][bb]
-  - [Layout management][blm]
-  - [Practice][bex]
+  - [Getting started][bb]
+  - [Layout management][blm] ([practice][bex])
+
 - JavaScript
   - [Basics and more][js-bas]
-  - [DOM API][js-dom]
-- [First steps with jQuery library][jq-dom]
-- [Learning AJAX with or without jQuery][js-ajax]
-- [RESTful APIs][rest]
-- [Getting started with Angular][ng] ([exercise][ng-exercise])
-- [Angular UI router][ng-ui-router] ([exercise][ng-ui-router-exercise])
-- [Angular with Bootstrap][ng-bootstrap]
-- Citizen Engagement project
-- [Angular Auth Starter][ng-starter]
+
+- DOM Manipulation
+  - [With JavaScript][js-dom]
+  - [With jQuery][jq-dom]
+
+- Web Service
+  - [RESTful APIs][rest]
+  - [SOP & CORS][sop-cors]
+
+- Asynchronous operations
+  <!-- - [Learning AJAX with or without jQuery][js-ajax] -->
+  <!-- - [JavaScript Promises][js-prom] -->
+  <!-- - [Observables with Rxjs][rxjs] -->
+
+- JavaScript - Part II
+  <!-- - [ES6 Classes][js-classes] -->
+  <!-- - [ES6 Modules][js-modules] -->
+
+- [TypeScript][ts]
+
+- Angular
+  <!-- - [Angular CLI][ng-cli] -->
+  <!-- - [Getting started][ng] ([practice][ng-exercise]) -->
+  <!-- - [Navigation & Routing][ng-ui-router] ([exercise][ng-ui-router-exercise]) -->
+
+- Angular & Libraries
+  <!-- - [Angular Bootstrap][ng-bootstrap] -->
+  <!-- - [Angular Geolocation][geo-api] -->
+  <!-- - [Angular Leaflet][ng-leaflet] -->
+
+- Web application project
+  <!-- - [Angular Auth Starter][ng-starter] -->
 
 ## Additional concepts and tools
 
-- [JavaScript - closures][js-clos]
-- [JavaScript - prototypes][js-prot]
-- [JavaScript - promises][js-prom]
-- [Promises in Angular][ng-prom]
-- [Angular Geolocation][geo-api]
-- [Angular Leaflet][angular-leafet]
+- [JavaScript Prototypes][js-prot]
+- [JavaScript Closures][js-clos]
+- [JavaScript Promises][js-prom]
+<!-- - [Angular Geolocation][geo-api] -->
+<!-- - [Angular Leaflet][angular-leafet] -->
 
 ## Documentation
 
 - [Citizen Engagement API][citizen-engagement-api-docs]
+- [Travel Log API][travel-log-api-docs]
 
 ## Useful links
 
@@ -57,6 +81,7 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 - [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
 
 [angular-leafet]: https://mediacomem.github.io/comem-archidep/latest/subjects/angular-leaflet/
+[api-call]: subjects/api-call
 [bb]: subjects/bootstrap
 [blm]: subjects/bootstrap-layout-management
 [bex]: subjects/bootstrap-practice
@@ -73,11 +98,14 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 [git-b]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-branching?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [geo-api]: subjects/angular-geolocation/
 [heig]: http://www.heig-vd.ch
+[im]: https://heig-vd.ch/formations/bachelor/filieres/ingenierie-des-medias
 [jq-dom]: subjects/jquery-dom
 [js-ajax]: subjects/js-ajax
 [js-bas]: subjects/js
-[js-dom]: subjects/js-dom
+[js-classes]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes
 [js-clos]: subjects/js-closures
+[js-dom]: subjects/js-dom
+[js-modules]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-modules
 [js-prom]: subjects/js-promises
 [js-prot]: subjects/js-prototypes
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
@@ -88,6 +116,10 @@ This course uses subjects from or based on [COMEM+][comem] [architecture & deplo
 [ng-starter]: subjects/angular-auth-starter/
 [ng-ui-router]: subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
-[setup]: subjects/setup
 [rest]: subjects/rest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
+[rxjs]: subjects/rxjs
+[setup]: subjects/setup
+[sop-cors]: subjects/sop-cors
+[travel-log-api-docs]: https://comem-travel-log-api.herokuapp.com/
+[ts]: https://mediacomem.github.io/comem-devmobil/latest/subjects/ts

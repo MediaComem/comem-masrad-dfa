@@ -5,7 +5,7 @@
 - [MAS-RAD -- Advanced Front-end Development (DFA)](#mas-rad----advanced-front-end-development-dfa)
   - [Course deliverable](#course-deliverable)
   - [Front end](#front-end)
-  - [Back-end](#back-end)
+  - [Back end](#back-end)
   - [Application subjects](#application-subjects)
     - [Citizen Engagement](#citizen-engagement)
       - [Report a problem](#report-a-problem)
@@ -59,7 +59,7 @@ In this course, the focus is on the front-end side of the web application, build
 
 <img src='images/travel-log.png' />
 
-## Back-end
+## Back end
 
 Your web application will make use of a REST web service backend that is already implemented and ready to be used.
 
