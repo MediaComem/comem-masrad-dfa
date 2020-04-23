@@ -3,7 +3,7 @@
   <head>
     <title>Bootstrap (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/b9c14a6eabd53cd88f9d8b69127d802e999d071d/subjects/bootstrap/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/bootstrap/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -196,7 +196,7 @@ They are invisible to human reader and only interpreted by assistive technologie
 
 Bootstrap comes with CSS styles that are applied to **HTML elements**, without **adding classes** to them.
 
-Some of the elements that are impacted are:
+Some of the elements impacted are:
 
 - `<h1>` to `<h6>`
 - `<small>` (an element that display smaller text)
@@ -481,13 +481,13 @@ Add this before the `<h2>Tables</h2>` element:
 
 Components are what a web page is composed of.
 
-They could be very simple and straight forward elements, like buttons, or an ensemble of elements forming a more advanced and featured component, like cards or lists.
+They could be very simple and straightforward elements, like buttons, or an ensemble of elements forming a more advanced and featured component, like cards or lists.
 
 Bootstrap provides a certain amount of those components and the documentation explains what classes to add on which HTML elements and how those elements should be organized for the component to render correctly.
 
 > Note that some components require the use of JavaScript to work as expected.
 >
-> We will not see how to use those JavaScript feature in this course.
+> We will not present those JavaScript-dependant components in this course.
 
 ---
 ### Buttons
@@ -544,9 +544,7 @@ The result should be:
   <input type="button" value="Input Button" class="btn" />
 </div>
 
-The `.btn` class is used to add to the element all the styles that are **common** among all button styles.
-
-> Each of the additionnal button class will add the styles that are specific to the style.
+The `.btn` class is used to add some basic styling that is **common** among all button styles.
 
 ---
 #### Additionnal classes
@@ -559,7 +557,6 @@ Bootstrap defines **a button style for each predefined colors**, with its own cl
 
 | Style     | CSS class        | Result                                               |
 | :-------- | :--------------- | :--------------------------------------------------- |
-| Default   | `.btn-default`   | <button class="btn btn-default">Click me!</button>   |
 | Primary   | `.btn-primary`   | <button class="btn btn-primary">Click me!</button>   |
 | Secondary | `.btn-secondary` | <button class="btn btn-secondary">Click me!</button> |
 | Success   | `.btn-success`   | <button class="btn btn-success">Click me!</button>   |
@@ -660,13 +657,13 @@ Add the `.form-control` class to an `<input>` element to make it **full-width an
 
 > This class can be added to any type of input.
 
-Let's add a text input that'll receive the **username** of an hypothetic sign up form.
+Let's add a text input that'll receive the **first name** of an hypothetic sign up form.
 
 Add these lines at the beginning of the `<form>` element:
 
 ```html
-<label for="username">Username</label>
-<input type="text" id="username" `class="form-control" ` />
+<label for="firstname">First name</label>
+<input type="text" id="firstname" `class="form-control" ` />
 ```
 
 > The input is correctly displayed, but there's a spacing problem with the following button.
@@ -678,21 +675,18 @@ Add these lines at the beginning of the `<form>` element:
 
 To resolve any spacing problem that could be present in your form, be sure to wrap your form element in a `<div>` with the `.form-group` class.
 
-> Do this with the preceding **username** input **and** label.
+> Both the **firstname** input **and** label needs to be wrapped with the div.
 
-Let's complete our form by adding a password input that's to receive the **password** of our new user.
+Let's complete our form by adding a last name input that's to receive the **last name** of our new user.
 
 Add these lines before the `<input type="submit">`:
 
-<!-- prettier-ignore-start -->
-
 ```html
 *<div class="form-group">
-  <label for="password">Password</label>
-  <input type="password" id="password" class="form-control" />
+  <label for="lastname">Last name</label>
+  <input type="text" id="lastname" class="form-control" />
 *</div>
 ```
-<!-- prettier-ignore-end -->
 
 > Notice how the `<label>` **and** the `<input>` are grouped together inside the `div.form-group` element.
 
@@ -703,17 +697,17 @@ Add these lines before the `<input type="submit">`:
 
 By default, all elements with the `.form-control` class will be as wide as possible, and will be presented in a stack, i.e. one element in top of another.
 
-If you'd rather prefer to have you form displayed inline, juste add the `.form-inline` class to your top `<form>` element.
+If you'd rather have your form displayed inline, just add the `.form-inline` class to your top `<form>` element.
 
 ```html
 <form `class="form-inline" `>
   <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" id="username" class="form-control" />
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" class="form-control" />
   </div>
   <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" class="form-control" />
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" class="form-control" />
   </div>
   <input type="submit" class="btn btn-success" />
 </form>
@@ -723,7 +717,7 @@ If you'd rather prefer to have you form displayed inline, juste add the `.form-i
 
 ```html
 <div class="form-group">
-  <input type="password" id="..." class="..." `placeholder="Password" ` />
+  <input type="lastname" id="..." class="..." `placeholder="Last name" ` />
 </div>
 ```
 
@@ -951,10 +945,9 @@ Simply add any element with the button classes to the navbar:
   <div class="container">
     <span class="navbar-brand">Bootstrap Initiation</span>
     <div class="collapse navbar-collapse">
-      <ul class="navbar-nav">
-      </ul>
-*     <a class="btn btn-outline-light" href="#">Go to top</a>
+      <!-- navbar list -->
     </div>
+*   <a class="btn btn-outline-light" href="#">Go to top</a>
   </div>
 </nav>
 ```
@@ -1315,9 +1308,9 @@ Add this before the `<h2>Cards</h2>`:
 ```html
 <h2>Icons</h2>
 <div>
-  <button class="btn btn-light">`<i class="fas fa-align-right">`</i></button>
-  <button class="btn btn-light">`<i class="fas fa-align-center">`</i></button>
   <button class="btn btn-light">`<i class="fas fa-align-left">`</i></button>
+  <button class="btn btn-light">`<i class="fas fa-align-center">`</i></button>
+  <button class="btn btn-light">`<i class="fas fa-align-right">`</i></button>
 </div>
 ```
 
@@ -1353,7 +1346,7 @@ You will find the final HTML file for this course [here][final-file].
 [dl-bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/download/#compiled-css-and-js
 [normalize]: https://necolas.github.io/normalize.css/
 [bootstrap-glyphicons]: http://getbootstrap.com/components/#glyphicons-glyphs
-[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/ddae9363bc48d59df2e5f4c8d89b4f33b1cbc415/index.html
+[final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
 [bsm]: ../bootstrap-layout-management
 [setup]: ../setup
 [aria]: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
@@ -1361,6 +1354,6 @@ You will find the final HTML file for this course [here][final-file].
 
     </textarea>
     <script src='https://embed.runkit.com'></script>
-    <script src='../../subject-593c5de278f551214999.js'></script>
+    <script src='../../subject-198cec99477e82cb151d.js'></script>
   </body>
 </html>

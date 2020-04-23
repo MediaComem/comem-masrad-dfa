@@ -3,7 +3,7 @@
   <head>
     <title>REST APIs Introduction (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/b9c14a6eabd53cd88f9d8b69127d802e999d071d/subjects/rest/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/rest/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -16,10 +16,8 @@ This material is part of the [Advanced Front-end Development](https://github.com
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-* [Postman][postman]
-
-
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Postman][postman]
 
 
 
@@ -33,71 +31,6 @@ This material is part of the [Advanced Front-end Development](https://github.com
 **Clients** need access to **data** and **logic**.
 How can they find each other, know what logic can be invoked, and talk to each other over the web?
 
-
-
----
-class: center, middle
-## Big web services
-
-.breadcrumbs[<a href="#1">REST APIs Introduction</a>]
-
-
-
-
-
----
-### Remote procedure call (RPC) or remote method invocation (RMI)
-
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">Big web services</a>]
-
-<p class='center'><img src='images/rmi.png' width='80%' /></p>
-
-
-
----
-### Web services standards
-
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">Big web services</a>]
-
-<p class='center'><img src='images/web-services-standards-overview.gif' width='90%' /></p>
-
-
-
----
-### Pros & cons
-
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">Big web services</a>]
-
-Many standards:
-
-* Simple Object Access Protocol (SOAP)
-* Web Services Description Language (WSDL)
-
-.grid-50[
-
-**Benefits:**
-
-* Very rich protocol stack:
-  * support for security
-  * transactions
-  * reliable transfer
-
-
-]
-.grid-50[
-
-**Problems:**
-
-* Very rich protocol stack:
-  * complexity
-  * verbosity
-  * incompatibility issues
-  * theoretical human readability
-
-
-
-
-]
 ---
 class: center, middle
 ## RESTful web services
@@ -106,18 +39,16 @@ class: center, middle
 
 
 
-
-
 ---
 ### What is a REST API?
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#7">RESTful web services</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">RESTful web services</a>]
 
-* API means [Application Programming Interface][api]
+- API means [Application Programming Interface][api]
 
   > A clearly defined method of communication to interact with your program/service.
 
-* REST means [REpresentational State Transfer][rest]
+- REST means [REpresentational State Transfer][rest]
 
   > An architectural style for building distributed computer systems on the Internet (i.e. it's a type of [Web Service][web-service]).
 
@@ -127,27 +58,23 @@ class: center, middle
 
 REST has been introduced in Roy Fielding’s Ph.D. thesis (Roy Fielding has been a contributor to the HTTP specification, to the apache server, to the apache community).
 
-
-
 ---
 ### Principles of a REST architecture
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#7">RESTful web services</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">RESTful web services</a>]
 
-* The state of the application is captured in a set of **resources**
-  * Users, photos, comments, tags, albums, etc.
-* Resources are identified with a standard format (e.g. **URLs**)
-* Every resource can have several **representations**
-* There is one unique interface for interacting with resources: **HTTP**
+- The state of the application is captured in a set of **resources**
+  - Users, photos, comments, tags, albums, etc.
+- Resources are identified with a standard format (e.g. **URLs**)
+- Every resource can have several **representations**
+- There is one unique interface for interacting with resources: **HTTP**
 
 <p class='center'><img src='images/rest.jpg' width='70%' /></p>
-
-
 
 ---
 ### What is a web resource?
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#7">RESTful web services</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">RESTful web services</a>]
 
 Something that can be uniquely identified on the web:
 
@@ -155,8 +82,8 @@ Something that can be uniquely identified on the web:
 
 **Static files**
 
-* An article published in the "24 heures" newspaper
-* A person's resume
+- An article published in the "24 heures" newspaper
+- A person's resume
 
 
 ]
@@ -164,8 +91,8 @@ Something that can be uniquely identified on the web:
 
 **Dynamic content**
 
-* The collection of articles published in the sport section of the newspaper
-* The list of grades of the student Jean Dupont
+- The collection of articles published in the sport section of the newspaper
+- The list of grades of the student Jean Dupont
 
 
 ]
@@ -175,7 +102,7 @@ Something that can be uniquely identified on the web:
 
 **Intangible things**
 
-* The current price of the Nestlé stock quote
+- The current price of the Nestlé stock quote
 
 
 ]
@@ -183,9 +110,7 @@ Something that can be uniquely identified on the web:
 
 **Physical objects**
 
-* The vending machine in the school hallway
-
-
+- The vending machine in the school hallway
 
 
 ]
@@ -194,13 +119,13 @@ Something that can be uniquely identified on the web:
 ---
 ### [Uniform Resource Locator (URL)][url]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#7">RESTful web services</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">RESTful web services</a>]
 
 > "A reference to a **web resource** that specifies its **location** on a computer network and a **mechanism** for retrieving it."
 
-* http://www.24heures.ch/vaud/2008/08/04/trente-etudiants-manifestent
-* http://imdb.com/movies/best?page=3&pageSize=50&orderBy=title
-* http://www.smart-machines.ch/customers/heig/machines/8272#order
+- http://www.24heures.ch/vaud/2008/08/04/trente-etudiants-manifestent
+- http://imdb.com/movies/best?page=3&pageSize=50&orderBy=title
+- http://www.smart-machines.ch/customers/heig/machines/8272#order
 
 The syntax of an URL is:
 
@@ -208,22 +133,18 @@ The syntax of an URL is:
 scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]
 ```
 
-
-
 ---
 ### Resource vs. representation
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#7">RESTful web services</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#3">RESTful web services</a>]
 
-* In REST, we use the HTTP protocol to support the exchange of data between a **client** and a **server**
-* What is exchanged is not the actual resource: it is a **representation** of the resource
-* The **same resource** could have:
-  * An HTML representation
-  * An XML representation
-  * A PNG representation
-  * A WAV representation
-
-
+- In REST, we use the HTTP protocol to support the exchange of data between a **client** and a **server**
+- What is exchanged is not the actual resource: it is a **representation** of the resource
+- The **same resource** could have:
+  - An HTML representation
+  - An XML representation
+  - A PNG representation
+  - A WAV representation
 
 ---
 class: center, middle
@@ -234,15 +155,13 @@ class: center, middle
 
 
 > "An [application protocol][osi-application] for distributed, collaborative,
-  and [hypermedia][hypermedia] information systems.
-  HTTP is the foundation of data communication for the World Wide Web."
-
-
+> and [hypermedia][hypermedia] information systems.
+> HTTP is the foundation of data communication for the World Wide Web."
 
 ---
 ### HTTP is a request-response protocol
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a>]
 
 When you visit the following page:
 
@@ -275,12 +194,10 @@ Content-Type: text/html; charset=UTF-8
 </html>
 ```
 
-
-
 ---
 ### Anatomy of an HTTP request
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a>]
 
 Get the third page of a movies list:
 
@@ -306,7 +223,7 @@ Host: www.example.com
 ---
 #### Request method
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#15">Anatomy of an HTTP request</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#11">Anatomy of an HTTP request</a>]
 
 The first line of an HTTP request is the **request line**:
 
@@ -314,10 +231,10 @@ The first line of an HTTP request is the **request line**:
   `GET` /movies/best?page=3&pageSize=50&orderBy=title HTTP/1.1
 ```
 
-The **request method** is the *desired action* to perform:
+The **request method** is the _desired action_ to perform:
 
 | Method | Purpose                               |
-| :---   | :---                                  |
+| :----- | :------------------------------------ |
 | GET    | Retrieve data                         |
 | POST   | Create a new resource                 |
 | PUT    | Replace an existing resource          |
@@ -329,7 +246,7 @@ There are [more methods][http-methods].
 ---
 #### Resource path
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#15">Anatomy of an HTTP request</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#11">Anatomy of an HTTP request</a>]
 
 The second part of the request line is the **resource path**:
 
@@ -342,7 +259,7 @@ It tells the server where to find the resource to perform the action on.
 ---
 #### Query string
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#15">Anatomy of an HTTP request</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#11">Anatomy of an HTTP request</a>]
 
 The **query string** is the third part of the request line:
 
@@ -350,17 +267,17 @@ The **query string** is the third part of the request line:
   GET /movies/best`?page=3&pageSize=50&orderBy=title` HTTP/1.1
 ```
 
-These are parameters given to the server, usually to *filter* the resource.
+These are parameters given to the server, usually to _filter_ the resource.
 In this case:
 
-* `page=3` - we want the third page
-* `pageSize=50` - we want pages of 50 movies
-* `orderBy=title` - we want the movies ordered by title
+- `page=3` - we want the third page
+- `pageSize=50` - we want pages of 50 movies
+- `orderBy=title` - we want the movies ordered by title
 
 ---
 #### Headers
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#15">Anatomy of an HTTP request</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#11">Anatomy of an HTTP request</a>]
 
 After the request line, an HTTP request has one or more **headers**:
 
@@ -372,15 +289,15 @@ GET /movies/best?page=3&pageSize=50&orderBy=title HTTP/1.1
 
 This allows the client to tell the server how to serve the request:
 
-* `Accept: application/html,*/*` - I prefer HTML, but otherwise give me any format you have
-* `Host: www.example.com` - This is the domain I want the resource from
+- `Accept: application/html,*/*` - I prefer HTML, but otherwise give me any format you have
+- `Host: www.example.com` - This is the domain I want the resource from
 
 There are many [headers][headers] that can be used in requests.
 
 ---
 #### Request body
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#15">Anatomy of an HTTP request</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#11">Anatomy of an HTTP request</a>]
 
 The **body** is data that the client can ask the server to do something with:
 
@@ -397,16 +314,14 @@ Host: www.example.com
 
 In this case:
 
-* It's a `POST` request, so the server should create a new resource
-* The `Content-Type` header is `application/json`, so the server should interepret the body as a JSON payload
+- It's a `POST` request, so the server should create a new resource
+- The `Content-Type` header is `application/json`, so the server should interepret the body as a JSON payload
   and use that data to create the resource
-
-
 
 ---
 ### Anatomy of an HTTP response
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a>]
 
 An HTML page:
 
@@ -440,7 +355,7 @@ Content-Type: application/json
 ---
 #### Status code and reason phrase
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#21">Anatomy of an HTTP response</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#17">Anatomy of an HTTP response</a>]
 
 The first line of an HTTP response is the **status line**:
 
@@ -451,7 +366,7 @@ The first line of an HTTP response is the **status line**:
 The **status code** and the **reason phrase** indicate to the client whether the request was successful and how to handle it:
 
 | Code | Reason               | Purpose                                                                                                                                 |
-| :--- | :---                 | :---                                                                                                                                    |
+| :--- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
 | 200  | OK                   | The response body contains the requested resource.                                                                                      |
 | 201  | Created              | The `Location` header contains the URL of the created resource; the response body may contain a representation of the created resource. |
 | 401  | Unauthorized         | Authentication is required and was not provided or is invalid.                                                                          |
@@ -462,7 +377,7 @@ There are many [status codes][http-status-codes] a server can use to help the cl
 ---
 #### Headers
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#21">Anatomy of an HTTP response</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#17">Anatomy of an HTTP response</a>]
 
 Like requests, an HTTP response has one or more **headers** after the status line:
 
@@ -481,16 +396,16 @@ HTTP/1.1 200 OK
 
 It allows the server to give the client additional metadata about the response:
 
-* `Content-Language: en` - The response contains information in English
-* `Content-Type: application/json` - The response body is a JSON payload
-* `Last-Modified: Tue, 07 Feb 2017 02:12:22 GMT` - The resource was last modified on February 7th
+- `Content-Language: en` - The response contains information in English
+- `Content-Type: application/json` - The response body is a JSON payload
+- `Last-Modified: Tue, 07 Feb 2017 02:12:22 GMT` - The resource was last modified on February 7th
 
 There are many [headers][headers] that can be used in responses.
 
 ---
 #### Response body
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#21">Anatomy of an HTTP response</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a> > <a href="#17">Anatomy of an HTTP response</a>]
 
 The response body is the (optional) data sent by the server.
 Its nature depends on what the request was and what the response status code indicates.
@@ -520,12 +435,10 @@ Content-Type: application/json
 *]
 ```
 
-
-
 ---
 ### HTTP provides the [content negotiation][http-content-negotiation] mechanisms
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#13">[HyperText Transfer Protocol (HTTP)][http]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#9">[HyperText Transfer Protocol (HTTP)][http]</a>]
 
 Different **representations** of a resource can be exchanged at the **same URL**:
 
@@ -581,8 +494,6 @@ HTTP/1.1 200 OK
 ```
 
 
-
-
 ]
 ---
 class: center, middle
@@ -594,29 +505,25 @@ class: center, middle
 
 I'm lazy that way.
 
-
-
 ---
 ### Standards
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 A lot of smart people have encountered **the same problems you have** over the years.
 They have come together and defined **standard solutions** to deal with some of those problems.
 
-HTTP has a **very rich** vocabulary of *methods*, *headers* and *status codes* that are here to **help you** implement rich client-server interaction.
+HTTP has a **very rich** vocabulary of _methods_, _headers_ and _status codes_ that are here to **help you** implement rich client-server interaction.
 
 It's up to you to decide whether you want to **reinvent the wheel**, or **stand on the shoulders of giants**.
-
-
 
 ---
 ### Common [methods][http-methods]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 | Method    | Purpose                                                       |
-| :---      | :---                                                          |
+| :-------- | :------------------------------------------------------------ |
 | `GET`     | Retrieve data                                                 |
 | `HEAD`    | Retrieve the response headers but no data (to save bandwidth) |
 | `POST`    | Create a new resource                                         |
@@ -625,140 +532,124 @@ It's up to you to decide whether you want to **reinvent the wheel**, or **stand 
 | `DELETE`  | Delete a resource                                             |
 | `OPTIONS` | Ask the server what you can do with a resource                |
 
-
-
 ---
 class: compact-table
 ### Common request [headers][http-request-headers]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 
 
-Example                              | What the client is asking
-:---                                 | :---
-`Accept: text/plain`                 | I want you to send me a response in **plain text**. If you **can't**, I expect you to respond with `406 Not Acceptable`
-`Authorization: Basic 98aw=`         | Use the base64-encoded `user:password` string I am giving you as proof of my identity
-`Authorization: Bearer 1y09`         | Use the [bearer token][auth0-tokens] I am giving you as proof of my identity
-`Content-Type: application/json`     | I am sending you a request with JSON text in the body
-`If-Modified-Since: Sun, 3 Jan 2017` | If the resource I am retrieving has **not changed** since January 3rd 2017, I expect you to respond with `304 Not Modified` and no response body (to save bandwidth). ([Conditional GET][http-conditional-requests])
-`If-Unmodified-Since: ...`           | If the resource I am updating has **changed**, I expect you to **not update it** and respond with `412 Precondition Failed` ([Conditional update][http-conditional-requests])
-`Referer: google.com`                | I am coming to you from `google.com`
-`User-Agent: Mobile Safari/534.30`   | I am sending you a request from a **mobile device**
-
-
+| Example                              | What the client is asking                                                                                                                                                                                            |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Accept: text/plain`                 | I want you to send me a response in **plain text**. If you **can't**, I expect you to respond with `406 Not Acceptable`                                                                                              |
+| `Authorization: Basic 98aw=`         | Use the base64-encoded `user:password` string I am giving you as proof of my identity                                                                                                                                |
+| `Authorization: Bearer 1y09`         | Use the [bearer token][auth0-tokens] I am giving you as proof of my identity                                                                                                                                         |
+| `Content-Type: application/json`     | I am sending you a request with JSON text in the body                                                                                                                                                                |
+| `If-Modified-Since: Sun, 3 Jan 2017` | If the resource I am retrieving has **not changed** since January 3rd 2017, I expect you to respond with `304 Not Modified` and no response body (to save bandwidth). ([Conditional GET][http-conditional-requests]) |
+| `If-Unmodified-Since: ...`           | If the resource I am updating has **changed**, I expect you to **not update it** and respond with `412 Precondition Failed` ([Conditional update][http-conditional-requests])                                        |
+| `Referer: google.com`                | I am coming to you from `google.com`                                                                                                                                                                                 |
+| `User-Agent: Mobile Safari/534.30`   | I am sending you a request from a **mobile device**                                                                                                                                                                  |
 
 ---
 class: compact-table
 ### Common response [headers][http-response-headers]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 
 
-Example                                  | What the server is telling you
-:---                                     | :---
-`Access-Control-Allow-Origin: *`         | I am allowing you to make a [cross-origin request][http-cors] from anywhere
-`Set-Cookie: UserID=JohnDoe`             | I am giving you a cookie: please send it back to me for all further requests on this domain
-`Content-Type: text/html`                | I am sending you an HTML page
-`Expires: Sun, 31 Dec 2017`              | The content I am sending you will not change until December 31st 2017
-`Last-Modified: Sun, 3 Jan 2017`         | The content I am sending you was last modified on January 3rd 2017
-`Location: http://example.com/somewhere` | The resource you requested has moved and I am telling you where, **or** the resource you just created is available at that address
-`WWW-Authenticate: Basic`                | I do not know you, please re-send your request with [Basic HTTP authentication][http-auth]
-
-
+| Example                                  | What the server is telling you                                                                                                     |
+| :--------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| `Access-Control-Allow-Origin: *`         | I am allowing you to make a [cross-origin request][http-cors] from anywhere                                                        |
+| `Set-Cookie: UserID=JohnDoe`             | I am giving you a cookie: please send it back to me for all further requests on this domain                                        |
+| `Content-Type: text/html`                | I am sending you an HTML page                                                                                                      |
+| `Expires: Sun, 31 Dec 2017`              | The content I am sending you will not change until December 31st 2017                                                              |
+| `Last-Modified: Sun, 3 Jan 2017`         | The content I am sending you was last modified on January 3rd 2017                                                                 |
+| `Location: http://example.com/somewhere` | The resource you requested has moved and I am telling you where, **or** the resource you just created is available at that address |
+| `WWW-Authenticate: Basic`                | I do not know you, please re-send your request with [Basic HTTP authentication][http-auth]                                         |
 
 ---
 class: compact-table
 ### Common successful response [status codes][http-status-codes]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 
 
-Code                    | What the server is telling you
-:---                    | :---
-`200 OK`                | Your request was successful
-`201 Created`           | I have created a **new resource** and am telling you where it is in the `Location` header
-`202 Accepted`          | I have received your request but will process it later
-`204 No Content`        | I have processed your request but have no content to send you
-`301 Moved Permanently` | The resource you are requesting has **moved permanently** and I am telling you where in the `Location` header
-`302 Found`             | The resource you are requesting has **moved temporarily** and I am telling you where in the `Location` header
-`304 Not Modified`      | The resource you are requesting has **not changed**, so I am not sending you its data again
-
-
+| Code                    | What the server is telling you                                                                                |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------ |
+| `200 OK`                | Your request was successful                                                                                   |
+| `201 Created`           | I have created a **new resource** and am telling you where it is in the `Location` header                     |
+| `202 Accepted`          | I have received your request but will process it later                                                        |
+| `204 No Content`        | I have processed your request but have no content to send you                                                 |
+| `301 Moved Permanently` | The resource you are requesting has **moved permanently** and I am telling you where in the `Location` header |
+| `302 Found`             | The resource you are requesting has **moved temporarily** and I am telling you where in the `Location` header |
+| `304 Not Modified`      | The resource you are requesting has **not changed**, so I am not sending you its data again                   |
 
 ---
 class: compact-table
 ### Common client error response [status codes][http-status-codes]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 
 
-Code                         | What the server is telling you
-:---                         | :---
-`400 Bad Request`            | I cannot understand the request (e.g. invalid JSON)
-`401 Unauthorized`           | I do not know you, please [authenticate][http-auth]
-`403 Forbidden`              | I know you, but you do not have sufficient access rights to do that
-`404 Not Found`              | The resource you are requesting does not exist
-`405 Method Not Allowed`     | You can't make a `GET/POST/...` on this resource
-`406 Not Acceptable`         | I can't answer in the format you asked for in the `Accept` header
-`409 Conflict`               | Your request is not consistent with the resource's state
-`410 Gone`                   | The resource was here but no longer is
-`412 Precondition Failed`    | I am denying your [conditional request][http-conditional-requests]
-`415 Unsupported Media Type` | You are sending me XML/JSON/... but the resource cannot be represented in that format
-`418 I'm a teapot`           | [I don't make coffee][http-teapot]
-`422 Unprocessable Entity`   | The request body is syntactically correct but semantically invalid (e.g. validation error)
-`429 Too Many Requests`      | Stop spamming me
-
-
+| Code                         | What the server is telling you                                                             |
+| :--------------------------- | :----------------------------------------------------------------------------------------- |
+| `400 Bad Request`            | I cannot understand the request (e.g. invalid JSON)                                        |
+| `401 Unauthorized`           | I do not know you, please [authenticate][http-auth]                                        |
+| `403 Forbidden`              | I know you, but you do not have sufficient access rights to do that                        |
+| `404 Not Found`              | The resource you are requesting does not exist                                             |
+| `405 Method Not Allowed`     | You can't make a `GET/POST/...` on this resource                                           |
+| `406 Not Acceptable`         | I can't answer in the format you asked for in the `Accept` header                          |
+| `409 Conflict`               | Your request is not consistent with the resource's state                                   |
+| `410 Gone`                   | The resource was here but no longer is                                                     |
+| `412 Precondition Failed`    | I am denying your [conditional request][http-conditional-requests]                         |
+| `415 Unsupported Media Type` | You are sending me XML/JSON/... but the resource cannot be represented in that format      |
+| `418 I'm a teapot`           | [I don't make coffee][http-teapot]                                                         |
+| `422 Unprocessable Entity`   | The request body is syntactically correct but semantically invalid (e.g. validation error) |
+| `429 Too Many Requests`      | Stop spamming me                                                                           |
 
 ---
 class: compact-table
 ### Common server error response [status codes][http-status-codes]
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 
 
 Unlike the errors from the previous table,
 these errors indicate that there is a **problem on the server**, not with the client's request:
 
-Code                        | What the server is telling you
-:---                        | :---
-`500 Internal Server Error` | Oops, I crashed and can't fulfill this request
-`501 Not Implemented`       | You made a `HEAD/PATCH/...` request but I don't support that method for any resource
-`502 Bad Gateway`           | I tried using a third-party service to fulfill your request, but couldn't reach it
-`503 Service Unavailable`   | I'm busy or being fixed, please try again later
-`508 Loop Detected`         | *To understand recursion, you must first understand recursion...*
-
-
+| Code                        | What the server is telling you                                                       |
+| :-------------------------- | :----------------------------------------------------------------------------------- |
+| `500 Internal Server Error` | Oops, I crashed and can't fulfill this request                                       |
+| `501 Not Implemented`       | You made a `HEAD/PATCH/...` request but I don't support that method for any resource |
+| `502 Bad Gateway`           | I tried using a third-party service to fulfill your request, but couldn't reach it   |
+| `503 Service Unavailable`   | I'm busy or being fixed, please try again later                                      |
+| `508 Loop Detected`         | _To understand recursion, you must first understand recursion..._                    |
 
 ---
 ### Conditional update example
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a>]
 
 If **two users** save a form on a website at the same time,
-there is a possible *race condition* where one user's changes can be **silently overwritten** by the other's:
+there is a possible _race condition_ where one user's changes can be **silently overwritten** by the other's:
 
 <p class='center'><img src='images/conditional-update-1.png' class='w100' /></p>
-
-
 
 ---
 #### Conditional update solution
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#26">But can't I just use GET and POST?</a> > <a href="#34">Conditional update example</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#22">But can't I just use GET and POST?</a> > <a href="#30">Conditional update example</a>]
 
 The `If-Match` and `If-Unmodified-Since` headers allow the client to **conditionally update** a resource.
 If the resource **has changed** compared to the specified identifier or since the specified date,
 the server should **refuse** the request and respond with `412 Precondition Failed`:
 
 <p class='center'><img src='images/conditional-update-2.png' class='w100' /></p>
-
-
 
 ---
 ## [Create, read, update, delete (CRUD)][crud]
@@ -767,21 +658,19 @@ the server should **refuse** the request and respond with `412 Precondition Fail
 
 Since REST deals primarily with **resources**, in a REST API you will (mostly):
 
-* **C**reate new resources
-* **R**ead (or retrieve) a resource or collection of resources
-* **U**pdate resources
-* **D**elete (or detroy) resources
+- **C**reate new resources
+- **R**ead (or retrieve) a resource or collection of resources
+- **U**pdate resources
+- **D**elete (or detroy) resources
 
 Let's try these operations with a prepared REST API:
 
 https://evening-meadow-25867.herokuapp.com
 
-
-
 ---
 ### Postman
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a>]
 
 To make requests to the API, we will use [Postman][postman], an HTTP client with a GUI.
 **Download and launch** the application now.
@@ -793,19 +682,17 @@ You don't have to sign up when it prompts you to, you can skip it:
 ---
 #### Postman interface
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#37">Postman</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#33">Postman</a>]
 
 Postman allows you to make any HTTP **request/response** (e.g. `POST`, `PUT`, custom headers, etc).
 It also remembers your **previous requests**..
 
 <img src='images/postman-ui.png' width='100%' />
 
-
-
 ---
 ### Create
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a>]
 
 The API allows us to **create a person** by making a `POST` request with a **JSON representation** of the person.
 This is the request we want to make:
@@ -826,7 +713,7 @@ Let's make that request with Postman:
 ---
 #### Create request headers
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Create</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#35">Create</a>]
 
 You can see and modify the request headers in the **Headers** tab:
 
@@ -839,7 +726,7 @@ Press the **Send** button to send the request.
 ---
 #### Create response
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Create</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#35">Create</a>]
 
 You should see the response below the request configuration:
 
@@ -854,7 +741,7 @@ In other words: the server tells us that **a new person has been created** by re
 ---
 #### Create response headers
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Create</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#35">Create</a>]
 
 You can also see the response headers in the **Headers** tab:
 
@@ -864,12 +751,10 @@ You can also see the response headers in the **Headers** tab:
 
 The server tells us where to find the new resource in the **Location** header.
 
-
-
 ---
 ### Read
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a>]
 
 Let's make a request to **read** (or **retrieve**) the person we created.
 This time we need a simple `GET` request to the path given to us in the **Location** header of the previous response:
@@ -885,7 +770,7 @@ Configure that request in Postman:
 ---
 #### Read response
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#43">Read</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Read</a>]
 
 Press **Send** and you should retrieve the person in the response:
 
@@ -899,7 +784,7 @@ The `200 OK` status code indicates that the request was **successful**.
 ---
 #### Read a resource that does not exist
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#43">Read</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Read</a>]
 
 Configure the same request but change the last character of the URL path:
 
@@ -914,7 +799,7 @@ By sending a response with the `404 Not Found` status code, the server tells us 
 ---
 #### Read a collection
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#43">Read</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Read</a>]
 
 The API also has a resource that represents the **collection of people** that have been created.
 Let's make a `GET` request to **read** that.
@@ -931,7 +816,7 @@ Configure that request in Postman:
 ---
 #### Read collection response
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#43">Read</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#39">Read</a>]
 
 Press **Send** and you should receive a response with several people in it:
 
@@ -940,12 +825,10 @@ Press **Send** and you should receive a response with several people in it:
 Again, the server is sending us the **JSON representation** of the `/api/people` resource.
 Since that represents multiple people, we receive a **JSON array**, where each element is a **JSON object** representing a person.
 
-
-
 ---
 ### Update
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a>]
 
 The API also allows us to **update** a person by making a `PUT` request to the person's resource with a **JSON representation** of the updated person.
 Let's make a request to add your birthdate:
@@ -964,7 +847,7 @@ Configure that request with Postman:
 ---
 #### Update response
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#48">Update</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#44">Update</a>]
 
 Press **Send** and you should receive the updated person in the response:
 
@@ -980,7 +863,7 @@ Since no new resource was created, the server simply responds with `200 OK`.
 ---
 #### Partial update with PUT
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#48">Update</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#44">Update</a>]
 
 Now, configure the same request but **without the gender**, and press **Send**:
 
@@ -989,7 +872,7 @@ Now, configure the same request but **without the gender**, and press **Send**:
 ---
 #### Partial update response with PUT
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#48">Update</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#44">Update</a>]
 
 The server is responding with the status code `422 Unprocessable Entity`, meaning that the request was refused because the person representation you sent is invalid (it is missing the gender property):
 
@@ -1001,7 +884,7 @@ which it cannot do in this case because it is **invalid**. API operations using 
 ---
 #### Partial updates with PATCH
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#48">Update</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#44">Update</a>]
 
 The `PATCH` method was later added to the HTTP specification to support **partial updates**.
 The API also supports it, so let's make a PATCH request to update your birthdate:
@@ -1020,7 +903,7 @@ Configure that request with Postman:
 ---
 #### Partial update response with PATCH
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#48">Update</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#44">Update</a>]
 
 This time the request was accepted:
 
@@ -1033,12 +916,10 @@ in this case an update of the `birthDate` property.
 
 Like with `PUT`, no new resource was created, so the server responds with `200 OK`.
 
-
-
 ---
 ### Delete
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a>]
 
 Finally, let's **delete** the person.
 We simply need to make a `DELETE` request with no request body:
@@ -1054,7 +935,7 @@ Configure that request with Postman:
 ---
 #### Delete response
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#54">Delete</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#50">Delete</a>]
 
 Press **Send** and you should get a response from the server with no response body:
 
@@ -1069,41 +950,37 @@ The server has **successfully deleted the person resource** and is not sending u
 As you can see in the method's documentation, the server could also respond differently (e.g. `200 OK` with a representation of the deleted resource),
 but `204 No Content` was chosen for this API implementation.
 
-
-
 ---
 class: compact-table
 ### CRUD summary
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a>]
 
 
 
-Collection (`people` - plural name)                                                                                                  | Single resource (`/people/:id` - one person in the collection)
-:---                                                                                                                                 | :---
-`POST /api/people`<br/>**Create a new resource** in the collection, `201 Created` and `Location` header (and optional response body) | -
-`GET /api/people`<br/>**Read a list of resources** (with optional pagination, sorting and filtering), `200 OK`                       | `GET /api/people/:id`<br/>**Read one resource**, `200 OK`
-*(Batch update)*                                                                                                                     | `PUT /api/people/:id`<br/>**Fully update one resource**, `200 OK` (with body) or `204 No Content` (without body)
-*(Batch partial update)*                                                                                                             | `PATCH /api/people/:id`<br/>**Partially update one resource**, `200 OK` (with body) or `204 No Content` (without body)
-*(Batch delete)*                                                                                                                     | `DELETE /api/people/:id`<br/>**Delete one resource**, `200 OK` (with body) or `204 No Content` (without body)
+| Collection (`people` - plural name)                                                                                                  | Single resource (`/people/:id` - one person in the collection)                                                         |
+| :----------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| `POST /api/people`<br/>**Create a new resource** in the collection, `201 Created` and `Location` header (and optional response body) | -                                                                                                                      |
+| `GET /api/people`<br/>**Read a list of resources** (with optional pagination, sorting and filtering), `200 OK`                       | `GET /api/people/:id`<br/>**Read one resource**, `200 OK`                                                              |
+| _(Batch update)_                                                                                                                     | `PUT /api/people/:id`<br/>**Fully update one resource**, `200 OK` (with body) or `204 No Content` (without body)       |
+| _(Batch partial update)_                                                                                                             | `PATCH /api/people/:id`<br/>**Partially update one resource**, `200 OK` (with body) or `204 No Content` (without body) |
+| _(Batch delete)_                                                                                                                     | `DELETE /api/people/:id`<br/>**Delete one resource**, `200 OK` (with body) or `204 No Content` (without body)          |
 
 ---
 class: compact-table
 #### CRUD errors summary
 
-.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#36">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#56">CRUD summary</a>]
+.breadcrumbs[<a href="#1">REST APIs Introduction</a> > <a href="#32">[Create, read, update, delete (CRUD)][crud]</a> > <a href="#52">CRUD summary</a>]
 
 
 
-Collection errors                                                                                                                  | Resource errors
-:---                                                                                                                               | :---
-`POST /api/people`<br/>`400 Bad Request` (JSON malformed), `404 Not Found`, `422 Unprocessable Entity` (Data semantically invalid) | -
-`GET /api/people`<br/>`400 Bad Request` (Query parameters invalid)                                                                | `GET /api/people/:id`<br/>`404 Not Found`
--                                                                                                                                  | `PUT /api/people/:id`<br/>`400 Bad Request` (JSON malformed), `404 Not Found`, `422 Unprocessable Entity` (Data semantically invalid)
--                                                                                                                                  | `PATCH /api/people/:id`<br/>`400 Bad Request` (JSON malformed), `404 Not Found`, `422 Unprocessable Entity` (Data semantically invalid)
--                                                                                                                                  | `DELETE /api/people/:id`<br/>`404 Not Found`, `409 Conflict` (Cannot be deleted)
-
-
+| Collection errors                                                                                                                  | Resource errors                                                                                                                         |
+| :--------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST /api/people`<br/>`400 Bad Request` (JSON malformed), `404 Not Found`, `422 Unprocessable Entity` (Data semantically invalid) | -                                                                                                                                       |
+| `GET /api/people`<br/>`400 Bad Request` (Query parameters invalid)                                                                 | `GET /api/people/:id`<br/>`404 Not Found`                                                                                               |
+| -                                                                                                                                  | `PUT /api/people/:id`<br/>`400 Bad Request` (JSON malformed), `404 Not Found`, `422 Unprocessable Entity` (Data semantically invalid)   |
+| -                                                                                                                                  | `PATCH /api/people/:id`<br/>`400 Bad Request` (JSON malformed), `404 Not Found`, `422 Unprocessable Entity` (Data semantically invalid) |
+| -                                                                                                                                  | `DELETE /api/people/:id`<br/>`404 Not Found`, `409 Conflict` (Cannot be deleted)                                                        |
 
 ---
 ## Resources
@@ -1112,18 +989,16 @@ Collection errors                                                               
 
 **Documentation**
 
-* [HTTP request methods][http-methods] ([RFC][http-methods-rfc], [PATCH RFC][http-methods-patch-rfc])
-* [HTTP headers (request/response)][http-headers]
-* [HTTP status codes][http-status-codes] ([RFC][http-status-codes-rfc])
+- [HTTP request methods][http-methods] ([RFC][http-methods-rfc], [PATCH RFC][http-methods-patch-rfc])
+- [HTTP headers (request/response)][http-headers]
+- [HTTP status codes][http-status-codes] ([RFC][http-status-codes-rfc])
 
 **Further reading**
 
-* [A brief introduction to REST][rest-intro]
-* [REST Cheat Sheet][rest-cheat-sheet]
-* [Using HTTP Methods for RESTful Services][http-methods-rest]
-* [Best Practices for Designing a Pragmatic RESTful API][rest-pragmatic]
-
-
+- [A brief introduction to REST][rest-intro]
+- [REST Cheat Sheet][rest-cheat-sheet]
+- [Using HTTP Methods for RESTful Services][http-methods-rest]
+- [Best Practices for Designing a Pragmatic RESTful API][rest-pragmatic]
 
 [api]: https://en.wikipedia.org/wiki/Application_programming_interface
 [auth0-tokens]: https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/
@@ -1157,6 +1032,6 @@ Collection errors                                                               
 
     </textarea>
     <script src='https://embed.runkit.com'></script>
-    <script src='../../subject-593c5de278f551214999.js'></script>
+    <script src='../../subject-198cec99477e82cb151d.js'></script>
   </body>
 </html>

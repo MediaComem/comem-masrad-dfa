@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript - DOM API (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/b9c14a6eabd53cd88f9d8b69127d802e999d071d/subjects/js-dom/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/js-dom/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -21,23 +21,29 @@ Learn or rediscover how to use the DOM API to manipulate the underlying HTML obj
 
 **Recommended reading**
 
-- [Project setup][projset]
+- [Course setup][course]
 - [Bootstrap][bootstrap]
 - [JavaScript][js-bas]
 
 
 
 ---
-class: center, middle
-## Starting file
+## Setup
 
 .breadcrumbs[<a href="#1">JavaScript - DOM API</a>]
 
-This subject will use [this `index.html` file][bsef] as illustration.
+1. Create a new project directory somewhere in your filesystem. You can name it whatever you want. We will call it `js-dom`.
 
-Be sure to download it, if you want to try and follow with the examples.
+1. Save the [this `index.html` file][bsef] in this new `js-dom` directory.
 
+1. Create a new file called `script.js` in `js-dom`.
 
+1. Open `index.html` and add this line at the and of its `<head>` section:
+  ```html
+  <script src="script.js"></script>
+  ```
+
+1. You're good to go!
 
 ---
 ## Document Object Model (DOM)
@@ -54,36 +60,36 @@ The Document Object Model (DOM) is a programming interface for **HTML, XML and S
 > Essentially, it connects web pages to scripts or programming languages. Although the DOM is often accessed using JavaScript, it is not a part of the JavaScript language.
 
 ---
-### `Document` object and event handling
+### `document` object and event handling
 
 .breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
 
-The `Document` object is the first object of interest, and event handling is key to manage the interaction with the web page. Many possible events are fired during its life cycle and can be listened to.
+The `document` object is the first object of interest, and event handling is key to manage the interaction with the web page. Many possible events are fired during its life cycle and can be listened to.
 
-Let's add the following `<script>` section in our `index.html` file:
+Let's add the following javascript in `script.js`:
 
 > We know we shall avoid global variable, but for a small example like this, we can be tolerant ...
 
 ```js
-<script type="text/javascript">
-    var content = {
-        alertText: "The document and all sub-resources have finished loading. The state 'complete' indicates that the load event is about to fire. ",
-        alertLink: "https://developer.mozilla.org/fr/docs/Web/API/Document/readyState"
-    }
+const content = {
+  alertText:
+    "The document and all sub-resources have finished loading. The state 'complete' indicates that the load event is about to fire. ",
+  alertLink:
+    "https://developer.mozilla.org/fr/docs/Web/API/Document/readyState",
+};
 
-    document.onreadystatechange = function () {
-        if (document.readyState === "complete") {
-            console.log(content.alertText);
-        }
-    }
-</script>
+document.onreadystatechange = () => {
+  if (document.readyState === "complete") {
+    console.log(content.alertText);
+  }
+};
 ```
 
 > See also the [DOM documentation][domdoc] `Document.readyState`
 
 ???
 
-The `Document.readyState` property of a document describes the loading state of the document.
+The `document.readyState` property of a document describes the loading state of the document.
 
 ---
 ### Example 1 - message alert
@@ -96,33 +102,51 @@ Let's add a dedicated function:
 
 ```js
 function alertOnComplete() {
-  var newDiv = document.createElement("div");
+  const newDiv = document.createElement("div");
   newDiv.setAttribute("class", "alert alert-warning");
-  var newText = document.createTextNode(content.alertText);
+  const newText = document.createTextNode(content.alertText);
   newDiv.appendChild(newText);
 
-  var mainContainer = document.getElementsByClassName("container").item(1);
+  const mainContainer = document.getElementsByClassName("container").item(1);
   mainContainer.appendChild(newDiv);
 }
 ```
+And call it when the document is ready by changing a line:
 
-> And just don't forget to call it in place of the `console.log`
+```js
+document.onreadystatechange = () => {
+  if (document.readyState === "complete") {
+*   alertOnComplete();
+  }
+};
+```
 
-The result does not completely satisfy the requirement. Indeed, the message alert is shown on the bottom of the page!
+The result does not completely satisfy the requirement. Indeed, the message alert is shown at the bottom of the page!
 
 ---
-### Example 1 - display as the first child
+#### What have we done?!
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#5">Example 1 - message alert</a>]
 
-So what we have done is:
+Let's see what the code does:
 
-- `createElement`: we create a new `<div>` element
-- `setAttribute`: we set a new `class` attribute to this `<div>` with the relevant class names
-- `createTextNode`: we create a new text node with the message alert string
-- `appendChild`: we "connect" the text node to the `<div>`
-- `getElementsByClassName`: we get references to the elements having the `container` class
-- `item`: we focus on the second container
+```js
+function alertOnComplete() {
+* // We create a new `<div>` element
+  const newDiv = document.createElement("div");
+* // We set a new `class` attribute to this `<div>` with the relevant class names
+  newDiv.setAttribute("class", "alert alert-warning");
+* // We create a new text node with the text alert string
+  const newText = document.createTextNode(content.alertText);
+* // We set this new text node as a child of the new div node
+  newDiv.appendChild(newText);
+
+* // We get a list of elements with the .container class, and take the second one
+  const mainContainer = document.getElementsByClassName("container").item(1);
+* // appendChild() appends a node at the end of another node's children
+  mainContainer.appendChild(newDiv);
+}
+```
 
 But we want it on the top (just after the navigation bar). Just replace the last instruction with this one:
 
@@ -133,99 +157,139 @@ mainContainer.insertBefore(newDiv, mainContainer.firstChild);
 > There are even more methods like `removeChild` or `replaceChild` ...
 
 ---
-### Example 1 - up to you!
+#### Up to you!
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#5">Example 1 - message alert</a>]
 
-We have a second information in our `content.alertLink`, let's use it.
+To complete this example, we would like to add a link _"More info..."_ after the text in our alert.
 
-Add a small **More info ...** link next to the displayed message alert.
+This link should use the `alertLink` property defined on our `content` object to redirect the user.
 
-<img src='images/moreinfo.jpg' width='95%' />
+> Update the `alertOnComplete()` function to add this link element when generating the new alert.
+
+<p class="shadow"><img src='images/moreinfo.png' width='95%' /></p>
+
+> You should take a look at [`textContent`][text-content] and [`<a>` element][a]
 
 ---
 ### Example 2 - alignment buttons
 
 .breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
 
+.grid-60[
 We want to enable these three alignment buttons we have in our user interface. Using them must align all `<p>` in the web page.
 
-As previously, we need to add event listeners:
+
+]
+.grid-40[
+<p class="shadow"><img src='./images/alignment.png' width="50%" /></p>
+
+
+]
+.grid-100[
+To do so, we need to add event listeners on those buttons. But we have a problem: how do we **get those specific buttons**?
+
+One option would be to get all the buttons on the page and do some checking in order to try and guess if any of them is the one we want.
+
+> This is not a very reliable technique and we could be smarter than that.
+
+All the buttons we are interested in are **wrapped in a single `<div>`**.
+
+Let's add this `<div>` an `id`:
+
+```html
+<h2>Icons</h2>
+<div `id="alignment-btns"`>
+  <!-- buttons -->
+</div>
+```
+
+
+]
+---
+#### Get the buttons
+
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#8">Example 2 - alignment buttons</a>]
+
+Now, we can safely get all the buttons inside this `<div>` and be sure they're the ones we want.
 
 ```js
 function enableAlignmentButtons() {
-  var buttons = document.getElementsByTagName("button");
-  for (var i = 0; i < buttons.length; i++) {
-    if (buttons.item(i).childNodes[0].nodeName === "SPAN") {
-      buttons.item(i).addEventListener("click", alignAllText);
-    }
+* // First, we get the wrapping div
+  const wrappingDiv = document.getElementById("alignment-btns");
+* // Then, we get all the buttons inside it
+  const buttons = `wrappingDiv`.getElementsByTagName("button");
+* // For each button in our div...
+  for (const button of buttons) {
+*   // ...we tell the browser to execute alignAllText once it is clicked
+    button.addEventListener("click", alignAllText)
   }
 }
 ```
+> Call this function in the `document.onreadystatechange` callback function.
 
-- `getElementsByTagName`: we get the references on all the `<button>` elements
-- `childNodes`: for each of them, we access to the first child node
-- `nodeName`: and we check if the child node is a `<span>`
+If you run this code now, you'll get a `ReferenceError` on the browser's console:
 
-> The fact is that we want to add a listener only on the alignment button (i.e. without the blue button). As soon as one of these buttons is clicked, the function `alignAllText` is called. Let's define it now!
+```
+script.js:34 Uncaught ReferenceError: alignAllText is not defined
+  at enableAlignmentButtons (script.js:34)
+  at HTMLDocument.document.onreadystatechange (script.js:11)
+```
+> That's normal: we didn't write the `alignAllText()` function. Let's do that now.
 
 ---
-### Example 2 - align each paragraph
+#### Align each paragraph
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#8">Example 2 - alignment buttons</a>]
 
-The last step is to capture what button the user has clicked on:
+The callback to `addEventListener()` is always called with one argument, which is the event itself.
+
+Our `alignAllText()` function should then take this event as a parameter. We will use it to detect which button was actually clicked:
 
 ```js
-function alignAllText(e) {
-  var childNode = e.currentTarget.childNodes[0];
-  var glyphClass = childNode.getAttribute("class");
-  var align = String(glyphClass).substring(26, String(glyphClass).length);
-
-  var ps = document.getElementsByTagName("p");
-  for (var i = 0; i < ps.length; i++) {
-    ps.item(i).classList.remove("text-left", "text-center", "text-right");
-    ps.item(i).classList.add("text-" + align);
+function alignAllText(event) {
+* // currentTarget is the clicked button. The first child nodes is its icon
+  const icon = event.currentTarget.childNodes[0];
+* // With classList we can detect the type of the icon, and deduce the alignment
+  let alignment;
+  if (icon.classList.contains("fa-align-left")) {
+    alignment = "left";
+  } else if (icon.classList.contains("fa-align-center")) {
+    alignment = "center";
+  } else if (icon.classList.contains("fa-align-right")) {
+    alignment = "right";
+  }
+* // We get all the paragraphs of the document
+  const pColl = document.getElementsByTagName("p");
+* // For each of them...
+  for (const p of pColl) {
+*   // We remove any text alignment class
+    p.classList.remove("text-left", "text-center", "text-right");
+*   // We add an alignment class using the previously deduced alignment
+    p.classList.add(`text-${alignment}`);
   }
 }
 ```
-
-- `e.currentTarget`: we get the object at the root of the event (clicked button)
-- `getAttribute`: we get the class attribute to analyze
-- `classList.remove`: for each paragraph, remove all alignment instructions
-- `classList.add`: for each paragraph, add the alignment to consider
-
-> Of course, to make everything work, don't forget to call the `enableAlignmentButtons` function from the right place ...
 
 ---
 ### Exercice - up to you again!
 
 .breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
 
-We want to play with the username/password form and the table we have in the user interface.
+We want to play with the form and the table we have in the user interface.
 
-> Before we start, just replace the button of the first form like this:
+The requirements are:
 
-```html
-<input
-  type="button"
-  name="send"
-  id="loginApp"
-  value="Login"
-  class="btn btn-success"
-/>
-```
-
-The requirement is:
-
-- as soon as the user does click the Login button, we add a row in the table using the information of the username and password input fields.
-- you will discover how the use of ID values and the `getElementById` method are convenient
+- When a user submit the form by clicking on the "Register" button, get the value of the First name and Last name fields ;
+- Add a new row to the Table at the bottom of the page with those values (give the `#` and `Startship` column a value of `###`).
 
 > Good luck! And to help you:
 
-> At first add a function listener to the login button;
+> 1. Add an listener either on the form's submit event or the button's click event ;
+> 1. In the callback function, start by getting the values of the fields
+> 1. Then create the required HTML node tree for a new table row, filling in the values in the cells
 
-> Then give the logic to your function so as to get the values and create a new row with them.
+> Do not hesitate to update the HTML code by adding ids or classes if this helps you. But don't overdo it!
 
 ---
 ## Resources
@@ -241,14 +305,16 @@ You will find the final HTML file for this course [here][fef]
 [domdoc]: https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 [bootstrap]: ../bootstrap
 [js-bas]: ../js
-[projset]: ../masrad-project-setup
+[course]: ../setup
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
-[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/9f1dec778546a4d9741f1d17b08212c5606c26ca/index.html
-[fef]: https://gist.githubusercontent.com/oertz/164a883774727e34fd9190e6abf84bd2
+[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
+[fef]: https://gist.githubusercontent.com/Tazaf/e7286440370e1c5197999b0da2e84f9e/raw/index.html
+[text-content]: https://developer.mozilla.org/fr/docs/Web/API/Node/textContent
+[a]: https://developer.mozilla.org/fr/docs/Web/HTML/Element/a
 
     </textarea>
     <script src='https://embed.runkit.com'></script>
-    <script src='../../subject-593c5de278f551214999.js'></script>
+    <script src='../../subject-198cec99477e82cb151d.js'></script>
   </body>
 </html>
