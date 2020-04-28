@@ -1,6 +1,10 @@
 # JavaScript
 
-<runkit global enabled='true'></runkit>
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
+<runkit global enabled='false'></runkit>
 
 Learn the basics of JavaScript, a high-level, dynamic, untyped and interpreted programming language,
 and one of the three core technologies of the web.

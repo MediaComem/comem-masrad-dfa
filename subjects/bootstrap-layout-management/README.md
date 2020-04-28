@@ -1,5 +1,9 @@
 # Bootstrap - Layout management
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 <!-- slide-include ../../BANNER.md -->
 
 Learn how Bootstrap helps you structure your HTML layouts, using both its grid system and all available responsive classes.

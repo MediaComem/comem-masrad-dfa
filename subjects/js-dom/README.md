@@ -1,5 +1,9 @@
 # JavaScript - DOM API
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 <!-- slide-include ../../BANNER.md -->
 
 Learn or rediscover how to use the DOM API to manipulate the underlying HTML object structure of a web page.

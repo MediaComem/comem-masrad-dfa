@@ -1,5 +1,9 @@
 # REST APIs Introduction
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 Learn the core architectural principles of RESTful APIs are and how they compare to big web services.
 
 <!-- slide-include ../../BANNER.md -->

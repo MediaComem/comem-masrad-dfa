@@ -1,5 +1,9 @@
 # Bootstrap
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly build HTML templates and views.
 
 <!-- slide-include ../../BANNER.md -->

@@ -1,5 +1,9 @@
 # Course Setup
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 We will see what we need to install and setup for this course.
 
 <!-- slide-include ../../BANNER.md -->

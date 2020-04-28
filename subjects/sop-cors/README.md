@@ -1,5 +1,9 @@
 # SOP and CORS
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 Lean about **security measures** when communicating with RESTful APIs from your JavaScript code, and how to **deal with them**.
 
 <!-- slide-include ../../BANNER.md -->
@@ -18,6 +22,7 @@ Lean about **security measures** when communicating with RESTful APIs from your 
 
 
 - [Your request has been blocked](#your-request-has-been-blocked)
+  - [I want to see for myself!](#i-want-to-see-for-myself)
 - [Same-origin policy (SOP)](#same-origin-policy-sop)
   - [Why does SOP protect the final user?](#why-does-sop-protect-the-final-user)
   - [What if I'm developing on my computer?](#what-if-im-developing-on-my-computer)

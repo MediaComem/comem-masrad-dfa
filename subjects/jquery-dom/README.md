@@ -1,5 +1,9 @@
 # jQuery - DOM Manipulation
 
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
 Learn how to use the jQuery library to manipulate the DOM of a web page and creating interactivity.
 
 <!-- slide-include ../../BANNER.md -->

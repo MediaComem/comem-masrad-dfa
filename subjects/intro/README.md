@@ -1,3 +1,19 @@
+# MAS-RAD -- Advanced Front-end Development (DFA)
+
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
+The goal of this course is to discover concepts and tools to organize the front-end side of a web application and enrich the user interface/experience according to current good practices. You will:
+
+- learn how to make good use of a CSS framework to build a responsive HTML user interface
+- learn (or review) how to manipulate the DOM API with or without a library
+- learn how to manage asynchronous communications with a Web API on the back end
+- learn how the use of a framework does help to organize the front-end code of a single page application
+- be introduced to frameworks that help you develop and build your web application for multiple devices
+
+Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa][dfa-site]
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -17,18 +33,6 @@
   - [Delivery](#delivery)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# MAS-RAD -- Advanced Front-end Development (DFA)
-
-The goal of this course is to discover concepts and tools to organize the front-end side of a web application and enrich the user interface/experience according to current good practices. You will:
-
-- learn how to make good use of a CSS framework to build a responsive HTML user interface
-- learn (or review) how to manipulate the DOM API with or without a library
-- learn how to manage asynchronous communications with a Web API on the back end
-- learn how the use of a framework does help to organize the front-end code of a single page application
-- be introduced to frameworks that help you develop and build your web application for multiple devices
-
-Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa][dfa-site]
 
 ## Course deliverable
 
