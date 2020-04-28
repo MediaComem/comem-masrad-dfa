@@ -3,11 +3,19 @@
   <head>
     <title>Bootstrap - Layout management (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/bootstrap-layout-management/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/bootstrap-layout-management/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
+class: center, middle
 # Bootstrap - Layout management
+
+
+
+---
+## Summary
+
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a>]
 
 This material is part of the [Advanced Front-end Development](https://github.com/MediaComem/comem-masrad-dfa) for the [Master of Advances Studies in Rapid Application Development](https://www.he-arc.ch/ingenierie/mas-rad-cas-dar).
 
@@ -66,7 +74,7 @@ Elements on the page are displayed according to their default type:
 ---
 ### Altering the default layout
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#3">Default HTML layout</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#4">Default HTML layout</a>]
 
 CSS offers a bunch of properties to alter this default behavior, allowing for more creative and custom page layouts.
 
@@ -81,7 +89,7 @@ Using these properties can be quite tedious, especially if you want something **
 ---
 ### Advanced CSS layout systems
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#3">Default HTML layout</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#4">Default HTML layout</a>]
 
 With **CSS3**, new layout systems have been added to the toolkit of frontend developers, offering them **easier, consistant and more powerful** ways of placing and displaying elements on the page.
 
@@ -145,7 +153,7 @@ To use this grid system in your layout, you have a dozen classes at your disposa
 ---
 ### Creating rows
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a>]
 
 Rows are the base of the gris system. Adding a `.row` class to an element set it up with the Bootstrap Grid System.
 
@@ -174,7 +182,7 @@ You'll see that everything inside the new row is **now wider than the rest of th
 ---
 ### Adding columns
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a>]
 
 Now that we have defined a _column container_ (i.e. the `.row` element), next step is to define the width (in number of columns) of each element in the `.row`.
 
@@ -209,7 +217,7 @@ Here, we've wrapped our `<div class="list-group">` element with another `<div>` 
 ---
 #### Column wrapping
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a> > <a href="#9">Adding columns</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a> > <a href="#10">Adding columns</a>]
 
 If you look closely at the previous example, you might see something apparently odd.
 
@@ -251,7 +259,7 @@ Indeed. But when the number of columns in a row is **more than 12**, Bootstrap w
 ---
 #### Offseting columns
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a> > <a href="#9">Adding columns</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a> > <a href="#10">Adding columns</a>]
 
 Another grid functionnality offered by the Bootstrap Grid System is **offsetting columns**.
 
@@ -279,7 +287,7 @@ This can be achieved with another set of classes named `.offset-{column}`:
 ---
 ### Responsivness
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a>]
 
 As said before, Bootstrap was build **with smartphones and tablets in mind**, and this is especially visible with the Grid System.
 
@@ -301,7 +309,7 @@ But there is actually **4 additional sets of classes available**, each of them b
 ---
 #### Example
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a> > <a href="#12">Responsivness</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a> > <a href="#13">Responsivness</a>]
 
 To see by ourselves how this works, let's modify the `<p>`s in the _Color classes_ section.
 
@@ -323,7 +331,7 @@ Add these classes in the `class` attribute of all the `<p>`:
 ---
 #### What if..?
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a> > <a href="#12">Responsivness</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a> > <a href="#13">Responsivness</a>]
 
 What if you want your `<p>`s to be **3-column-wide** for every screen width, except on **extra-small ones**, where they should be **6-column-wide**?
 
@@ -350,7 +358,7 @@ In this case, doing this would have the same result:
 ---
 #### Flexibility
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a> > <a href="#12">Responsivness</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a> > <a href="#13">Responsivness</a>]
 
 You don't have to use all the classes **each time** you want to define how your element should behave.
 
@@ -368,7 +376,7 @@ You don't have to use all the classes **each time** you want to define how your 
 ---
 ### Responsive utilities
 
-.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#7">Bootstrap Grid System</a>]
+.breadcrumbs[<a href="#1">Bootstrap - Layout management</a> > <a href="#8">Bootstrap Grid System</a>]
 
 Finally, you have the ability to alter the display of any HTML element based on the screen-width.
 

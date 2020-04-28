@@ -3,11 +3,19 @@
   <head>
     <title>Bootstrap (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/bootstrap/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/bootstrap/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
+class: center, middle
 # Bootstrap
+
+
+
+---
+## Summary
+
+.breadcrumbs[<a href="#1">Bootstrap</a>]
 
 Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly build HTML templates and views.
 
@@ -63,7 +71,7 @@ Bootstrap is a **framework** _(although technically more a library)_: it's a set
 ---
 ### CDN
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#3">Why Bootstrap?</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#4">Why Bootstrap?</a>]
 
 You have several ways of including Bootstra. The first one we'll see is using a **CDN** (**C**ontent **D**elivering **N**etwork).
 
@@ -90,7 +98,7 @@ To include Bootstrap with a CDN, add this `<link>` tag at the bottom of your `<h
 ---
 ### Download locally
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#3">Why Bootstrap?</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#4">Why Bootstrap?</a>]
 
 You can also **download the files locally** and reference them in your `index.html` file.
 
@@ -118,7 +126,7 @@ Create a `css` folder at the root of your poject directory, at the same level th
 ---
 ### How do I know it's working?
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#3">Why Bootstrap?</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#4">Why Bootstrap?</a>]
 
 To be sure that Bootstrap is correctly included in your project, just open your `index.html` in a browser.
 
@@ -165,7 +173,7 @@ We highly recommend that you check it out.
 ---
 ### Screen-readers helpers
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#8">Bootstrap documentation</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#9">Bootstrap documentation</a>]
 
 When browswing the Bootstrap documentation, you'll inevitably found some examples with `.aria-*` attributes:
 
@@ -207,7 +215,7 @@ Some of the elements impacted are:
 ---
 ### Examples
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#10">Element default styles</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#11">Element default styles</a>]
 
 To see for yourself how Bootstrap stylizes those elements, let's **add some of them** in your project.
 
@@ -233,7 +241,7 @@ Finally, open both `index.html` and `compare.html` in your browser.
 ---
 ### Why put styles on element?
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#10">Element default styles</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#11">Element default styles</a>]
 
 As you can see, HTML elements already **have** default styles, even without CSS.
 
@@ -250,7 +258,7 @@ See, for example, the rendering of an `<abbr>` tag on **Chrome** VS **Firefox**.
 ---
 ### Normalization (or Reboot)
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#10">Element default styles</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#11">Element default styles</a>]
 
 To avoid this rendering problem, developers use a technique called **CSS Normalization**.
 
@@ -285,7 +293,7 @@ Delete everything that's between your `<body>` tag and add:
 ---
 ### Container
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#14">Layout</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#15">Layout</a>]
 
 Containers represents the `<div>`s that **structure** your content.
 
@@ -305,7 +313,7 @@ You can change that by adding a `.container-fluid` class to a `<div>` or any "bl
 ---
 #### `.container`
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#14">Layout</a> > <a href="#15">Container</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#15">Layout</a> > <a href="#16">Container</a>]
 
 If you want your container to be more centered, use the `.container` instead.
 
@@ -323,7 +331,7 @@ The `.container` class is designed so that your `<div>` will always be, at maxim
 ---
 #### Illustration
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#14">Layout</a> > <a href="#15">Container</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#15">Layout</a> > <a href="#16">Container</a>]
 
 <p class='center'><img src='images/without-container.jpg' width='100%' /></p>
 
@@ -396,7 +404,7 @@ Replace this line...
 ---
 ### More table classes
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#18">Tables</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#19">Tables</a>]
 
 > These classes **must be** used in addition of the `.table` class.
 
@@ -447,7 +455,7 @@ Bootstrap defines some default colors:
 ---
 ### Color utilities
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#20">Colors</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#21">Colors</a>]
 
 Those colors can be directly applied on some specific components, but can also be used for the text or background color of almost any HTML element.
 
@@ -492,7 +500,7 @@ Bootstrap provides a certain amount of those components and the documentation ex
 ---
 ### Buttons
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a>]
 
 Bootstrap adds many new classes regarding buttons, that allows you to create a wide variety of possible usage.
 
@@ -522,7 +530,7 @@ Let's add some buttons to the `index.html` page. Add the following snippet right
 ---
 #### The `.btn` class
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#23">Buttons</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#24">Buttons</a>]
 
 To properly use any of the button styles, you **must** add the special class `.btn` to the element you want to sylize.
 
@@ -549,7 +557,7 @@ The `.btn` class is used to add some basic styling that is **common** among all 
 ---
 #### Additionnal classes
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#23">Buttons</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#24">Buttons</a>]
 
 Bootstrap defines **a button style for each predefined colors**, with its own class to add to an element **that already have** the `.btn` class:
 
@@ -568,7 +576,7 @@ Bootstrap defines **a button style for each predefined colors**, with its own cl
 ---
 #### Inverted buttons
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#23">Buttons</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#24">Buttons</a>]
 
 Using `btn-outline-` instead of `btn-` as a prefix before the color name allows you to style your button with and inverted rendering:
 
@@ -584,7 +592,7 @@ Using `btn-outline-` instead of `btn-` as a prefix before the color name allows 
 ---
 #### Try it!
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#23">Buttons</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#24">Buttons</a>]
 
 Add a:
 
@@ -607,7 +615,7 @@ The result should look like this:
 ---
 #### Size control
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#23">Buttons</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#24">Buttons</a>]
 
 You can also change the overall size of your button, using three additionnal classes.
 
@@ -633,7 +641,7 @@ Add the `.btn-sm` class to the `<input type="button">` element to see it **a bit
 ---
 ### Forms
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a>]
 
 Creating forms in HTML is a big part of constructing web applications, and this is yet another subject that Bootstrap can help you with.
 
@@ -651,7 +659,7 @@ Add these lines right before the `<h2>Buttons</h2>` element:
 ---
 #### `.form-control`
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#29">Forms</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#30">Forms</a>]
 
 Add the `.form-control` class to an `<input>` element to make it **full-width and stylized**.
 
@@ -671,7 +679,7 @@ Add these lines at the beginning of the `<form>` element:
 ---
 #### `.form-group`
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#29">Forms</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#30">Forms</a>]
 
 To resolve any spacing problem that could be present in your form, be sure to wrap your form element in a `<div>` with the `.form-group` class.
 
@@ -693,7 +701,7 @@ Add these lines before the `<input type="submit">`:
 ---
 #### `.form-inline`
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#29">Forms</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#30">Forms</a>]
 
 By default, all elements with the `.form-control` class will be as wide as possible, and will be presented in a stack, i.e. one element in top of another.
 
@@ -728,7 +736,7 @@ Be aware that not all forms can be put inline. If your form is too big, it won't
 ---
 #### Checkboxes
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#29">Forms</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#30">Forms</a>]
 
 Bootstrap provides an HTML component for checkboxes to ensure a proper rendering and behavior.
 
@@ -759,7 +767,7 @@ To add a checkbox to your `<form>`, you should use this **expected HTML markup**
 ---
 #### Radio buttons
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#29">Forms</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#30">Forms</a>]
 
 The same goes for the radio buttons, and the expected HTML markup is pretty similar:
 
@@ -803,7 +811,7 @@ The same goes for the radio buttons, and the expected HTML markup is pretty simi
 ---
 ### Navbar
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a>]
 
 To create a navigation bar in your application, you can use the **navbar** component.
 
@@ -824,7 +832,7 @@ But thanks to the `.navbar` class, it opens up a lot of customization and fine-t
 ---
 #### Navbar width
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 You might have noticed an alignment difference between your navbar and the main content.
 
@@ -858,7 +866,7 @@ If you'd like the navbar to be as wide as possible but restrict **the width of i
 ---
 #### Navbar Brand
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 Usually, the navbar is where the logo or the brand of the web site or web application is located.
 
@@ -881,7 +889,7 @@ This will render the brand content a little differently than the rest of the nav
 ---
 #### Navbar theming
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 You can easily theme your navbar using the [color utility classes](#21) we saw earlier. Let's change the background color of our navbar:
 
@@ -908,7 +916,7 @@ In our case, the `primary` color is a dark one. Hence, we should add the `.navba
 ---
 #### Navbar links
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 As its name implies, the navbar is usually ideal for navigation, and you'll probably want to add links to it.
 
@@ -934,7 +942,7 @@ Notice the `.navbar-nav > .navbar-item > .nav-link` hierarchy.
 ---
 #### Navbar buttons
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 Now, let's say we'd like to add a _button_ in our navbar.
 
@@ -959,7 +967,7 @@ Simply add any element with the button classes to the navbar:
 ---
 #### Fixed navbar
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 If you scroll in your `index.html` page, you'll see that the navbar **scrolls with it**, thus disappearing from the screen at one point.
 
@@ -984,7 +992,7 @@ To fix this, we need to **add some padding** to the element that encloses our co
 ---
 #### Fixing the fixed navbar
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#35">Navbar</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#36">Navbar</a>]
 
 Let's change our content element from a `<div>` to a `<main>` (for better semantics):
 
@@ -1019,7 +1027,7 @@ To add some padding, let's define a custom stylesheet.
 ---
 ### Lists
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a>]
 
 As we said before, simple lists using the classics `<ul>` and `<li>` elements without any classes are already stylized by Bootstrap.
 
@@ -1048,7 +1056,7 @@ Add this code right before the `<h2>Forms</h2>` element:
 ---
 #### Link elements
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#43">Lists</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#44">Lists</a>]
 
 If you'd like your list elements to be clickable, you need to tweek a little your HTML structure:
 
@@ -1080,7 +1088,7 @@ You can now add a `href` attribute to any list item:
 ---
 #### I want more!
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#43">Lists</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#44">Lists</a>]
 
 Just putting a single line of text inside a list item is sometimes not enough.
 
@@ -1104,7 +1112,7 @@ Let's create a second list right below the `<h2>Lists</h2>` element:
 ---
 #### Custom list item
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#43">Lists</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#44">Lists</a>]
 
 You can add any kind of HTML within the `<a>` list-items to enrich them.
 
@@ -1121,7 +1129,7 @@ You don't need to add extra classes to the custom content, unless you want to cu
 ---
 #### Contextual list item colors
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a> > <a href="#43">Lists</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a> > <a href="#44">Lists</a>]
 
 Any element within a `.list-group` list can be colored with one of the [predefined color](#21).
 
@@ -1145,7 +1153,7 @@ Use a `list-group-item-` prefix before the color you want to apply:
 ---
 ### Badges
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#22">Components</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#23">Components</a>]
 
 .grid-50[
 If you have used some kind of web applications, you probably have seen little numbers in list elements or icons.
@@ -1202,7 +1210,7 @@ But the spacing is quite not right...
 ---
 ### Card's body
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#49">Cards</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#50">Cards</a>]
 
 For correct spacing, the content of a panel **should be** placed inside a `<div>` with the `.card-body` class:
 
@@ -1217,7 +1225,7 @@ For correct spacing, the content of a panel **should be** placed inside a `<div>
 ---
 ### Header/Footer
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#49">Cards</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#50">Cards</a>]
 
 You can add a **header** and a **footer** to a card, to better structure its content.
 
@@ -1238,7 +1246,7 @@ You can add a **header** and a **footer** to a card, to better structure its con
 ---
 ### Card styling
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#49">Cards</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#50">Cards</a>]
 
 You can directly use any [color utility classes](#21) to style the different parts of your card:
 
@@ -1259,7 +1267,7 @@ You can directly use any [color utility classes](#21) to style the different par
 ---
 ### Card features
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#49">Cards</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#50">Cards</a>]
 
 Cards are very powerful components with many features and use case available through many classes.
 
@@ -1293,7 +1301,7 @@ You can include the **Font Awesome Library** with a many number of way, the easi
 ---
 ### Usage
 
-.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#54">Icons</a>]
+.breadcrumbs[<a href="#1">Bootstrap</a> > <a href="#55">Icons</a>]
 
 Once the CSS is included, you can add icons to your page by using an `<i>` element, with the class `.fas` and the name of the icon.
 

@@ -3,11 +3,19 @@
   <head>
     <title>JavaScript - DOM API (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/js-dom/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/js-dom/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
+class: center, middle
 # JavaScript - DOM API
+
+
+
+---
+## Summary
+
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a>]
 
 This material is part of the [Advanced Front-end Development](https://github.com/MediaComem/comem-masrad-dfa) for the [Master of Advances Studies in Rapid Application Development](https://www.he-arc.ch/ingenierie/mas-rad-cas-dar).
 
@@ -62,7 +70,7 @@ The Document Object Model (DOM) is a programming interface for **HTML, XML and S
 ---
 ### `document` object and event handling
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a>]
 
 The `document` object is the first object of interest, and event handling is key to manage the interaction with the web page. Many possible events are fired during its life cycle and can be listened to.
 
@@ -94,7 +102,7 @@ The `document.readyState` property of a document describes the loading state of 
 ---
 ### Example 1 - message alert
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a>]
 
 We want to display a message alert on the top of the page as soon as the document is finished loading.
 
@@ -126,7 +134,7 @@ The result does not completely satisfy the requirement. Indeed, the message aler
 ---
 #### What have we done?!
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#5">Example 1 - message alert</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a> > <a href="#6">Example 1 - message alert</a>]
 
 Let's see what the code does:
 
@@ -159,7 +167,7 @@ mainContainer.insertBefore(newDiv, mainContainer.firstChild);
 ---
 #### Up to you!
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#5">Example 1 - message alert</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a> > <a href="#6">Example 1 - message alert</a>]
 
 To complete this example, we would like to add a link _"More info..."_ after the text in our alert.
 
@@ -174,7 +182,7 @@ This link should use the `alertLink` property defined on our `content` object to
 ---
 ### Example 2 - alignment buttons
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a>]
 
 .grid-60[
 We want to enable these three alignment buttons we have in our user interface. Using them must align all `<p>` in the web page.
@@ -209,7 +217,7 @@ Let's add this `<div>` an `id`:
 ---
 #### Get the buttons
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#8">Example 2 - alignment buttons</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a> > <a href="#9">Example 2 - alignment buttons</a>]
 
 Now, we can safely get all the buttons inside this `<div>` and be sure they're the ones we want.
 
@@ -240,7 +248,7 @@ script.js:34 Uncaught ReferenceError: alignAllText is not defined
 ---
 #### Align each paragraph
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a> > <a href="#8">Example 2 - alignment buttons</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a> > <a href="#9">Example 2 - alignment buttons</a>]
 
 The callback to `addEventListener()` is always called with one argument, which is the event itself.
 
@@ -274,7 +282,7 @@ function alignAllText(event) {
 ---
 ### Exercice - up to you again!
 
-.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#3">Document Object Model (DOM)</a>]
+.breadcrumbs[<a href="#1">JavaScript - DOM API</a> > <a href="#4">Document Object Model (DOM)</a>]
 
 We want to play with the form and the table we have in the user interface.
 

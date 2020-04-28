@@ -3,11 +3,19 @@
   <head>
     <title>jQuery - DOM Manipulation (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/jquery-dom/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/jquery-dom/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
+class: center, middle
 # jQuery - DOM Manipulation
+
+
+
+---
+## Summary
+
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a>]
 
 Learn how to use the jQuery library to manipulate the DOM of a web page and creating interactivity.
 
@@ -109,7 +117,7 @@ You can also [download the complete file][dl-jquery], and save the file in a `js
 ---
 ### Script inclusions
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#5">Include jQuery</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#6">Include jQuery</a>]
 
 It's considered a good practice to include JS scripts **at the end of your HTML page**.
 
@@ -126,7 +134,7 @@ Plus, loading JS files while the DOM is not, forces you to start all your JS scr
 ---
 ### Add custom script
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#5">Include jQuery</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#6">Include jQuery</a>]
 
 We will write our own JS code in a custom script file.
 
@@ -144,7 +152,7 @@ In your project directory, create a new file `script.js` and include it at the b
 ---
 ### Test everything
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#5">Include jQuery</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#6">Include jQuery</a>]
 
 Add the following line in your `script.js` file, and save it:
 
@@ -218,7 +226,7 @@ To select DOM elements and receive jQuery objects matching the selected elements
 ---
 ### Good selecting practice
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a>]
 
 The topic of selecting elements in jQuery being [very vast][css-select], you can easily write selectors that aren't optimals, performace-wise.
 
@@ -235,7 +243,7 @@ There's many good practice regarding jQuery selectors. We are only going to see 
 ---
 #### Storing jQuery object
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a>]
 
 When you know or discover that your are going to use the same jQuery selector **several time**, you should cache its result **in a JS variable**, for future reference.
 
@@ -261,7 +269,7 @@ const `$firstSentences` = $("article > p:first-child");
 ---
 #### Use `id` selectors
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a>]
 
 HTML `id` attribute allows you to define **unique identifier** in an HTML page.
 
@@ -292,7 +300,7 @@ $("#the-one");
 ---
 #### Don't overdo it
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a>]
 
 If you can't define `id` attributes in your HTML template, you'll need to use more complete selectors.
 
@@ -319,7 +327,7 @@ $("a.list-group-item h4");
 ---
 #### Using `class` selector
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a>]
 
 CSS classes being shared among elements, it's a great way to quickly select all related elements.
 
@@ -344,7 +352,7 @@ $("li.list-group-item, a.list-group-item");
 ---
 #### Selecting order
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a>]
 
 When jQuery encounters a selector like `$("a.list-group-item h4")`, how do you think it's going to execute it ?
 
@@ -366,7 +374,7 @@ To solve this problem, you have two options:
 ---
 ##### Try to `.find()` me
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a> > <a href="#17">Selecting order</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a> > <a href="#18">Selecting order</a>]
 
 The `.find()` method allows you to search for **elements in the DOM**, but limited to the context of the jQuery object on which you called the method.
 
@@ -381,7 +389,7 @@ $("a.list-group-item").find("h4");
 ---
 ##### Refine the use of `$()`
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#11">Selecting things</a> > <a href="#12">Good selecting practice</a> > <a href="#17">Selecting order</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#12">Selecting things</a> > <a href="#13">Good selecting practice</a> > <a href="#18">Selecting order</a>]
 
 We said before that `$()` is the function to use to **retrieve DOM elements**.
 
@@ -420,7 +428,7 @@ class: center, middle
 class: middle
 ### Template update N°1
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a>]
 
 For **better UI behavior**, we need to tell our browser to show the **click pointer icon** when passing over our discussion list items.
 
@@ -437,7 +445,7 @@ Add this line in the `<style>` tag, after the `main` style:
 ---
 ### Events
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a>]
 
 Most of the functionnalities we'll implement will rely on things being **clicked**.
 
@@ -464,7 +472,7 @@ Now, go to your page, open your console and try to **click** on one of the list 
 ---
 #### `this`? `$(this)`?
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a> > <a href="#22">Events</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a> > <a href="#23">Events</a>]
 
 When writing event callback functions you might want to retrieve **the DOM element that triggered the event**.
 
@@ -497,7 +505,7 @@ $("a.list-group-item").click(function (event) {
 ---
 ### Add a CSS class
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a>]
 
 On the page, there is one list item that has a different style.
 
@@ -523,7 +531,7 @@ $("a.list-group-item").click(function(event) {
 ---
 ### Remove a CSS class
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a>]
 
 To remove a CSS class from an element, simply use the `.removeClass()` method.
 
@@ -549,7 +557,7 @@ Trying to remove a CSS class from an element that **didn't have it** in the firs
 ---
 ### Change the content
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a>]
 
 Now that we can changed the selected discussion list item, we want to **remove the notification** about unread messages, that is the badge in the item.
 
@@ -575,7 +583,7 @@ $("a.list-group-item").click(function(event) {
 ---
 ### Complete code
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#20">Feature : _"Select discussion item"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#21">Feature : _"Select discussion item"_</a>]
 
 Here's the complete code for this feature:
 
@@ -611,7 +619,7 @@ class: center, middle
 class: middle
 ### Template update N°2
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 For the next feature, we will need to **add some `id`** in our `index.html` page.
 
@@ -632,7 +640,7 @@ At the **line 178**, add this `id` to the `<div>` element:
 ---
 ### Attach the events
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 Our three alignment buttons are all children of the same element, which is the `div#align-btns`.
 
@@ -657,7 +665,7 @@ $("button", $("#align-btns")).click(function (event) {
 ---
 #### Buttons in a form
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a> > <a href="#30">Attach the events</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a> > <a href="#31">Attach the events</a>]
 
 If you look closely to the HTML structure in which the `button`s are placed, you'll see that they are placed **inside a form**:
 
@@ -687,7 +695,7 @@ If you look closely to the HTML structure in which the `button`s are placed, you
 ---
 ### Prevent default behavior
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 Remember that the **callback function** called when an event is triggered has one parameter, which is **the triggered event object** ?
 
@@ -710,7 +718,7 @@ $("button", $("#align-btns")).click(function(event) {
 ---
 ### Change button state
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 The _align left_ button is constantly in an active state. This effect is achieved by using the `.active` class from the Bootstrap framework.
 
@@ -736,7 +744,7 @@ $("button", $("#align-btns")).click(function(event) {
 ---
 ### Managing the focus
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 This is related to the **focus**, that is an indication of the element in the page that you're currently "using".
 
@@ -762,7 +770,7 @@ $("button", $("#align-btns")).click(function(event) {
 ---
 ### Chaining method calls
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 In the previous code example, you might have seen that we called, one after the other, **two different methods on the same object**:
 
@@ -788,7 +796,7 @@ $(this).addClass("active").blur();
 ---
 #### Be cautious
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a> > <a href="#35">Chaining method calls</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a> > <a href="#36">Chaining method calls</a>]
 
 Remember what the `.find()` method does?
 
@@ -815,7 +823,7 @@ $("#align-btns")`.addClass("active")`.find("button");
 ---
 ### Planning the logic
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 Now that our buttons behave as expected, let's make them concretly **change the text alignment** in the "New message" area.
 
@@ -834,7 +842,7 @@ So, all we need to do, in our callback function, is:
 ---
 ### Detect the button
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 To detect which button has been click we _could_ add an `id` to each button.
 
@@ -860,7 +868,7 @@ But, in the HTML, we can see that there is already something that could help us 
 ---
 ### Do you have _any_ class?
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 The `.hasClass()` method can detect if the element possesses the class name given as parameter.
 
@@ -889,7 +897,7 @@ $("button", $("#align-btns")).click(function(event) {
 ---
 #### if ... else if ... else
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a> > <a href="#39">Do you have _any_ class?</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a> > <a href="#40">Do you have _any_ class?</a>]
 
 Using a `if ... else if ... else` structure, we can complete our test:
 
@@ -922,7 +930,7 @@ $("button", $("#align-btns")).click(function (event) {
 ---
 ### Finally... change the alignment!
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 **When the** _align-right_ **button has been clicked:**
 
@@ -953,7 +961,7 @@ else {
 ---
 ### Complete code
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#28">Feature : _"Change message alignment"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#29">Feature : _"Change message alignment"_</a>]
 
 Here's the complete code for this feature:
 
@@ -993,7 +1001,7 @@ class: center, middle
 class: middle
 ### Template update N°3
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 For the next feature, we will need to **add some `id`** in our `index.html` page.
 
@@ -1014,7 +1022,7 @@ At the **line 190**, add this `id` to the `<button>` element:
 ---
 ### The basics
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 The "Send" button is **also situated inside the form**. So we need to **cancel** its default behavior when it's clicked:
 
@@ -1041,7 +1049,7 @@ Now... we'll have to..:
 ---
 ### Get the value inside `#message`
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 To get the value of a form `<input>` or `<textarea>`, you can use the `val()` method in one of those elements:
 
@@ -1073,7 +1081,7 @@ $("#send-btn").click(function(event) {
 ---
 ### Validation phase
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 The first thing we need to do, before actually going on with the message insertion, is **some validation**.
 
@@ -1096,7 +1104,7 @@ $("#send-btn").click(function(event) {
 ---
 #### Error! Error! Err...
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a> > <a href="#47">Validation phase</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a> > <a href="#48">Validation phase</a>]
 
 Now, if our new message is **empty**, we want to **notify the user** and **stop** the new message insertion.
 
@@ -1122,7 +1130,7 @@ $("#send-btn").click(function(event) {
 ---
 ### What's your alignment?
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 When the message value **contains something**, we need to retrieve the **correct alignment class** to apply to the future new message in the discussion.
 
@@ -1148,7 +1156,7 @@ function getAlignmentClass($ele) {
 ---
 #### Use the function
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a> > <a href="#49">What's your alignment?</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a> > <a href="#50">What's your alignment?</a>]
 
 Now, we can use our freshly created function to actually retrieve the desired alignment.
 
@@ -1171,7 +1179,7 @@ $("#send-btn").click(function(event) {
 ---
 ### Create the HTML structure
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 We now have to create all the HTML structure necessary to add a new message to the dialog card.
 
@@ -1201,7 +1209,7 @@ Since we are using Bootstrap, here is the complete structure we'll have to creat
 ---
 #### The `$()` function, again
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a> > <a href="#51">Create the HTML structure</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a> > <a href="#52">Create the HTML structure</a>]
 
 With jQuery, you can create HTML elements using the `$()` function.
 
@@ -1234,7 +1242,7 @@ const $html = $('<div class="col-md-8 col-md-offset-4"><div class="alert alert-w
 ---
 #### Hackers gonna hack
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a> > <a href="#51">Create the HTML structure</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a> > <a href="#52">Create the HTML structure</a>]
 
 Ideally, we would like to write our template **in our `.html` file**, then retrieve and manipulate it with jQuery.
 
@@ -1261,7 +1269,7 @@ We then give it an `id` for future reference, and copy our HTML inside:
 ---
 #### Recovering the template
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a> > <a href="#51">Create the HTML structure</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a> > <a href="#52">Create the HTML structure</a>]
 
 To retrieve the templates placed inside `<script>`, we need to do two operations.
 
@@ -1286,7 +1294,7 @@ const $msgTemplate = $(template);
 ---
 ### Code checkpoint
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 With the addition of these lines, our JS code for the new feature should be:
 
@@ -1316,7 +1324,7 @@ $("#send-btn").click(function (event) {
 ---
 ### Fill in the template
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 Next step is to **insert the values** for this new message. We have two values to add:
 
@@ -1346,7 +1354,7 @@ $("#send-btn").click(function(event) {
 ---
 ### Getting the date
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 To get the message date, let's create a **function** that returns just that.
 
@@ -1371,7 +1379,7 @@ function getCurrentTime() {
 ---
 #### Add the date
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a> > <a href="#57">Getting the date</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a> > <a href="#58">Getting the date</a>]
 
 Back to our new message function, we get the `small.text-info` element from the new message template that'll contain the time and **insert** the correct value:
 
@@ -1384,7 +1392,7 @@ $("small.text-info", $msgTemplate).text(getCurrentTime());
 ---
 ### Apply the alignment
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 Remember we retrieved the **correct alignment to apply** to the new message? Now's the time to actually apply it.
 
@@ -1408,7 +1416,7 @@ $("#send-btn").click(function(event) {
 ---
 ### Insert in the discussion
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 We have the **complete DOM structure** for our new message stored in **a jQuery object** inside the `$msgTemplate` variable.
 
@@ -1439,7 +1447,7 @@ $message.val("");
 ---
 ### Complete code - Functions
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 **`getAlignmentClass()`**
 
@@ -1473,7 +1481,7 @@ function getCurrentTime() {
 ---
 ### Complete code - Event callback
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#43">Feature : _"Add new message"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#44">Feature : _"Add new message"_</a>]
 
 ```js
 $("#send-btn").click(createNewMessage);
@@ -1517,7 +1525,7 @@ class: center, middle
 ---
 ### The `.remove()` method
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#63">Feature : _"Remove messages"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#64">Feature : _"Remove messages"_</a>]
 
 Removing something in jQuery is quite simple. Just use the `.remove()` method on a jQuery object, and the DOM it represents will be **removed from the page**.
 
@@ -1545,7 +1553,7 @@ $(this).parent().parent().parent().remove();
 ---
 ### Get closer
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#63">Feature : _"Remove messages"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#64">Feature : _"Remove messages"_</a>]
 
 In our case, the element that we want to access is the `div.col-8`. But there's multiple `div.col-8` in our page, so we don't want any `div.col-8`; we want the closest one to our button.
 
@@ -1574,7 +1582,7 @@ $("i.fa-trash-alt").parent().click(function (event) {
 ---
 ### Time paradox
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#63">Feature : _"Remove messages"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#64">Feature : _"Remove messages"_</a>]
 
 The fact that the DOM node is not removed is caused by the way the JS code is interpreted by the browser.
 
@@ -1596,7 +1604,7 @@ So... when you create, at a later time, new DOM nodes, events **won't be attache
 ---
 ### Parent's responsibility
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#63">Feature : _"Remove messages"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#64">Feature : _"Remove messages"_</a>]
 
 To resolve this issue, the solution is to register the event **not on the element itself**, but on **one of its parents that is present** at page load.
 
@@ -1621,7 +1629,7 @@ $("#dialog").on("click", "button", function (event) {
 ---
 ### Complete code
 
-.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#63">Feature : _"Remove messages"_</a>]
+.breadcrumbs[<a href="#1">jQuery - DOM Manipulation</a> > <a href="#64">Feature : _"Remove messages"_</a>]
 
 Here's the complete code for this feature:
 

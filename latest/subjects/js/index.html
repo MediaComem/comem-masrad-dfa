@@ -3,13 +3,21 @@
   <head>
     <title>JavaScript (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/37538b2a18cceaa2a974b0e5ee2d8417fd2ec079/subjects/js/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/js/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
+class: center, middle
 # JavaScript
 
-<runkit global enabled='true'></runkit>
+
+
+---
+## Summary
+
+.breadcrumbs[<a href="#1">JavaScript</a>]
+
+<runkit global enabled='false'></runkit>
 
 Learn the basics of JavaScript, a high-level, dynamic, untyped and interpreted programming language,
 and one of the three core technologies of the web.
@@ -39,7 +47,7 @@ class: center, middle
 ---
 ### JavaScript is still evolving
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#2">What is JavaScript?</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#3">What is JavaScript?</a>]
 
 It has been standardized in the [ECMAScript][es] language specification.
 
@@ -54,7 +62,7 @@ It has been standardized in the [ECMAScript][es] language specification.
 ---
 ### JavaScript ES6+ support
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#2">What is JavaScript?</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#3">What is JavaScript?</a>]
 
 Many features of ES6 are **supported by [the majority of modern browsers][caniuse-es6]**.
 
@@ -81,7 +89,7 @@ class: center, middle
 ---
 ### JavaScript has 6 primitive data types
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#5">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
 
 .grid-70[
 
@@ -136,7 +144,7 @@ The types are:
 ---
 ### JavaScript has **dynamic** objects
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#5">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
 
 .grid-60[
 
@@ -183,7 +191,7 @@ Every object has a **different list of properties**.
 ---
 ### Array are **objects**
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#5">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
 
 They are list-like objects with numeric keys.
 
@@ -209,7 +217,7 @@ We'll learn more about arrays later.
 ---
 ### JavaScript is **untyped**
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#5">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
 
 Values have a type, but **variables don't**.
 When you declare a variable, you don't specify a type.
@@ -240,7 +248,7 @@ The type can **change** over time.
 ---
 ### Comparing values with `==` or `===`
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#5">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
 
 The `==` operator **loosely** compares values for equality:
 
@@ -264,7 +272,7 @@ console.log(42 === 42); // true
 ---
 ### Falsy values
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#5">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
 
 The following values all **evaluate to false**: `false`, `0`, `""`, `null`, `undefined`, `NaN`.
 
@@ -308,7 +316,7 @@ class: center, middle
 ---
 ### Storing functions in variables or data structures
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
 
 A JavaScript function isn't a special construct linked to a class like in Java.
 It can be stored in variables like any other value.
@@ -344,7 +352,7 @@ console.log(value); // 42
 ---
 ### Returning functions from a function
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
 
 ```js
 // Let's define a function that returns a function
@@ -378,7 +386,7 @@ return function(n) {
 ---
 ### Passing functions as arguments
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
 
 A function can take another function as an argument.
 
@@ -397,7 +405,7 @@ callIt(hello); // "Hello World!"
 ---
 #### Function as argument exercise
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a> > <a href="#15">Passing functions as arguments</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a> > <a href="#16">Passing functions as arguments</a>]
 
 ```js
 // Let's define a couple of arithmetic function
@@ -430,7 +438,7 @@ Open the **RunKit** and try to **implement it**!
 ---
 ### Transforming data with functions
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
 
 These properties of functions enable powerful [**functional programming**][func-prog] patterns:
 
@@ -461,7 +469,7 @@ console.log(lastNames); // [ "Doe", "Smith", "Smith" ]
 ---
 ### Arrow functions *(ES6+)*
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
 
 <runkit disabled></runkit>
 
@@ -483,7 +491,7 @@ let divideFunc = function(nb1, nb2) {
 ---
 #### Arrow function arguments
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a> > <a href="#18">Arrow functions *(ES6+)*</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a> > <a href="#19">Arrow functions *(ES6+)*</a>]
 
 <runkit except='0,1'></runkit>
 
@@ -513,7 +521,7 @@ setTimeout(callback, 1000);
 ---
 #### Body of arrow functions
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#12">JavaScript supports first-class functions</a> > <a href="#18">Arrow functions *(ES6+)*</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a> > <a href="#19">Arrow functions *(ES6+)*</a>]
 
 <runkit except='0'></runkit>
 
@@ -570,7 +578,7 @@ The `discovery` variable stores a new (and empty) object, of type `Starship`.
 ---
 ### The `this` keyword
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#21">Constructors</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#22">Constructors</a>]
 
 You can access the `this` keyword inside a function body. In this case, `this` refers to **the object that will be created** when calling this function as a **constructor** (with `new`).
 
@@ -603,7 +611,7 @@ class: center, middle
 ---
 ### Defining variables
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
 
 <runkit disabled></runkit>
 
@@ -623,7 +631,7 @@ Note that `var` is valid whatever the ES version you're using, but `let` and `co
 ---
 ### Dynamic or constant variables
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
 
 Variables declared with `var` or `let` are dynamic.
 Their value can **change** over time.
@@ -654,7 +662,7 @@ theMeaningOfLife = 43; // TypeError: Assignment to constant variable.
 ---
 ### The function scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
 
 Variables declared with `var` in a function are visible **everywhere in that function**.
 Note that they are **NOT block-scoped** like in most languages.
@@ -687,7 +695,7 @@ logThings([ 'apple', 'banana', 'pear' ]);
 ---
 ### The block scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
 
 The `let` and `const` keywords introduced in **ES6** create **block-scoped** variables,
 only visible in the block, statement or expression on which they are used.
@@ -720,7 +728,7 @@ logThings([ 'apple', 'banana', 'pear' ]);
 ---
 ### The (evil) global scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
 
 Variables declared with `var` outside of any function are **global variables**, accessible anywhere.
 
@@ -750,7 +758,7 @@ You should **almost never use them**.
 ---
 #### When it's okay to use the global scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a> > <a href="#28">The (evil) global scope</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a> > <a href="#29">The (evil) global scope</a>]
 
 In an **HTML page**, all loaded scripts share the same global scope.
 
@@ -766,7 +774,7 @@ If you're not writing either one of those, just **don't use global variables**.
 ---
 #### Oops, global scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Variables</a> > <a href="#28">The (evil) global scope</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a> > <a href="#29">The (evil) global scope</a>]
 
 If you forget the `var`, `let` or `const` keyword, JavaScript will not complain.
 It will simply consider the variable global.
@@ -848,7 +856,7 @@ Function     | Effect
 ---
 ### Examples
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#32">Manipulating arrays</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#33">Manipulating arrays</a>]
 
 `.forEach()`
 
@@ -881,7 +889,7 @@ console.log(enterprises); // ["NX-01", "NCC-1701", "NCC-1701 D"]
 ---
 ### The `for...of` loop
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#32">Manipulating arrays</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#33">Manipulating arrays</a>]
 
 **ES6**'s `for...of` loop is a new, simpler way of **iterating over all elements** of an array:
 
@@ -920,7 +928,7 @@ The destructuring assignment syntax makes it possible to **unpack values from ar
 ---
 ### Array destructuring
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#35">Destructuring assignment</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a>]
 
 .grid-50[
 
@@ -973,7 +981,7 @@ console.log(three); // "three"
 ---
 #### Array destructuring features & tricks
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#35">Destructuring assignment</a> > <a href="#36">Array destructuring</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a> > <a href="#37">Array destructuring</a>]
 
 Here's a few things you can do with array destructuring:
 
@@ -1007,7 +1015,7 @@ console.log(h); // [2, 3]
 ---
 ### Object destructuring
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#35">Destructuring assignment</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a>]
 
 .grid-50[
 
@@ -1057,7 +1065,7 @@ console.log(q); // true
 ---
 #### Object destructuring features & tricks
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#35">Destructuring assignment</a> > <a href="#38">Object destructuring</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a> > <a href="#39">Object destructuring</a>]
 
 Here's a few things you can do with object destructuring:
 
@@ -1098,7 +1106,7 @@ class: center, middle
 ---
 ### JSON who?
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#40">JSON</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#41">JSON</a>]
 
 [JSON][json] stands for **J**ava**S**cript **O**bject **N**otation.
 It is a syntax that is used to **represent JavaScript objects** with **text**.
@@ -1123,7 +1131,7 @@ Note that you **cannot** put a JavaScript function in a JSON object.
 ---
 ### Example
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#40">JSON</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#41">JSON</a>]
 
 Here is an example of a **JavaScript object**, and its **description in JSON**:
 
@@ -1186,7 +1194,7 @@ This is JSON. The double quotes around property names are **required**.
 ---
 ### Using JSON
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#40">JSON</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#41">JSON</a>]
 
 **Manually** declaring a JavaScript object in JSON (or the opposite) can be quite tedious, especially with deep, complex objects.
 
