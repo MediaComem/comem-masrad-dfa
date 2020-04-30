@@ -3,7 +3,7 @@
   <head>
     <title>JavaScript (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/js/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/c3b6656caaa7f6706d9f967fceae72bf718a7692/subjects/js/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -27,9 +27,29 @@ This material is part of the [Advanced Front-end Development](https://github.com
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
 
 
+
+---
+## Setup
+
+.breadcrumbs[<a href="#1">JavaScript</a>]
+
+To follow along the exemples in this subject, create a new folder, e.g. `js`, on you `dfa-course` project.
+
+Create two file in this new folder: `index.html` and `script.js`.
+
+Then add the following in the `index.html` file:
+
+```html
+<head>
+  <script src="script.js"></script>
+</head>
+```
+Start `live-server` and display your browser's console (since we won't need the webpage).
+
+> Feel free to remove all code from `script.js` each time you want to try one of this subject's examples.
 
 ---
 class: center, middle
@@ -47,22 +67,22 @@ class: center, middle
 ---
 ### JavaScript is still evolving
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#3">What is JavaScript?</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#4">What is JavaScript?</a>]
 
 It has been standardized in the [ECMAScript][es] language specification.
 
 <p class="center"><img src='images/timeline.png' width='60%' /></p>
 
-* [**ECMAScript 2015** (also known as ECMAScript 6 or ES6)][es6] added an enormous amount of new (drastic) features : iterators and for/of loops, Python-style [generators][js-generators] and generator expressions, [arrow functions][js-arrow-functions], binary data, typed arrays, collections (maps, sets and weak maps), [promises][js-promise], number and math enhancements, reflection, and [proxies][js-proxy].
+- [**ECMAScript 2015** (also known as ECMAScript 6 or ES6)][es6] added an enormous amount of new (drastic) features : iterators and for/of loops, Python-style [generators][js-generators] and generator expressions, [arrow functions][js-arrow-functions], binary data, typed arrays, collections (maps, sets and weak maps), [promises][js-promise], number and math enhancements, reflection, and [proxies][js-proxy].
   > Since this huge release, it has been decided to make smaller and more frequent releases
-* [**ECMAScript 2017** (ES8)][es8] added [async/await functions][js-async] and [shared memory and atomics][js-shared-memory].
-* [**ECMAScript 2018** (ES9)][es9] added [asynchronous iteration][js-async-iteration] and more.
-* And so on...
+- [**ECMAScript 2017** (ES8)][es8] added [async/await functions][js-async] and [shared memory and atomics][js-shared-memory].
+- [**ECMAScript 2018** (ES9)][es9] added [asynchronous iteration][js-async-iteration] and more.
+- And so on...
 
 ---
 ### JavaScript ES6+ support
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#3">What is JavaScript?</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#4">What is JavaScript?</a>]
 
 Many features of ES6 are **supported by [the majority of modern browsers][caniuse-es6]**.
 
@@ -84,12 +104,10 @@ class: center, middle
 
 
 
-
-
 ---
 ### JavaScript has 6 primitive data types
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#7">JavaScript types</a>]
 
 .grid-70[
 
@@ -99,7 +117,7 @@ let aNumber = 3.12;
 let aBoolean = true;
 let nullValue = null;
 let undefinedValue;
-let aSymbol = Symbol('foo');
+let aSymbol = Symbol("foo");
 
 console.log(typeof aString); // "string"
 console.log(typeof aNumber); // "number"
@@ -114,7 +132,7 @@ console.log(typeof 4); // "number"
 console.log(Number.isInteger(4)); // true
 
 // Symbols are unique identifiers
-console.log(Symbol('foo') == aSymbol); // false
+console.log(Symbol("foo") == aSymbol); // false
 ```
 
 
@@ -123,12 +141,12 @@ console.log(Symbol('foo') == aSymbol); // false
 
 The types are:
 
-* String
-* Number
-* Boolean
-* Null
-* Undefined
-* Symbol (**ES6**)
+- String
+- Number
+- Boolean
+- Null
+- Undefined
+- Symbol (**ES6**)
 
 
 ]
@@ -138,27 +156,25 @@ The types are:
 > This is a [remnant][js-typeof-null] from the first version of JavaScript.
 
 
-
-
 ]
 ---
 ### JavaScript has **dynamic** objects
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#7">JavaScript types</a>]
 
 .grid-60[
 
 ```js
 // Let's create an object
 let person = {
-  firstName: 'John',
-  lastName: 'Doe'
+  firstName: "John",
+  lastName: "Doe",
 };
 
 // We can dynamically add properties
-person.gender = 'male';
+person.gender = "male";
 
-let property = 'zip';
+let property = "zip";
 person[property] = 1446;
 
 // And delete them
@@ -166,7 +182,7 @@ delete person.firstName;
 
 // And list them
 for (const key in person) {
-  console.log(key + ': ' + person[key]);
+  console.log(key + ": " + person[key]);
 }
 ```
 
@@ -185,25 +201,23 @@ Objects have **no class**, they are **dynamic bags** of properties.
 Every object has a **different list of properties**.
 
 
-
-
 ]
 ---
 ### Array are **objects**
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#7">JavaScript types</a>]
 
 They are list-like objects with numeric keys.
 
 ```js
 // Let's create an array
-let fruits = [ 'apple', 'pear' ];
+let fruits = ["apple", "pear"];
 
 console.log(typeof fruits); // "object"
 
 // Iterate over it
 for (let i = 0; i < fruits.length; i++) {
-  console.log('fruit ' + i + ' is ' + fruits[i]);
+  console.log("fruit " + i + " is " + fruits[i]);
 }
 
 // fruit 0 is apple
@@ -212,12 +226,10 @@ for (let i = 0; i < fruits.length; i++) {
 
 We'll learn more about arrays later.
 
-
-
 ---
 ### JavaScript is **untyped**
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#7">JavaScript types</a>]
 
 Values have a type, but **variables don't**.
 When you declare a variable, you don't specify a type.
@@ -232,23 +244,21 @@ console.log(typeof aVariable); // "number"
 aVariable = true;
 console.log(typeof aVariable); // "boolean"
 
-aVariable = [ 1, 2, 3 ];
+aVariable = [1, 2, 3];
 console.log(typeof aVariable); // "object"
 
 aVariable = {
-  aProperty: "aValue"
+  aProperty: "aValue",
 };
 console.log(typeof aVariable); // "object"
 ```
 
 The type can **change** over time.
 
-
-
 ---
 ### Comparing values with `==` or `===`
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#7">JavaScript types</a>]
 
 The `==` operator **loosely** compares values for equality:
 
@@ -267,20 +277,18 @@ console.log(false === []); // false
 console.log(42 === 42); // true
 ```
 
-
-
 ---
 ### Falsy values
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#6">JavaScript types</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#7">JavaScript types</a>]
 
 The following values all **evaluate to false**: `false`, `0`, `""`, `null`, `undefined`, `NaN`.
 
 ```js
 if (0) {
-  console.log('Zero is truthy');
+  console.log("Zero is truthy");
 } else {
-  console.log('Zero is falsy'); // "Zero is falsy"
+  console.log("Zero is falsy"); // "Zero is falsy"
 }
 ```
 
@@ -289,15 +297,13 @@ This can cause weird bugs sometimes:
 ```js
 let countdown = "";
 if (countdown == 0) {
-  console.log('We are done'); // "We are done"
+  console.log("We are done"); // "We are done"
 } else {
-  console.log('We are not done');
+  console.log("We are not done");
 }
 ```
 
 Therefore, it's recommended to always use the triple-equal `===` operator for equality comparisons.
-
-
 
 ---
 class: center, middle
@@ -311,92 +317,86 @@ class: center, middle
 
 > Specifically, this means the language supports **passing functions as arguments** to other functions, **returning them** as the values from other functions, and **assigning them to variables** or **storing them in data structures**."
 
-
-
 ---
 ### Storing functions in variables or data structures
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a>]
 
 A JavaScript function isn't a special construct linked to a class like in Java.
 It can be stored in variables like any other value.
 
 ```js
 // Store a function in a variable
-let hello = function(name) {
-  console.log('Hello ' + name + '!');
+let hello = function (name) {
+  console.log("Hello " + name + "!");
 };
 
 // The hello variable now holds a function
-console.log(typeof(hello)); // "function"
+console.log(typeof hello); // "function"
 
 // You can call it
-hello('World'); // "Hello World!"
+hello("World"); // "Hello World!"
 
 // Store a function as an object's property
 let anObject = {
-  aProperty: function() {
+  aProperty: function () {
     return 42;
-  }
+  },
 };
 
 // That property now holds a function as its value
-console.log(typeof(anObject.aProperty)); // "function"
+console.log(typeof anObject.aProperty); // "function"
 
 let value = anObject.aProperty();
 console.log(value); // 42
 ```
 
-
-
 ---
 ### Returning functions from a function
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a>]
 
 ```js
 // Let's define a function that returns a function
 function makeSquareFunction() {
-  return function(n) {
+  return function (n) {
     return n * n;
   };
 }
 
 // By calling it, we get a function
 let square = makeSquareFunction();
-console.log(typeof(square)); // "function"
+console.log(typeof square); // "function"
 
 let result = square(5);
 console.log(result); // 25
 ```
 
-<runkit except='1'></runkit>
+<!-- <runkit except='1'></runkit> -->
 
 Note that functions can be **anonymous** (i.e. they have no name),
 like the function returned from `makeSquareFunction`:
 
 ```js
-return function(n) {
+return function (n) {
   return n * n;
 };
 ```
 
-
-
 ---
 ### Passing functions as arguments
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a>]
 
 A function can take another function as an argument.
 
 ```js
 function hello(name) {
-  console.log('Hello ' + name + '!');
+  console.log("Hello " + name + "!");
 }
 
 function callIt(func) {
-  func('World');
+  func("World");
 }
 
 callIt(hello); // "Hello World!"
@@ -405,7 +405,9 @@ callIt(hello); // "Hello World!"
 ---
 #### Function as argument exercise
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a> > <a href="#16">Passing functions as arguments</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a> > <a href="#17">Passing functions as arguments</a>]
+
+Copy the following code in your `script.js` file and try to **implement it**:
 
 ```js
 // Let's define a couple of arithmetic function
@@ -416,38 +418,54 @@ function multiply(a, b) {
   return a * b;
 }
 
-// Define a function that takes two numbers
-// and a function to apply to those numbers
-function compute() {
-  // Give me some arguments and implement me!
+// Give me some arguments and implement me!
+function compute(/* TODO */) {
+  // TODO
 }
 
 // Call compute with "add"
 let value = compute(2, 4, add);
-console.log(value); // 6
+console.log(value);
 
 // Call compute with "multiply"
 value = compute(2, 4, multiply);
-console.log(value); // 8
+console.log(value);
 ```
 
-Open the **RunKit** and try to **implement it**!
+.grid-50[
+**Current result**
+
+```
+undefined
+undefined
+```
+
+]
+.grid-50[
+**Expected result**
+
+```
+6
+8
+```
+
+<!-- Open the **RunKit** and try to **implement it**! -->
 
 
-
+]
 ---
 ### Transforming data with functions
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a>]
 
 These properties of functions enable powerful [**functional programming**][func-prog] patterns:
 
 ```js
 // Define an array of people objects
 let people = [
-  { firstName: 'John', lastName: 'Doe' },
-  { firstName: 'John', lastName: 'Smith' },
-  { firstName: 'Deborah', lastName: 'Smith' }
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "John", lastName: "Smith" },
+  { firstName: "Deborah", lastName: "Smith" },
 ];
 
 // Define a function that takes a person and returns their last name
@@ -464,12 +482,10 @@ let lastNames = people.map(getName);
 console.log(lastNames); // [ "Doe", "Smith", "Smith" ]
 ```
 
-
-
 ---
-### Arrow functions *(ES6+)*
+### Arrow functions _(ES6+)_
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a>]
 
 <runkit disabled></runkit>
 
@@ -483,7 +499,7 @@ You are facing the **ES6** syntax for functions called **arrow functions**.
 The example above is (mostly) equivalent to writing:
 
 ```js
-let divideFunc = function(nb1, nb2) {
+let divideFunc = function (nb1, nb2) {
   return nb1 / nb2;
 };
 ```
@@ -491,7 +507,7 @@ let divideFunc = function(nb1, nb2) {
 ---
 #### Arrow function arguments
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a> > <a href="#19">Arrow functions *(ES6+)*</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a> > <a href="#20">Arrow functions _(ES6+)_</a>]
 
 <runkit except='0,1'></runkit>
 
@@ -516,17 +532,18 @@ But if your function has **no arguments**, you **MUST** add **empty parentheses*
 let callback = `()` => console.log("Timeout finished");
 setTimeout(callback, 1000);
 ```
+
 > As a rule of thumb, you should always use brackets.
 
 ---
 #### Body of arrow functions
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#13">JavaScript supports first-class functions</a> > <a href="#19">Arrow functions *(ES6+)*</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#14">JavaScript supports first-class functions</a> > <a href="#20">Arrow functions _(ES6+)_</a>]
 
 <runkit except='0'></runkit>
 
 ```js
-(nb1, nb2) => `nb1 / nb2`
+(nb1, nb2) => `nb1 / nb2`;
 ```
 
 The part right of the `=>` is **the body** of the function; note the absence of brackets (`{}`).
@@ -535,17 +552,15 @@ The `return` keyword is **implicit** with one-line bodies that have no brackets:
 
 ```js
 // This arrow function will return the square root of the number
-const squareroot = number => `Math.sqrt(number)`;
+const squareroot = (number) => `Math.sqrt(number)`;
 console.log(squareroot(4)); // 2
 ```
 
 If the body has **more than one line**, you **MUST add brackets** `{}` around it (_and use the `return` keyword if necessary_):
 
 ```js
-const square = number => `{`
-  `let result = number * number;`
-  `return result;`
-`}`;
+const square = (number) =>
+  `{``let result = number * number;``return result;``}`;
 
 console.log(square(5)); // 25
 ```
@@ -561,8 +576,7 @@ For a function to act as a constructor, you don't have to declare it differently
 All you have to do is call the function with `new` like in most object-oriented languages:
 
 ```js
-function Starship() {
-}
+function Starship() {}
 
 let discovery = new Starship();
 console.log(discovery); // {}
@@ -578,7 +592,7 @@ The `discovery` variable stores a new (and empty) object, of type `Starship`.
 ---
 ### The `this` keyword
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#22">Constructors</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#23">Constructors</a>]
 
 You can access the `this` keyword inside a function body. In this case, `this` refers to **the object that will be created** when calling this function as a **constructor** (with `new`).
 
@@ -611,7 +625,7 @@ class: center, middle
 ---
 ### Defining variables
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a>]
 
 <runkit disabled></runkit>
 
@@ -619,7 +633,7 @@ There are three ways to define a variable in JavaScript:
 
 ```js
 // ES5
-var aString = 'foo';
+var aString = "foo";
 
 // ES6
 let aNumber = 42;
@@ -631,19 +645,19 @@ Note that `var` is valid whatever the ES version you're using, but `let` and `co
 ---
 ### Dynamic or constant variables
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a>]
 
 Variables declared with `var` or `let` are dynamic.
 Their value can **change** over time.
 
 ```js
-var aString = 'foo';
+var aString = "foo";
 let aNumber = 24;
 
 console.log(aString); // "foo"
 console.log(aNumber); // 24
 
-aString = 'bar';
+aString = "bar";
 aNumber = 25;
 
 console.log(aString); // "bar"
@@ -662,14 +676,13 @@ theMeaningOfLife = 43; // TypeError: Assignment to constant variable.
 ---
 ### The function scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a>]
 
 Variables declared with `var` in a function are visible **everywhere in that function**.
 Note that they are **NOT block-scoped** like in most languages.
 
 ```js
 function logThings(things) {
-
   var numberOfThings = things.length;
 
   for (var i = 0; i < numberOfThings; i++) {
@@ -677,12 +690,12 @@ function logThings(things) {
     console.log(thing);
   }
 
-  console.log('Number of things: ' + numberOfThings);
-  console.log('Last thing: ' + thing);
-  console.log('Iterator: ' + i);
+  console.log("Number of things: " + numberOfThings);
+  console.log("Last thing: " + thing);
+  console.log("Iterator: " + i);
 }
 
-logThings([ 'apple', 'banana', 'pear' ]);
+logThings(["apple", "banana", "pear"]);
 
 // "apple"
 // "banana"
@@ -695,14 +708,13 @@ logThings([ 'apple', 'banana', 'pear' ]);
 ---
 ### The block scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a>]
 
 The `let` and `const` keywords introduced in **ES6** create **block-scoped** variables,
 only visible in the block, statement or expression on which they are used.
 
 ```js
 function logThings(things) {
-
   const numberOfThings = things.length;
 
   for (let i = 0; i < numberOfThings; i++) {
@@ -710,11 +722,11 @@ function logThings(things) {
     console.log(thing);
   }
 
-  console.log('Number of things: ' + numberOfThings);
-  console.log('Last thing: ' + thing);
+  console.log("Number of things: " + numberOfThings);
+  console.log("Last thing: " + thing);
 }
 
-logThings([ 'apple', 'banana', 'pear' ]);
+logThings(["apple", "banana", "pear"]);
 
 // "apple"
 // "banana"
@@ -728,23 +740,22 @@ logThings([ 'apple', 'banana', 'pear' ]);
 ---
 ### The (evil) global scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a>]
 
 Variables declared with `var` outside of any function are **global variables**, accessible anywhere.
 
 ```js
 // A global variable
-var name = 'World';
+var name = "World";
 
 function hello() {
-
   // We can use "name" even though it's not an argument
   // of the function, because it's global
-  console.log('Hello ' + name + '!');
+  console.log("Hello " + name + "!");
 
   // It's a bad idea to use them because anyone can
   // change their value and mess up your program
-  name = 'Bob';
+  name = "Bob";
 }
 
 hello(); // "Hello World!"
@@ -753,28 +764,24 @@ hello(); // "Hello Bob!"
 
 You should **almost never use them**.
 
-
-
 ---
 #### When it's okay to use the global scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a> > <a href="#29">The (evil) global scope</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a> > <a href="#30">The (evil) global scope</a>]
 
 In an **HTML page**, all loaded scripts share the same global scope.
 
 In that context, ES5 libraries expose global variables so that your code can use them.
-For example, jQuery provides the **$** global variable for easy access.
+For example, jQuery provides the **`$`** global variable for easy access.
 
 In a **Node.js script**, the global scope is limited to the file you're in, so it's okay to use it.
 
 If you're not writing either one of those, just **don't use global variables**.
 
-
-
 ---
 #### Oops, global scope
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#24">Variables</a> > <a href="#29">The (evil) global scope</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#25">Variables</a> > <a href="#30">The (evil) global scope</a>]
 
 If you forget the `var`, `let` or `const` keyword, JavaScript will not complain.
 It will simply consider the variable global.
@@ -800,8 +807,6 @@ console.log(i); // 3
 
 Just **don't do it**.
 
-
-
 ---
 ## String syntax
 
@@ -815,12 +820,14 @@ In JavaScript, you have 3 ways of declaring strings:
 // With single quotes: '
 let string = 'I\'m your "Wurst" nightmare: ' + worstNightmare;
 ```
+
 > You have to **escape all other single quotes**, and use `+` to concatenate.
 
 ```js
 // With double quotes: "
-let string = "I'm your \"Wurst\" nightmare: " + worstNightmare;
+let string = 'I\'m your "Wurst" nightmare: ' + worstNightmare;
 ```
+
 > You have to **escape all other double quotes**, and use `+` to concatenate.
 
 **ES6** also adds the new **template literals**:
@@ -834,8 +841,6 @@ You have to escape all other backticks, but you can use single and double quotes
 
 Expressions included as `${expression}` will be evaluated then concatenated.
 
-
-
 ---
 ## Manipulating arrays
 
@@ -843,26 +848,26 @@ Expressions included as `${expression}` will be evaluated then concatenated.
 
 Arrays in JavaScript are objects and provide you with a [boatload of methods][array-functions] to manipulate items:
 
-Function     | Effect
-:-------     | :-----
-`.forEach()` | Calls a function for every element in the array
-`.concat()`  | Concatenates two arrays into one, and returns this new array
-`.find()`    | Finds the **first** element that passes a provided test function
-`.pop()`     | Removes the **last** element, and returns it (`.shift()` does the same but for the **first** element)
-`.push()`    | Adds new elements to **the end** of an array (`.unshift()` does the same but adds them to the **beginning** of the array)
-`.slice()`   | Returns **a portion** of the array
-`.reverse()` | Reverses the order of the elements in an array (**this modifies the original array**)
+| Function     | Effect                                                                                                                    |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------ |
+| `.forEach()` | Calls a function for every element in the array                                                                           |
+| `.concat()`  | Concatenates two arrays into one, and returns this new array                                                              |
+| `.find()`    | Finds the **first** element that passes a provided test function                                                          |
+| `.pop()`     | Removes the **last** element, and returns it (`.shift()` does the same but for the **first** element)                     |
+| `.push()`    | Adds new elements to **the end** of an array (`.unshift()` does the same but adds them to the **beginning** of the array) |
+| `.slice()`   | Returns **a portion** of the array                                                                                        |
+| `.reverse()` | Reverses the order of the elements in an array (**this modifies the original array**)                                     |
 
 ---
 ### Examples
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#33">Manipulating arrays</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#34">Manipulating arrays</a>]
 
 `.forEach()`
 
 ```js
 let crew = ["Jonathan", "T'Pol", "Trip", "Malcolm", "Sato", "Travis"];
-crew.forEach(function(element, index) {
+crew.forEach(function (element, index) {
   console.log("Hello, my name is " + element + ", and I'm n°" + index);
 });
 ```
@@ -871,7 +876,7 @@ crew.forEach(function(element, index) {
 
 ```js
 let ages = [3, 10, 19, 25];
-let adult = ages.find(function(age) {
+let adult = ages.find(function (age) {
   return age >= 18;
 });
 console.log(adult); // 19
@@ -889,29 +894,27 @@ console.log(enterprises); // ["NX-01", "NCC-1701", "NCC-1701 D"]
 ---
 ### The `for...of` loop
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#33">Manipulating arrays</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#34">Manipulating arrays</a>]
 
 **ES6**'s `for...of` loop is a new, simpler way of **iterating over all elements** of an array:
 
 ```js
-let fruits = [ 'apple', 'pear' ];
+let fruits = ["apple", "pear"];
 
 // Classic "for" loop
 for (let i = 0; i < fruits.length; i++) {
   let fruit = fruits[i];
-  console.log('fruit: ' + fruit);
+  console.log("fruit: " + fruit);
 }
 
 // Equivalent "for...of" loop
 for (let fruit of fruits) {
-  console.log('fruit: ' + fruit);
+  console.log("fruit: " + fruit);
 }
 ```
 
 The `for...of` loop is actually not limited to arrays:
 it can iterate over any [iterable object][js-iterable] such as Map, Set, etc.
-
-
 
 ---
 class: center, middle
@@ -923,12 +926,10 @@ class: center, middle
 
 The destructuring assignment syntax makes it possible to **unpack values from arrays**, or **properties from objects**, into **distinct variables**.
 
-
-
 ---
 ### Array destructuring
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#37">Destructuring assignment</a>]
 
 .grid-50[
 
@@ -981,7 +982,7 @@ console.log(three); // "three"
 ---
 #### Array destructuring features & tricks
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a> > <a href="#37">Array destructuring</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#37">Destructuring assignment</a> > <a href="#38">Array destructuring</a>]
 
 Here's a few things you can do with array destructuring:
 
@@ -1010,12 +1011,10 @@ console.log(g); // 1
 console.log(h); // [2, 3]
 ```
 
-
-
 ---
 ### Object destructuring
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#37">Destructuring assignment</a>]
 
 .grid-50[
 
@@ -1065,7 +1064,7 @@ console.log(q); // true
 ---
 #### Object destructuring features & tricks
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#36">Destructuring assignment</a> > <a href="#39">Object destructuring</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#37">Destructuring assignment</a> > <a href="#40">Object destructuring</a>]
 
 Here's a few things you can do with object destructuring:
 
@@ -1091,8 +1090,6 @@ let user = { id: 42, name: 'Bob' };
 console.log('userId: ' + userId(user)); // "userId: 42"
 ```
 
-
-
 ---
 class: center, middle
 ## JSON
@@ -1101,37 +1098,33 @@ class: center, middle
 
 
 
-
-
 ---
 ### JSON who?
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#41">JSON</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#42">JSON</a>]
 
 [JSON][json] stands for **J**ava**S**cript **O**bject **N**otation.
 It is a syntax that is used to **represent JavaScript objects** with **text**.
 
 JSON can only describe the following types:
 
-| Types    | Notation                                           |
-| :------- | :----------------------                            |
-| String   | `"text"`                                           |
-| Number   | `2`                                                |
-| Boolean  | `true`, `false`                                    |
-| Null     | `null`                                             |
-| Array    | `[ "value1", "value2" ]`                           |
-| Object   | `{ "property1": "value1", "property2": "value2" }` |
+| Types   | Notation                                           |
+| :------ | :------------------------------------------------- |
+| String  | `"text"`                                           |
+| Number  | `2`                                                |
+| Boolean | `true`, `false`                                    |
+| Null    | `null`                                             |
+| Array   | `[ "value1", "value2" ]`                           |
+| Object  | `{ "property1": "value1", "property2": "value2" }` |
 
 Object properties and strings **MUST be double-quoted**.
 
 Note that you **cannot** put a JavaScript function in a JSON object.
 
-
-
 ---
 ### Example
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#41">JSON</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#42">JSON</a>]
 
 Here is an example of a **JavaScript object**, and its **description in JSON**:
 
@@ -1158,7 +1151,7 @@ let starship = {
 ```
 
 This is a JavaScript object.
-You *can* put double quotes around property names, but you don't **have to**
+You _can_ put double quotes around property names, but you don't **have to**
 unless it's an **invalid identifier** (e.g. cannot use `.` in a variable name).
 
 
@@ -1174,12 +1167,7 @@ unless it's an **invalid identifier** (e.g. cannot use `.` in a variable name).
     "lastname": "Archer",
     "activeService": true
   },
-  "species": [
-    "human",
-    "dog",
-    "denobulan",
-    "vulcan"
-  ],
+  "species": ["human", "dog", "denobulan", "vulcan"],
   "warp.factor": 5,
   "cloak": null
 }
@@ -1188,13 +1176,11 @@ unless it's an **invalid identifier** (e.g. cannot use `.` in a variable name).
 This is JSON. The double quotes around property names are **required**.
 
 
-
-
 ]
 ---
 ### Using JSON
 
-.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#41">JSON</a>]
+.breadcrumbs[<a href="#1">JavaScript</a> > <a href="#42">JSON</a>]
 
 **Manually** declaring a JavaScript object in JSON (or the opposite) can be quite tedious, especially with deep, complex objects.
 
@@ -1217,24 +1203,21 @@ console.log(crew);
 // Object {name: "Travis", species: "Human", station: "Helm"}
 ```
 
-
-
 ---
 ## Resources
 
 .breadcrumbs[<a href="#1">JavaScript</a>]
 
-* A re-introduction to JavaScript
+- A re-introduction to JavaScript
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
-* Inheritance and the prototype chain
+- Inheritance and the prototype chain
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain
-* Introduction to Object-Oriented JavaScript
+- Introduction to Object-Oriented JavaScript
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
-* JavaScript objects in detail
+- JavaScript objects in detail
   http://javascriptissexy.com/javascript-objects-in-detail
-* Complete list of native Array methods
+- Complete list of native Array methods
   https://www.w3schools.com/jsref/jsref_obj_array.asp
-
 
 [caniuse-es6]: https://caniuse.com/#search=es6
 [array-functions]: https://www.w3schools.com/jsref/jsref_obj_array.asp

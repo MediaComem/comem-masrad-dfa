@@ -15,14 +15,10 @@
 
   <title>MAS-RAD | CAS-DAR | Développement Frontend Avancé</title>
 
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous" />
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous">
 
   <style>
     /* prettier-ignore */
@@ -34,6 +30,7 @@
 
     body {
       font-family: "Droid Serif";
+      font-size: 14px;
     }
 
     h1,
@@ -46,6 +43,11 @@
 
     li ul {
       margin-bottom: 1em;
+    }
+
+    .container {
+      margin-top: 20px;
+      margin-bottom: 40px;
     }
   </style>
 </head>
@@ -91,20 +93,18 @@
 <li><a href="subjects/jquery-dom">With jQuery</a></li>
 </ul>
 </li>
-<li><p>Web Service</p>
+<li><p>Web Service and asynchronous operations</p>
 <ul>
 <li><a href="subjects/rest">RESTful APIs</a></li>
-<li><a href="subjects/sop-cors">SOP &amp; CORS</a></li>
+<li><a href="subjects/js-promises-basics">Basic Promises</a><!-- - [Observables with Rxjs][rxjs] -->
+</li>
 </ul>
 </li>
-<li><p>Asynchronous operations</p>
-<!-- - [Learning AJAX with or without jQuery][js-ajax] -->
-<!-- - [JavaScript Promises][js-prom] -->
-<!-- - [Observables with Rxjs][rxjs] -->
-</li>
 <li><p>JavaScript - Part II</p>
-<!-- - [ES6 Classes][js-classes] -->
-<!-- - [ES6 Modules][js-modules] -->
+<ul>
+<li><a href="https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes">ES6 Classes</a></li>
+<li><a href="https://mediacomem.github.io/comem-devmobil/latest/subjects/js-modules">ES6 Modules</a></li>
+</ul>
 </li>
 <li><p><a href="https://mediacomem.github.io/comem-devmobil/latest/subjects/ts">TypeScript</a></p>
 </li>
@@ -124,12 +124,15 @@
 </ul>
 <h2 id="additional-concepts-and-tools">Additional concepts and tools</h2>
 <ul>
-<li><a href="subjects/js-prototypes">JavaScript Prototypes</a></li>
-<li><a href="subjects/js-closures">JavaScript Closures</a></li>
-<li><a href="subjects/js-promises">JavaScript Promises</a><!-- - [Angular Geolocation][geo-api] -->
-<!-- - [Angular Leaflet][angular-leafet] -->
+<li><a href="https://mediacomem.github.io/comem-devmobil/latest/subjects/js-prototypes/?home=MediaComem%2Fcomem-masrad-dfa%23readme">JavaScript Prototypes</a></li>
+<li><a href="https://mediacomem.github.io/comem-devmobil/latest/subjects/js-closures/?home=MediaComem%2Fcomem-masrad-dfa%23readme">JavaScript Closures</a></li>
+<li><p><a href="https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=MediaComem%2Fcomem-masrad-dfa%23readme">Advanced Promises</a></p>
+</li>
+<li><p><a href="subjects/sop-cors">SOP &amp; CORS</a></p>
 </li>
 </ul>
+<!-- - [Angular Geolocation][geo-api] -->
+<!-- - [Angular Leaflet][angular-leafet] -->
 <h2 id="documentation">Documentation</h2>
 <ul>
 <li><a href="https://mediacomem.github.io/comem-citizen-engagement-api/">Citizen Engagement API</a></li>

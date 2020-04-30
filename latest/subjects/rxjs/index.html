@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RXJS, Event-based programming and Observables (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
+    <title>RXJS, Reactive programming and Observables (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/1eb875d7ef22ccb0f3447cdc9eb22db16f6a2937/subjects/rxjs/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/c3b6656caaa7f6706d9f967fceae72bf718a7692/subjects/rxjs/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
-# RXJS, Event-based programming and Observables
+class: center, middle
+# RXJS, Reactive programming and Observables
 
-Learn the power of event-based programming using Observables to work with asynchronous code.
+
+
+---
+## Summary
+
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
+
+This material is part of the [Advanced Front-end Development](https://github.com/MediaComem/comem-masrad-dfa) for the [Master of Advances Studies in Rapid Application Development](https://www.he-arc.ch/ingenierie/mas-rad-cas-dar).
+
+
+Learn the power of reactive programming using Observables to work with asynchronous code, among other use.
 
 **Recommended reading**
 
@@ -22,7 +33,7 @@ Learn the power of event-based programming using Observables to work with asynch
 ---
 ## Setup
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 To follow along the examples of this subject, here is what you need to do:
 
@@ -41,7 +52,7 @@ To follow along the examples of this subject, here is what you need to do:
 ---
 ## What (the hell) is...
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 <h4>... an observable?</h4>
 
@@ -61,7 +72,7 @@ Basically, **reactive programming** is programming with **asynchronous** data **
 ---
 ## Observing Observables
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 As said previously, an Observable is a stream of data. It can:
 
@@ -76,7 +87,7 @@ Many documentation explaining Observables and reactive programming do so by usin
 ---
 ## Simple illustration
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 Suppose you want to react to clicks on a particular button in your page:
 
@@ -102,7 +113,7 @@ document
 ---
 ### Work with Observables
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#5">Simple illustration</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#6">Simple illustration</a>]
 
 To do the same thing using `Observable` and the **RxJS** library is not that much complicated.
 
@@ -125,7 +136,7 @@ fromEvent(document.getElementById("myButton"), "click") // `2`
 ---
 ### Complicate all the things
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#5">Simple illustration</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#6">Simple illustration</a>]
 
 Suppose now, for the sake of the argument, that we want to react to the click button only if the user **pressed the `Shift` key** while clicking, in which case we display in an alert **the coordinates of the mouse**.
 
@@ -152,7 +163,7 @@ At first glance, nothing prevents us to write **the exact same code** in an `Obs
 ---
 #### The RxJs way!
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#5">Simple illustration</a> > <a href="#7">Complicate all the things</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#6">Simple illustration</a> > <a href="#8">Complicate all the things</a>]
 
 Here is how you would write this feature, following the **RxJS** philosophy:
 
@@ -180,7 +191,7 @@ Let's dive into it before discussing what advantages this implementation offers 
 ---
 ## Introducing... Piping!
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 One of the key feature of the **RxJS** library is the ability to **modify, alter, filter, and otherwise transform streams** into other streams.
 
@@ -200,7 +211,7 @@ An operation is nothing more than a function, called `Operator`, that takes an `
 ---
 ### Plumbing 101
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a>]
 
 In our example code, we used a sequence of `Operator`s and applied it on the `Observable` produced by `fromEvent`, using the `pipe(...)` method:
 
@@ -223,7 +234,7 @@ It's now time to see what the `filter` and `map` operators do...
 ---
 ### `filter` operator
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a>]
 
 For each value emitted by the source `Observable`, this operator checks wether it respects a user-defined condition. The `Observable` returned by `filter` will only emit the values that pass the check.
 
@@ -243,7 +254,7 @@ randomLetters()
 ---
 #### In context
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a> > <a href="#11">`filter` operator</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a> > <a href="#12">`filter` operator</a>]
 
 In our example, we want to filter `click` events based on wether the `Shift` key was pressed.
 
@@ -264,7 +275,7 @@ fromEvent(document.getElementById("myButton"), "click")
 ---
 ### `map` operator
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a>]
 
 The `map` operator takes each emitted value of the source Observable, apply it a user-defined function, and emits the result of this function.
 
@@ -286,7 +297,7 @@ randomLetters()
 ---
 #### In context
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a> > <a href="#13">`map` operator</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a> > <a href="#14">`map` operator</a>]
 
 In our example, for each shift-click event, we want a custom object containing only the mouse coordinates.
 
@@ -304,7 +315,7 @@ shiftClick()
 ---
 ### All together now
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a>]
 
 In light of this new knowledge, let's take another look at the complete feature code:
 
@@ -326,7 +337,7 @@ fromEvent(document.getElementById("myButton"), "click")
 ---
 #### Marble-ous
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#9">Introducing... Piping!</a> > <a href="#15">All together now</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#10">Introducing... Piping!</a> > <a href="#16">All together now</a>]
 
 As a marble diagram, this would look like this:
 
@@ -339,7 +350,7 @@ As a marble diagram, this would look like this:
 ---
 ## What are the advantages
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 This `pipe` and `Operators` approach has several advantages:
 
@@ -364,7 +375,7 @@ This `pipe` and `Operators` approach has several advantages:
 ---
 ### Function refactor
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a> > <a href="#17">What are the advantages</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#18">What are the advantages</a>]
 
 ```js
 const { fromEvent } = rxjs;
@@ -396,7 +407,7 @@ function `displayCoordinates`(coordinates) {
 ---
 ## Why would I use this... thing?
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 We already discussed the topic of using **callbacks** to do so, and seen that it could rapidly [get out of hands][callback-hell] when multiple async operations are to be executed one after the other.
 
@@ -411,7 +422,7 @@ Observables (and reactive programming) are nothing more than **another tool to w
 ---
 ## Resources
 
-.breadcrumbs[<a href="#1">RXJS, Event-based programming and Observables</a>]
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 - [JavaScript Theory: Promise vs Observable][prom-vs-obs]
 
