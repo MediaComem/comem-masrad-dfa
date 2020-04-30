@@ -39,18 +39,18 @@ Learn or rediscover how to use the DOM API to manipulate the underlying HTML obj
 
 ## Setup
 
-1. Create a new project directory somewhere in your filesystem. You can name it whatever you want. We will call it `js-dom`.
+1. Create a new directory in your `dfa-course` project. You can name it whatever you want ; we will call it `js-dom`.
 
-1. Save the [this `index.html` file][bsef] in this new `js-dom` directory.
+1. Save [this `index.html` file][bsef] in this new `js-dom` directory.
 
 1. Create a new file called `script.js` in `js-dom`.
 
-1. Open `index.html` and add this line at the and of its `<head>` section:
+1. Open `index.html` and add this line at the and of the `<head>` section:
   ```html
   <script src="script.js"></script>
   ```
 
-1. You're good to go!
+1. Start `live-server` in this directory and you're good to go!
 
 ## Document Object Model (DOM)
 
@@ -180,7 +180,7 @@ One option would be to get all the buttons on the page and do some checking in o
 
 All the buttons we are interested in are **wrapped in a single `<div>`**.
 
-Let's add this `<div>` an `id`:
+Let's add an `id` to this `<div>`:
 
 ```html
 <h2>Icons</h2>
@@ -252,10 +252,9 @@ function alignAllText(event) {
 
 We want to play with the form and the table we have in the user interface.
 
-The requirements are:
-
-- When a user submit the form by clicking on the "Register" button, get the value of the First name and Last name fields ;
-- Add a new row to the Table at the bottom of the page with those values (give the `#` and `Startship` column a value of `###`).
+The requirements are that when a user submit the form by clicking on the "Register" button, we:
+- get the value of the First name and Last name fields ;
+- add a new row to the Table at the bottom of the page with those values in the right columns (give the `#` and `Startship` column a value of `###`).
 
 > Good luck! And to help you:
 
