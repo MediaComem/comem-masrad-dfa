@@ -1,6 +1,12 @@
-# RXJS, Event-based programming and Observables
+# RXJS, Reactive programming and Observables
 
-Learn the power of event-based programming using Observables to work with asynchronous code.
+<!-- slide-front-matter class: center, middle -->
+
+## Summary
+
+<!-- slide-include ../../BANNER.md -->
+
+Learn the power of reactive programming using Observables to work with asynchronous code, among other use.
 
 **Recommended reading**
 

@@ -34,18 +34,14 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
   - [With JavaScript][js-dom]
   - [With jQuery][jq-dom]
 
-- Web Service
+- Web Service and asynchronous operations
   - [RESTful APIs][rest]
-  - [SOP & CORS][sop-cors]
-
-- Asynchronous operations
-  <!-- - [Learning AJAX with or without jQuery][js-ajax] -->
-  <!-- - [JavaScript Promises][js-prom] -->
+  - [Basic Promises][js-prom-basic]
   <!-- - [Observables with Rxjs][rxjs] -->
 
 - JavaScript - Part II
-  <!-- - [ES6 Classes][js-classes] -->
-  <!-- - [ES6 Modules][js-modules] -->
+  - [ES6 Classes][js-classes]
+  - [ES6 Modules][js-modules]
 
 - [TypeScript][ts]
 
@@ -66,7 +62,10 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 - [JavaScript Prototypes][js-prot]
 - [JavaScript Closures][js-clos]
-- [JavaScript Promises][js-prom]
+- [Advanced Promises][js-prom]
+
+- [SOP & CORS][sop-cors]
+
 <!-- - [Angular Geolocation][geo-api] -->
 <!-- - [Angular Leaflet][angular-leafet] -->
 
@@ -103,11 +102,12 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [js-ajax]: subjects/js-ajax
 [js-bas]: subjects/js
 [js-classes]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes
-[js-clos]: subjects/js-closures
+[js-clos]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-closures/?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [js-dom]: subjects/js-dom
 [js-modules]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-modules
-[js-prom]: subjects/js-promises
-[js-prot]: subjects/js-prototypes
+[js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[js-prom-basic]: subjects/js-promises-basics
+[js-prot]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-prototypes/?home=MediaComem%2Fcomem-masrad-dfa%23readme
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
 [ng]: subjects/angular
 [ng-bootstrap]: subjects/angular-ui-bootstrap

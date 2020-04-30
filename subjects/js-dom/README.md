@@ -252,7 +252,7 @@ function alignAllText(event) {
 
 We want to play with the form and the table we have in the user interface.
 
-The requirements are that when a user submit the form by clicking on the "Register" button, we:
+The requirements are that when a user submits the form by clicking on the "Register" button, we:
 - get the value of the First name and Last name fields ;
 - add a new row to the Table at the bottom of the page with those values in the right columns (give the `#` and `Startship` column a value of `###`).
 
