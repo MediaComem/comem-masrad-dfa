@@ -95,43 +95,14 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## What is jQuery
+## Setup
 
-<!-- slide-front-matter class: center, middle, image-header -->
-
-<p class='center'><img src='images/jquery-logo.png' width='30%' /></p>
-
-> jQuery is a JavaScript (_hereafter JS_) library created in 2006 by John Resig, and originally designed to ease the creation of client-side JS script, especially regarding DOM manipulation.
-
-> **This subject is based on the `3.4.1` version of jQuery.**
->
-> **As such, some examples could be out-of-date.**
-
-## Example file
-
-The rest of this subject will rely on [this `index.html` file][ex-file] as context.
-
-Be sure to download it and place it in a new project directory (e.g. `jquery-course`), if you want to try and follow with the examples.
+1. Create a new folder in your `dfa-course` folder. We'll call it `jquery-dom`
+1. Save [this `index.html` file][ex-file] in the new folder.
+  > Note that this example file includes Bootstrap through a CDN. Feel free to change that to a local link if you'd prefer ([see here][local-bs]).
+1. Start `live-server` and you should see the following page:
 
 <p class="center"><img src="images/final-result.png" class="shadow" width="70%" /></p>
-
-> Note that this example file includes Bootstrap through a CDN. Feel free to change that to a local link if you'd prefer ([see here][local-bs]).
-
-<!-- slide-front-matter class: center, middle -->
-
-## Learn by example
-
-For the rest of this course, we are going to discover how to do things with jQuery by implementing features on the example template.
-
-These features are:
-
-- Select another discussion in the left list, and reset the unread indicator
-
-- Change the alignment of the "New message" area, using the three buttons
-
-- Add a new message to the discussion when clicking on the "Send" button
-
-- Remove messages from the discussion when clicking on the trash button
 
 ## Include jQuery
 
@@ -162,23 +133,23 @@ You can also [download the complete file][dl-jquery], and save the file in a `js
 
 ### Script inclusions
 
-It's considered a good practice to include JS scripts **at the end of your HTML page**.
+It's considered [a good practice][js-in-body] to include JS scripts **at the end of your HTML page**.
 
-> When your browser loads the JS, it doesn't just load the file. It also **parses** it.
+When your browser loads the JS, it doesn't just load the file. It also **parses** it.
 
 Parsing the JS files **pauses the load of all other resources**, effectively blocking everythig until the JS has been completely parsed.
 
 > This can result in **slow loading pages**, especially when you have multiple or big scripts.
 
-Plus, loading JS files while the DOM is not, forces you to start all your JS scripts with the `window.onlad = function {}` syntax.
+Plus, loading JS files before the DOM is complete forces you to do all your intial DOM access in a `window.onlad = function {}` callback.
 
-> With the `<script>` tag at the end of the HTML file, you can be sure that your JS is loaded **after** the DOM is.
+> With `<script>` tags at the and of the `<body>`, the DOM is completely loaded **before** your script, and your code can safely access it.
 
 ### Add custom script
 
-We will write our own JS code in a custom script file.
+We will write our JS code in a custom script file.
 
-In your project directory, create a new file `script.js` and include it at the bottom of your `index.html` page:
+In your `jquery-dom` folder, create a new file `script.js` and include it at the bottom of your `index.html` page:
 
 ```html
 <body>
@@ -197,14 +168,40 @@ Add the following line in your `script.js` file, and save it:
 console.log($("body").jquery);
 ```
 
-Start `live-server` in your project directory and access your browser's console. You should see the following lines:
+Access your browser's console and you should see the following lines:
 
 ```bash
 3.4.1
 Live reload enabled.
 ```
 
-> If it's the case, you're good to go. jQuery and your custom script are both correctly include in your project.
+> If it's the case, jQuery and your custom script are both correctly include in your project.
+
+> You can now empty your `script.js` file
+
+## Learn by example
+
+For the rest of this course, we are going to discover how to do things with jQuery by implementing features on the example template.
+
+These features are:
+
+- Select another discussion in the left list, and reset the unread indicator
+
+- Change the alignment of the "New message" area, using the three buttons
+
+- Add a new message to the discussion when clicking on the "Send" button
+
+- Remove messages from the discussion when clicking on the trash button
+
+## What is jQuery
+
+<!-- slide-front-matter class: center, middle, image-header -->
+
+<p class='center'><img src='images/jquery-logo.png' width='30%' /></p>
+
+> jQuery is a JavaScript library created in 2006 by John Resig, and originally designed to ease the creation of client-side JS script, especially regarding DOM manipulation.
+
+> **This subject is based on the `3.4.1` version of jQuery.**
 
 ## jQuery documentation
 
@@ -216,13 +213,15 @@ We highly recommend that you check it out.
 
 <!-- slide-front-matter class: center, middle -->
 
-## The `$` object
+## The `$` identifier
 
-The complete jQuery library is accessible in your JS code through the use of the global `$` variable.
+The complete jQuery library is accessible in your JS code through the use of a global variable named `$`.
 
-> Some other libraries also offers a `$` variable as there main entry-point. That could be the cause for conflict between jQuery and those librairies.
+Note that other libraries could also use a variable named `$` as their main entrypoint.
 
-If it's the case, you can use the global `jQuery` variable instead.
+> That could cause some conflict between jQuery and those librairies.
+
+Although it won't be the case in this subject, you could instead use the global `jQuery` variable to access the jQuery API in your code.
 
 To be sure to remove all possible conflicts, you can use the special `.noConflict()` jQuery method at the top of your JS file:
 
@@ -232,27 +231,25 @@ $.noConflict();
 // But use the jQuery variable to access jQuery's method.
 ```
 
-> This shouldn't be the case in this course.
-
 ## Selecting things
 
 Being a library designed to easily handle DOM manipulation, jQuery allows you to... easily select DOM elements.
 
-The selection functionnality is **quite broad and powerful**, and is based on the **same syntax as [CSS selectors][css-select]**.
+To do so, use the `$(...)` function, passing it a **selector** as its first parameter. This selector uses **the same syntax as the [CSS Selectors][css-select] syntax**.
 
-To select DOM elements and receive jQuery objects matching the selected elements, use the `$()` function, passing it a selector as parameter:
+| Selector | CSS example | jQuery           | Result                                     |
+| :------- | :---------- | :--------------- | :----------------------------------------- |
+| Element  | `p`         | `$("p")`         | **All** `<p>` elements in the page         |
+| Id       | `#username` | `$("#username")` | **Unique** elements with the `username` id |
+| Class    | `.row`      | `$(".row")`      | **All** elements with a `row` class        |
 
-| Selector | CSS example | jQuery           | Result                                    |
-| :------- | :---------- | :--------------- | :---------------------------------------- |
-| Element  | `p`         | `$("p")`         | **All** `<p>` elements in the page        |
-| Id       | `#username` | `$("#username")` | **Unique** element with the `username` id |
-| Class    | `.row`      | `$(".row")`      | **All** elements with a `row` class       |
-
-> Using a jQuery selector will always return you an `array` of jQuery objects, even with an Id selector (which should return one element).
+Two things are worth mentionning about this `$(...)` function:
+1. It never returns **DOM element** _per-se_ but wraps them in **a jQuery object** that adds many features to them.
+1. Even when using an Id selector, which should select one element, the function returns **an `array` of jQuery objects**.
 
 ### Good selecting practice
 
-The topic of selecting elements in jQuery being [very vast][css-select], you can easily write selectors that aren't optimals, performace-wise.
+The syntax for selecting elements in jQuery being [very vast][css-select], you can easily write selectors that aren't optimals, performace-wise.
 
 > Traversing the DOM is a **costly operation**. Your jQuery selectors (and your CSS ones as well) should try to be **as to-the-point as possible**.
 
@@ -260,13 +257,13 @@ There's many good practice regarding jQuery selectors. We are only going to see 
 
 <hr>
 
-> Note that the following example contains some jQuery method.
+> Note that the following example contains some jQuery method we haven't yet seen.
 >
 > **Don't mind them now, we will explicit those methods later on this subject.**
 
 #### Storing jQuery object
 
-When you know or discover that your are going to use the same jQuery selector **several time**, you should cache its result **in a JS variable**, for future reference.
+When you know or discover that your are going to use the same jQuery selector **several time**, you should cache its result **in a variable**, for future reference.
 
 **Bad!**
 
@@ -285,7 +282,7 @@ const `$firstSentences` = $("article > p:first-child");
 `$firstSentences`.append("<span>CLICK ME!</span>");
 ```
 
-> For better code-reading, it's a good practice to **precede** caching variable's name with **the `$` character**, to indicate that **it contains jQuery object(s)**.
+> **Preceding** a variable name with **the `$` character** is some kind of a convention, when working with jQuery, to indicate that **this variable contains jQuery object(s)**.
 
 #### Use `id` selectors
 
@@ -315,7 +312,7 @@ $("div.panel-body p:nth-of-type(2)");
 $("#the-one");
 ```
 
-#### Don't overdo it
+#### Don't overselect things
 
 If you can't define `id` attributes in your HTML template, you'll need to use more complete selectors.
 
@@ -329,7 +326,7 @@ $("html body main.container div.list-group a.list-group-item h4");
 
 > This is completely **unnecessary** and a **waste of resources**.
 
-You need to be precise with your selector to avoir selecting things you don't want. But being over-precise is **as bad** as being too vague.
+You want to be precise with your selector to avoid getting things you don't want. But being over-precise is **as bad** as being too vague.
 
 We could simplify the precedent example like this:
 
@@ -377,12 +374,12 @@ Then, it will examine each of these `<h4>`, and reject the ones that don't have 
 
 To solve this problem, you have two options:
 
-- Use the `.find()` method on the parent object.
-- Narrow the context by using the second parameter of the `$()` function.
+- Use the `.find(...)` method on the parent object.
+- Narrow the context by using the second parameter of the `$(...)` function.
 
 ##### Try to `.find()` me
 
-The `.find()` method allows you to search for **elements in the DOM**, but limited to the context of the jQuery object on which you called the method.
+The `.find(...)` method allows you to search for **elements in the DOM**, but limited to the context of the jQuery object on which you called the method.
 
 If we use the previous example again (the `$("a.list-group-item h4")` case), we would use the method like this:
 
@@ -392,9 +389,9 @@ $("a.list-group-item").find("h4");
 
 > We first fetch the `a.list-group-item`, then we search for `h4` elements **inside** the retrieved `a.list-group-item` elements.
 
-##### Refine the use of `$()`
+##### Refine the use of `$(...)`
 
-We said before that `$()` is the function to use to **retrieve DOM elements**.
+We said before that `$(...)` is the function to use to **retrieve DOM elements**.
 
 Its first parameter is **the selector** for those elements.
 
@@ -443,9 +440,9 @@ Most of the functionnalities we'll implement will rely on things being **clicked
 
 > jQuery can handle more events than just click, [see here][jq-events].
 
-Use the `.click()` method to add a click event on an element.
+Use the `.click(...)` method to add a click event on an element.
 
-> The `.click()` method needs a callback function as its argument, that will be called with **one argument**: the **fired event**
+> The `.click(...)` method needs a callback function as its argument, that will be called with **one argument**: the **fired event**
 
 In order to select another discussion, we need to add a `click` event to the **list elements**.
 
@@ -483,7 +480,7 @@ $("a.list-group-item").click(function (event) {
 
 Since we are using jQuery, we'd prefer retrieving a **jQuery object** representing this DOM element.
 
-Do that by passing `this` to the `$()` function:
+Do that by passing `this` to the `$(...)` function:
 
 ```js
 $("a.list-group-item").click(function (event) {
@@ -501,7 +498,7 @@ When another list item will be clicked we want to **switch the active state** fr
 
 This means adding the `.active` CSS class **to the currently clicked element**.
 
-Use the `.addClass()` method to do that, and pass it a `string` with the **name of the classes** to be added, separated by a **space**.
+Use the `.addClass(...)` method to do that, and pass it a `string` with the **name of the classes** to be added, separated by a **space**.
 
 ```js
 $("a.list-group-item").click(function(event) {
@@ -516,7 +513,7 @@ $("a.list-group-item").click(function(event) {
 
 ### Remove a CSS class
 
-To remove a CSS class from an element, simply use the `.removeClass()` method.
+To remove a CSS class from an element, simply use the `.removeClass(...)` method.
 
 > Pass it a `string` argument with the names of the classes to be removed, separated by a space.
 
@@ -543,7 +540,7 @@ Now that we can changed the selected discussion list item, we want to **remove t
 
 For that we will **change the content** of the `span.badge` inside the list item.
 
-Use the `.text()` method to do so, and pass it as argument a `string` that represents the **new content**.
+Use the `.text(...)` method to do so, and pass it as argument a `string` that represents the **new content**.
 
 > Calling the method with **no argument** returns the **current** content.
 
@@ -580,7 +577,7 @@ $("a.list-group-item").click(`switchListItem`);
 }
 ```
 
-> Note that we passed the `switchListItem` function as parameter to the `.click()` method **without parenthesis**.
+> Note that we passed the `switchListItem` function as parameter to the `.click(...)` method **without parenthesis**.
 
 > We dont' want to **execute the function**, we just want to pass its **reference**.
 
@@ -618,7 +615,7 @@ $("#align-btns button")...
 
 > We have seen that this kind of notation can be optimized.
 >
-> Let's use the second paramter of `$()` to retrieve the buttons, and then attach them the event:
+> Let's use the second paramter of `$(...)` to retrieve the buttons, and then attach them the event:
 
 ```js
 $("button", $("#align-btns")).click(function (event) {
@@ -740,29 +737,29 @@ In our case, we can do that...
 $(this).addClass("active").blur();
 ```
 
-...because the `addClass()` returns the object that called it, here `$(this)`, on which we can call `.blur()` right away.
+...because the `addClass(...)` returns the object that called it, here `$(this)`, on which we can call `.blur()` right away.
 
 > You need to be aware of **what is returned** by each method if you want to use method chaining.
 
 #### Be cautious
 
-Remember what the `.find()` method does?
+Remember what the `.find(...)` method does?
 
 ```js
 $("#align-btns").find("button");
 ```
 
-> The `.find()` method here will return all the `button` elements that it's found inside the `#align-btns` element.
+> The `.find(...)` method here will return all the `button` elements that it's found inside the `#align-btns` element.
 
-Thus, methods chained after a call to `.find()` will **not be applied** to the `$("#align-btns")` object:
+Thus, methods chained after a call to `.find(...)` will **not be applied** to the `$("#align-btns")` object:
 
 ```js
 $("#align-btns").find("button")`.addClass("active")`;
 ```
 
-> The `active` class will be applied to each objects returned from `.find()`.
+> The `active` class will be applied to each objects returned from `.find(...)`.
 
-If you'd want to apply the `.addClass()` method to the `$("#align-btns")` object first, you'd need to write it like this:
+If you'd want to apply the `.addClass(...)` method to the `$("#align-btns")` object first, you'd need to write it like this:
 
 ```js
 $("#align-btns")`.addClass("active")`.find("button");
@@ -809,7 +806,7 @@ But, in the HTML, we can see that there is already something that could help us 
 
 ### Do you have _any_ class?
 
-The `.hasClass()` method can detect if the element possesses the class name given as parameter.
+The `.hasClass(...)` method can detect if the element possesses the class name given as parameter.
 
 > This method returns a boolean (`true`/`false`).
 
@@ -943,7 +940,7 @@ At the **line 190**, add this `id` to the `<button>` element:
 
 ### The basics
 
-The "Send" button is **also situated inside the form**. So we need to **cancel** its default behavior when it's clicked:
+The "Send" button is **also located inside the form**. So we need to **cancel** its default behavior when it's clicked:
 
 ```js
 $("#send-btn").click(function (event) {
@@ -956,14 +953,14 @@ $("#send-btn").click(function (event) {
 Now... we'll have to..:
 
 1. Get the value inside `#message`
-2. _No value_ ?
-3. Notify the user
-4. Reject the creation
-5. _Value_ ?
-6. Get the alignment for the new message
-7. Create the new message DOM structure
-8. Append the new message to the discussion
-9. Reset the textearea (error and content)
+1. _No value_ ?
+  1. Notify the user
+  1. Reject the creation
+1. _Value_ ?
+  1. Get the alignment for the new message
+  1. Create the new message DOM structure
+  1. Append the new message to the discussion
+  1. Reset the textearea (error and content)
 
 ### Get the value inside `#message`
 
@@ -1107,9 +1104,9 @@ Since we are using Bootstrap, here is the complete structure we'll have to creat
 
 > The `div.msg-content` will help use insert the message in this tempalte later.
 
-#### The `$()` function, again
+#### The `$(...)` function, again
 
-With jQuery, you can create HTML elements using the `$()` function.
+With jQuery, you can create HTML elements using the `$(...)` function.
 
 If you pass a `string` as argument and this `string` looks like HTML, you'll get a jQuery object containing the corresponding node structure.
 
@@ -1134,54 +1131,55 @@ const $html = $('<div class="col-md-8 col-md-offset-4"><div class="alert alert-w
 > This is obviously **not** a good solution:
 >
 > - Extremly long string
-> - Unreadable
+> - Unreadable and unmaintainable
 > - Strong coupling between template and logic
 
-#### Hackers gonna hack
+#### The `<template>` tag
 
 Ideally, we would like to write our template **in our `.html` file**, then retrieve and manipulate it with jQuery.
 
-We can achieve that by using a `<script>` tag with an **unrecognized** `type` propety, `text/template` for example.
+Thankfully, there's a special tag for that in HTML: [the `<template>` tag][template].
 
-> Browser and screen-readers only interpret the content of a `<script>` tag when they recognize its `type`.
+> Any content in a `<template>` tag won't be displayed on screen or read by screen-readers, but can be accessed and used in JS scrpts.
 
 ```html
-<!-- Templates -->
-<script type="`text/template`"></script>
+<template>
+  <!-- Content goes here -->
+</template>
 ```
+You can place those templates anywhere on your page, but it's best to regroup them e.g. at the end of your `<body>` tag (but before the `<script>` tags).
 
-> Such `<script>` tags should be placed **at the end** of your `<body>` tag, but **before** your `.js` inclusions (around the **line 203**, in our example).
+> around the **line 203**, in our example
 
-We then give it an `id` for future reference, and copy our HTML inside:
+We can give it an `id` for future reference, and copy our HTML inside:
 
 ```html
-<!-- Templates -->
-<script type="text/template" `id="new-sent-message" `>
-  <!-- HTML structure goes here -->
-</script>
+<template `id="new-sent-message"`>
+  <!-- Content goes here -->
+</template>
 ```
 
 #### Recovering the template
 
-To retrieve the templates placed inside `<script>`, we need to do two operations.
+To retrieve a template as a jQuery object, we need to do two operations.
 
-Firstly, get the content of the `<script>` tag:
+First get the content of the `<template>` tag:
 
 ```js
-const template = $("#new-sent-message").text();
+const template = $("#new-sent-message").html();
 ```
 
-> This will return the HTML structure as a `string` (because unrecognized `<script>` content is interpreted as a simple `string`).
+> This will return the HTML structure as a `string`.
 
-Secondly, generate a new DOM based on this template:
+Then generate a new DOM structure based on this content:
 
 ```js
 const $msgTemplate = $(template);
 ```
 
-> `$msgTemplate` now contains a jQuery object representing the desired HTML template.
+> `$msgTemplate` now contains a jQuery object for the desired DOM.
 >
-> We are now able to insert the data inside the template, and add it to our page.
+> We can manipulate this DOM, and append it to our page.
 
 ### Code checkpoint
 
@@ -1244,7 +1242,7 @@ To get the message date, let's create a **function** that returns just that.
 We will use the JS Date feature for that.
 
 - The `Date()` function creates a new `Date` object representing the current date
-- The `toLocalTimeStrin()` method of a `Date` object allows you to return a localized string representation of said date. You can pass an option object to change how the time is displayed.
+- The `toLocalTimeStrin(...)` method of a `Date` object allows you to return a localized string representation of said date. You can pass an option object to change how the time is displayed.
   > In our case, we will display the date in Swiss French format (with the `fr-CH` locale), and two digits for hours and minutes.
 
 Using all that together:
@@ -1294,7 +1292,7 @@ $("#send-btn").click(function(event) {
 
 We have the **complete DOM structure** for our new message stored in **a jQuery object** inside the `$msgTemplate` variable.
 
-Let's **insert this new message in our page**. To do this, we'll use the `.append()` method.
+Let's **insert this new message in our page**. To do this, we'll use the `.append(...)` method.
 
 > This method append the given jQuery object at the end of the jQuery object on which the method is called.
 
@@ -1320,7 +1318,7 @@ $message.val("");
 
 ### Complete code - Functions
 
-**`getAlignmentClass()`**
+**`getAlignmentClass(...)`**
 
 ```js
 // Get the alignment class name applied to the given element.
@@ -1366,7 +1364,7 @@ function createNewMessage(event) {
     const alignment = getAlignmentClass($message);
 
     // Get the new message template
-    const template = $("#new-sent-message").text();
+    const template = $("#new-sent-message").html();
     const $msgTemplate = $(template);
 
     // Insert the value in the tempalte
@@ -1415,7 +1413,7 @@ $(this).parent().parent().parent().remove();
 
 In our case, the element that we want to access is the `div.col-8`. But there's multiple `div.col-8` in our page, so we don't want any `div.col-8`; we want the closest one to our button.
 
-We can then use the `.closest()` method and give it the selector of the element we want to retrieve:
+We can then use the `.closest(...)` method and give it the selector of the element we want to retrieve:
 
 ```js
 $("i.fa-trash-alt").parent().click(function (event) {
@@ -1462,7 +1460,7 @@ To resolve this issue, the solution is to register the event **not on the elemen
 
 In our case, this parent could be the `#dialog` element.
 
-The `.on()` method allows you to register an event on a node that can only be **triggered by one of its  descendants**, not itself.
+The `.on(...)` method allows you to register an event on a node that can only be **triggered by one of its  descendants**, not itself.
 
 In our case, we want to register an event on the `#dialog` element, but trigger it only when a child `button` is clicked:
 
@@ -1523,8 +1521,10 @@ The complete JS code for this example can be found [here][complete].
 [jq-doc]: http://api.jquery.com/
 [ls]: https://www.npmjs.com/package/live-server
 [local-bs]: ../bootstrap-basics/#5
-[css-select]: https://www.w3schools.com/cssref/css_selectors.asp
+[css-select]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
 [5-tips-selec]: https://www.sitepoint.com/efficient-jquery-selectors/
 [jq-events]: https://api.jquery.com/category/events/
 [complete]: https://gist.githubusercontent.com/Tazaf/1eb7e4d4b2bd6a5508b6e2c88f6739c0/raw/script.js
 [bs-validation]: https://getbootstrap.com/docs/4.3/components/forms/#supported-elements
+[js-in-body]: https://www.google.com/search?q=js+script+in+head+or+body
+[template]: https://developer.mozilla.org/fr/docs/Web/HTML/Element/template
