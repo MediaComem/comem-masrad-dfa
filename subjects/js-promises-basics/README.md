@@ -22,6 +22,25 @@ Get an overview of the Promise API and how to use it to handle asynchronous oper
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Asynchronous callback styles](#asynchronous-callback-styles)
+  - [What's wrong with that?](#whats-wrong-with-that)
+  - [Callback hell example](#callback-hell-example)
+  - [Flatten the pyramid of doom](#flatten-the-pyramid-of-doom)
+  - [Flatten the pyramid of doom with promises](#flatten-the-pyramid-of-doom-with-promises)
+- [What is a promise?](#what-is-a-promise)
+- [Promises/A+ specification](#promisesa-specification)
+  - [Basic example](#basic-example)
+  - [Consuming a promise](#consuming-a-promise)
+- [Basic promise behavior](#basic-promise-behavior)
+  - [Promise callback syntax](#promise-callback-syntax)
+  - [Promise callbacks are **optional**](#promise-callbacks-are-optional)
+    - [Unhandled promise rejections](#unhandled-promise-rejections)
+  - [Using `catch()`](#using-catch)
+  - [Promise utilities](#promise-utilities)
+  - [Chaining `.then()` calls](#chaining-then-calls)
+  - [Chaining promises](#chaining-promises)
+    - [Practical example](#practical-example)
+- [Dive deeper](#dive-deeper)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
