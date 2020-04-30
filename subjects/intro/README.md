@@ -18,19 +18,18 @@ Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa][df
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [MAS-RAD -- Advanced Front-end Development (DFA)](#mas-rad----advanced-front-end-development-dfa)
-  - [Course deliverable](#course-deliverable)
-  - [Front end](#front-end)
-  - [Back end](#back-end)
-  - [Application subjects](#application-subjects)
-    - [Citizen Engagement](#citizen-engagement)
-      - [Report a problem](#report-a-problem)
-      - [Features requirements](#features-requirements)
-    - [Travel Log](#travel-log)
-      - [Create a Trip](#create-a-trip)
-      - [Features requirements](#features-requirements-1)
-  - [Implementation requirements](#implementation-requirements)
-  - [Delivery](#delivery)
+- [Course deliverable](#course-deliverable)
+- [Front end](#front-end)
+- [Back end](#back-end)
+- [Application subjects](#application-subjects)
+  - [Citizen Engagement](#citizen-engagement)
+    - [Report a problem](#report-a-problem)
+    - [Features requirements](#features-requirements)
+  - [Travel Log](#travel-log)
+    - [Create a Trip](#create-a-trip)
+    - [Features requirements](#features-requirements-1)
+- [Implementation requirements](#implementation-requirements)
+- [Delivery](#delivery)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

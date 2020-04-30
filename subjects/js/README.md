@@ -18,6 +18,8 @@ and one of the three core technologies of the web.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
+- [Setup](#setup)
 - [What is JavaScript?](#what-is-javascript)
   - [JavaScript is still evolving](#javascript-is-still-evolving)
   - [JavaScript ES6+ support](#javascript-es6-support)
@@ -34,7 +36,7 @@ and one of the three core technologies of the web.
   - [Passing functions as arguments](#passing-functions-as-arguments)
     - [Function as argument exercise](#function-as-argument-exercise)
   - [Transforming data with functions](#transforming-data-with-functions)
-  - [Arrow functions _(ES6+)_](#arrow-functions-es6)
+  - [Arrow functions _(ES6+)_](#arrow-functions-_es6_)
     - [Arrow function arguments](#arrow-function-arguments)
     - [Body of arrow functions](#body-of-arrow-functions)
 - [Constructors](#constructors)
