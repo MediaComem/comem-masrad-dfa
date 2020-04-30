@@ -13,11 +13,10 @@ and one of the three core technologies of the web.
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [What is JavaScript?](#what-is-javascript)
   - [JavaScript is still evolving](#javascript-is-still-evolving)
@@ -35,7 +34,7 @@ and one of the three core technologies of the web.
   - [Passing functions as arguments](#passing-functions-as-arguments)
     - [Function as argument exercise](#function-as-argument-exercise)
   - [Transforming data with functions](#transforming-data-with-functions)
-  - [Arrow functions *(ES6+)*](#arrow-functions-es6)
+  - [Arrow functions _(ES6+)_](#arrow-functions-es6)
     - [Arrow function arguments](#arrow-function-arguments)
     - [Body of arrow functions](#body-of-arrow-functions)
 - [Constructors](#constructors)
@@ -65,6 +64,23 @@ and one of the three core technologies of the web.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Setup
+
+To follow along the exemples in this subject, create a new folder, e.g. `js`, on you `dfa-course` project.
+
+Create two file in this new folder: `index.html` and `script.js`.
+
+Then add the following in the `index.html` file:
+
+```html
+<head>
+  <script src="script.js"></script>
+</head>
+```
+Start `live-server` and display your browser's console (since we won't need the webpage).
+
+> Feel free to remove all code from `script.js` each time you want to try one of this subject's examples.
+
 ## What is JavaScript?
 
 <!-- slide-front-matter class: center, middle -->
@@ -80,11 +96,11 @@ It has been standardized in the [ECMAScript][es] language specification.
 
 <p class="center"><img src='images/timeline.png' width='60%' /></p>
 
-* [**ECMAScript 2015** (also known as ECMAScript 6 or ES6)][es6] added an enormous amount of new (drastic) features : iterators and for/of loops, Python-style [generators][js-generators] and generator expressions, [arrow functions][js-arrow-functions], binary data, typed arrays, collections (maps, sets and weak maps), [promises][js-promise], number and math enhancements, reflection, and [proxies][js-proxy].
+- [**ECMAScript 2015** (also known as ECMAScript 6 or ES6)][es6] added an enormous amount of new (drastic) features : iterators and for/of loops, Python-style [generators][js-generators] and generator expressions, [arrow functions][js-arrow-functions], binary data, typed arrays, collections (maps, sets and weak maps), [promises][js-promise], number and math enhancements, reflection, and [proxies][js-proxy].
   > Since this huge release, it has been decided to make smaller and more frequent releases
-* [**ECMAScript 2017** (ES8)][es8] added [async/await functions][js-async] and [shared memory and atomics][js-shared-memory].
-* [**ECMAScript 2018** (ES9)][es9] added [asynchronous iteration][js-async-iteration] and more.
-* And so on...
+- [**ECMAScript 2017** (ES8)][es8] added [async/await functions][js-async] and [shared memory and atomics][js-shared-memory].
+- [**ECMAScript 2018** (ES9)][es9] added [asynchronous iteration][js-async-iteration] and more.
+- And so on...
 
 ### JavaScript ES6+ support
 
@@ -104,8 +120,6 @@ all **ES6+** features are supported except for [imports][js-imports].
 
 <!-- slide-front-matter class: center, middle -->
 
-
-
 ### JavaScript has 6 primitive data types
 
 <!-- slide-column 70 -->
@@ -116,7 +130,7 @@ let aNumber = 3.12;
 let aBoolean = true;
 let nullValue = null;
 let undefinedValue;
-let aSymbol = Symbol('foo');
+let aSymbol = Symbol("foo");
 
 console.log(typeof aString); // "string"
 console.log(typeof aNumber); // "number"
@@ -131,26 +145,24 @@ console.log(typeof 4); // "number"
 console.log(Number.isInteger(4)); // true
 
 // Symbols are unique identifiers
-console.log(Symbol('foo') == aSymbol); // false
+console.log(Symbol("foo") == aSymbol); // false
 ```
 
 <!-- slide-column 30 -->
 
 The types are:
 
-* String
-* Number
-* Boolean
-* Null
-* Undefined
-* Symbol (**ES6**)
+- String
+- Number
+- Boolean
+- Null
+- Undefined
+- Symbol (**ES6**)
 
 <!-- slide-column 100 -->
 
 > Note that `null` is a type, but `typeof null === object`.
 > This is a [remnant][js-typeof-null] from the first version of JavaScript.
-
-
 
 ### JavaScript has **dynamic** objects
 
@@ -159,14 +171,14 @@ The types are:
 ```js
 // Let's create an object
 let person = {
-  firstName: 'John',
-  lastName: 'Doe'
+  firstName: "John",
+  lastName: "Doe",
 };
 
 // We can dynamically add properties
-person.gender = 'male';
+person.gender = "male";
 
-let property = 'zip';
+let property = "zip";
 person[property] = 1446;
 
 // And delete them
@@ -174,7 +186,7 @@ delete person.firstName;
 
 // And list them
 for (const key in person) {
-  console.log(key + ': ' + person[key]);
+  console.log(key + ": " + person[key]);
 }
 ```
 
@@ -190,21 +202,19 @@ Objects have **no class**, they are **dynamic bags** of properties.
 
 Every object has a **different list of properties**.
 
-
-
 ### Array are **objects**
 
 They are list-like objects with numeric keys.
 
 ```js
 // Let's create an array
-let fruits = [ 'apple', 'pear' ];
+let fruits = ["apple", "pear"];
 
 console.log(typeof fruits); // "object"
 
 // Iterate over it
 for (let i = 0; i < fruits.length; i++) {
-  console.log('fruit ' + i + ' is ' + fruits[i]);
+  console.log("fruit " + i + " is " + fruits[i]);
 }
 
 // fruit 0 is apple
@@ -212,8 +222,6 @@ for (let i = 0; i < fruits.length; i++) {
 ```
 
 We'll learn more about arrays later.
-
-
 
 ### JavaScript is **untyped**
 
@@ -230,18 +238,16 @@ console.log(typeof aVariable); // "number"
 aVariable = true;
 console.log(typeof aVariable); // "boolean"
 
-aVariable = [ 1, 2, 3 ];
+aVariable = [1, 2, 3];
 console.log(typeof aVariable); // "object"
 
 aVariable = {
-  aProperty: "aValue"
+  aProperty: "aValue",
 };
 console.log(typeof aVariable); // "object"
 ```
 
 The type can **change** over time.
-
-
 
 ### Comparing values with `==` or `===`
 
@@ -262,17 +268,15 @@ console.log(false === []); // false
 console.log(42 === 42); // true
 ```
 
-
-
 ### Falsy values
 
 The following values all **evaluate to false**: `false`, `0`, `""`, `null`, `undefined`, `NaN`.
 
 ```js
 if (0) {
-  console.log('Zero is truthy');
+  console.log("Zero is truthy");
 } else {
-  console.log('Zero is falsy'); // "Zero is falsy"
+  console.log("Zero is falsy"); // "Zero is falsy"
 }
 ```
 
@@ -281,15 +285,13 @@ This can cause weird bugs sometimes:
 ```js
 let countdown = "";
 if (countdown == 0) {
-  console.log('We are done'); // "We are done"
+  console.log("We are done"); // "We are done"
 } else {
-  console.log('We are not done');
+  console.log("We are not done");
 }
 ```
 
 Therefore, it's recommended to always use the triple-equal `===` operator for equality comparisons.
-
-
 
 ## JavaScript supports first-class functions
 
@@ -299,8 +301,6 @@ Therefore, it's recommended to always use the triple-equal `===` operator for eq
 
 > Specifically, this means the language supports **passing functions as arguments** to other functions, **returning them** as the values from other functions, and **assigning them to variables** or **storing them in data structures**."
 
-
-
 ### Storing functions in variables or data structures
 
 A JavaScript function isn't a special construct linked to a class like in Java.
@@ -308,62 +308,58 @@ It can be stored in variables like any other value.
 
 ```js
 // Store a function in a variable
-let hello = function(name) {
-  console.log('Hello ' + name + '!');
+let hello = function (name) {
+  console.log("Hello " + name + "!");
 };
 
 // The hello variable now holds a function
-console.log(typeof(hello)); // "function"
+console.log(typeof hello); // "function"
 
 // You can call it
-hello('World'); // "Hello World!"
+hello("World"); // "Hello World!"
 
 // Store a function as an object's property
 let anObject = {
-  aProperty: function() {
+  aProperty: function () {
     return 42;
-  }
+  },
 };
 
 // That property now holds a function as its value
-console.log(typeof(anObject.aProperty)); // "function"
+console.log(typeof anObject.aProperty); // "function"
 
 let value = anObject.aProperty();
 console.log(value); // 42
 ```
-
-
 
 ### Returning functions from a function
 
 ```js
 // Let's define a function that returns a function
 function makeSquareFunction() {
-  return function(n) {
+  return function (n) {
     return n * n;
   };
 }
 
 // By calling it, we get a function
 let square = makeSquareFunction();
-console.log(typeof(square)); // "function"
+console.log(typeof square); // "function"
 
 let result = square(5);
 console.log(result); // 25
 ```
 
-<runkit except='1'></runkit>
+<!-- <runkit except='1'></runkit> -->
 
 Note that functions can be **anonymous** (i.e. they have no name),
 like the function returned from `makeSquareFunction`:
 
 ```js
-return function(n) {
+return function (n) {
   return n * n;
 };
 ```
-
-
 
 ### Passing functions as arguments
 
@@ -371,17 +367,19 @@ A function can take another function as an argument.
 
 ```js
 function hello(name) {
-  console.log('Hello ' + name + '!');
+  console.log("Hello " + name + "!");
 }
 
 function callIt(func) {
-  func('World');
+  func("World");
 }
 
 callIt(hello); // "Hello World!"
 ```
 
 #### Function as argument exercise
+
+Copy the following code in your `script.js` file and try to **implement it**:
 
 ```js
 // Let's define a couple of arithmetic function
@@ -392,24 +390,36 @@ function multiply(a, b) {
   return a * b;
 }
 
-// Define a function that takes two numbers
-// and a function to apply to those numbers
-function compute() {
-  // Give me some arguments and implement me!
+// Give me some arguments and implement me!
+function compute(/* TODO */) {
+  // TODO
 }
 
 // Call compute with "add"
 let value = compute(2, 4, add);
-console.log(value); // 6
+console.log(value);
 
 // Call compute with "multiply"
 value = compute(2, 4, multiply);
-console.log(value); // 8
+console.log(value);
 ```
 
-Open the **RunKit** and try to **implement it**!
+<!-- slide-column -->
+**Current result**
 
+```
+undefined
+undefined
+```
+<!-- slide-column -->
+**Expected result**
 
+```
+6
+8
+```
+
+<!-- Open the **RunKit** and try to **implement it**! -->
 
 ### Transforming data with functions
 
@@ -418,9 +428,9 @@ These properties of functions enable powerful [**functional programming**][func-
 ```js
 // Define an array of people objects
 let people = [
-  { firstName: 'John', lastName: 'Doe' },
-  { firstName: 'John', lastName: 'Smith' },
-  { firstName: 'Deborah', lastName: 'Smith' }
+  { firstName: "John", lastName: "Doe" },
+  { firstName: "John", lastName: "Smith" },
+  { firstName: "Deborah", lastName: "Smith" },
 ];
 
 // Define a function that takes a person and returns their last name
@@ -437,9 +447,7 @@ let lastNames = people.map(getName);
 console.log(lastNames); // [ "Doe", "Smith", "Smith" ]
 ```
 
-
-
-### Arrow functions *(ES6+)*
+### Arrow functions _(ES6+)_
 
 <runkit disabled></runkit>
 
@@ -453,7 +461,7 @@ You are facing the **ES6** syntax for functions called **arrow functions**.
 The example above is (mostly) equivalent to writing:
 
 ```js
-let divideFunc = function(nb1, nb2) {
+let divideFunc = function (nb1, nb2) {
   return nb1 / nb2;
 };
 ```
@@ -483,6 +491,7 @@ But if your function has **no arguments**, you **MUST** add **empty parentheses*
 let callback = `()` => console.log("Timeout finished");
 setTimeout(callback, 1000);
 ```
+
 > As a rule of thumb, you should always use brackets.
 
 #### Body of arrow functions
@@ -490,7 +499,7 @@ setTimeout(callback, 1000);
 <runkit except='0'></runkit>
 
 ```js
-(nb1, nb2) => `nb1 / nb2`
+(nb1, nb2) => `nb1 / nb2`;
 ```
 
 The part right of the `=>` is **the body** of the function; note the absence of brackets (`{}`).
@@ -499,17 +508,15 @@ The `return` keyword is **implicit** with one-line bodies that have no brackets:
 
 ```js
 // This arrow function will return the square root of the number
-const squareroot = number => `Math.sqrt(number)`;
+const squareroot = (number) => `Math.sqrt(number)`;
 console.log(squareroot(4)); // 2
 ```
 
 If the body has **more than one line**, you **MUST add brackets** `{}` around it (_and use the `return` keyword if necessary_):
 
 ```js
-const square = number => `{`
-  `let result = number * number;`
-  `return result;`
-`}`;
+const square = (number) =>
+  `{``let result = number * number;``return result;``}`;
 
 console.log(square(5)); // 25
 ```
@@ -522,8 +529,7 @@ For a function to act as a constructor, you don't have to declare it differently
 All you have to do is call the function with `new` like in most object-oriented languages:
 
 ```js
-function Starship() {
-}
+function Starship() {}
 
 let discovery = new Starship();
 console.log(discovery); // {}
@@ -570,7 +576,7 @@ There are three ways to define a variable in JavaScript:
 
 ```js
 // ES5
-var aString = 'foo';
+var aString = "foo";
 
 // ES6
 let aNumber = 42;
@@ -585,13 +591,13 @@ Variables declared with `var` or `let` are dynamic.
 Their value can **change** over time.
 
 ```js
-var aString = 'foo';
+var aString = "foo";
 let aNumber = 24;
 
 console.log(aString); // "foo"
 console.log(aNumber); // 24
 
-aString = 'bar';
+aString = "bar";
 aNumber = 25;
 
 console.log(aString); // "bar"
@@ -614,7 +620,6 @@ Note that they are **NOT block-scoped** like in most languages.
 
 ```js
 function logThings(things) {
-
   var numberOfThings = things.length;
 
   for (var i = 0; i < numberOfThings; i++) {
@@ -622,12 +627,12 @@ function logThings(things) {
     console.log(thing);
   }
 
-  console.log('Number of things: ' + numberOfThings);
-  console.log('Last thing: ' + thing);
-  console.log('Iterator: ' + i);
+  console.log("Number of things: " + numberOfThings);
+  console.log("Last thing: " + thing);
+  console.log("Iterator: " + i);
 }
 
-logThings([ 'apple', 'banana', 'pear' ]);
+logThings(["apple", "banana", "pear"]);
 
 // "apple"
 // "banana"
@@ -644,7 +649,6 @@ only visible in the block, statement or expression on which they are used.
 
 ```js
 function logThings(things) {
-
   const numberOfThings = things.length;
 
   for (let i = 0; i < numberOfThings; i++) {
@@ -652,11 +656,11 @@ function logThings(things) {
     console.log(thing);
   }
 
-  console.log('Number of things: ' + numberOfThings);
-  console.log('Last thing: ' + thing);
+  console.log("Number of things: " + numberOfThings);
+  console.log("Last thing: " + thing);
 }
 
-logThings([ 'apple', 'banana', 'pear' ]);
+logThings(["apple", "banana", "pear"]);
 
 // "apple"
 // "banana"
@@ -673,17 +677,16 @@ Variables declared with `var` outside of any function are **global variables**, 
 
 ```js
 // A global variable
-var name = 'World';
+var name = "World";
 
 function hello() {
-
   // We can use "name" even though it's not an argument
   // of the function, because it's global
-  console.log('Hello ' + name + '!');
+  console.log("Hello " + name + "!");
 
   // It's a bad idea to use them because anyone can
   // change their value and mess up your program
-  name = 'Bob';
+  name = "Bob";
 }
 
 hello(); // "Hello World!"
@@ -692,20 +695,16 @@ hello(); // "Hello Bob!"
 
 You should **almost never use them**.
 
-
-
 #### When it's okay to use the global scope
 
 In an **HTML page**, all loaded scripts share the same global scope.
 
 In that context, ES5 libraries expose global variables so that your code can use them.
-For example, jQuery provides the **$** global variable for easy access.
+For example, jQuery provides the **`$`** global variable for easy access.
 
 In a **Node.js script**, the global scope is limited to the file you're in, so it's okay to use it.
 
 If you're not writing either one of those, just **don't use global variables**.
-
-
 
 #### Oops, global scope
 
@@ -733,8 +732,6 @@ console.log(i); // 3
 
 Just **don't do it**.
 
-
-
 ## String syntax
 
 <runkit disabled></runkit>
@@ -745,12 +742,14 @@ In JavaScript, you have 3 ways of declaring strings:
 // With single quotes: '
 let string = 'I\'m your "Wurst" nightmare: ' + worstNightmare;
 ```
+
 > You have to **escape all other single quotes**, and use `+` to concatenate.
 
 ```js
 // With double quotes: "
-let string = "I'm your \"Wurst\" nightmare: " + worstNightmare;
+let string = 'I\'m your "Wurst" nightmare: ' + worstNightmare;
 ```
+
 > You have to **escape all other double quotes**, and use `+` to concatenate.
 
 **ES6** also adds the new **template literals**:
@@ -764,21 +763,19 @@ You have to escape all other backticks, but you can use single and double quotes
 
 Expressions included as `${expression}` will be evaluated then concatenated.
 
-
-
 ## Manipulating arrays
 
 Arrays in JavaScript are objects and provide you with a [boatload of methods][array-functions] to manipulate items:
 
-Function     | Effect
-:-------     | :-----
-`.forEach()` | Calls a function for every element in the array
-`.concat()`  | Concatenates two arrays into one, and returns this new array
-`.find()`    | Finds the **first** element that passes a provided test function
-`.pop()`     | Removes the **last** element, and returns it (`.shift()` does the same but for the **first** element)
-`.push()`    | Adds new elements to **the end** of an array (`.unshift()` does the same but adds them to the **beginning** of the array)
-`.slice()`   | Returns **a portion** of the array
-`.reverse()` | Reverses the order of the elements in an array (**this modifies the original array**)
+| Function     | Effect                                                                                                                    |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------ |
+| `.forEach()` | Calls a function for every element in the array                                                                           |
+| `.concat()`  | Concatenates two arrays into one, and returns this new array                                                              |
+| `.find()`    | Finds the **first** element that passes a provided test function                                                          |
+| `.pop()`     | Removes the **last** element, and returns it (`.shift()` does the same but for the **first** element)                     |
+| `.push()`    | Adds new elements to **the end** of an array (`.unshift()` does the same but adds them to the **beginning** of the array) |
+| `.slice()`   | Returns **a portion** of the array                                                                                        |
+| `.reverse()` | Reverses the order of the elements in an array (**this modifies the original array**)                                     |
 
 ### Examples
 
@@ -786,7 +783,7 @@ Function     | Effect
 
 ```js
 let crew = ["Jonathan", "T'Pol", "Trip", "Malcolm", "Sato", "Travis"];
-crew.forEach(function(element, index) {
+crew.forEach(function (element, index) {
   console.log("Hello, my name is " + element + ", and I'm n°" + index);
 });
 ```
@@ -795,7 +792,7 @@ crew.forEach(function(element, index) {
 
 ```js
 let ages = [3, 10, 19, 25];
-let adult = ages.find(function(age) {
+let adult = ages.find(function (age) {
   return age >= 18;
 });
 console.log(adult); // 19
@@ -815,32 +812,28 @@ console.log(enterprises); // ["NX-01", "NCC-1701", "NCC-1701 D"]
 **ES6**'s `for...of` loop is a new, simpler way of **iterating over all elements** of an array:
 
 ```js
-let fruits = [ 'apple', 'pear' ];
+let fruits = ["apple", "pear"];
 
 // Classic "for" loop
 for (let i = 0; i < fruits.length; i++) {
   let fruit = fruits[i];
-  console.log('fruit: ' + fruit);
+  console.log("fruit: " + fruit);
 }
 
 // Equivalent "for...of" loop
 for (let fruit of fruits) {
-  console.log('fruit: ' + fruit);
+  console.log("fruit: " + fruit);
 }
 ```
 
 The `for...of` loop is actually not limited to arrays:
 it can iterate over any [iterable object][js-iterable] such as Map, Set, etc.
 
-
-
 ## Destructuring assignment
 
 <!-- slide-front-matter class: center, middle -->
 
 The destructuring assignment syntax makes it possible to **unpack values from arrays**, or **properties from objects**, into **distinct variables**.
-
-
 
 ### Array destructuring
 
@@ -915,8 +908,6 @@ console.log(g); // 1
 console.log(h); // [2, 3]
 ```
 
-
-
 ### Object destructuring
 
 <!-- slide-column 50 -->
@@ -984,13 +975,9 @@ let user = { id: 42, name: 'Bob' };
 console.log('userId: ' + userId(user)); // "userId: 42"
 ```
 
-
-
 ## JSON
 
 <!-- slide-front-matter class: center, middle -->
-
-
 
 ### JSON who?
 
@@ -999,20 +986,18 @@ It is a syntax that is used to **represent JavaScript objects** with **text**.
 
 JSON can only describe the following types:
 
-| Types    | Notation                                           |
-| :------- | :----------------------                            |
-| String   | `"text"`                                           |
-| Number   | `2`                                                |
-| Boolean  | `true`, `false`                                    |
-| Null     | `null`                                             |
-| Array    | `[ "value1", "value2" ]`                           |
-| Object   | `{ "property1": "value1", "property2": "value2" }` |
+| Types   | Notation                                           |
+| :------ | :------------------------------------------------- |
+| String  | `"text"`                                           |
+| Number  | `2`                                                |
+| Boolean | `true`, `false`                                    |
+| Null    | `null`                                             |
+| Array   | `[ "value1", "value2" ]`                           |
+| Object  | `{ "property1": "value1", "property2": "value2" }` |
 
 Object properties and strings **MUST be double-quoted**.
 
 Note that you **cannot** put a JavaScript function in a JSON object.
-
-
 
 ### Example
 
@@ -1041,7 +1026,7 @@ let starship = {
 ```
 
 This is a JavaScript object.
-You *can* put double quotes around property names, but you don't **have to**
+You _can_ put double quotes around property names, but you don't **have to**
 unless it's an **invalid identifier** (e.g. cannot use `.` in a variable name).
 
 <!-- slide-column -->
@@ -1055,20 +1040,13 @@ unless it's an **invalid identifier** (e.g. cannot use `.` in a variable name).
     "lastname": "Archer",
     "activeService": true
   },
-  "species": [
-    "human",
-    "dog",
-    "denobulan",
-    "vulcan"
-  ],
+  "species": ["human", "dog", "denobulan", "vulcan"],
   "warp.factor": 5,
   "cloak": null
 }
 ```
 
 This is JSON. The double quotes around property names are **required**.
-
-
 
 ### Using JSON
 
@@ -1093,21 +1071,18 @@ console.log(crew);
 // Object {name: "Travis", species: "Human", station: "Helm"}
 ```
 
-
-
 ## Resources
 
-* A re-introduction to JavaScript
+- A re-introduction to JavaScript
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript
-* Inheritance and the prototype chain
+- Inheritance and the prototype chain
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain
-* Introduction to Object-Oriented JavaScript
+- Introduction to Object-Oriented JavaScript
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
-* JavaScript objects in detail
+- JavaScript objects in detail
   http://javascriptissexy.com/javascript-objects-in-detail
-* Complete list of native Array methods
+- Complete list of native Array methods
   https://www.w3schools.com/jsref/jsref_obj_array.asp
-
 
 [caniuse-es6]: https://caniuse.com/#search=es6
 [array-functions]: https://www.w3schools.com/jsref/jsref_obj_array.asp
