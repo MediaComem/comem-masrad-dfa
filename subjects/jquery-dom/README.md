@@ -1178,8 +1178,10 @@ const $msgTemplate = $(template);
 ```
 
 > `$msgTemplate` now contains a jQuery object for the desired DOM.
->
-> We can manipulate this DOM, and append it to our page.
+
+We can manipulate this DOM, and append it to our page.
+
+> Note that you could also define the template in its own file (without the `<template>` tag of course), then retrieve its content with an [AJAX request][ajax] and create a jQuery object with it.
 
 ### Code checkpoint
 
@@ -1528,3 +1530,4 @@ The complete JS code for this example can be found [here][complete].
 [bs-validation]: https://getbootstrap.com/docs/4.3/components/forms/#supported-elements
 [js-in-body]: https://www.google.com/search?q=js+script+in+head+or+body
 [template]: https://developer.mozilla.org/fr/docs/Web/HTML/Element/template
+[ajax]: https://developer.mozilla.org/fr/docs/Web/Guide/AJAX
