@@ -39,15 +39,13 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
   - [Basic Promises][js-prom-basic]
   - [Observables with Rxjs][rxjs]
 
-- JavaScript - Part II
-  - [ES6 Classes][js-classes]
-  - [ES6 Modules][js-modules]
+- [Modular JavaScript][js-modules] ([practice][js-mod-practice])
 
 - [TypeScript][ts]
 
 - Angular
-  <!-- - [Angular CLI][ng-cli] -->
-  <!-- - [Getting started][ng] ([practice][ng-exercise]) -->
+  - [Angular CLI][ng-cli]
+  - [Getting started][ng] ([practice][ng-exercise])
   <!-- - [Navigation & Routing][ng-ui-router] ([exercise][ng-ui-router-exercise]) -->
 
 - Angular & Libraries
@@ -60,8 +58,11 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 ## Additional concepts and tools
 
-- [JavaScript Prototypes][js-prot]
+- [Node Package Manager (npm)][npm]
+
 - [JavaScript Closures][js-clos]
+- [JavaScript Prototypes][js-prot]
+- [JavaScript ES6 Classes][js-classes]
 - [Advanced Promises][js-prom]
 
 - [SOP & CORS][sop-cors]
@@ -86,40 +87,43 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [bex]: subjects/bootstrap-practice
 [citizen-engagement-api]: https://github.com/MediaComem/comem-citizen-engagement-api
 [citizen-engagement-api-docs]: https://mediacomem.github.io/comem-citizen-engagement-api/
-[cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [comem]: http://www.heig-vd.ch/comem
 [comem-archioweb]: https://mediacomem.github.io/comem-archioweb/latest/
 [comem-archidep]: https://mediacomem.github.io/comem-archidep/latest/
 [comem-devmobil]: https://mediacomem.github.io/comem-devmobil/latest/
-[collab]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-collaborating?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[collab]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-collaborating?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [dfa]: subjects/intro
-[git]: https://mediacomem.github.io/comem-archidep/latest/subjects/git/?home=MediaComem%2Fcomem-masrad-dfa%23readme
-[git-b]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-branching?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[git]: https://mediacomem.github.io/comem-archidep/latest/subjects/git/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[git-b]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-branching?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [geo-api]: subjects/angular-geolocation/
 [heig]: http://www.heig-vd.ch
 [im]: https://heig-vd.ch/formations/bachelor/filieres/ingenierie-des-medias
 [jq-dom]: subjects/jquery-dom
 [js-ajax]: subjects/js-ajax
 [js-bas]: subjects/js
-[js-classes]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes
-[js-clos]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-closures/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[js-classes]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[js-clos]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-closures/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-dom]: subjects/js-dom
-[js-modules]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-modules
-[js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[js-mod-practice]: https://github.com/Tazaf/masrad-dfa-js-module-practice
+[js-modules]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-modules?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-prom-basic]: subjects/js-promises-basics
-[js-prot]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-prototypes/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[js-prot]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-prototypes/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
-[ng]: subjects/angular
+[ng]: https://mediacomem.github.io/comem-devmobil/latest/subjects/angular/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[ng-cli]: subjects/angular-cli
 [ng-bootstrap]: subjects/angular-ui-bootstrap
 [ng-exercise]: https://github.com/MediaComem/comem-masrad-dfa-angular-exercise
 [ng-prom]: subjects/angular-promises
 [ng-starter]: subjects/angular-auth-starter/
 [ng-ui-router]: subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
+[npm]: https://mediacomem.github.io/comem-archioweb/2019-2020/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [rest]: subjects/rest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
 [rxjs]: subjects/rxjs
 [setup]: subjects/setup
 [sop-cors]: subjects/sop-cors
 [travel-log-api-docs]: https://comem-travel-log-api.herokuapp.com/
-[ts]: https://mediacomem.github.io/comem-devmobil/latest/subjects/ts
+[ts]: https://mediacomem.github.io/comem-devmobil/latest/subjects/ts/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest

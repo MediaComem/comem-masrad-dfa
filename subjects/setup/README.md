@@ -233,11 +233,11 @@ To install Live Share, first install [VS Code][vscode], then [the dedicated Expa
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
 [node-dl]: https://nodejs.org/en/
-[cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [live-share]: https://visualstudio.microsoft.com/fr/services/live-share/
 [live-share-pack]: https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack
-[node-js]: https://mediacomem.github.io/comem-archioweb/latest/subjects/node/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[node-js]: https://mediacomem.github.io/comem-archioweb/latest/subjects/node/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [npmjs]: https://www.npmjs.com/
-[npm]: https://mediacomem.github.io/comem-archioweb/latest/subjects/npm/?home=MediaComem%2Fcomem-masrad-dfa%23readme
+[npm]: https://mediacomem.github.io/comem-archioweb/latest/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [index-gist]: https://gist.githubusercontent.com/Tazaf/420a368389367a83fcfb96ab3a51bf8a/raw/index.html
 [l-s]: https://www.npmjs.com/package/live-server
