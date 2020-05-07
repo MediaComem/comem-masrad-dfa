@@ -37,7 +37,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 - Web Service and asynchronous operations
   - [RESTful APIs][rest]
   - [Basic Promises][js-prom-basic]
-  <!-- - [Observables with Rxjs][rxjs] -->
+  - [Observables with Rxjs][rxjs]
 
 - JavaScript - Part II
   - [ES6 Classes][js-classes]

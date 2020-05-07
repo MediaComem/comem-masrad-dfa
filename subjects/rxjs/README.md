@@ -4,9 +4,9 @@
 
 ## Summary
 
-<!-- slide-include ../../BANNER.md -->
-
 Learn the power of reactive programming using Observables to work with asynchronous code, among other use.
+
+<!-- slide-include ../../BANNER.md -->
 
 **Recommended reading**
 
@@ -365,30 +365,66 @@ function `displayCoordinates`(coordinates) {
   alert(\`Clicked at [${coordinates.x}, ${coordinates.y}]`);
 }
 ```
+## Parallel Operations
+
+`Operator`s that can be used in pipe sequences are called `Pipeable Operator`s. The other kind of `Operator`s are called `Creation Operator`s and are used to create `Observable`s (`fromEvent(...)` is one of them).
+
+Some of those `Operator`s are particularely useful when dealing with parallel asynchronous logic:
+
+- `rxjs.forkJoin(...)` - takes an array (or dictionnary) of `Observable`s, wait for them to complete, then emit an array (or dictionnary) of each `Observable` last emitted value.
+  > See [official documentation][rxjs-forkjoin]
+
+- `rxjs.combineLatest(...)` - takes an array of `Observale`s and, each time one of them emits a new value, emits an array of each `Observable` latest emitted value.
+  > See [official documentation][rxjs-combinelatest]
 
 ## Why would I use this... thing?
 
 We already discussed the topic of using **callbacks** to do so, and seen that it could rapidly [get out of hands][callback-hell] when multiple async operations are to be executed one after the other.
 
-So we learnt about **[Promises][js-prom]**, wich aleviate the pains of callbacks and allow setting up more controlled flow of actions. But depending on the use case, Promises would not be adequate.
+So we learnt about **[Promises][js-prom]**, wich aleviate the pains of callbacks and allow setting up more controlled flow of actions.
 
-Observables (and reactive programming) are nothing more than **another tool to work with async operations**. They have some **similarities** with [Promises][js-prom], but here's the **key differences**:
+> But depending on the use case, Promises would not be adequate.
+
+Observables (and reactive programming) are nothing more than **another tool to work with async operations**.
+
+### Comparison
+
+Observables have some **similarities** with [Promises][js-prom], but here's the **key differences**:
 
 | `Promises` | `Observables` |
 | --- | --- |
-| foo | bar |
+| **Always** asynchronous | **Sometimes** asynchronous |
+| Executes **immediately** | Executes **only when subscribe to** |
+| Resolve once with one value | Can emit different values periodically until completion |
+| - | `Operator`s ! |
 
+Plus, you can easily convert Promise-based logic to use Observables instead, with `rxjs.from(...)` that can create an `Observable` from a `Promise`:
+
+```js
+const { from } = rxjs;
+
+const promise = Promise.resolve("World");
+
+`from(promise)`.subscribe((name) => console.log(\`Hello ${name}`));
+```
+> The resulting `Observable` wil emit once, when the underlying `Promise` resolves, then complete.
 ## Resources
 
 - [JavaScript Theory: Promise vs Observable][prom-vs-obs]
+- [RxJS Documentation][rxjs-doc]
+- [Observable Decision Tree][obs-decision] - A very useful tool to help you selet the write Operator for the task
 
 [from-event]: https://rxjs-dev.firebaseapp.com/api/index/function/fromEvent
 [destructuring]: ../js/#38
 [htmlshell]: http://htmlshell.com/
 [callback-hell]: https://miro.medium.com/max/1400/0*bO_JSfydCKFUnJ2d.png
 [js-prom]: ../js-promises
+[obs-decision]: https://rxjs-dev.firebaseapp.com/operator-decision-tree
 [prom-vs-obs]: https://medium.com/javascript-everyday/javascript-theory-promise-vs-observable-d3087bc1239a
 [rx]: http://reactivex.io/
+[rxjs-combinelatest]: https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest
+[rxjs-doc]: https://rxjs-dev.firebaseapp.com/guide/overview
 [rxjs-operators]: https://rxjs-dev.firebaseapp.com/api/operators
 [rxjs-filter]: https://rxjs-dev.firebaseapp.com/api/operators/filter
+[rxjs-forkjoin]: https://rxjs-dev.firebaseapp.com/api/index/function/forkJoin
 [rxjs-map]: https://rxjs-dev.firebaseapp.com/api/operators/map

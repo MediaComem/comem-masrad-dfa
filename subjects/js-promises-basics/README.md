@@ -420,9 +420,9 @@ We need to get the content of the `Response` in order to display our joke. Let's
 ```js
 fetch("https://api.chucknorris.io/jokes/random")
   // First promise: Response to API call
-  .then(response => response.json())
+* .then(response => response.json())
   // Second promise: Received Joke object
-  .then(joke => console.log(\`Heard a new joke today!\nIt goes: "${joke.value}"`))
+* .then(joke => console.log(\`Heard a new joke today!\nIt goes: "${joke.value}"`))
   // Prints:
   // Heard a new joke today!
   // It goes: "Chuck Norris went out of an infinite loop."
