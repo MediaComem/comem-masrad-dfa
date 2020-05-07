@@ -3,7 +3,7 @@
   <head>
     <title>jQuery - DOM Manipulation (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/c3b6656caaa7f6706d9f967fceae72bf718a7692/subjects/jquery-dom/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/91f6e0a0ea57c6186ddfa383df3a9dce5439db82/subjects/jquery-dom/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -1285,8 +1285,10 @@ const $msgTemplate = $(template);
 ```
 
 > `$msgTemplate` now contains a jQuery object for the desired DOM.
->
-> We can manipulate this DOM, and append it to our page.
+
+We can manipulate this DOM, and append it to our page.
+
+> Note that you could also define the template in its own file (without the `<template>` tag of course), then retrieve its content with an [AJAX request][ajax] and create a jQuery object with it.
 
 ---
 ### Code checkpoint
@@ -1685,6 +1687,7 @@ The complete JS code for this example can be found [here][complete].
 [bs-validation]: https://getbootstrap.com/docs/4.3/components/forms/#supported-elements
 [js-in-body]: https://www.google.com/search?q=js+script+in+head+or+body
 [template]: https://developer.mozilla.org/fr/docs/Web/HTML/Element/template
+[ajax]: https://developer.mozilla.org/fr/docs/Web/Guide/AJAX
 
     </textarea>
     <script src='https://embed.runkit.com'></script>

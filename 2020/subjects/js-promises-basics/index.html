@@ -3,7 +3,7 @@
   <head>
     <title>Promises - the basics (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/c3b6656caaa7f6706d9f967fceae72bf718a7692/subjects/js-promises-basics/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/91f6e0a0ea57c6186ddfa383df3a9dce5439db82/subjects/js-promises-basics/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -470,9 +470,9 @@ We need to get the content of the `Response` in order to display our joke. Let's
 ```js
 fetch("https://api.chucknorris.io/jokes/random")
   // First promise: Response to API call
-  .then(response => response.json())
+* .then(response => response.json())
   // Second promise: Received Joke object
-  .then(joke => console.log(\`Heard a new joke today!\nIt goes: "${joke.value}"`))
+* .then(joke => console.log(\`Heard a new joke today!\nIt goes: "${joke.value}"`))
   // Prints:
   // Heard a new joke today!
   // It goes: "Chuck Norris went out of an infinite loop."
@@ -495,7 +495,7 @@ If you want to **dive deeper** in the subject of Promises, [here's a more in-dep
 [chuck-jokes]: https://api.chucknorris.io/
 [fetch]: https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch
 [js-bas]: ../js
-[js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/
+[js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 
     </textarea>
     <script src='https://embed.runkit.com'></script>

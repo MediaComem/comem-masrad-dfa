@@ -3,7 +3,7 @@
   <head>
     <title>RXJS, Reactive programming and Observables (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/c3b6656caaa7f6706d9f967fceae72bf718a7692/subjects/rxjs/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/91f6e0a0ea57c6186ddfa383df3a9dce5439db82/subjects/rxjs/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -17,10 +17,10 @@ class: center, middle
 
 .breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
+Learn the power of reactive programming using Observables to work with asynchronous code, among other use.
+
 This material is part of the [Advanced Front-end Development](https://github.com/MediaComem/comem-masrad-dfa) for the [Master of Advances Studies in Rapid Application Development](https://www.he-arc.ch/ingenierie/mas-rad-cas-dar).
 
-
-Learn the power of reactive programming using Observables to work with asynchronous code, among other use.
 
 **Recommended reading**
 
@@ -403,6 +403,20 @@ function `displayCoordinates`(coordinates) {
   alert(\`Clicked at [${coordinates.x}, ${coordinates.y}]`);
 }
 ```
+---
+## Parallel Operations
+
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
+
+`Operator`s that can be used in pipe sequences are called `Pipeable Operator`s. The other kind of `Operator`s are called `Creation Operator`s and are used to create `Observable`s (`fromEvent(...)` is one of them).
+
+Some of those `Operator`s are particularely useful when dealing with parallel asynchronous logic:
+
+- `rxjs.forkJoin(...)` - takes an array (or dictionnary) of `Observable`s, wait for them to complete, then emit an array (or dictionnary) of each `Observable` last emitted value.
+  > See [official documentation][rxjs-forkjoin]
+
+- `rxjs.combineLatest(...)` - takes an array of `Observale`s and, each time one of them emits a new value, emits an array of each `Observable` latest emitted value.
+  > See [official documentation][rxjs-combinelatest]
 
 ---
 ## Why would I use this... thing?
@@ -411,30 +425,58 @@ function `displayCoordinates`(coordinates) {
 
 We already discussed the topic of using **callbacks** to do so, and seen that it could rapidly [get out of hands][callback-hell] when multiple async operations are to be executed one after the other.
 
-So we learnt about **[Promises][js-prom]**, wich aleviate the pains of callbacks and allow setting up more controlled flow of actions. But depending on the use case, Promises would not be adequate.
+So we learnt about **[Promises][js-prom]**, wich aleviate the pains of callbacks and allow setting up more controlled flow of actions.
 
-Observables (and reactive programming) are nothing more than **another tool to work with async operations**. They have some **similarities** with [Promises][js-prom], but here's the **key differences**:
+> But depending on the use case, Promises would not be adequate.
+
+Observables (and reactive programming) are nothing more than **another tool to work with async operations**.
+
+---
+### Comparison
+
+.breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a> > <a href="#21">Why would I use this... thing?</a>]
+
+Observables have some **similarities** with [Promises][js-prom], but here's the **key differences**:
 
 | `Promises` | `Observables` |
 | --- | --- |
-| foo | bar |
+| **Always** asynchronous | **Sometimes** asynchronous |
+| Executes **immediately** | Executes **only when subscribe to** |
+| Resolve once with one value | Can emit different values periodically until completion |
+| - | `Operator`s ! |
 
+Plus, you can easily convert Promise-based logic to use Observables instead, with `rxjs.from(...)` that can create an `Observable` from a `Promise`:
+
+```js
+const { from } = rxjs;
+
+const promise = Promise.resolve("World");
+
+`from(promise)`.subscribe((name) => console.log(\`Hello ${name}`));
+```
+> The resulting `Observable` wil emit once, when the underlying `Promise` resolves, then complete.
 ---
 ## Resources
 
 .breadcrumbs[<a href="#1">RXJS, Reactive programming and Observables</a>]
 
 - [JavaScript Theory: Promise vs Observable][prom-vs-obs]
+- [RxJS Documentation][rxjs-doc]
+- [Observable Decision Tree][obs-decision] - A very useful tool to help you selet the write Operator for the task
 
 [from-event]: https://rxjs-dev.firebaseapp.com/api/index/function/fromEvent
 [destructuring]: ../js/#38
 [htmlshell]: http://htmlshell.com/
 [callback-hell]: https://miro.medium.com/max/1400/0*bO_JSfydCKFUnJ2d.png
 [js-prom]: ../js-promises
+[obs-decision]: https://rxjs-dev.firebaseapp.com/operator-decision-tree
 [prom-vs-obs]: https://medium.com/javascript-everyday/javascript-theory-promise-vs-observable-d3087bc1239a
 [rx]: http://reactivex.io/
+[rxjs-combinelatest]: https://rxjs-dev.firebaseapp.com/api/index/function/combineLatest
+[rxjs-doc]: https://rxjs-dev.firebaseapp.com/guide/overview
 [rxjs-operators]: https://rxjs-dev.firebaseapp.com/api/operators
 [rxjs-filter]: https://rxjs-dev.firebaseapp.com/api/operators/filter
+[rxjs-forkjoin]: https://rxjs-dev.firebaseapp.com/api/index/function/forkJoin
 [rxjs-map]: https://rxjs-dev.firebaseapp.com/api/operators/map
 
     </textarea>
