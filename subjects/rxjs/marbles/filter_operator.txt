@@ -1,5 +1,0 @@
-marble filter_operator
-{
-  source lettersObservable: +-A--B--C--A--A--D->
-  operator "filter(letter => letter === 'A')": +-A--------A--A---->
-}

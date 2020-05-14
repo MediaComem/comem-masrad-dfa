@@ -1,5 +1,0 @@
-marble coordinates
-{
-  source shiftClicks: +------(SC)---(SC)-(SC)->
-  operator "map(click => ({ x: click.pageX, y: click.pageY }))": +------(Obj)---(Obj)-(Obj)->
-}
