@@ -1,17 +1,16 @@
+# MAS-RAD | CAS-DAR | Advanced Front-end Development (DFA)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [MAS-RAD | CAS-DAR | Advanced Front-end Development (DFA)](#mas-rad--cas-dar--advanced-front-end-development-dfa)
-  - [Prerequisite](#prerequisite)
-  - [Plan](#plan)
-  - [Additional concepts and tools](#additional-concepts-and-tools)
-  - [Documentation](#documentation)
-  - [Useful links](#useful-links)
+- [Prerequisite](#prerequisite)
+- [Plan](#plan)
+- [Additional concepts and tools](#additional-concepts-and-tools)
+- [Documentation](#documentation)
+- [Useful links](#useful-links)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# MAS-RAD | CAS-DAR | Advanced Front-end Development (DFA)
 
 The goal of this course is to discover concepts and tools to organize the front-end side of a web application and enrich the user interface/experience according to current good practices.
 
