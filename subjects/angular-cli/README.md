@@ -23,6 +23,16 @@ Get introduced to an essential tool when working with Angular: the official CLI.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Why the need for a CLI?](#why-the-need-for-a-cli)
+- [Install the CLI](#install-the-cli)
+- [Create a new blank project](#create-a-new-blank-project)
+- [Run the application](#run-the-application)
+- [Generate files](#generate-files)
+- [Install dependencies](#install-dependencies)
+- [Build your app](#build-your-app)
+- [Update core Angular packages](#update-core-angular-packages)
+- [Resources](#resources)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Why the need for a CLI?
