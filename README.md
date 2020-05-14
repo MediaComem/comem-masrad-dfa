@@ -108,7 +108,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [js-mod-practice]: https://github.com/Tazaf/masrad-dfa-js-module-practice
 [js-modules]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-modules?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
-[js-prom-basic]: subjects/js-promises-basics
+[js-prom-basic]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises-basics/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-prot]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-prototypes/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [mapbox]: https://www.mapbox.com/mapbox.js/api/v3.0.1/
 [ng]: https://mediacomem.github.io/comem-devmobil/latest/subjects/angular/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
@@ -122,7 +122,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [npm]: https://mediacomem.github.io/comem-archioweb/2019-2020/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [rest]: subjects/rest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
-[rxjs]: subjects/rxjs
+[rxjs]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [setup]: subjects/setup
 [sop-cors]: subjects/sop-cors
 [travel-log-api-docs]: https://comem-travel-log-api.herokuapp.com/
