@@ -115,7 +115,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [jq-dom]: subjects/jquery-dom
 [js-ajax]: subjects/js-ajax
 [js-bas]: subjects/js
-[js-classes]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[js-classes]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-classes/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-clos]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-closures/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-dom]: subjects/js-dom
 [js-mod-practice]: https://github.com/Tazaf/masrad-dfa-js-module-practice

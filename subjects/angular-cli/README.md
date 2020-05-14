@@ -67,13 +67,12 @@ $> ng version
 
 To create a new blank project, simply run the following command in your terminal:
 
-> This will create a new directory in the location where the command is executed
-
 ```bash
-$> ng new
+$> ng new <ApplicationName>
 ```
+> Let's use `Playground` as our test application name
+
 You'll then be asked to:
-- provide a name for your new application (let's say `Playground`)
 - wether you want to use [Angular routing][ng-router] (let's say `y`es)
   > See the subject on [Angular routing][ng-routing]
 - which CSS preprocessor you want to work with, or none (let's select `SCSS`)
@@ -81,6 +80,8 @@ You'll then be asked to:
 The CLI will create the project directory, its default arborescence and all the necessary files to get you up and running, then all the project dependencies.
 
 Once its done, you can go to your new project directory (`cd Playground`) and start working.
+
+> See [`ng new` documentation][ng-new]
 
 ## Run the application
 
@@ -94,23 +95,71 @@ Run the following command from and Angular project to:
 $> ng serve
 ```
 > This command starts a process that will not stop until you kill it.
+
 > Open a new terminal to call other commands
+
+> See [`ng serve` documentation][ng-serve]
 
 ## Generate files
 
 One of the command you'll likely use the most is the one that allows you to generate basic Angular elements (components, directives, services, modules, etc):
 
 ```bash
-$> ng generate <elementType>
+$> ng generate <elementType> <elementName>
 ```
-> See the [Getting started with Angular][ng-start] to learn more about those different elements
+> Depending on the `<elementType>` this will generate one or several files and/or directories and update existing files if applicable.
 
-Depending on the `<elementType>` this will generate one or several files and/or directories and update existing files if applicable.
+Note that Angular will automatically **suffix** the provided `<elementName>` with the `<elementType>` to name the generated classes.
+
+This means that if you generated a module named `Foo`...
+
+```bash
+$> ng generate module Foo
+```
+...then the **actual class** will be named `FooModule` in the `foo.module.ts` file
+
+> See [`ng generate` documentation][ng-generate]
+
+### Generate with a path
+
+If you execute the `generate` command at the root of your angular project, the resulting directory/files will be **generated in `src/app`**.
+
+You can precede the `<elementName>` parameter with **a path** (relative to `src/app`) ; Angular CLI will **create all missing directories** and generate the files at the end path.
+
+Suppose we want to create the files for a new component in `src/app/foo/components/bar`. The command to generate it correctly would be:
+
+```bash
+$> ng generate component `foo/components/`Bar
+```
+Another option could be **changing our current directory** to the one where we want to generate the new files, then executing the `generate` command.
+
+> When not executed at the root of the project, the `generate` command generates the files in the current directory.
+
+```bash
+$> cd src/app/foo/components
+$> ng generate component Bar
+```
+
+> This is only feasible if all directories **already exists**.
+
+### Skip test files
+
+By default, the `generate` command always generates barebones `.spec.ts` test files whenever possible.
+
+They contains the minimal setup for testing the generated element, on which you can expand.
+
+If you **don't want** Angular CLI to generate those files, simply pass the `--skipTests` argument to the `generate` command
+
+```bash
+$> ng generate directive --skipTests Untested
+```
+
+### Dry Run
 
 To try and see what would be generated (and especially **where**), remember to add the dry run option at the end of the command:
 
 ```bash
-$> ng generate <elementType> `--dry-run`
+$> ng generate <elementType> <elementName> `--dry-run`
 ```
 > This **won't** generate anything but log what would have been
 
@@ -131,7 +180,7 @@ Packages developped specifically for Angular application can add features to the
 
 These additionnal set up will **not be triggered** if the package is installed using `npm install`.
 
-> `ng add` does exactly what `npm install` do **AND** executes those additionnal set up steps.
+> `ng add` does exactly what `npm install` do **AND** executes those additionnal set up steps. See [its documentation][ng-add]
 
 ## Build your app
 
@@ -148,6 +197,8 @@ It does many things under the hood to prepare your app for a deployment on a dis
 
 > The resulting build can be found in the `dist/` directory
 
+> See [`ng build` documentation][ng-build]
+
 ## Update core Angular packages
 
 That one is not often used but nonetheless very precious:
@@ -161,6 +212,8 @@ You'll then be able to tell the CLI to propertly update those packages along wit
 
 > This method is safer than manually doing `npm update` on the core packages yourself.
 
+> See [`ng update` documentation][ng-update]
+
 ## Resources
 
 The Angular CLI has more command at your disposal for more specific use cases.
@@ -171,9 +224,15 @@ Don't hesitate to check it out.
 
 [chrome]: https://www.google.com/chrome/
 [cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[ng-add]: https://angular.io/cli/add
+[ng-build]: https://angular.io/cli/build
 [ng-cli]: https://cli.angular.io/
+[ng-generate]: https://angular.io/cli/generate
+[ng-new]: https://angular.io/cli/new
 [ng-routing]: ../subjects/angular-routing/
 [ng-router]: https://angular.io/guide/router
+[ng-serve]: https://angular.io/cli/serve
 [ng-start]: https://mediacomem.github.io/comem-devmobil/latest/subjects/angular/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[ng-update]: https://angular.io/cli/update
 [node]: https://nodejs.org
 [vscode]: https://code.visualstudio.com/
