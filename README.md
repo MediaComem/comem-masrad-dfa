@@ -132,7 +132,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng-ui-router]: subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
 [npm]: https://mediacomem.github.io/comem-archioweb/2019-2020/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
-[rest]: subjects/rest
+[rest]: https://mediacomem.github.io/comem-archioweb/latest/subjects/rest/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
 [rxjs]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [setup]: subjects/setup
