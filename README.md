@@ -126,7 +126,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng]: https://mediacomem.github.io/comem-devmobil/latest/subjects/angular/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [ng-cli]: subjects/angular-cli
 [ng-bootstrap]: subjects/angular-ui-bootstrap
-[ng-exercise]: https://github.com/MediaComem/comem-masrad-dfa-angular-exercise
+[ng-exercise]: https://github.com/Tazaf/masrad-dfa-angular-starter-practice
 [ng-prom]: subjects/angular-promises
 [ng-starter]: subjects/angular-auth-starter/
 [ng-ui-router]: subjects/angular-ui-router
