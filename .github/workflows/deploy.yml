@@ -32,6 +32,7 @@ jobs:
       uses: shimataro/ssh-key-action@v2.0.2
       with:
         key: ${{ secrets.ACTION_SSH_KEY }}
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
     # Runs a single command using the runners shell
     - name: Install dependencies
