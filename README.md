@@ -57,7 +57,9 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 - Angular
   - [Angular CLI][ng-cli]
-  - [Getting started][ng] ([practice][ng-exercise])
+  - [Getting started][ng]
+  - [Angular Forms][ng-forms]
+  - [Hands-On][ng-exercise])
   <!-- - [Navigation & Routing][ng-ui-router] ([exercise][ng-ui-router-exercise]) -->
 
 - Angular & Libraries
@@ -127,6 +129,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng-cli]: subjects/angular-cli
 [ng-bootstrap]: subjects/angular-ui-bootstrap
 [ng-exercise]: https://github.com/Tazaf/masrad-dfa-angular-starter-practice
+[ng-forms]: https://mediacomem.github.io/comem-devmobil/latest/subjects/angular-forms/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [ng-prom]: subjects/angular-promises
 [ng-starter]: subjects/angular-auth-starter/
 [ng-ui-router]: subjects/angular-ui-router
