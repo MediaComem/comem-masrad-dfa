@@ -34,4 +34,9 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Deploy course
-      run: npm run deploy
+      id: deploy
+      run: npm run deploy && echo ::set-output name=status::success
+      
+    - name: Check on failures
+      if: steps.deploy.outputs.status != 'success'
+      run: exit 1
