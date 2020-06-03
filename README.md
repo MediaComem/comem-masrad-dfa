@@ -59,8 +59,9 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
   - [Angular CLI][ng-cli]
   - [Getting started][ng]
   - [Angular Forms][ng-forms]
-  - [Hands-On][ng-exercise])
-  <!-- - [Navigation & Routing][ng-ui-router] ([exercise][ng-ui-router-exercise]) -->
+  - [Hands-On exercise][ng-exercise]
+
+  - [Navigation & Routing][ng-router] <!-- ([exercise][ng-ui-router-exercise]) -->
 
 - Angular & Libraries
   <!-- - [Angular Bootstrap][ng-bootstrap] -->
@@ -80,9 +81,6 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 - [Advanced Promises][js-prom]
 
 - [SOP & CORS][sop-cors]
-
-<!-- - [Angular Geolocation][geo-api] -->
-<!-- - [Angular Leaflet][angular-leafet] -->
 
 ## Documentation
 
@@ -130,6 +128,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng-bootstrap]: ./subjects/angular-ui-bootstrap
 [ng-exercise]: https://github.com/Tazaf/masrad-dfa-angular-starter-practice
 [ng-forms]: ./subjects/angular-forms
+[ng-router]: ./subjects/angular-routing
 [ng-starter]: ./subjects/angular-auth-starter/
 [ng-ui-router]: ./subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise

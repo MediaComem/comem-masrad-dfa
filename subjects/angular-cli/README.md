@@ -11,9 +11,7 @@ Get introduced to an essential tool when working with Angular: the official CLI.
 **You will need**
 
 - [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-- [Visual Studio Code][vscode] (recommended, although any editor could do)
 - [Node.js][node] installed on your machine
-
 
 **Recommanded reading**
 
@@ -238,4 +236,3 @@ Don't hesitate to check it out.
 [ng-start]: https://mediacomem.github.io/comem-devmobil/latest/subjects/angular/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [ng-update]: https://angular.io/cli/update
 [node]: https://nodejs.org
-[vscode]: https://code.visualstudio.com/

@@ -13,14 +13,15 @@ which you should both read to gain a deeper understanding of Angular.
 
 **You will need**
 
-* [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
+- [Visual Studio Code][vscode] (recommended, although any editor could do)
 
 **Recommended reading**
 
-* [JavaScript][js]
-* [JavaScript classes][js-classes]
-* [JavaScript modules][js-modules]
-* [TypeScript][ts-subject]
+- [JavaScript][js]
+- [JavaScript classes][js-classes]
+- [JavaScript modules][js-modules]
+- [TypeScript][ts-subject]
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -1753,3 +1754,4 @@ Read the [documentation][angular-component-interaction] to learn more.
 [angular-testing]: https://angular.io/guide/testing
 [angular-2-series-components]: http://blog.ionic.io/angular-2-series-components/
 [understanding-angular-observables]: https://hackernoon.com/understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3
+[vscode]: https://code.visualstudio.com/
