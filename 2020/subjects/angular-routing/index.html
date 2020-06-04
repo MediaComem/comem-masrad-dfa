@@ -3,7 +3,7 @@
   <head>
     <title>Angular Routing (MAS-RAD | CAS-DAR | Developpement Frontend Avancé)</title>
     <meta charset='utf-8'>
-    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/e17ae6f0890d12887158c7c1571507a9a00037cd/subjects/angular-routing/README.md&quot;}'>
+    <meta name='config' content='{&quot;basePath&quot;:&quot;../..&quot;,&quot;remark&quot;:{&quot;highlightLines&quot;:true,&quot;highlightSpans&quot;:true,&quot;countIncrementalSlides&quot;:false,&quot;navigation&quot;:{&quot;click&quot;:false,&quot;scroll&quot;:false,&quot;touch&quot;:true}},&quot;subjectUrl&quot;:&quot;https://github.com/MediaComem/comem-masrad-dfa/tree/44db4d5858d442b056291a9457cf2bfef152f365/subjects/angular-routing/README.md&quot;}'>
   </head>
   <body>
     <textarea id='source'>
@@ -44,24 +44,31 @@ This material is part of the [Advanced Front-end Development](https://github.com
 
 To follow along this subject, you'll need an Angular application.
 
-You can create one by using the [Angular CLI][ng-cli]'s `ng new` command.
+You can create one by using the [Angular CLI][ng-cli]:
 
-> When asked if you want to **use routing**, answer "**N**o"
+```bash
+$> ng new
+? What name ...
+*? Would you like to add Angular routing? No
+? Which stylesheet format ...
+```
 
-> We will manually add routing later on this subject
+> Be sure to answer "**N**o" when asked if you want to **use routing**
+
+> We will manually add routing on this subject for illustration purposes
 
 ---
 ## Why a router
 
 .breadcrumbs[<a href="#1">Angular Routing</a>]
 
-Even if an Angular application is technically a **Single-Page-Application (SPA)**, you'll need to **change** what's displayed to a user depending on their actions.
+Since an Angular application is technically a **Single-Page-Application (SPA)**, you'll need to **change** the UI depending on the actions of the user.
 
 Those changes can be **minimal** (hiding/displaying an element, ordering a list, etc) or **quite substantial** (displaying a user's profile instead of a list of item).
 
 For the minimal changes, using directives like `*ngIf` or updating the data and letting Angular reflecting those changes on the view could be enough.
 
-But for substantial changes, you might want to organize your components **in page-like components** (or views) and switch back and forth between some of them.
+But for substantial changes, you might want to organize your components **in page-like views** and switch back and forth between some of them.
 
 ---
 ## Angular router
@@ -79,27 +86,32 @@ Basically, navigation is defined in an Angular app by providing the router **a l
 
 .breadcrumbs[<a href="#1">Angular Routing</a>]
 
-Angular recommand creating a dedicated **routing module** to handle routing capabilities for each module that would requires it.
+Angular recommands creating a dedicated **module** to configure routing for each feature module requiring it.
 
-Let's add routing to our currently only module, the `AppModule`, by creating a new module, `AppRoutingModule`, using the CLI:
 
-```bash
-$> ng generate module AppRouting --flat
-CREATE src/app/app-routing.module.ts (196 bytes)
-```
-> This module will contain all routing related configuration for the `AppModule`
-
-Update the content like this:
+Create a new `src/app/app-routing.module.ts` file with the following content:
 
 ```ts
 import { NgModule } from '@angular/core';
 
-@NgModule({
-  imports: [],
-  exports: [],
-})
+@NgModule({ imports: [], exports: [] })
 export class AppRoutingModule {}
 ```
+
+Import this new module in `AppModule`:
+
+```ts
+// Other imports
+*import { AppRoutingModule } from './app-routing.module';
+
+@NgModule({
+  declarations: [/* ... */],
+  imports: [BrowserModule, `AppRoutingModule`],
+  bootstrap: [/* ... */],
+})
+export class AppModule {}
+```
+> Let the CLI set up this by using the `--routing` option when generating new module, e.g.: `ng generate module Example --routing`
 
 ---
 ### Adding views
@@ -108,7 +120,7 @@ export class AppRoutingModule {}
 
 We will need some views if we want our users to navigate between them.
 
-Let's create two blank components that will represent our pages:
+Let's create two blank components that will contain those views:
 
 ```bash
 $> ng generate component PageA
@@ -134,7 +146,7 @@ Let's say we want the app to display the content of the...
 - `PageA` component when the user access `http://<app-domain>/page-a` URL
 - `PageB` component when the user access `http://<app-domain>/page-b` URL
 
-We'll define this in `app-routing.module.ts` by creating `Routes`:
+We'll define this in `app-routing.module.ts` by creating some `Routes`:
 
 ```ts
 import { NgModule } from '@angular/core';
@@ -172,54 +184,20 @@ const routes: Routes = [
 
 @NgModule({
   imports: [`RouterModule.forRoot(routes)`],
-  exports: [],
-})
-export class AppRoutingModule {}
-```
-> The `forRoot(...)` method allows you to configure a module for the _root_ module, that is the first module to be loaded when the app starts.
-
-> In our case, this _root_ module is the `AppModule`, as you can see in `src/main.ts`:
-  ```ts
-  platformBrowserDynamic().bootstrapModule(`AppModule`)
-    .catch(err => console.error(err));
-  ```
-
----
-### Add the router to the root module
-
-.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#6">Adding routing to an app</a>]
-
-For the configured router to be used by the Angular application, the `AppRoutingModule` needs to export the configured `RouterModule`:
-
-```ts
-// Imports
-
-// Routes
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
   exports: [`RouterModule`],
 })
 export class AppRoutingModule {}
 ```
-Then, we can import the `AppRoutingModule` in our _root_ module, the `AppModule`:
-```ts
-// Other imports
-*import { AppRoutingModule } from './app-routing.module';
+> The `AppModule`, that imports this `AppRoutingModule`, is the _root_ module of our app, the one loaded first when the app starts. As such, we use the `forRoot(...)` method to tell the `RouterModule` that the provided configuration applies to the _root_ module.
 
-@NgModule({
-  declarations: [/* ... */],
-  imports: [BrowserModule, `AppRoutingModule`],
-  bootstrap: [/* ... */],
-})
-export class AppModule {}
-```
+> We need to `export` the `RouterModule` so that its directives are visible to the `AppModule` (and thus our entire app).
+
 ---
 ### OK... but that still doesn't work!
 
 .breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#6">Adding routing to an app</a>]
 
-You're right. We successfully told our application which `Component` it should display depending on the browser's URL...
+You're right. We told our router which `Component` it should display depending on the browser's URL...
 
 But we didn't told it **where** those `Component`s should be displayed.
 
@@ -229,18 +207,18 @@ We need to add a dedicated tag in our `app.component.html` that will be replaced
 <h1>Angular Application</h1>
 *<router-outlet></router-outlet>
 ```
-You can now navigate to [`http://127.0.0.1:4200/page-a`](http://127.0.0.1:4200/page-a) to see the content of the `PageAComponent`, and to [`http://127.0.0.1:4200/page-b`](http://127.0.0.1:4200/page-b).
+You can now navigate to [`http://127.0.0.1:4200/page-a`](http://127.0.0.1:4200/page-a) to see the view associated with `PageAComponent`, and to [`http://127.0.0.1:4200/page-b`](http://127.0.0.1:4200/page-b) to see the view of `PageBComponent`.
 
 > All the previous configuration steps (except the creation of the routes themselves) are done **automatically** by the Angular CLI when you create a new application with the `--routing` option, or by answering "**Y**es" when asked wether to use routing.
 
-> **Use it when you create new application instead of doing this by hand.**
+> **Use this next time you create new application instead of doing this by hand.**
 
 ---
 ## Default route
 
 .breadcrumbs[<a href="#1">Angular Routing</a>]
 
-If you navigate to the root of your application, you'll see that neither the content of `PageA` nor `PageB` is present. This is **expected** since the actual URL **does not match** any of their paths.
+If you navigate to the root of your application, you'll see that neither the view of `PageA` nor `PageB` is present. This is **expected** since the actual URL **does not match** any of their paths.
 
 If you want the router to **redirect your user** to a default route, you can do so by using the `redirectTo` property of a `Route` object.
 
@@ -258,14 +236,14 @@ const routes: Routes = [
 @NgModule({/* ... */})
 export class AppRoutingModule {}
 ```
-> `pathMatch` is required with `redirectTo`. The `full` value means that this route will be activated only if the URL path matches completely the one defined by the `path` property.
+> `pathMatch` is required with `redirectTo`. The `full` value means that this route will be activated only if the URL path matches **exactly** the one defined in the `path` property.
 
 ---
 ## Navigating in the app
 
 .breadcrumbs[<a href="#1">Angular Routing</a>]
 
-Asking our user to manually update the URL is not an viable option. We need to add in-app navigation.
+Asking our user to manually update the URL is not an viable option... We need to add **in-app navigation**.
 
 Let's create a navigation menu in our `app.component.html` layout:
 
@@ -285,6 +263,8 @@ We could also add a button in `page-a.component.html` that navigates to `page-b`
 <p>page-a works!</p>
 *<button routerLink="/page-b">Go To Page B</button>
 ```
+> Note the `/` at the start of the `routerLink` value. This indicates that the path is an **absolute** path.
+
 ---
 ## "Catch all" route
 
@@ -294,7 +274,7 @@ It's possible to declare a route that would match **anything that hasn't matched
 
 > This could be useful to set up a fallback page, like a **404 page**.
 
-Do this by setting the `path` to the special value `**` (which means "everything"), for example here in `app-routing.module.ts`:
+Do this by setting the `path` to the special `**` value (which means "everything"), for example here in `app-routing.module.ts`:
 
 ```ts
 const routes: Routes = [
@@ -306,42 +286,42 @@ const routes: Routes = [
 ```
 This way, paths that don't match `''`, `'page-a'` or `'page-b'` wil display the `ErrorComponent`.
 
-> Note that the **order** in which the routes are declared is **important**. If the highlighted route was in **first position**, all paths would match it, and nothing beside the `ErrorComponent` would ever be displayed.
+> Note that the **order** in which the routes are declared is **important**: the router always picks the **first** route that matches the current path.
 
-> Try it yourself!
+> Try moving the highlighted route to the **first position** of the `Routes` array and see what happens!
 
 ---
 ## Path parameter
 
 .breadcrumbs[<a href="#1">Angular Routing</a>]
 
-It's also possible to declare dynamic routes, whose `path` value is not completely know beforehand.
-
-This could be the case if you want to display e.g. a product detail page with URL like those:
+Sometimes, you wont know the exact value of your routes beforehand. This could be the case if you want to display e.g. a product details page with URL like those:
 
 * `https://example.com/products/12`
 * `https://example.com/products/817`
 * `https://example.com/products/9`
 
-All of them would display the same view, with the actual content depending on the product whose `id` would be in the path.
+All of them would display the same view, but the actual content would depend on the product whose `id` is in the path.
 
-You can declare this kind of route like so:
+You can declare this kind of dynamic routes like so:
+
+> Generate the component with `ng generate component ProductDetails`
 
 ```ts
-{ path: 'product/:id', component: ProductDetailsComponent }
+{ path: 'products/:id', component: ProductDetailsComponent }
 ```
-> Generate this component with `ng generate component ProductDetails`
-
-The `:id` token in the `path` declares a parameter whose value will be the value in the actual path (`12`, `817` or `9` in the above examples).
+The `:id` token in the `path` declares a parameter named `id` whose value will be the value in the actual path (`12`, `817` or `9` in the above examples).
 
 ---
 ### Link to parametrized path
 
-.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#15">Path parameter</a>]
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#14">Path parameter</a>]
 
 If you want to link to such a route from your templates, you can still use the [`routerLink`][angular-router-link] directive, but will need to bind it to an **array of path parts**.
 
-Add a `product` property to our `AppComponent`:
+<hr>
+
+Add a `product` property to `AppComponent`:
 
 ```ts
 import { Component } from '@angular/core';
@@ -359,15 +339,17 @@ And a new navigation item in the menu in `app.component.html`:
 ```html
 <ul>
   <!-- previous items -->
-  <li><a `[routerLink]="['products', product.id]"`>Product details</a></li>
+  <li><a `[routerLink]="['/products', product.id]"`>Product details</a></li>
 </ul>
 ```
+> Again, the `/` indicates that the path is **absolute**
+
 ---
 ### Navigation from the code
 
-.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#15">Path parameter</a>]
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#14">Path parameter</a>]
 
-It's also possible to trigger navigation from your `Component`'s code by injecting the [`Router`][angular-router-class] service in your `Component`'s constructor:
+It's also possible to trigger navigation from your `Component`'s code by injecting the [`Router`][angular-router-class] service in the constructor:
 
 ```ts
 export class AppComponent {
@@ -377,11 +359,11 @@ export class AppComponent {
   constructor(`private router: Router`) {}
 
 * goToSimpleRoute() {
-*   this.router.navigateByUrl('page-a');
+*   this.router.navigateByUrl('/page-a');
 * }
 
 * goToParametrizedRoute() {
-*   this.router.navigate([ 'product', this.product.id ]);
+*   this.router.navigate([ '/products', this.product.id ]);
 * }
 }
 ```
@@ -398,9 +380,9 @@ And update the `app.component.html` accordingly:
 ---
 ### Access path parameter
 
-.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#15">Path parameter</a>]
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#14">Path parameter</a>]
 
-To access this `:id` path parameter from your code, you'll need to inject the [`ActivatedRoute`][angular-activated-route] service in your `Component`'s constructor, and subscribe to its `paramMap` **observable** _(this is a synchronous operation)_:
+To access the `id` path parameter from your code, you'll need to inject the [`ActivatedRoute`][angular-activated-route] service in your `Component`'s constructor, and subscribe to its `paramMap` **observable** _(this is a synchronous operation)_:
 
 ```ts
 // imports omitted for brevity
@@ -418,11 +400,11 @@ export class ProductDetailsComponent  {
   }
 }
 ```
-> The value passed to `params.get(...)` must be **the name of the param** as declared in the route's path, **without** the `:`.
 
-Display this product id in the `product-details.component.html`:
+Display it in the `product-details.component.html`:
 
 ```html
+<p>product-details works!</p>
 *<p>Product ID: {{ productId }}</p>
 ```
 ---
@@ -430,7 +412,7 @@ Display this product id in the `product-details.component.html`:
 
 .breadcrumbs[<a href="#1">Angular Routing</a>]
 
-You can use the [`RouterLinkActive`][router-link-active] directive to mark an element with a `routerLink` directive when its path is the current one.
+You can use the [`RouterLinkActive`][router-link-active] directive to add **CSS classes** to an element with a `routerLink` directive **when its path is the current one**.
 
 Add this to the `app.component.html` template:
 
@@ -441,10 +423,12 @@ Add this to the `app.component.html` template:
   <li><a `routerLinkActive="selected-nav-item"`
       routerLink="/page-b">Page B</a></li>
   <li><a `routerLinkActive="selected-nav-item"`
-      [routerLink]="['products', product.id]">Product details</a></li>
+      [routerLink]="['/products', product.id]">Product details</a></li>
 </ul>
 ```
-And this to the `app.component.scss` file:
+> This will add the `.selected-nav-item` to the element whose `routerLink` path is the currently active one
+
+Add the following in `app.component.scss`:
 
 ```scss
 a`.selected-nav-item` {
@@ -453,7 +437,319 @@ a`.selected-nav-item` {
   color: grey;
 }
 ```
-> This will add the `.selected-nav-item` to the element whose `routerLink` path is the currently active one
+---
+## Nested routes
+
+.breadcrumbs[<a href="#1">Angular Routing</a>]
+
+Now, suppose that the product details page should have its own internal navigation, to allow users to change from a `General` details tab to a `Technical` details tab.
+
+We could define this by creating two new routes in `app-routing.module.ts`:
+
+> Spoiler alert: don't do this
+
+```ts
+const routes: Routes = [
+  // Previous routes
+  { path: 'products/:id', component: ProductDetailsComponent },
+* { path: 'products/:id/general', component: ProductDetailsGeneralComponent },
+* { path: 'products/:id/technical', component: ProductDetailsTechnicalComponent },
+  { path: '**', component: ErrorComponent },
+];
+```
+Then adding tab navigation in `product-details.component.html`:
+
+```html
+<p>product-details works!</p>
+<p>Product ID: {{ productId }}</p>
+*<button [routerLink]="['/products', productId, 'general']">General</button>
+*<button [routerLink]="['/products', productId, 'technical']">Technical</button>
+```
+---
+### We're lost!
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#19">Nested routes</a>]
+
+That will work, with only one slight issue:
+
+When clicking either button on the product details page, it is **entirely replaced** by either the "General" view or the "Technical" view.
+
+> It's the expected behavior, but not the one we want to achieve.
+
+Instead, we'd like to keep the product details page content, and only change **a part** of it, specifically the tab content.
+
+We can achieve that by:
+
+- Adding another `<router-outlet>` in `product-details.component.html`
+  ```html
+  <p>product-details works!</p>
+  <p>Product ID: {{ productId }}</p>
+  <button [...]>General</button>
+  <button [...]>Technical</button>
+  *<router-outlet></router-outlet>
+  ```
+- Creating **child routes** for the `products/:id` route
+
+---
+### Fixing navigation
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#19">Nested routes</a>]
+
+Use the `children` property in any route definition to add it **child routes**, by providing a `Routes` array.
+
+Each of this **child routes** is **relative** to its parent, and will be displayed in the `<router-outlet>` tag of its view.
+
+Let's add those **child routes** in `app-routing.component.ts`:
+
+```ts
+const routes: Routes = [
+  // Previous routes
+  {
+    path: 'products/:id',
+    component: ProductDetailsComponent,
+*   children: [
+*     { path: 'general', component: ProductDetailsGeneralComponent },
+*     { path: 'technical', component: ProductDetailsTechnicalComponent },
+*   ],
+  },
+  { path: '**', component: ErrorComponent },
+];
+```
+> Note how the `path` of the **child routes** is defined **relatively** to the parent's.
+
+---
+### Parentless
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#19">Nested routes</a>]
+
+The **child routes** concept can be used without a concrete parent component. This can help you organize your paths for better URLs or whatnot.
+
+We want to change the paths that display each `PageXComponent` in our app so that instead of `/page-x`, they would look like `/page/x`.
+
+Let's do that in `app-routing.component.ts`:
+
+```ts
+const routes: Routes = [
+  { path: '', redirectTo: 'page-a', pathMatch: 'full' },
+* {
+*   path: 'page',
+*   // Note the absence of the component property, here
+*   children: [
+*     { path: 'a', component: PageAComponent },
+*     { path: 'b', component: PageBComponent },
+*   ],
+* },
+  // Other routes
+];
+```
+> Update the `routerLink` directives values in `app.component.html` and `product-a.component.html` accordingly
+
+---
+#### Favorite child
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#19">Nested routes</a> > <a href="#22">Parentless</a>]
+
+Of course, now the **default route** does not longer works, since the path `page-a` doesn't exist anymore. We have two options to fix this and get back the previous behavior:
+
+1. Give the full path in the main **default route**:
+  ```ts
+    const routes: Routes = [
+      { path: '', redirectTo: `'page/a'`, pathMatch: 'full' },
+      // Other routes
+    ];
+  ```
+2. Redirect to the `page` route, and add it its own **default route**:
+  ```ts
+    const routes: Routes = [
+      { path: '', redirectTo: `'page'`, pathMatch: 'full' },
+      { path: 'page', children: [
+    *   { path: '', redirectTo: 'a', pathMatch: 'full' },
+        { path: 'a', component: PageAComponent },
+        { path: 'b', component: PageBComponent },
+      ]},
+      // Other routes
+    ];
+  ```
+  > This way, when accessing the root of our app (`/`), we are first redirected to `/page` which, in turn, redirects us to `/page/a`
+
+---
+## Lazy loading
+
+.breadcrumbs[<a href="#1">Angular Routing</a>]
+
+Right now, Angular will bundle our app in **one single file**, and serves it to our users.
+
+Angular allows us to optimize this by loading **part of our app** only when the user **access it the first time**.
+
+This process is called **Lazy Loading**, and can be achieved by **splitting our app in several feature modules**, then using some of the `Router` configuration to make it **load them when certain paths are accessed**.
+
+<hr>
+
+In our little example, we have two distincts parts in our app: the "Pages" and the "Product details".
+
+Let's create a `PageModule` for page-related feature and a `ProductModule` for product-related features:
+
+```bash
+$> ng generate module Page --routing
+$> ng generate module Product --routing
+```
+> Since lazy loading is done through the `Router`, lazy loaded modules must have routing enabled
+
+---
+### Code refactoring: The `PageModule`
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#24">Lazy loading</a>]
+
+The `PageModule` should be responsible of all page-related features.
+
+Right now this only means the `PageAComponent` and the `PageBComponent`.
+
+So let's remove the declarations of those components from the `AppModule` (and their imports), then add them to the `PageModule` instead:
+
+> For a better file structure, the `page-a` and `page-b` directories have also been moved under the `page` directory.
+
+```ts
+// Other imports
+*import { PageAComponent } from './page-a/page-a.component';
+*import { PageBComponent } from './page-b/page-b.component';
+
+@NgModule({
+  declarations: [`PageAComponent`, `PageBComponent`],
+  imports: [/* ... */],
+})
+export class PageModule {}
+```
+> This will cause some compilation errors. Don't worry, we'll fix them in no time.
+
+---
+### Code refactoring: The `ProductModule`
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#24">Lazy loading</a>]
+
+Similarily, the `ProductModule` should be responsible for the `ProductDetailsComponent`, along with the `ProductDetailsGeneralComponent` and `ProductDetailsTechnicalComponent`.
+
+Remove their declarations (and their imports) from the `AppModule` and add them to the `ProductModule`.
+
+> For a better file structure, the `product-details`, `product-details-general` and `product-details-technical` directories have also been moved under the `product` directory.
+
+```ts
+// Other imports
+*import { ProductDetailsComponent } from './product-details/product-details.component';
+*import { ProductDetailsGeneralComponent } from './product-details-general/product-details-general.component';
+*import { ProductDetailsTechnicalComponent } from './product-details-technical/product-details-technical.component';
+
+@NgModule({
+  declarations: [
+*   ProductDetailsComponent,
+*   ProductDetailsGeneralComponent,
+*   ProductDetailsTechnicalComponent,
+  ],
+  imports: [/* ... */],
+})
+export class ProductModule {}
+```
+
+---
+### Code refactoring: The `AppRoutingModule`
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#24">Lazy loading</a>]
+
+Now, let's update the routes in `app-routing.module.ts` so that:
+- `PageModule` is loaded for any path starting with `page`
+- `ProductModule` is loaded for any path starting with `products`
+
+```ts
+// Don't forget to remove unused imports!
+
+const routes: Routes = [
+  { path: '', redirectTo: 'page', pathMatch: 'full' },
+  {
+*   path: 'page',
+*   loadChildren: () => import('./page/page.module').then((m) => m.PageModule),
+  },
+  {
+*   path: 'products', // <-- Not 'products/:id'!
+*   loadChildren: () => import('./product/product.module').then((m) => m.ProductModule),
+  },
+  { path: '**', component: ErrorComponent },
+];
+```
+> `loadChildren` is a property that takes a function which loads a module at a given path (using [ES6 dynamic import][es6-import]), then returns its class.
+
+---
+### The `PageRoutingModule`
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#24">Lazy loading</a>]
+
+Since we removed the `page`'s **child routes** from `app-routing.module.ts`, we need to redefine them in the `page-routing.module.ts`:
+
+```ts
+// Other imports
+*import { PageAComponent } from './page-a/page-a.component';
+*import { PageBComponent } from './page-b/page-b.component';
+
+const routes: Routes = [
+* { path: '', redirectTo: 'a', pathMatch: 'full' },
+* { path: 'a', component: PageAComponent },
+* { path: 'b', component: PageBComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.`forChild`(routes)],
+  exports: [RouterModule],
+})
+export class PageRoutingModule {}
+```
+Two things worth noticing here:
+1. The routes are no longer under a `children` property: when a module is lazy loaded, any route it defines is considered a child of the route that initialized the module's loading (here, it's the `page` route)
+1. The `RouterModule` is configured with `forChild(...)` because the loaded module is not the _root_ module.
+
+---
+### The `ProductRoutingModule`
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#24">Lazy loading</a>]
+
+Here's the route configuration for `product-routing.module.ts`:
+
+```ts
+const routes: Routes = [
+  {
+    path: ':id',
+    component: ProductDetailsComponent,
+    children: [
+      {
+        path: 'general',
+        component: ProductDetailsGeneralComponent,
+      },
+      {
+        path: 'technical',
+        component: ProductDetailsTechnicalComponent,
+      },
+    ],
+  },
+];
+```
+The route that was `product/:id` has been split in a route `product`, that loads the `ProductModule`, that have only one route: `:id`
+
+> Here, `general` and `technical` are still **children** of the `:id` route, since they are **not full pages** themselves: they are still only **part** of what composes a product details page.
+
+---
+### End result
+
+.breadcrumbs[<a href="#1">Angular Routing</a> > <a href="#24">Lazy loading</a>]
+
+With this configuration, we now have three modules in our app:
+- `AppModule` that start our app and configure its main routes
+- `PageModule` that is loaded by an access to `page` paths and adds routes related to pages
+- `ProductModule` that is loaded by an access to `product` paths and adds routes related to product detail page
+
+When building the app, Angular will now create **three separate files**.
+
+You can check how those files are loaded by opening the **Network** tab of the Chrome Developer Tools, and accessing the root of your app.
+
+You should see the `main` file loaded, then the `page-module` file.
+
+If you click on the link to see the product details, the `product-module` file will be loaded.
 
 ---
 ## Resources
@@ -462,6 +758,7 @@ a`.selected-nav-item` {
 
 - [In-app navigation: routing to views][router-guide]
 
+[es6-import]: https://caniuse.com/#feat=es6-module-dynamic-import
 [router-link-active]: https://angular.io/api/router/RouterLinkActive
 [angular-router-class]: https://angular.io/api/router/Router
 [angular-activated-route]: https://angular.io/api/router/ActivatedRoute
