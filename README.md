@@ -61,15 +61,15 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
   - [Angular Forms][ng-forms]
   - [Hands-On exercise][ng-exercise]
 
-  - [Navigation & Routing][ng-router] <!-- ([exercise][ng-ui-router-exercise]) -->
+  - [Navigation & Routing][ng-router]
+
+- [Project Starter][project-starter]
 
 - Angular & Libraries
   <!-- - [Angular Bootstrap][ng-bootstrap] -->
   <!-- - [Angular Geolocation][geo-api] -->
   <!-- - [Angular Leaflet][ng-leaflet] -->
 
-- Web application project
-  <!-- - [Angular Auth Starter][ng-starter] -->
 
 ## Additional concepts and tools
 
@@ -133,6 +133,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng-ui-router]: ./subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
 [npm]: https://mediacomem.github.io/comem-archioweb/2019-2020/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[project-starter]: https://github.com/Tazaf/masrad-project-starter
 [rest]: https://mediacomem.github.io/comem-archioweb/latest/subjects/rest/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
 [rxjs]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
