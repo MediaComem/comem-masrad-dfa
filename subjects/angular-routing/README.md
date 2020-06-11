@@ -658,10 +658,85 @@ You should see the `main` file loaded, then the `page-module` file.
 
 If you click on the link to see the product details, the `product-module` file will be loaded.
 
+### Loading strategy
+
+With the current `Router` configuration, your app is loaded with the **bare minimum** modules required to bootstrap it ; this helps in reducing the initial loading time.
+
+Then, additional feature modules are loaded when **there respective route is being activated** by the user, at the expense of a **limited loading time**.
+
+There's an additionnal `Router` configuration, `preloadingStrategy`, that you can use to make your app **loads all lazy loaded modules in the background**, after the initial app loading.
+
+Let's try it in `app-routing.module.ts`:
+
+```ts
+import { Routes, RouterModule, `PreloadAllModules` } from '@angular/router';
+
+// ...
+    RouterModule.forRoot(routes, `{ preloadingStrategy: PreloadAllModules }`),
+// ...
+```
+> Using this option is up to you and your app's use case
+
+### Tips
+
+When working with lazy loaded modules...
+- **Try to make your files structure match your routes structure**: if you have nested routes, create corresponding nested directories.
+
+- **Use [Angular CLI][ng-cli] to generate elements**, as it automates a lot of configuration chores.
+
+- **Be sure to generate your elements at the right place**.
+  - Don't forget that you can either provide a path before the element name, or move to the right directory before generating.
+  - Use the `--dry-run` option with `ng generate` to double-check the new files location, and which module would be updated.
+
+## Guards
+
+`Guards` are services that you can use to prevent unwanted routes activations, _e.g._ prevent an anonymous user to access restricted part of your app.
+
+The **Angular CLI** can help you generate such a service with `ng generate guard <Name>`.
+
+It will ask you which interface(s) you want to implement. Those interfaces will define the context in which your guard can be used:
+
+- [`CanActivate`][can-activate] - A service implementing it can be used to **prevent access** to a specific route
+- [`CanActivateChild`][can-activate-child] - A service implementing it can be used to **prevent access to all `children`** of a specific route
+- [`CanLoad`][can-load] - A service implementing it can be used to **prevent the loading** of a lazy loaded module
+- [`CanDeactivate`][can-deactivate] - A service implementing it can be used to **prevent leaving** a specific route
+
+> A `Guard` can implement more than one interface
+
+### Random Access Guard
+
+Let's create a `Guard` that randomly prevent access to a route with `ng generate guard guards/Random --skip-tests`, and select the `CanActivate` interface.
+
+In the generated `src/app/guards/random.guard.ts` file, add the following code in the `canActivate` method's body:
+
+```ts
+// ...
+canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): `boolean` {
+* const authorized = Math.random() >= 0.5;
+* console.log(!authorized ? 'NOPE!' : 'GRANTED...');
+* return authorized;
+}
+// ...
+```
+Apply this to a `Route` by adding it the `canActivate` property array:
+
+```ts
+// page-routing.module.ts
+{ path: 'a', component: PageAComponent, `canActivate: [RandomGuard]` }
+```
+> There are also `canActivateChild`, `canLoad` and `canDeactive` properties
+
+> All guards in an array **must pass** for the route to be activated
+
 ## Resources
 
 - [In-app navigation: routing to views][router-guide]
+- [Lazy-loading feature modules][lazy-loading-guide]
 
+[can-activate]: https://angular.io/api/router/CanActivate
+[can-deactivate]: https://angular.io/api/router/CanDeactivate
+[can-activate-child]: https://angular.io/api/router/CanActivateChild
+[can-load]: https://angular.io/api/router/CanLoad
 [es6-import]: https://caniuse.com/#feat=es6-module-dynamic-import
 [router-link-active]: https://angular.io/api/router/RouterLinkActive
 [angular-router-class]: https://angular.io/api/router/Router
@@ -674,3 +749,4 @@ If you click on the link to see the product details, the `product-module` file w
 [ng]: ../angular
 [ng-cli]: ../angular-cli
 [ng-router]: https://angular.io/api/router/Router
+[lazy-loading-guide]: https://angular.io/guide/lazy-loading-ngmodules
