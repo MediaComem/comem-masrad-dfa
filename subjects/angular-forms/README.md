@@ -24,6 +24,7 @@ which you should both read to gain a deeper understanding of Angular.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Getting started](#getting-started)
 - [Forms](#forms)
   - [HTML validations](#html-validations)
@@ -42,6 +43,15 @@ which you should both read to gain a deeper understanding of Angular.
     - [Using a custom validator](#using-a-custom-validator)
   - [Displaying different messages for different errors](#displaying-different-messages-for-different-errors)
   - [Asynchronous validators](#asynchronous-validators)
+    - [Available username validator](#available-username-validator)
+    - [Write the validation function](#write-the-validation-function)
+    - [Prepare the logic](#prepare-the-logic)
+    - [Implement the logic](#implement-the-logic)
+    - [Wrap in a directive](#wrap-in-a-directive)
+    - [Write the directive](#write-the-directive)
+    - [Register the directive](#register-the-directive)
+    - [Implement the logic](#implement-the-logic-1)
+    - [Use the directive](#use-the-directive)
 - [Reactive forms](#reactive-forms)
   - [Using reactive forms in the component](#using-reactive-forms-in-the-component)
     - [Form submition](#form-submition)
