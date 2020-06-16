@@ -162,7 +162,7 @@ Whichever's the subject you'll choose, your app must:
 
 ## Delivery
 
-Each person or group must send an e-mail **no later than July 9th 2020** to [Mathias Oberson][mob] with
+Each person or group must send an e-mail **no later than [TBD]** to [Mathias Oberson][mob] with
 
 - either the link to your Git source code repository (e.g. on GitHub) - this is the preferred method - or with an archive of your source code (don't forget to comment it!)
 - only what is required to make your app run
