@@ -66,7 +66,6 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 - [Project Starter][project-starter]
 
 - Angular & Libraries
-  <!-- - [Angular Bootstrap][ng-bootstrap] -->
   <!-- - [Angular Geolocation][geo-api] -->
   <!-- - [Angular Leaflet][ng-leaflet] -->
 
