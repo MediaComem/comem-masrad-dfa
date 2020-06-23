@@ -65,10 +65,9 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 - [Project Starter][project-starter]
 
-- Angular & Libraries
-  <!-- - [Angular Geolocation][geo-api] -->
-  <!-- - [Angular Leaflet][ng-leaflet] -->
-
+- Angular & Map features
+  - [Angular Geolocation][geo-api]
+  - [Angular Leaflet][ng-leaflet]
 
 ## Additional concepts and tools
 
@@ -127,6 +126,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng-bootstrap]: ./subjects/angular-ui-bootstrap
 [ng-exercise]: https://github.com/Tazaf/masrad-dfa-angular-starter-practice
 [ng-forms]: ./subjects/angular-forms
+[ng-leaflet]: ./subjects/angular-leaflet
 [ng-router]: ./subjects/angular-routing
 [ng-starter]: ./subjects/angular-auth-starter/
 [ng-ui-router]: ./subjects/angular-ui-router

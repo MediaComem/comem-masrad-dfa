@@ -216,6 +216,12 @@ export class AppComponent {
 }
 
 ```
+
+## Resources
+
+You'll find the complete service that you can copy/paste or download [here][final-service].
+
+
 [caniuse-geoapi]: https://caniuse.com/#feat=mdn-api_geolocation
 [geolocation-api]: https://developer.mozilla.org/fr/docs/Web/API/Geolocation_API
 [navigator.geolocation]: https://developer.mozilla.org/fr/docs/Web/API/Geolocation_API#Lobjet_geolocation
@@ -223,3 +229,4 @@ export class AppComponent {
 [geo-api-watch]: https://developer.mozilla.org/fr/docs/Web/API/Geolocation/watchPosition
 [rxjs]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [js-prom]: https://mediacomem.github.io/comem-devmobil/latest/subjects/js-promises/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[final-service]: https://gist.github.com/Tazaf/a12764e80007613e68d6dcbf818c328a
