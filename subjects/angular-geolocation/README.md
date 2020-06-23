@@ -30,6 +30,7 @@ Get started with the Geolocation API in your Angular application.
 - [Watching the position](#watching-the-position)
   - [Explanations](#explanations-1)
   - [Usage](#usage-1)
+- [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

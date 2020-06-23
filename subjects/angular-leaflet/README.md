@@ -21,6 +21,20 @@ Learn the basics of using the angular-leaflet directive in your project, to disp
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Leaflet](#leaflet)
+  - [Importing Leaflet styles](#importing-leaflet-styles)
+  - [Importing Leaflet assets](#importing-leaflet-assets)
+  - [Registering the Leaflet module with Angular](#registering-the-leaflet-module-with-angular)
+  - [Displaying a map](#displaying-a-map)
+    - [Adding the map to the component's template](#adding-the-map-to-the-components-template)
+  - [Markers](#markers)
+    - [Define](#define)
+    - [Adding the markers to the map](#adding-the-markers-to-the-map)
+    - [Adding a tooltip to a marker](#adding-a-tooltip-to-a-marker)
+  - [Getting a reference to the map](#getting-a-reference-to-the-map)
+  - [Listening to map events](#listening-to-map-events)
+- [Resources](#resources)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Leaflet
