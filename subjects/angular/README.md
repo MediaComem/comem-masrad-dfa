@@ -28,11 +28,6 @@ which you should both read to gain a deeper understanding of Angular.
 
 
 - [What is Angular?](#what-is-angular)
-  - [Traditional Model-View-Controller (MVC) architecture](#traditional-model-view-controller-mvc-architecture)
-  - [DOM manipulation and AJAX requests](#dom-manipulation-and-ajax-requests)
-  - [Single-page applications](#single-page-applications)
-  - [Dynamic HTML with Angular](#dynamic-html-with-angular)
-  - [Evolution of Angular](#evolution-of-angular)
 - [Getting started](#getting-started)
   - [Starter template](#starter-template)
   - [Overview](#overview)
@@ -45,6 +40,7 @@ which you should both read to gain a deeper understanding of Angular.
   - [Data binding](#data-binding)
     - [Attribute binding](#attribute-binding)
       - [To bind, or not to bind](#to-bind-or-not-to-bind)
+      - [When to use which?](#when-to-use-which)
     - [Binding to events](#binding-to-events)
       - [Getting at the event](#getting-at-the-event)
     - [Interpolation with functions](#interpolation-with-functions)
@@ -74,8 +70,6 @@ which you should both read to gain a deeper understanding of Angular.
   - [Dependency injection](#dependency-injection)
     - [Why dependency injection?](#why-dependency-injection)
 - [Observable data](#observable-data)
-  - [What (the hell) is an observable?](#what-the-hell-is-an-observable)
-  - [What (the hell) is reactive programming?](#what-the-hell-is-reactive-programming)
   - [Making `getJoke()` observable](#making-getjoke-observable)
   - [Subscribing to an Observable](#subscribing-to-an-observable)
 - [Making HTTP calls](#making-http-calls)
@@ -86,11 +80,9 @@ which you should both read to gain a deeper understanding of Angular.
   - [Transforming data](#transforming-data)
   - [Transforming Observable streams](#transforming-observable-streams)
   - [Reacting to errors in observable streams](#reacting-to-errors-in-observable-streams)
-  - [Getting the HTTP response](#getting-the-http-response)
-    - [Observing the response](#observing-the-response)
 - [Component interaction](#component-interaction)
   - [Adding votes to the model](#adding-votes-to-the-model)
-  - [Creating a child component](#creating-a-child-component)
+  - [Creating a component](#creating-a-component)
     - [The `JokeComponent`](#the-jokecomponent)
   - [Using our new component](#using-our-new-component)
   - [Passing data from parent to child with input binding](#passing-data-from-parent-to-child-with-input-binding)
@@ -104,8 +96,6 @@ which you should both read to gain a deeper understanding of Angular.
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
-
 ## What is Angular?
 
 <!-- slide-front-matter class: center, middle, image-header -->
@@ -114,86 +104,9 @@ which you should both read to gain a deeper understanding of Angular.
 
 > "Angular is a complete **JavaScript front-end web application framework** created by Google to address many of the challenges of developing **rich single-page applications**."
 
-
-
-### Traditional Model-View-Controller (MVC) architecture
-
-In traditional MVC frameworks,
-the application's **Controllers** receive the user's requests when navigating from page to page in the browser,
-and respond by generating HTML **Views** from the **Model**.
-
-<img src='images/mvc.png' width='100%' />
-
-
-
-### DOM manipulation and AJAX requests
-
-<!-- slide-column -->
-
-Serving dynamic HTML from the server works, but each user action requires that a **complete page be loaded** from the server.
-
-To improve user experience:
-
-* [AJAX][ajax] was developed in 1999 to retrieve data from the server asynchronously in the background
-* [jQuery][jquery] was released in 2006 to simplify DOM manipulation and AJAX requests
-
-<!-- slide-column 40 -->
-
-<img src='images/jquery-ajax.gif' class='w100' />
-
-<!-- slide-container -->
-
-This allows you to load data from the server in the background and **dynamically update the page** without reloading.
-
-Initially, these technologies were used to **enrich** existing HTML pages that were still built and served by a traditional MVC framework.
-
-
-
-### Single-page applications
-
-<!-- slide-column -->
-
-A single-page application (SPA) is a web application that **fits on a single web page** but provides a user experience similar to that of a **desktop application**:
-
-* All content is retrieved with a **single page load or loaded dynamically**
-* The page **does not reload** (location hash or [HTML 5 History API][html-history-api] to navigate between logical pages)
-* Dynamic **communication with the web server** behind the scenes
-
-<!-- slide-column -->
-
-<img src='images/spa.png' width='100%' />
-
-
-
-### Dynamic HTML with Angular
-
-> "AngularJS is what HTML would have been, had it been designed for building web-apps."
-
-HTML is great for displaying static documents, but is not so good at describing the **dynamic views** needed for **rich, interactive applications**.
-
-With Angular, you can:
-  * **Automatically bind data** to HTML elements
-  * **Extend the HTML vocabulary** with new elements and attributes
-  * **Isolate** your application logic from how the data is displayed
-
-
-
-### Evolution of Angular
-
-Angular is one of the most popular client-side frameworks, and it is still evolving.
-Starting with version 2 of the framework (released in June 2016) you can take advantage of:
-
-* [TypeScript][ts]: a superset of JavaScript with optional typing and the latest ECMAScript features
-* [Web components][web-components]: a way to create reusable user interface widgets
-* And more...
-
-
-
 ## Getting started
 
 <!-- slide-front-matter class: center, middle -->
-
-
 
 ### Starter template
 
@@ -202,18 +115,21 @@ If you want to follow along this tutorial, you can generate a new barebone angul
 To do so, in the directory where you want to generate the application folder, execute the following script:
 
 ```bash
-$> npx @angular/cli new comem-angular-starter
+$> npx @angular/cli new angular-starter
+# If asked, accept to install the package
 ? Would you like to add Angular routing? `No`
 ? Which stylesheet format would you like to use? `SCSS`
 ```
-> If you'd prefer to install the Angular CLI locally, see [the related subject][angular-cli]
+
+> If you'd prefer to install the Angular CLI globally, see [the related subject][angular-cli]
 
 Wait for the generator to end (this may take several minutes), then go to the newly created folder and start the development server:
 
 ```bash
-$> cd comem-angular-starter
+$> cd angular-starter
 $> npm start
 ```
+
 When the CLI tells you so, go to [`http://localhost:4200`](http://localhost:4200). Don't forget to keep your [developer console][chrome-dev] open throughout this tutorial to detect errors in your code.
 
 ### Overview
@@ -222,24 +138,22 @@ When the CLI tells you so, go to [`http://localhost:4200`](http://localhost:4200
 
 **Angular elements**
 
-* Modules
-* Components
-* Directives
-* Services
-* HTTP
-* Pipes
+- Modules
+- Components
+- Directives
+- Services
+- HTTP
+- Pipes
 
 <!-- slide-column -->
 
 **Angular concepts**
 
-* Interpolation
-* Data binding
-* Dependency injection
-* Observables & reactive programming
-* Form validation
-
-
+- Interpolation
+- Data binding
+- Dependency injection
+- Observables & reactive programming
+- Form validation
 
 ### Modules
 
@@ -247,8 +161,8 @@ An Angular application is a **module**.
 You can find one in `src/app/app.module.ts` in the starter project:
 
 ```ts
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
@@ -269,7 +183,6 @@ A module is a way to help organize related things (components, services, etc) to
 
 > **Angular CLI**: Use `ng generate module <ModuleName>` to create a new module in its new directory
 
-
 #### Basic module definition
 
 Take a look at the [`@NgModule`][angular-docs-ng-module] annotation:
@@ -287,13 +200,11 @@ Take a look at the [`@NgModule`][angular-docs-ng-module] annotation:
 })
 ```
 
-* The **declarations** array is a list of components (also directives and pipes) which belong to this module.
-* The **imports** array is a list of other modules whose exported components should be available in this module.
+- The **declarations** array is a list of components (also directives and pipes) which belong to this module.
+- The **imports** array is a list of other modules whose exported components should be available in this module.
   It allows you to express a dependency on another module.
-* The **providers** array is a list of service providers (more about that later).
-* **bootstrap** is the root component that Angular creates and inserts into `index.html`
-
-
+- The **providers** array is a list of service providers (more about that later).
+- **bootstrap** is the root component that Angular creates and inserts into `index.html`
 
 ### Components
 
@@ -311,11 +222,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export `class AppComponent` {
-  title = 'comem-angular-starter';
+  title = 'angular-starter';
 }
 ```
 
-A component is any [JavaScript class][js-classes] annotated with the [`@Component`][angular-docs-component] decorator.
+A component is primarily a [JavaScript class][js-classes] annotated with the [`@Component`][angular-docs-component] decorator.
 
 Let's dig into that line by line.
 
@@ -344,7 +255,9 @@ You will find the `<app-root>` tag:
 
 #### Component template
 
-The `templateUrl` property of the `@Component` decorator tells Angular which HTML file to use to display the component:
+The `templateUrl` property of the `@Component` decorator tells Angular which HTML file to use as this component's template:
+
+> This template file defines the structure of the component when displayed on the page
 
 ```ts
 @Component({
@@ -366,7 +279,7 @@ For very simple components, you can also use `template` instead of `templateUrl`
 
 #### Component styles
 
-Similarly, the `styleUrls` property is a list of CSS files to apply to the component:
+Similarly, the `styleUrls` property is a list of CSS files to apply to the component :
 
 ```ts
 @Component({
@@ -386,22 +299,19 @@ It's also possible to use **inline styles** for very simple components:
 })
 ```
 
-Styles in Angular are **modular**.
-They apply only *within the template of that component*.
+> Styles in Angular are **scoped to the component**. They apply **only to its template**.
 
 Read the [Component Styles][angular-component-styles] documentation to learn more.
 
-
-
 ### Data binding
 
-You can display data by **binding** parts of an HTML template to properties of a component.
+You can display data by **binding** parts of an HTML template to properties of the associated component.
 
-There is already a `title` property in `AppComponent` in `src/app/app.component.ts`:
+There is already a `title` property on `AppComponent` in `src/app/app.component.ts`:
 
 ```ts
 export class AppComponent {
-  title = 'comem-angular-starter';
+  title = "angular-starter";
 }
 ```
 
@@ -410,9 +320,7 @@ Enclosing a component's property name in double curly braces in the template is 
 You can do so in the `AppComponent`'s template in `src/app/app.component.html` by removing **all** the biolerplate content and pasting the following code:
 
 ```html
-<h1>
-  Welcome to `{{ title }}`!
-</h1>
+<h1>Welcome to `{{ title }}`!</h1>
 ```
 
 #### Attribute binding
@@ -427,51 +335,63 @@ export class AppComponent {
   `titleComment: string;`
 
   constructor() {
-    this.title = 'comem-angular-starter';
+    this.title = 'angular-starter';
     `this.titleComment = 'This is awesome!';`
   }
 }
 ```
 
-Angular's `[]` syntax allows you to bind the value of a DOM element's **attribute** to one of the component's variables.
+Angular's bracket syntax (`[...]`) allows you to bind the value of a DOM element's **attribute** to one of the component's variables.
+
 You can do this in `src/app/app.component.html`:
 
 ```html
-<h1 `[title]='titleComment'`>
-  Welcome to {{ title }}!
-</h1>
+<h1 `[title]="titleComment"`>Welcome to {{ title }}!</h1>
 ```
 
 ##### To bind, or not to bind
 
-Note the two ways to interpolate attributes.
-Here, as in the previous example, the `[]` syntax **binds the the `title` attribute** to the `titleComment` variable:
+Note the two syntax when binding to attributes.
+
+Below, as in the previous example, the `[...]` syntax **binds the the `title` attribute** to the `titleComment` variable:
 
 ```html
-<h1 `[title]='titleComment'`>
-  Welcome to {{ title }}!
-</h1>
+<h1 `[title]="titleComment" `>Welcome to {{ title }}!</h1>
 ```
 
-Here, the `title` attribute itself is not bound, but its **value is interpolated** with the `{{  }}` syntax.
-The behavior will be the same as the previous example:
+Below, the `title` attribute itself is not bound, but its **value is interpolated** with the `{{ ... }}` syntax.
+The result will effectively be the same as the previous example:
 
 ```html
-<h1 title='`{{ titleComment }}`'>
-  Welcome to {{ title }}!
-</h1>
+<h1 title="`{{ titleComment }}`">Welcome to {{ title }}!</h1>
 ```
 
-Here, we made a **mistake**.
-We neither bound the attribute, nor used interpolation in its value,
-so the value of the attribute will be the string `"titleComment"`,
-not the value of the corresponding variable:
+> Here, we made a **mistake**.
+> We neither bound the attribute, nor used interpolation in its value,
+> so the value of the attribute will be the string `"titleComment"`,
+> not the value of the corresponding variable:
+  ```html
+  <h1 title="titleComment">Welcome to {{ title }}!</h1>
+  ```
+
+##### When to use which?
+
+Since the bracket syntax (`[...]`) and the curly braces syntax (`{{...}}`) have apparently **the same result**,
+why and when should you use one over the other?
+
+Basically, if you want to use a component's property **as the exact value** of an element attribute, you use brackets:
 
 ```html
-<h1 title='titleComment'>
-  Welcome to {{ title }}!
-</h1>
+<h1 [title]="titleComment">...</h1>
 ```
+> The **actual value** of `title` will always be **exactly** the value of `titleComment` and will have the **same type**.
+
+If you want to use a component's property **as part of the value** of an element attribute, you use curly braces:
+
+```html
+<h1 title="Custom Title: {{ titleComment }}">...</h1>
+```
+> The **actual value** of `title` will always be "Custom Title:" plus **the string representation** of `titleComment`'s value.
 
 #### Binding to events
 
@@ -488,11 +408,12 @@ export class AppComponent {
 }
 ```
 
-Angular's `()` syntax allows you to **bind functions to events** from a DOM element.
-Let's bind the function we just added to click events on the `<h1>` tag in `src/app/app.component.html`:
+Angular's `(...)` syntax allows you to **bind functions to events** occurring on a DOM element.
+
+Let's bind the function we just created to `click` events on the `<h1>` tag in `src/app/app.component.html`:
 
 ```html
-<h1 [title]='titleComment' `(click)='onTitleClicked()'`>
+<h1 [title]="titleComment" `(click)="onTitleClicked()" `>
   Welcome to {{ title }}!
 </h1>
 ```
@@ -501,8 +422,9 @@ You should now see the message being logged in the console when clicking on the 
 
 ##### Getting at the event
 
-You might need the actual [event object][dom-event] to get some data out of it (e.g. the click coordinates).
-Let's update `onTitleClicked()` in `src/app/app.component.ts` to also log the event object:
+You might need the actual [event object][dom-event] to get some data out of it (for example, the click coordinates).
+
+Let's update `onTitleClicked()` in `src/app/app.component.ts` to accept an event parameter and log it:
 
 ```ts
 export class AppComponent {
@@ -514,15 +436,14 @@ export class AppComponent {
 }
 ```
 
-To make it work, simply pass the special `$event` variable as an argument to your function call in `src/app/app.component.html`, and Angular will pass the event object to your function:
-
-> Note that you **must** use exactly the name `$event` as the argument's name
+To make this work, pass the special `$event` value as an argument to your function call in `src/app/app.component.html`, and Angular will pass the event object to your function:
 
 ```html
-<h1 [title]='titleComment' (click)='onTitleClicked(`$event`)'>
+<h1 [title]="titleComment" (click)="onTitleClicked(`$event`)">
   Welcome to {{ title }}!
 </h1>
 ```
+> Note that you **must** use exactly `$event` as the argument's value
 
 #### Interpolation with functions
 
@@ -545,15 +466,15 @@ Now use that function in the template in `src/app/app.component.html`:
 
 ```html
 <!-- Add this to the end of the file -->
-<p>
-  `{{ hello("World") }}`
-</p>
+<p>`{{ hello("World") }}`</p>
 ```
+
 > Change the value passsed to the `hello()` function to see it change.
 
 ## User input
 
-One of the things you will need to do is **react to user input** (e.g. through forms).
+One of the things you will need to do is **react to user input** (for example, through forms).
+
 Let's make our greeting **dynamic** by adding an input field to customize the name.
 Make the following changes to the component in `src/app/app.component.ts`:
 
@@ -573,9 +494,7 @@ export class AppComponent {
 Now interpolate that new property into the `hello` function in the template in `src/app/app.component.html`:
 
 ```html
-<p>
-  {{ hello(`greeting`) }}
-</p>
+<p>{{ hello(`greeting`) }}</p>
 ```
 
 ### `ngModel`
@@ -584,24 +503,22 @@ Add an input field to the template above the greeting in `src/app/app.component.
 
 ```html
 *<p>
-* <input type='text' placeholder='Who are you?' [(ngModel)]='greeting' />
+* <input type="text" placeholder="Who are you?" [(ngModel)]="greeting" />
 *</p>
-<p>
-  {{ hello(greeting) }}
-</p>
+<p>{{ hello(greeting) }}</p>
 ```
 
 `[(ngModel)]` is Angular's **two-way data binding** syntax.
-It binds the `greeting` property to the HTML input field.
+It binds the `greeting` property to the HTML input field, and _vice-versa_.
 
-You will most likely get this error:
+You will most likely get this error in the console:
 
 ```
 Uncaught Error: Template parse errors:
 Can't bind to 'ngModel' since it isn't a known property of 'input'.
 ```
 
-This is because `[(ngModel)]` belongs to the optional `FormsModule`, which you have to *opt in* to using.
+This is because `[(ngModel)]` is provided by the optional `FormsModule`, which you have to _opt in_ to use.
 
 #### `FormsModule`
 
@@ -625,10 +542,10 @@ To **import** the module into your application, you must add it to the `imports`
 export class AppModule { }
 ```
 
-Once you've done that, the field should display correctly.
+Once you've done that, the error should be gone and everything should display as expected.
 
-Note that as you type in the input field, the `greeting` variable is **automatically kept up-to-date**,
-and Angular **updates the template** to reflect its new value.
+Now, as you type inside the input field, the `greeting` variable is **automatically kept up-to-date** in the background,
+and Angular **updates the template** to reflect the new value.
 
 ### Two-way data binding
 
@@ -642,50 +559,47 @@ The developer has to write code that constantly syncs the view with the model an
 
 <!-- slide-column -->
 
-With Angular changes are **immediately reflected** in both view and model.
+With Angular, changes are **immediately reflected** in both view and model.
 
 Also note that our **component** is **isolated from and unaware of the view**:
 it does not care about DOM manipulation or rendering concerns.
 
 <img src='images/two-way-data-binding.png' width='100%' />
 
-
-
 ## Directives
 
-A **directive** is a class with a `@Directive` decorator.
+Just as **Components** can be seen as **custom HTML tags** that display and behave as defined by their template and class,
+**Directives** can be seen as **custom HTML attributes** that can be added to HTML elements (or Angular components) to apply them various effects.
 
-The **component** that we've seen before is a *directive-with-a-template*.
-A `@Component` decorator is actually a `@Directive` decorator extended with template-oriented features.
+> Technically, a **Directive** is a class decorated with the `@Directive` decorator.
 
-Two other kinds of directives exist: **structural** and **attribute** directives.
+Directives in Angular can be divided into two categories: **structural** and **attribute** directives.
 
 ### Structural directives
 
-Structural directives are responsible for HTML layout.
+Structural directives have an impact on the HTML layout.
+
 They shape or reshape the **DOM's structure**, typically by **adding, removing, or manipulating elements**.
 
 Let's add the [`ngIf`][angular-docs-ng-if] directive to our template in `src/app/app.component.html` as an example:
 
 ```html
-<p `*ngIf='greeting'`>
-  {{ hello(greeting) }}
-</p>
+<p `*ngIf="greeting" `>{{ hello(greeting) }}</p>
 ```
 
 > The `*` before `ngIf` in the template is not a typo ; structural directives must **always** be preceeded by a `*`.
 
-As you can see, the entire paragraph is now removed from the DOM as long as the `greeting` property is blank (e.g. `undefined` or an empty string).
-It is added back as soon as `greeting` has a value.
+As you can see, the entire paragraph is now removed from the DOM as long as the `greeting` property is _falsy_ (e.g. `undefined` or an empty string).
 
-Read the [documentation][angular-structural-directives] to learn more about structural directives.
-Many more such directives are provided by Angular out of the box, like [`ngFor`][angular-docs-ng-for] (which we'll use later) and [`ngSwitch`][angular-docs-ng-switch].
+It is added back to the page as soon as `greeting` has a _truthy_ value.
+
+> Read the [documentation][angular-structural-directives] to learn more about structural directives. Many more such directives are provided by Angular out of the box, like [`ngFor`][angular-docs-ng-for] (which we'll use later) and [`ngSwitch`][angular-docs-ng-switch].
 
 ### Attribute directives
 
 > Want to create your own attributes directives ? See [advanced-angular][advanced-angular-subject]
 
-An **attribute** directive changes the **appearance or behavior of a DOM element**.
+An **attribute** directive changes the **appearance or behavior of the DOM element** to which it is attached.
 
 Let's say we want to programmatically add or remove classes to our `<h1>` tag in our template.
 
@@ -713,18 +627,21 @@ We need to declare those two classes in our component's style. Open the `app.com
 
 ```scss
 .italic { font-style: italic; }
-
 .hoverable { cursor: pointer; }
 ```
 
-Now, we can use Angular's `ngClass` attribute selective to bind the `titleClasses` oject to our `<h1>` title:
+Now, we can use Angular's `ngClass` attribute directive to bind the `titleClasses` oject to our `<h1>` title:
 
 ```html
-<h1 `[ngClass]="titleClasses"` [title]='titleComment' (click)="onTitleClicked($event)">
+<h1
+  `[ngClass]="titleClasses"`
+  [title]="titleComment"
+  (click)="onTitleClicked($event)">
   Welcome to {{ title }}!
 </h1>
 ```
-> For each `titleClasses`'s property whose value is `true`, `ngClass` will add to the element a CSS class of the same name.
+
+> For each `titleClasses`'s property whose value is `true`, `ngClass` will add its name to the element as a CSS class of the same name.
 
 > You can try changing the `titleClasses` properties value or add your own to see how that reflects to the element's classes.
 
@@ -734,17 +651,16 @@ These common directives are provided by Angular out of the box:
 
 **Structural directives**
 
-* [`ngFor`][angular-docs-ng-for] - Instantiates a template **once per item** from an iterable.
-* [`ngIf`][angular-docs-ng-if] - **Conditionally includes** a template based on the value of an expression.
-* [`ngSwitch`][angular-docs-ng-switch] - Adds/removes DOM sub-trees when the nest match expressions matches the **switch** expression.
+- [`ngFor`][angular-docs-ng-for] - Instantiates a template **once per item** from an iterable.
+- [`ngIf`][angular-docs-ng-if] - **Conditionally includes** a template based on the value of an expression.
+- [`ngSwitch`][angular-docs-ng-switch] - Adds/removes DOM sub-trees when the nest match expressions matches the **switch** expression.
 
 **Attribute directives**
 
-* [`ngClass`][angular-docs-ng-class] - Adds and removes **CSS classes** on an HTML element.
-* [`ngModel`][angular-docs-ng-model] - **Two-way binding** between a form's input field and a component's variable.
-* [`ngPlural`][angular-docs-ng-plural] - Adds/removes DOM sub-trees based on a numeric value. (Tailored for **pluralization**.)
-* [`ngStyle`][angular-docs-ng-style] - Update an HTML element's **styles**.
-
+- [`ngClass`][angular-docs-ng-class] - Adds and removes **CSS classes** on an HTML element.
+- [`ngModel`][angular-docs-ng-model] - **Two-way binding** between a form's input field and a component's variable.
+- [`ngPlural`][angular-docs-ng-plural] - Adds/removes DOM sub-trees based on a numeric value. (Tailored for **pluralization**.)
+- [`ngStyle`][angular-docs-ng-style] - Update an HTML element's **styles**.
 
 ## Pipes
 
@@ -752,9 +668,9 @@ When primitive values or objects are interpolated into a template, they are seri
 
 That's fine for strings, but not for everything:
 
-* What about **numbers**? You might not want to display all their decimals.
-* What about **currencies**? They are usually displayed in a specific format.
-* What about **dates**? You might want to use a simple format like `April 15, 1988` rather than the default `Fri Apr 15 1988 00:00:00 GMT-0700 (Pacific Daylight Time)`.
+- What about **numbers**? You might not want to display all their decimals.
+- What about **currencies**? They are usually displayed in a specific format.
+- What about **dates**? You might want to use a simple format like `April 15, 1988` rather than the default `Fri Apr 15 1988 00:00:00 GMT-0700 (Pacific Daylight Time)`.
 
 Clearly, some values benefit from a bit of editing and that's what Pipes are all about.
 
@@ -773,7 +689,7 @@ export class AppComponent {
 
   constructor() {
     // ...
-*   this.progress = 0.33;
+*   this.progress = 0.45;
   }
   // ...
 }
@@ -782,17 +698,18 @@ export class AppComponent {
 We want to display this value as a percentage in our template. We _could_ do it like so:
 
 ```html
-<p>{{ progress * 100 }}%</p>
+<p>{{ progress `* 100` }}`%`</p>
 ```
+
 Doing so implies that we repeat this same snippet each time we want to display a percentage in our app. This is error prone as we might forget the `%`, or add an exceeding `0` when multiplying our value, etc.
 
-We'd be better off having this formula in a `Pipe` so we could use it any time we want.
+We'd be better off having this logic in a `Pipe` so we could use it any time we want.
 
 ### Using a pipe
 
 In this case, Angular provides us with a `Pipe` named `percent` that does display values as percentages and thus, can help us rendering our progress percentage in our template.
 
-Actually using the pipe is as simple as "piping" an interpolated value into it with the pipe (`|`) character in a template:
+Actually using the `Pipe` is as simple as providing a value to the `Pipe` using the pipe (`|`) character in a template:
 
 ```html
 <p>We've only done {{ progress` | percent` }} of those damned slides</p>
@@ -805,11 +722,11 @@ Actually using the pipe is as simple as "piping" an interpolated value into it w
 Angular provides [a few pipes][angular-docs-pipes] out of the box.
 Here's some of them:
 
-* [`CurrencyPipe`][angular-docs-currency-pipe]
-* [`DatePipe`][angular-docs-date-pipe]
-* [`DecimalPipe`][angular-docs-decimal-pipe]
-* [`LowerCasePipe`][angular-docs-lowercase-pipe], [`UpperCasePipe`][angular-docs-uppercase-pipe] & [`TitleCasePipe`][angular-docs-titlecase-pipe]
-* [`PercentPipe`][angular-docs-percent-pipe]
+- [`CurrencyPipe`][angular-docs-currency-pipe]
+- [`DatePipe`][angular-docs-date-pipe]
+- [`DecimalPipe`][angular-docs-decimal-pipe]
+- [`LowerCasePipe`][angular-docs-lowercase-pipe], [`UpperCasePipe`][angular-docs-uppercase-pipe] & [`TitleCasePipe`][angular-docs-titlecase-pipe]
+- [`PercentPipe`][angular-docs-percent-pipe]
 
 Here's few usage examples for [`DatePipe`][angular-docs-date-pipe]:
 
@@ -830,17 +747,18 @@ Read [more about pipes][angular-pipes] in the developer guide.
 
 Now, let's make our application funny by adding some jokes.
 
-It's good practice to create **classes** for your **business models**.
-A TypeScript class with clearly defined fields and types will help us avoid mistakes in our code.
+It's a good practice to create **types, interfaces or classes** to define the structure of the objects you will manipulate in your application. This will help you avoid mistakes in your code.
+
 Let's start with a very simple one.
 
 Create a new file at `src/app/models/joke.ts` with the following content:
 
 ```ts
-export class Joke {
+export type Joke = {
   `text: string;`
 }
 ```
+
 > **Angular CLI**: Use `ng generate class <ClassName>` to create the files for a new model class
 
 ### Using models
@@ -858,7 +776,7 @@ Let's add some jokes to our component in `src/app/app.component.ts`:
 })
 export class AppComponent {
   // ...previous properties
-  `jokes: Joke[];`
+  `jokes: Joke[];` // The jokes property is an array of only Joke-like objects
 
   constructor() {
     // ...
@@ -881,21 +799,19 @@ Add this at the bottom of the component's template in `src/app/app.component.htm
 
 ```html
 <ul>
-  <li *ngFor='let joke of jokes'>{{ joke.text }}</li>
+  <li *ngFor="let joke of jokes">{{ joke.text }}</li>
 </ul>
 ```
 
-The directive handles repeating the `<li>` element for us.
-No need to write it multiple times, or to manually build and concatenate DOM elements in the component's TypeScript code.
+> The directive handles repeating the `<li>` element for us.
+> No need to write it multiple times, or to manually build and concatenate DOM elements in the component's TypeScript code.
 
 ### Using `ngPlural`
 
 While we're at it, let's also add a header above the list:
 
 ```html
-<h2>
-  {{ jokes.length }} jokes
-</h2>
+<h2>{{ jokes.length }} jokes</h2>
 ```
 
 You might notice that we'll have a minor problem when there is only one joke.
@@ -904,32 +820,34 @@ It will say "1 jokes" instead of "1 joke".
 The [`ngPlural`][angular-docs-ng-plural] directive comes to the rescue:
 
 ```html
-<h2 `[ngPlural]='jokes.length'`>
+<h2 `[ngPlural]="jokes.length"`>
   {{ jokes.length }}
-* <ng-template ngPluralCase='=1'>joke</ng-template>
-* <ng-template ngPluralCase='other'>jokes</ng-template>
+* <ng-template ngPluralCase="=1">joke</ng-template>
+* <ng-template ngPluralCase="other">jokes</ng-template>
 </h2>
 ```
 
 ## Services
 
-Let's do something more interesting: fetch some jokes from the internet.
+Let's do something more interesting: fetch those jokes from the internet rather than hard-coding them in our component.
 
-To do it "The Angular Way", we'll encapsulate that functionality into a **service**.
+To do it "The Angular Way", we'll encapsulate that functionality into a **Service**.
 
 Why?
-**Components** should not try to do too much;
+- **Components** should not try to do too much;
 they should focus on **presenting data** and **delegate data access** to specialized classes.
 **Services** are here to fill that role.
 
-This helps your components remain as simple as possible while services handle your business logic.
+  > This helps your components remain as simple as possible while services handle your business logic.
+
+- **Services** can be used by multiples Components, Directives, Pipes, etc, which helps in repeating the same logic.
+
 
 > **Angular CLI**: Use `ng generate service <ServiceName>` to create all the files for a new service
 
 ### The joke service
 
-Once again, a service is simply a JavaScript class, annotated with the [`@Injectable`][angular-docs-injectable] decorator.
-More about that later.
+Once again, a service is simply a JavaScript class, annotated with the [`@Injectable`][angular-docs-injectable] decorator (more about that later).
 
 Create a new `src/app/services/joke.service.ts` file with the following content:
 
@@ -946,37 +864,35 @@ export class JokeService {
 * }
 }
 ```
+> For now, the service only returns a single hard-coded `Joke`. We will actually fetch them from the web later on.
 
 ### Providing the joke service
 
 You may have notice the `providedIn: 'root'` property in the `@Injectable` param object of the generated service.
 
-This particular settings indicates that **the service is provided (meaning: made available) at the root of your application**.
+This particular settings indicates that **the service is provided by the root of your application**, which means that it is accessible to all your `Components`/`Directives`/`Pipes`.
 
-This way, you can **inject it in any of your component** out-of-the-box.
+> You might encouter `Services` that do not have this setting in their `@Injectable` decorator (i.e. when using external libraries). If this is the case, you must manually **provide** them in a module's `providers` array:
 
-You might encouter `Services` that do not have this setting in their `@Injectable` decorator (i.e. when using external libraries). If this is the case, you must **provide** them in a module's `providers` array:
+   ```ts
+   // Other imports...
+   import { SomeService } from "./some/directory";
 
-```ts
-// Other imports...
-import { SomeService } from './some/directory';
-
-@NgModule({
-  // ...
-  providers: [
-    `SomeService`
-  ],
-  // ...
-})
-export class SomeModule { }
-```
+   @NgModule({
+     // ...
+     providers: [`SomeService`],
+     // ...
+   })
+   export class SomeModule {}
+   ```
 
 ### Injecting the joke service
 
-Now, you can **inject** the service into your component in `src/app/app.component.ts`.
+Now, you can **reference** the service into your component in `src/app/app.component.ts`.
 
 You just have to add a **constructor parameter property**.
-While you're at it, also add a **method to add a joke**:
+
+While you're at it, also create a **method to add a joke**:
 
 ```ts
 // Other imports...
@@ -1001,16 +917,18 @@ To use our new method, you can add a button in the template in `src/app/app.comp
 
 ```html
 <p>
-  <button type='button' (click)='addJoke()'>Add joke</button>
+  <button type="button" (click)="addJoke()">Add joke</button>
 </p>
 ```
 
-The `(click)` attribute is Angular's syntax to listen to the `click` event on a DOM element and trigger something when it occurs.
+> The `(click)` attribute is Angular's syntax to listen to the `click` event on a DOM element and trigger something when it occurs.
 
 ### Why does it work?
 
 Our component now uses the service.
+
 But why does it work?
+
 All you did was add a parameter property to the constructor:
 
 ```ts
@@ -1019,17 +937,17 @@ constructor(`private jokeService: JokeService`) {
 }
 ```
 
-As a reminder, in TypeScript this is equivalent to:
+> As a reminder, in TypeScript this is equivalent to:
 
-```ts
-export class AppComponent {
-  `jokeService: JokeService;`
+  ```ts
+  export class AppComponent {
+    `jokeService: JokeService;`
 
-  constructor(`jokeService: JokeService`) {
-    `this.jokeService = jokeService;`
+    constructor(`jokeService: JokeService`) {
+      `this.jokeService = jokeService;`
+    }
   }
-}
-```
+  ```
 
 You **never instantiated the service with `new`**, so where is the instance coming from?
 
@@ -1037,18 +955,9 @@ You **never instantiated the service with `new`**, so where is the instance comi
 
 Angular relies on [dependency injection][di] to plug components, services and other elements together.
 
-* As previously said, your service is **provided** in the **root** of your application.
-* This makes it possible for Angular's **injector** to know that your service exists and to create instances of it.
-* By adding the parameter to the component's constructor, you **asked Angular to inject** an instance of the service at runtime.
-
-Dependency injection is a form of [inversion of control][ioc],
-meaning that parts of your code **receive** the flow of control instead of driving it like in classic procedural programming.
-The general goal is to:
-
-* **Decouple** the execution of a task from implementation.
-* **Focus** a component on the task it is designed for.
-* **Free components from assumptions** about how other systems do what they do and instead rely on **contracts**.
-* **Prevent side effects** when **replacing** a component.
+- As previously said, your service is **provided** in the **root** of your application.
+- This makes it possible for Angular's **injector** to know that your service exists and to create an instance of it.
+- By adding the parameter to the component's constructor, you **indicated that Angular should inject** this service instance at runtime.
 
 #### Why dependency injection?
 
@@ -1072,7 +981,7 @@ function Gas(lead) {
 
 <!-- slide-column -->
 
-**Loose coupling** (with an *injector*)
+**Loose coupling** (with an _injector_)
 
 ```js
 function Car(engine) {
@@ -1088,8 +997,6 @@ function Gas(lead) {
 
 <img src='images/di-injection.png' width='100%' />
 
-
-
 ## Observable data
 
 Our current `getJoke()` method has a **synchronous** signature; implying that data is returned right away:
@@ -1103,39 +1010,11 @@ This will **not** work when fetching jokes from a **remote server**, which is in
 The `getJoke()` method must be modified to not immediately return a joke, but to have an asynchronous signature instead.
 It could take a **callback** or return a [**Promise**][js-promise].
 
-Another solution is to return an **Observable**.
-Angular includes the [RxJS][rxjs] library for reactive programming using Observables,
-to make it easier to compose asynchronous or callback-based code.
+Since Angular uses the [RxJS][rxjs] library internally when handling HTTP requests, our service method should return an `OBservable` of a `Joke`.
 
 > To learn more about `Observables` and the `RxJS` library, see [the corresponding subject][rxjs-subject].
 
-### What (the hell) is an observable?
-
-An observable is an **asynchronous data stream**, meaning that it allows you to observe **multiple events over time**.
-
-<p class='center'><img src='images/promises-observables.png' class='w80' /></p>
-
-For example, a user's **mouse clicks** on a website could be easily be modeled as an observable:
-there will be several of them and they will happen at different times in the future.
-
-### What (the hell) is reactive programming?
-
-Basically, **reactive programming** is programming with **asynchronous** data **streams**.
-
-<p class='center'><img src='images/reactive-programming.png' class='w50' /></p>
-
-RxJS is a library which provides an amazing toolbox of functions to **combine, create and filter** any of those streams.
-
-In Angular 2+, many asynchronous operations are represented as Observable streams.
-For example, making an **HTTP call** will return an **Observable** which emits either a **response** or an **error**.
-You may **subscribe** to that observable to be notified of the result of the asynchronous call.
-
-To learn more about reactive programming,
-you may want to read ["The introduction to Reactive Programming you've been missing"][intro-to-reactive-programming].
-
 ### Making `getJoke()` observable
-
-Since Angular's `HttpClient` returns **Observables**, that's what we'll use.
 
 For now, let's modify the signature of our `getJoke()` method in `JokeService` in `src/app/services/joke.service.ts` to return an `Observable` of a `Joke`, without actually making an HTTP call yet:
 
@@ -1152,14 +1031,14 @@ export class JokeService {
 }
 ```
 
-> Note the `<>` in `Observable<Joke>`. Thie a special TypeScript syntax used to clarifiy a type. Here, it says that not only the method returns an `Observable`, but its emitted values will be instances of `Joke`.
+> Note the `<>` in `Observable<Joke>`. This is syntax used by TypeScript to specify a type when using a generic type. Here, it says that not only the method returns an `Observable`, but its emitted values will be instances of `Joke`.
 
-`of` allows us to create an observable stream which will simply emit the specified value, or values (here, the `Joke`) and complete.
+`of` allows us to create an `Observable` which will simply emit the specified values (here, the `Joke`), then complete.
 
 ### Subscribing to an Observable
 
 Of course, the code in our component no longer works now,
-since it expects a `Joke` and gets an Observable of a `Joke` instead:
+since it expects a `Joke` and gets an `Observable<Joke>` instead:
 
 ```
 ERROR in src/app/app.component.ts(26,21): error TS2345:
@@ -1167,7 +1046,7 @@ ERROR in src/app/app.component.ts(26,21): error TS2345:
   Property 'text' is missing in type 'Observable<Joke>'.
 ```
 
-Use the `subscribe` method of the Observable to be notified when a Joke is emitted on the stream in `AppComponent` in `src/app/app.component.ts`:
+In `AppComponent` in `src/app/app.component.ts`, use the `subscribe()` method of the returned `Observable` to add the `Joke` to the array once it's emitted :
 
 ```ts
 addJoke() {
@@ -1179,17 +1058,16 @@ addJoke() {
 
 We now have our **asynchronous** implementation:
 
-* We **subscribe** to the Observable when `addJoke` is called.
-* But the **callback** adding the new joke into the array will be called **later**,
+- We **subscribe** to the Observable when `addJoke` is called.
+- But the **callback** adding the new joke into the array will be called **later**,
   after the data has been fetched from the remote server.
-
-
 
 ## Making HTTP calls
 
-Time to actually fetch some jokes from the internet.
-We'll need Angular's [`HttpClient`][angular-docs-http-client].
-It is part of `HttpClientModule`, so we need to import that to our own application module, `AppModule`, in `src/app/app.module.ts`:
+Time to actually fetch some jokes from the internet!
+
+We'll need Angular's [`HttpClient`][angular-docs-http-client] to do so.
+It is part of `HttpClientModule`, so we need to import that into our own application module, `AppModule`, in `src/app/app.module.ts`:
 
 ```ts
 // Other imports...
@@ -1211,9 +1089,9 @@ export class AppModule { }
 
 Earlier we annotated `JokeService` with the [`@Injectable`][angular-docs-injectable] decorator.
 This not only makes it available to the **injector** for creation,
-but also allows it to **inject dependencies of its own**.
+but also allows it to **have dependencies of its own**.
 
-Now that `HttpClientModule` is available, you can inject `HttpClient` into `JokeService` in `src/app/services/joke.service.ts`:
+Now that `HttpClientModule` is available, you can inject `HttpClient` into `JokeService` in `src/app/services/joke.service.ts`, by adding it to the constructor parameters:
 
 ```ts
 // Other imports...
@@ -1252,12 +1130,12 @@ Since it's a nested structure, we'll need **2 classes**.
 Create a new file at `src/app/models/joke-response.ts` with the following content:
 
 ```ts
-export class JokeResponse {
+export type JokeResponse = {
   type: string;
   value: JokeResponseValue;
 }
 
-export class JokeResponseValue {
+export type JokeResponseValue = {
   categories: string[];
   id: number;
   joke: string;
@@ -1300,19 +1178,15 @@ Let's add a utility function at the bottom of the file in `src/app/services/joke
 ```ts
 function convertJokeResponseToJoke(response: JokeResponse): Joke {
   return {
-    text: response.value.joke
+    text: response.value.joke,
   };
 }
 ```
+Effectively, this function allows mapping a `JokeResponse` to a `Joke`.
 
 ### Transforming Observable streams
 
-Similarly to the [`map`][js-array-map] method of JavaScript arrays, Observables have a [`map`][observable-map] operator,
-which allows you to transform each item emitted in the stream:
-
-<p class='center'><img src='images/observable-map.png' class='w50' /></p>
-
-To use it, you need to import it and use the Observable's `pipe` method in `JokeService` in `src/app/services/joke.service.ts`:
+Let's use this new mapping function in the method that fetches the joke so that the final Observable it returns is an `Observable<Joke>`:
 
 ```ts
 // Other imports...
@@ -1325,6 +1199,7 @@ To use it, you need to import it and use the Observable's `pipe` method in `Joke
 *     .pipe(map(convertJokeResponseToJoke));
   }
 ```
+> If you forgot or don't know how this `map` operator works, check out the [RxJS subject][rxjs-subject-map]
 
 ### Reacting to errors in observable streams
 
@@ -1341,10 +1216,8 @@ addJoke() {
 }
 ```
 
-For the purpose of testing this new behavior,
-you can produce an error by changing the URL in `JokeService`in `src/app/services/joke.service.ts`,
+You can produce an error by changing the URL in `JokeService`in `src/app/services/joke.service.ts`,
 so that the call fails.
-You should then see an error in the console when adding a joke:
 
 ```ts
 getJoke(): Observable<Joke> {
@@ -1356,65 +1229,17 @@ getJoke(): Observable<Joke> {
 
 You can then change it back to the correct URL.
 
-### Getting the HTTP response
-
-We've seen that by default, Angular's `HttpClient` returns only the **body of the response**
-(this is a *generic example*; do **not** make this change to the project):
-
-```ts
-function getJoke(): Observable<JokeResponse> {
-  return this.httpClient
-    .get<JokeResponse>('https://api.icndb.com/jokes/random');
-}
-
-getJoke().subscribe(jokeResponse => {
-  // "jokeResponse" has type JokeResponse
-  console.log(jokeResponse.value.joke);
-  // "Chuck Norris can make a class that is both abstract and final."
-});
-```
-
-That's nice, but in some cases we might need access to the **HTTP status** or **headers** sent by the server in the response.
-
-#### Observing the response
-
-To get Angular's `HttpClient` to give you the full [`HttpResponse`][angular-docs-http-response] object,
-you need to pass an additional options object to your HTTP call,
-with the `observe` property set to `"response"` (this is also a *generic example*):
-
-```ts
-function getJoke(): Observable<`HttpResponse<JokeResponse>`> {
-  `const options = { observe: 'response' };`
-  return this.httpClient
-    .get<JokeResponse>('https://api.icndb.com/jokes/random'`, options`);
-}
-
-getJoke().subscribe(httpResponse => {
-  // "httpResponse" has type HttpResponse<JokeResponse>
-  console.log(httpResponse.status); // 200
-  // "httpResponse.body" has type JokeResponse
-  console.log(httpResponse.body.value.joke);
-  // "Chuck Norris can make a class that is both abstract and final."
-});
-```
-
-Now, you no longer get an Observable of `JokeResponse` objects,
-but instead get an Observable of `HttpResponse<JokeResponse>` objects.
-That is, the full HTTP response, with its `body` already parsed as a `JokeResponse` object.
-
-Read [the documentation of the `HttpResponse` class][angular-docs-http-response] to see what information you can extract from the response.
-
-
+> In a real application, you should display an error on the screen.
 
 ## Component interaction
 
-As described earlier, components are Angular's fundamental building blocks.
+As described earlier, components are Angular's fundamental UI building blocks.
 
 We're going to add a few features to our application:
 
-* The ability to **vote** on which are the best jokes.
-* The ability to see the **total** number of votes and how many votes the **best** joke has had.
-* The ability to **clear** all the collected votes.
+- The ability to **vote** on which are the best jokes.
+- The ability to see the **total** number of votes and how many votes the **best** joke has had.
+- The ability to **clear** all the collected votes.
 
 <!-- slide-column -->
 
@@ -1432,7 +1257,7 @@ it's good practice to **isolate each part into a component**:
 Update the `Joke` model in `src/app/models/joke.ts` to have a `votes` property:
 
 ```ts
-export class Joke {
+export type Joke = {
   text: string;
 * votes: number;
 }
@@ -1442,8 +1267,8 @@ You need to update `src/app/app.component.ts` to set the initial votes to `0`:
 
 ```ts
 this.jokes = [
-  { text: 'Knock knock'`, votes: 0` },
-  { text: 'The cake is a lie'`, votes: 0` }
+  { text: "Knock knock"`, votes: 0` },
+  { text: "The cake is a lie"`, votes: 0` },
 ];
 ```
 
@@ -1458,23 +1283,20 @@ function convertJokeResponseToJoke(response: JokeResponse): Joke {
 }
 ```
 
-### Creating a child component
+### Creating a component
 
-Let's generate our **new component**, the `JokeComponent`:
+Let's generate a **new component**, `JokeComponent`, whose responsibility will be to properly display a `Joke` object in the page, and provide a button to vote for the joke:
 
 ```ts
-$> npm run ng generate component components/joke
+$> npm run ng generate component components/joke --skip-tests
 ```
 
 This will create a component in the `src/app/components/joke` directory,
-with its own TypeScript definition, HTML template and CSS styles (and test file).
+with its own TypeScript definition, HTML template and CSS styles.
 
 #### The `JokeComponent`
 
-The responsibility of the new `JokeComponent` will be to display a `Joke` object,
-and to provide a button to vote on the joke.
-
-Let's add a `joke` property to the new component in `src/app/components/joke/joke.component.ts`:
+Let's add an optional `joke` property to the new component in `src/app/components/joke/joke.component.ts`:
 
 ```ts
 // Other imports...
@@ -1486,40 +1308,40 @@ Let's add a `joke` property to the new component in `src/app/components/joke/jok
   styleUrls: ['./joke.component.css']
 })
 export class JokeComponent implements OnInit {
-* joke: Joke;
+* joke?: Joke;
   // ...
 }
 ```
+> Remember that a property defined with a `?` can be `undefined`.
 
-And update the component's template in `src/app/components/joke/joke.component.html` to display the joke's text:
+And update the component's template in `src/app/components/joke/joke.component.html` to display the joke's text (if there is a joke to display):
 
 ```html
-{{ joke.text }}
+<div *ngIf="joke">{{ joke.text }}</div>
 ```
 
 ### Using our new component
 
-As you can see in our component's class, we set the `selector` of our component to `app-joke`. This means that we can add a custom tag in an HTML template to add our component to the page. Let's do so in `src/app/app.component.html`:
+As you can see in our component's class, its `selector` has been set to `app-joke`.
+
+This means that we can include our component in another component's template by adding a `<app-joke>` tag.
+
+Let's do so in `src/app/app.component.html`:
 
 ```html
 <ul>
-  <li *ngFor='let joke of jokes'>
-    `<app-joke></app-joke>`
+  <li *ngFor="let joke of jokes">
+*   <app-joke></app-joke>
   </li>
 </ul>
 ```
+We can now see on our app page that we have two elements in our list, but that they are empty.
 
-We can see on our app page that the list tries to display our two initial jokes, but failed to do so, due to not being able to read the text of both jokes:
-
-```
-ERROR TypeError: Cannot read property 'text' of undefined
-```
-
-Indeed, we told our `JokeComponent` to display the `joke.text` property in its template. Except that we didn't give it any `joke` to get the `text` from...
+Indeed, we told our `JokeComponent` to display the `joke.text` property in its template, but we didn't actually provide it any `joke` to get the `text` from...
 
 ### Passing data from parent to child with input binding
 
-We want the joke to be provided by the parent component, `AppComponent`, to the `JokeComponent` as an **input** of this component.
+We want the joke to be provided to the `JokeComponent` as an **input**.
 
 Annotating a component's property with the [`@Input`][angular-docs-input] decorator marks it as an **input property**.
 You can do this in `src/app/components/joke/joke.component.ts`:
@@ -1530,15 +1352,16 @@ import { Component, `Input`, OnInit } from '@angular/core';
 
 // ...
 export class JokeComponent implements OnInit {
-  `@Input()` joke: Joke;
+  `@Input()` joke?: Joke;
   // ...
 }
 ```
 
 Now, update the main component's template in `src/app/app.component.html` so that it binds each joke object to the `joke` input of the `<app-joke>` tag.
+
 ```html
 <ul>
-  <li *ngFor='let joke of jokes'>
+  <li *ngFor="let joke of jokes">
     <app-joke `[joke]="joke"`></app-joke>
   </li>
 </ul>
@@ -1552,16 +1375,20 @@ Add a `vote()` method to `JokeComponent` in `src/app/components/joke/joke.compon
 
 ```ts
 vote() {
-  this.joke.votes++;
+  if (this.joke) {
+    this.joke.votes++;
+  }
 }
 ```
 
 Add these 2 lines to the component's template in `src/app/components/joke/joke.component.html`:
 
 ```html
-{{ joke.text }}
-*({{ joke.votes }} votes)
-*<button type='button' (click)='vote()'>+1</button>
+<div *ngIf="joke">
+  {{ joke.text }}
+* ({{ joke.votes }} votes)
+* <button type="button" (click)="vote()">+1</button>
+</div>
 ```
 
 You can now vote!
@@ -1617,8 +1444,10 @@ export class JokeComponent implements OnInit {
   }
 
   vote() {
-    this.joke.votes++;
-*   this.voted.emit(this.joke);
+    if (this.joke) {
+      this.joke.votes++;
+*     this.voted.emit(this.joke);
+    }
   }
 }
 ```
@@ -1643,7 +1472,7 @@ You bind to it using Angular's `(event)='expression'` syntax, exactly like you b
 Do that in `src/app/app.component.html`:
 
 ```html
-<app-joke [joke]='joke' `(voted)='onJokeVoted(joke)'`></app-joke>
+<app-joke [joke]="joke" `(voted)="onJokeVoted(joke)" `></app-joke>
 ```
 
 ### Clearing the votes
@@ -1664,7 +1493,7 @@ clearVotes() {
 And add a button to call it in the template in `src/app/app.component.html`:
 
 ```html
-<button type='button' (click)='clearVotes()'>Clear votes</button>
+<button type="button" (click)="clearVotes()">Clear votes</button>
 ```
 
 It just works!
@@ -1681,22 +1510,21 @@ This can be useful if two components must communicate but neither is a parent of
 
 Read the [documentation][angular-component-interaction] to learn more.
 
-
 ## Resources
 
 **Documentation**
 
-* [Angular Tour of Heroes Tutorial][angular-tour-of-heroes]
-* [Angular Developer Guide][angular-guide]
-  * [Automated Testing][angular-testing]
-* [Angular API reference][angular-api]
+- [Angular Tour of Heroes Tutorial][angular-tour-of-heroes]
+- [Angular Developer Guide][angular-guide]
+  - [Automated Testing][angular-testing]
+- [Angular API reference][angular-api]
 
 **Further reading**
 
-* [A guide to web components][a-guide-to-web-components]
-* [Angular 2 components][angular-2-series-components]
-* [Understanding, creating and subscribing to observables in Angular][understanding-angular-observables]
-* [The Introduction to Reactive Programming You've Been Missing][intro-to-reactive-programming]
+- [A guide to web components][a-guide-to-web-components]
+- [Angular 2 components][angular-2-series-components]
+- [Understanding, creating and subscribing to observables in Angular][understanding-angular-observables]
+- [The Introduction to Reactive Programming You've Been Missing][intro-to-reactive-programming]
 
 [angular]: https://angular.io
 [angular-guide]: https://angular.io/guide/architecture
@@ -1738,7 +1566,8 @@ Read the [documentation][angular-component-interaction] to learn more.
 [ioc]: https://en.wikipedia.org/wiki/Inversion_of_control
 [js-promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [rxjs]: http://reactivex.io/rxjs/
-[rxjs-subject]: ../rxjs
+[rxjs-subject]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[rxjs-subject-map]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/#14
 [intro-to-reactive-programming]: https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
 [angular-docs-http-client]: https://angular.io/guide/http
 [js-array-map]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
@@ -1749,7 +1578,7 @@ Read the [documentation][angular-component-interaction] to learn more.
 [angular-docs-output]: https://angular.io/api/core/Output
 [angular-component-interaction]: https://angular.io/guide/component-interaction
 [a-guide-to-web-components]: https://css-tricks.com/modular-future-web-components/
-[angular-cli]: https://mediacomem.github.io/comem-masrad-dfa/latest/subjects/angular-cli/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-devmobil%2Flatest
+[angular-cli]: https://mediacomem.github.io/comem-masrad-dfa/latest/subjects/angular-cli/
 [angular-api]: https://angular.io/api
 [angular-testing]: https://angular.io/guide/testing
 [angular-2-series-components]: http://blog.ionic.io/angular-2-series-components/
