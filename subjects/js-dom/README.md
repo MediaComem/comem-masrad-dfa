@@ -101,11 +101,10 @@ Let's add a dedicated function:
 ```js
 function alertOnComplete() {
   const newDiv = document.createElement("div");
-  newDiv.setAttribute("class", "alert alert-warning");
+  newDiv.classList.add("alert", "alert-warning");
   const newText = document.createTextNode(content.alertText);
   newDiv.appendChild(newText);
-
-  const mainContainer = document.getElementsByClassName("container").item(1);
+  const mainContainer = document.querySelector("main.container");
   mainContainer.appendChild(newDiv);
 }
 ```
@@ -129,15 +128,14 @@ Let's see what the code does:
 function alertOnComplete() {
 * // We create a new `<div>` element
   const newDiv = document.createElement("div");
-* // We set a new `class` attribute to this `<div>` with the relevant class names
-  newDiv.setAttribute("class", "alert alert-warning");
+* // We add some Bootstrap CSS classes to this new div
+  newDiv.classList.add("alert", "alert-warning");
 * // We create a new text node with the text alert string
   const newText = document.createTextNode(content.alertText);
 * // We set this new text node as a child of the new div node
   newDiv.appendChild(newText);
-
-* // We get a list of elements with the .container class, and take the second one
-  const mainContainer = document.getElementsByClassName("container").item(1);
+* // We get a list the first "main" element with .container class
+  const mainContainer = document.querySelector("main.container");
 * // appendChild() appends a node at the end of another node's children
   mainContainer.appendChild(newDiv);
 }
@@ -195,10 +193,10 @@ Now, we can safely get all the buttons inside this `<div>` and be sure they're t
 
 ```js
 function enableAlignmentButtons() {
-* // First, we get the wrapping div
-  const wrappingDiv = document.getElementById("alignment-btns");
+* // First, we get the wrapping div with the ID
+  const wrappingDiv = document.querySelector("#alignment-btns");
 * // Then, we get all the buttons inside it
-  const buttons = `wrappingDiv`.getElementsByTagName("button");
+  const buttons = `wrappingDiv`.querySelectorAll("button");
 * // For each button in our div...
   for (const button of buttons) {
 *   // ...we tell the browser to execute alignAllText once it is clicked
@@ -243,7 +241,7 @@ function alignAllText(event) {
 *   // We remove any text alignment class
     p.classList.remove("text-left", "text-center", "text-right");
 *   // We add an alignment class using the previously deduced alignment
-    p.classList.add(`text-${alignment}`);
+    p.classList.add(\`text-${alignment}`);
   }
 }
 ```
@@ -258,8 +256,8 @@ The requirements are that when a user submits the form by clicking on the "Regis
 
 > Good luck! And to help you:
 
-> 1. Add an listener either on the form's submit event or the button's click event ;
-> 1. In the callback function, start by getting the values of the fields
+> 1. Add a listener either on the form's submit event or the button's click event ;
+> 1. In the callback function, start by getting the values from the fields
 > 1. Then create the required HTML node tree for a new table row, filling in the values in the cells
 
 > Do not hesitate to update the HTML code by adding ids or classes if this helps you. But don't overdo it!
@@ -278,7 +276,7 @@ You will find the final HTML file for this course [here][fef]
 [course]: ../setup
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
-[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
-[fef]: https://gist.githubusercontent.com/Tazaf/e7286440370e1c5197999b0da2e84f9e/raw/index.html
+[bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/ecae62ab21eca302bcbfc0ffef8df1fd30d9e6af/index.html
+[fef]: https://gist.githubusercontent.com/Tazaf/e7286440370e1c5197999b0da2e84f9e/raw/f1765006a58b7bff78c0dbe05739227734b23ebf/index.html
 [text-content]: https://developer.mozilla.org/fr/docs/Web/API/Node/textContent
 [a]: https://developer.mozilla.org/fr/docs/Web/HTML/Element/a
