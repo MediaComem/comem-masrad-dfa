@@ -44,7 +44,7 @@ Learn how Bootstrap helps you structure your HTML layouts, using both its grid s
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"/>
 <link rel="stylesheet" href="./css/cancel-bootstrap.css">
 <link rel="stylesheet" href="./css/style.css">
 
@@ -106,7 +106,7 @@ With **CSS3**, new layout systems have been added to the toolkit of frontend dev
 
 A Grid System is a way of creating layouts that's been inherited from graphic designers.
 
-The idea is quite simple: you divide the space at your disposal in **columns** (usually an even number), separated by a **gutter**.
+The idea is quite simple: you divide the space at your disposal in **columns** (usually an even number), separated by a **gutter** (an empty space between columns).
 
 When you place your elements on the layout, they **must** be as wide as one or more columns.
 
@@ -126,7 +126,7 @@ Bootstrap includes a grid system that is very easy to use and very flexible.
 
 Here are some "rules" to follow for using the Grid System:
 
-- The grid is divided in **12 columns maximum**, whatever's the screen width.
+- The grid is always divided in **12 columns maximum**, independantly of the screen width.
 - You **don't have to use it everywhere** on your page. You can for example use it inside one `<div>` in particular, and completely leave it aside for the next one.
 - It was built having **mobile and tablet in mind**, so it offers easy **responsivness** for your layouts.
 
@@ -134,7 +134,7 @@ To use this grid system in your layout, you have a dozen classes at your disposa
 
 ### Creating rows
 
-Rows are the base of the gris system. Adding a `.row` class to an element set it up with the Bootstrap Grid System.
+Rows are the base of the grid system. Adding a `.row` class to an element set it up with the Bootstrap Grid System.
 
 > To have proper spacing, it's advised to use this class on elements wrapped inside elements with the `.container` or `.container-fluid` class.
 
@@ -290,7 +290,7 @@ Add these classes in the `class` attribute of all the `<p>`:
 - `.col-md-3` The content will be 3-column-wide on middle screens
 - `.col-lg-2` The content will be 2-column-wide on large screens
 
-> Go ahead. Try to resize your browser (using the Developer Tools of Chrome) and see how the content behave.
+> Go ahead. Try to resize your browser (using your browser's Developer Tools) and see how the content behave.
 
 #### What if..?
 
@@ -373,8 +373,8 @@ You will find the final HTML file for this course [here][fef]
 [bsef]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
 [block]: ./images/blocks.jpg
 [inline]: ./images/inline.jpg
-[gs]: https://getbootstrap.com/docs/4.4/layout/grid/
-[ru]: https://getbootstrap.com/docs/4.4/layout/utilities-for-layout/
-[fef]: https://gist.githubusercontent.com/Tazaf/329374f10e54818875620c9e03a2609a/raw/index.html
-[bs-screen-sizes]: https://getbootstrap.com/docs/4.3/layout/grid/#grid-options
-[d-values]: https://getbootstrap.com/docs/4.3/utilities/display/#notation
+[gs]: https://getbootstrap.com/docs/5.3/layout/grid/
+[ru]: https://getbootstrap.com/docs/5.3/layout/utilities/
+[fef]: https://gist.githubusercontent.com/Tazaf/329374f10e54818875620c9e03a2609a/raw/dd45d66dd67d71e0c92df9a0388ea22d4c5ff97e/index.html
+[bs-screen-sizes]: https://getbootstrap.com/docs/5.3/layout/grid/#grid-options
+[d-values]: https://getbootstrap.com/docs/5.3/utilities/display/#notation

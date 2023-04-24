@@ -24,7 +24,7 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
 - [What is Bootstrap?](#what-is-bootstrap)
 - [Why Bootstrap?](#why-bootstrap)
   - [CDN](#cdn)
-  - [Download locally](#download-locally)
+  - [(Alternative) Download locally](#alternative-download-locally)
   - [How do I know it's working?](#how-do-i-know-its-working)
 - [What does it do?](#what-does-it-do)
 - [Bootstrap documentation](#bootstrap-documentation)
@@ -61,7 +61,6 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
     - [Navbar links](#navbar-links)
     - [Navbar buttons](#navbar-buttons)
     - [Fixed navbar](#fixed-navbar)
-    - [Fixing the fixed navbar](#fixing-the-fixed-navbar)
   - [Lists](#lists)
     - [Link elements](#link-elements)
     - [I want more!](#i-want-more)
@@ -92,10 +91,10 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
 
 ## Why Bootstrap?
 
-Bootstrap is a **framework** _(although technically more a library)_: it's a set of **pre-defined** "elements", here HTML components and CSS classes, that developers can use to gain:
+Bootstrap is a **framework** _(although technically more a library)_: it's a set of **pre-defined** HTML components and CSS classes that developers can use to gain:
 
 - **Speed of development**:
-  - Everything is already there for you
+  - Almost everything is already there for you
 - **Consistency**:
   - All your pages will share the same style
 - **Responsivness**:
@@ -109,7 +108,7 @@ Bootstrap is a **framework** _(although technically more a library)_: it's a set
 
 ### CDN
 
-You have several ways of including Bootstra. The first one we'll see is using a **CDN** (**C**ontent **D**elivering **N**etwork).
+You have several ways of including Bootstrap. The first one we'll see is using a **CDN** (**C**ontent **D**elivering **N**etwork).
 
 CDNs allow you **to reference files** useful for your project using **URLs** that points to them.
 
@@ -118,20 +117,17 @@ This way, each time a page with a CDN URL is requested by a user, their browser 
 To include Bootstrap with a CDN, add this `<link>` tag at the bottom of your `<head>` tag in your `index.html` file:
 
 ```html
-<head>
-  ...
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-    crossorigin="anonymous"
-  />
-</head>
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+  crossorigin="anonymous"
+/>
 ```
 
-> This will include in your file the 4.4.1 version of Bootstrap
+> This will include Bootstrap 5.3.0 in your project
 
-### Download locally
+### (Alternative) Download locally
 
 You can also **download the files locally** and reference them in your `index.html` file.
 
@@ -140,14 +136,14 @@ You can also **download the files locally** and reference them in your `index.ht
 3. Once unzipped, you should have the following structure:
 
 ```sh
-bootstrap-4.4.1-dist/
+bootstrap-5.3.0-alpha3-dist/
   ├─ css/
   │   └─ [some files]
   └─ js/
       └─ [some files]
 ```
 
-Create a `css` folder at the root of your poject directory, at the same level than `index.html`. Copy in this new directory the file `bootstrap.min.css` from the `bootstrap-4.4.1-dist/css` directory, then add this `<link>` tag at the bottom of your `<head>` tag in your `index.html` file:
+Create a `css` folder at the root of your poject directory, at the same level than `index.html`. Copy in this new directory the file `bootstrap.min.css` from the `bootstrap-5.3.0-alpha3-dist/css` directory, then add this `<link>` tag at the bottom of your `<head>` tag in your `index.html` file:
 
 ```html
 <head>
@@ -162,26 +158,27 @@ To be sure that Bootstrap is correctly included in your project, just open your 
 
 With a simple "Hello World" example, your page **without Bootstrap** could look like this:
 
-<p class='center'><img src='images/without-bootstrap-css.jpg' width='100%' /></p>
+<p class='center'><img src='images/without-bootstrap.png' width='80%' /></p>
 
 The same page, but **with Bootstrap correctly included** should look like this:
 
-<p class='center'><img src='images/with-bootstrap.jpg' width='100%' /></p>
+<p class='center'><img src='images/with-bootstrap.png' width='80%' /></p>
 
 > Notice how the font has changed? That's a **good** sign.
 
 ## What does it do?
 
-We already said that Bootstrap is a bunch of CSS styles already written for you.
+We already said that Bootstrap is a bunch of CSS styles and HTML components already written for you.
 
-[The Bootstrap documentation][bootstrap-css] divides those styles in four sections:
+[The Bootstrap documentation][bootstrap-css] groups those features in several thematic sections:
 
 - **Layout** for classes related to page layout management
 - **Content** for classes that overwrite default HTML elements style or enhance them
 - **Components** for various predefined page components using a **specific** HTML structure and dedicated classes
 - **Utilities** for classes that can be added to many different HTML elements
+- ...
 
-> This subject only cover a handful of what Bootstrap has to offer.
+> This subject only cover a handful of what Bootstrap has to offer. You'll have to explorer the rest yourself (and/or ask me for directions)
 
 ## Bootstrap documentation
 
@@ -209,13 +206,14 @@ You could also find elements with the `.sr-only` class or the `role` attribute:
 <span `class="sr-only" ` `role="error" `>Error:</span>
 ```
 
-All these [ARIA][aria] attribute, class or `role` are used only for **accessibility**.
+All these [ARIA][aria] attributes, classes or `role`s are used for **accessibility**.
 
 They are invisible to human reader and only interpreted by assistive technologies or software that help disabled people browsing the Web.
 
-> They **don't alter** in any ways neither **the design of the page** nor **the behavior of its elements**.
+> They have **no impact** on the **visual** rendering of your pages.
 >
-> If you'd like, you can **remove them without fear for your design**.
+> If you don't want to keep then, you can safely remove them from your HTML files. Although be aware that this could hinder
+> disabled people usage of your site/application.
 
 ## Element default styles
 
@@ -244,7 +242,7 @@ Open the `index.html` file and **replace** the content between the `body` tags w
 <p>Do you want to write some <code>function()</code>?</p>
 ```
 
-To **compare** the same elements without Bootstrap, create a new file called `compare.html`, and **copy-paste all the content** of `index.html` inside it.
+To **compare** the same elements without Bootstrap, duplicate your `index.html` file as `compare.html`.
 
 Now, in the `compare.html` file, **remove** the line with the `<link>` that **includes** Bootstrap, and save it.
 
@@ -254,17 +252,13 @@ Finally, open both `index.html` and `compare.html` in your browser.
 
 ### Why put styles on element?
 
-As you can see, HTML elements already **have** default styles, even without CSS.
+Each browser must define default styles for HTML tags without custom CSS style ; but they can implement them as they see fit.
 
-But these styles are **browser dependant**, i.e. your page could be rendered differently on **Chrome**, **Firefox**, **Edge** and/or **Safari**.
+This means that, depending on the browser that displays your page, it could be rendered **differently**.
 
-See, for example, the rendering of an `<abbr>` tag on **Chrome** VS **Firefox**...
+![Abbr comparison](images/abbr-comparison.jpg)
 
-<p class='center'><img src='images/abbr-comparison.jpg' width='100%' /></p>
-
-...or that of a `<code>` tag on **Chrome** VS **Edge**
-
-<p class='center'><img src='images/code-comparison.jpg' width='100%' /></p>
+> Note that this issue tends to disappear, since **Chrome**, **Edge** and **Firefox** all use the same rendering engine (WebView) behind the scene.
 
 ### Normalization (or Reboot)
 
@@ -297,9 +291,9 @@ Delete everything that's between your `<body>` tag and add:
 
 ### Container
 
-Containers represents the `<div>`s that **structure** your content.
+Containers represents the blocks that **structure** your content.
 
-Right now, this content is **fully aligned to the left** of the screen, almost touching the edge. It's ugly and not very readable.
+Right now, this content is **fully aligned to the left** of the screen, almost touching the edge. It's kinda ugly and not very readable, considering the width and resolution of today's screen.
 
 You can change that by adding a `.container-fluid` class to a `<div>` or any "block" element.
 
@@ -310,7 +304,7 @@ You can change that by adding a `.container-fluid` class to a `<div>` or any "bl
 </div>
 ```
 
-> The content will have a padding of `15px` from both edges, and your container will be as wide as possible.
+> The content will have a padding of `15px` from both edges, and your container will be as wide as possible, depending on the current screen width.
 
 #### `.container`
 
@@ -545,8 +539,8 @@ Bootstrap defines **a button style for each predefined colors**, with its own cl
 
 Using `btn-outline-` instead of `btn-` as a prefix before the color name allows you to style your button with and inverted rendering:
 
-| CSS class        | Result                                               |
-| :--------------- | :--------------------------------------------------- |
+| CSS class                | Result                                                       |
+| :----------------------- | :----------------------------------------------------------- |
 | `.btn-outline-primary`   | <button class="btn btn-outline-primary">Click me!</button>   |
 | `.btn-outline-secondary` | <button class="btn btn-outline-secondary">Click me!</button> |
 | `.btn-outline-success`   | <button class="btn btn-outline-success">Click me!</button>   |
@@ -690,13 +684,15 @@ To add a checkbox to your `<form>`, you should use this **expected HTML markup**
 
 ```html
 *<div class="form-check">
-  <input class="`form-check-input`" type="checkbox" value="" id="defaultCheck1"/>
-  <label class="`form-check-label`" for="defaultCheck1">
-    Remember me
-  </label>
+  <input
+    class="`form-check-input`"
+    type="checkbox"
+    value=""
+    id="defaultCheck1"
+  />
+  <label class="`form-check-label`" for="defaultCheck1"> Remember me </label>
 *</div>
 ```
-
 <!-- prettier-ignore-stop -->
 
 <div class="live-example shadow" style="line-height: 1.5">
@@ -718,17 +714,15 @@ The same goes for the radio buttons, and the expected HTML markup is pretty simi
 
 ```html
 *<div class="form-check">
-  <input class="`form-check-input`" type="radio" name="`directions`" id="leftDirection" value="left" checked/>
-  <label class="`form-check-label`" for="leftDirection">
-    Left
-  </label>
+  <input class="`form-check-input`" type="radio" name="`directions`"
+    id="leftDirection" value="left" checked />
+  <label class="`form-check-label`" for="leftDirection"> Left </label>
 *</div>
 
 *<div class="form-check">
-  <input class="`form-check-input`" type="radio" name="`directions`" id="rightDirection" value="right"/>
-  <label class="`form-check-label`" for="rightDirection">
-    Right
-  </label>
+  <input class="`form-check-input`" type="radio" name="`directions`"
+    id="rightDirection" value="right"/>
+  <label class="`form-check-label`" for="rightDirection"> Right </label>
 *</div>
 ```
 
@@ -756,9 +750,7 @@ To create a navigation bar in your application, you can use the **navbar** compo
 Add these lines right after your opening `<body>` tag and before the `<div class="container">`:
 
 ```html
-<nav class="navbar navbar-expand bg-light">
-  Bootstrap Initiation
-</nav>
+<nav class="navbar navbar-expand bg-light">Bootstrap Initiation</nav>
 ```
 
 This should add the text at the top of your page with a light-grey background.
@@ -782,15 +774,14 @@ If this is the case, simply add a `.container` class to the `<nav>` element:
   Bootstrap Initiation
 </nav>
 ```
+
 If you'd like the navbar to be as wide as possible but restrict **the width of its content**, then add a `div.container` **as the first child** of the navbar:
 
 <!-- prettier-ignore-start -->
 
 ```html
 <nav class="navbar navbar-expand bg-light">
-* <div class="container">
-    Bootstrap Initiation
-* </div>
+*  <div class="container">Bootstrap Initiation</div>
 </nav>
 ```
 
@@ -809,7 +800,7 @@ To tell the navbar what element is the brand, wrap the brand content in an eleme
 ```html
 <nav class="navbar navbar-expand bg-light">
   <div class="container">
-    <a href="/" class="navbar-brand">Bootstrap Initiation</span>
+    <a href="/" class="navbar-brand">Bootstrap Initiation</a>
   </div>
 </nav>
 ```
@@ -823,23 +814,24 @@ This will render the brand content a little differently than the rest of the nav
 You can easily theme your navbar using the [color utility classes](#21) we saw earlier. Let's change the background color of our navbar:
 
 ```html
-<nav class="navbar navbar-expand `bg-primary`">
+<nav class="navbar navbar-expand `bg-primary`"></nav>
 ```
+
 It worked, but we have a little issue of readability here, as the text of the brand element does not contrast very well with the background.
 
 You could add some classes to this element, but you'd have to do this for every other element added to the navbar.
 
 Instead, use one of the following classes on the `<nav>` element to let Bootstrap handle the contrast:
 
-| Class           | Use when                                                |
-| --------------- | ------------------------------------------------------- |
-| `.navbar-light` | The background is light and the content will be darker  |
-| `.navbar-dark`  | The background is dark and the content will be lighter  |
+| Class           | Use when                                               |
+| --------------- | ------------------------------------------------------ |
+| `.navbar-light` | The background is light and the content will be darker |
+| `.navbar-dark`  | The background is dark and the content will be lighter |
 
 In our case, the `primary` color is a dark one. Hence, we should add the `.navbar-dark` class to our navbar:
 
 ```html
-<nav class="navbar navbar-expand `navbar-dark` bg-primary">
+<nav class="navbar navbar-expand `navbar-dark` bg-primary"></nav>
 ```
 
 #### Navbar links
@@ -859,6 +851,7 @@ Let's add this right after our `<a class="navbar-brand">` element:
   </ul>
 *</div>
 ```
+
 > The `div.collapse.navbar-collapse` is necessary for the responsive behavior of the navbar, which we sadly won't see in details on this course.
 
 Notice the `.navbar-nav > .navbar-item > .nav-link` hierarchy.
@@ -874,7 +867,7 @@ Simply add any element with the button classes to the navbar:
 ```html
 <nav class="navbar navbar-expand navbar-dark bg-primary">
   <div class="container">
-    <span class="navbar-brand">Bootstrap Initiation</span>
+    <a href="/" class="navbar-brand">Bootstrap Initiation</a>
     <div class="collapse navbar-collapse">
       <!-- navbar list -->
     </div>
@@ -891,55 +884,17 @@ Simply add any element with the button classes to the navbar:
 
 If you scroll in your `index.html` page, you'll see that the navbar **scrolls with it**, thus disappearing from the screen at one point.
 
-You may want to have a navbar that's **constantly fixed** to the top of the screen.
+You may want to have a navbar that's **fixed** to the top of the screen when scrolling down.
 
-To do this, add the `.fixed-top` class to your `<navbar>` element.
+To do this, add the `.sticky-top` class to your `<navbar>` element.
 
-> Using the `.fixed-bottom` class will stick the navbar to the bottom of the page.
+> Using the `.sticky-bottom` class will stick the navbar to the bottom of the page.
 
 ```html
-<nav class="navbar navbar-expand navbar-dark bg-primary `fixed-top`">
+<nav class="navbar navbar-expand navbar-dark bg-primary `sticky-top`">
   <!-- navbar content -->
 </nav>
 ```
-
-But, damn!, now our navbar **overlaps** our content...
-
-> Since the navbar is now a fixed element, it **doesn't take space** anymore in the page flow. So all other content are **moved back up**.
-
-To fix this, we need to **add some padding** to the element that encloses our content.
-
-#### Fixing the fixed navbar
-
-Let's change our content element from a `<div>` to a `<main>` (for better semantics):
-
-```html
-&lt;body
-<nav class="navbar navbar-default navbar-fixed-top">
-  <!-- navbar content -->
-</nav>
-*<main class="container">
-  <!-- main content -->
-*</main>
-&lt;/body>
-```
-
-To add some padding, let's define a custom stylesheet.
-
-1. In your project directory, create a `css` directory if it doesn't exist yet
-2. In this `css` directory, create a new `style.css`, and open it
-3. Add this line, and save the file:
-
-  ```css
-    /* The actual padding value will depend on your design */
-    main { padding: 56px; }
-  ```
-
-1. Include the new CSS file in your `index.html`, between the `<head>` tags:
-
-  ```html
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  ```
 
 ### Lists
 
@@ -990,10 +945,10 @@ If you'd like your list elements to be clickable, you need to tweek a little you
 You can now add a `href` attribute to any list item:
 
 ```html
-<a class="list-group-item list-group-item-action"
-  `href="https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series"`>
-  The Original Series
-</a>
+<a
+  class="list-group-item list-group-item-action"
+  `href="https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series"`
+>The Original Series</a>
 ```
 
 #### I want more!
@@ -1017,6 +972,7 @@ Let's create a second list right below the `<h2>Lists</h2>` element:
   <a class="list-group-item list-group-item-action"></a>
 </div>
 ```
+
 #### Custom list item
 
 You can add any kind of HTML within the `<a>` list-items to enrich them.
@@ -1029,6 +985,7 @@ You can add any kind of HTML within the `<a>` list-items to enrich them.
 * <p>Beam me up, Scotty!</p>
 </a>
 ```
+
 You don't need to add extra classes to the custom content, unless you want to customize it depending on your needs, of course.
 
 #### Contextual list item colors
@@ -1052,19 +1009,22 @@ Use a `list-group-item-` prefix before the color you want to apply:
   </a>
 </div>
 ```
+
 ### Badges
 
 <!-- slide-column 50 -->
+
 If you have used some kind of web applications, you probably have seen little numbers in list elements or icons.
 
 <!-- slide-column 50 -->
 <p class='center'><img class='shadow' src='images/badges-examples.jpg' /></p>
 
 <!-- slide-column 100 -->
+
 Bootstrap provides a similar component, called a _badge_. Use a `<span>` element with the `.badge` class anywhere in your app to add a badge:
 
 ```html
-<a class="list-group-item list-group-item-action  list-group-item-success">
+<a class="list-group-item list-group-item-action list-group-item-success">
   <h5 class="d-flex justify-content-between">
     <span>Jame T. Kirk</span>
 *   <span class="badge">3</span>
@@ -1072,10 +1032,11 @@ Bootstrap provides a similar component, called a _badge_. Use a `<span>` element
   <p>Beam me up, Scotty!</p>
 </a>
 ```
-As it is, a `.badge` class only adds spacing and style the content. You can add color to the badge by prefixing the color name with a `badge-` prefix:
+
+As it is, a `.badge` class only adds spacing and style the content. You can add color to the badge by prefixing the color name with a `text-bg-` prefix:
 
 ```html
-<span class="badge `badge-light`">3</span>
+<span class="badge `text-bg-light`">3</span>
 ```
 
 ## Cards
@@ -1088,9 +1049,7 @@ Put this right before the `<h2>Lists</h2>`:
 
 ```html
 <h2>Cards</h2>
-<div class="`card`">
-  Today, I ate an apple. It was tasty
-</div>
+<div class="`card`">Today, I ate an apple. It was tasty</div>
 ```
 
 You see that the content is placed inside some kind of round-cornered block.
@@ -1103,9 +1062,7 @@ For correct spacing, the content of a panel **should be** placed inside a `<div>
 
 ```html
 <div class="card">
-  <div class="`card-body`">
-    Today, I ate an apple. It was tasty
-  </div>
+  <div class="`card-body`">Today, I ate an apple. It was tasty</div>
 </div>
 ```
 
@@ -1115,14 +1072,10 @@ You can add a **header** and a **footer** to a card, to better structure its con
 
 ```html
 <div class="card">
-* <div class="card-header">
-*   John Doe commented on that:
-* </div>
-  <div class="card-body">
-    Today, I ate an apple. It was tasty
-  </div>
+* <div class="card-header">John Doe commented on that:</div>
+  <div class="card-body">Today, I ate an apple. It was tasty</div>
 * <div class="card-footer">
-*   <button class="btn btn-light btn-sm">Like</button>
+*   <button class="btn btn-dark btn-sm">Like</button>
 * </div>
 </div>
 ```
@@ -1133,14 +1086,10 @@ You can directly use any [color utility classes](#21) to style the different par
 
 ```html
 <div class="card `text-primary bg-warning`">
-  <div class="card-header `text-danger`">
-    John Doe commented on that:
-  </div>
-  <div class="card-body `bg-dark`">
-    Today, I ate an apple. It was tasty
-  </div>
+  <div class="card-header `text-danger`">John Doe commented on that:</div>
+  <div class="card-body `bg-dark`">Today, I ate an apple. It was tasty</div>
   <div class="card-footer `bg-info`">
-    <button class="btn btn-light btn-sm">Like</button>
+    <button class="btn btn-dark btn-sm">Like</button>
   </div>
 </div>
 ```
@@ -1161,7 +1110,7 @@ The [documentation is choke full of information][bs-card] about them ; you're st
 
 ## Icons
 
-Bootstrap doesn't come with a bundle icon set since its version 4. As a result, you need to include yourself an icon library, would you want to use one.
+Bootstrap doesn't come with a included icon set since its version 4. As a result, you need to include yourself an icon library, would you want to use one.
 
 The documentation recommand you some libraries, tested and used by the people behind Bootstrap. One of them is the **Font Awesome** library, which has [a huge amount of icons][fa-icons] to choose from.
 
@@ -1170,9 +1119,14 @@ The documentation recommand you some libraries, tested and used by the people be
 You can include the **Font Awesome Library** with a many number of way, the easier one being through a CDN. Add the following line in the `<head>` of your `index.html`:
 
 ```html
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    rel="stylesheet">
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+  rel="stylesheet"
+/>
 ```
+
+> Note that the Bootstrap team also maintain its own dedicated icon library, which you can checkout [here][bootstrap-icons]
+
 ### Usage
 
 Once the CSS is included, you can add icons to your page by using an `<i>` element, with the class `.fas` and the name of the icon.
@@ -1213,16 +1167,16 @@ You will find the final HTML file for this course [here][final-file].
 
 [fa-icons]: https://fontawesome.com/icons?d=gallery&m=free
 [fa-align-left]: https://fontawesome.com/icons/align-left?style=solid
-[bs-card]: https://getbootstrap.com/docs/4.4/components/card/
+[bs-card]: https://getbootstrap.com/docs/5.3/components/card/
 [vscode]: https://code.visualstudio.com/
 [bootstrap-css]: http://getbootstrap.com/docs/
-[bootstrap-reboot]: https://getbootstrap.com/docs/4.4/content/reboot/
+[bootstrap-reboot]: https://getbootstrap.com/docs/5.3/content/reboot/
 [chrome]: https://www.google.com/chrome/
 [rtfm]: https://en.wikipedia.org/wiki/RTFM
 [bootstrap]: http://getbootstrap.com/
-[dl-bootstrap]: https://getbootstrap.com/docs/4.4/getting-started/download/#compiled-css-and-js
+[bootstrap-icons]: https://icons.getbootstrap.com/
+[dl-bootstrap]: https://getbootstrap.com/docs/5.3/getting-started/download/#compiled-css-and-js
 [normalize]: https://necolas.github.io/normalize.css/
-[bootstrap-glyphicons]: http://getbootstrap.com/components/#glyphicons-glyphs
 [final-file]: https://gist.githubusercontent.com/Tazaf/18732ef01164f7b6348443c4c4748f42/raw/index.html
 [bsm]: ../bootstrap-layout-management
 [setup]: ../setup

@@ -32,7 +32,6 @@ We will see what we need to install and setup for this course.
 - [Access your project](#access-your-project)
   - [What does `live-server` do](#what-does-live-server-do)
     - [Let's see...](#lets-see)
-- [(Optional) VS Code Live Share](#optional-vs-code-live-share)
 - [Resources](#resources)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -45,9 +44,9 @@ We will see what we need to install and setup for this course.
 
 Node.js is a JavaScript engine that you can install on your machine to execute JavaScript programs without using a browser.
 
-It's primarily used to develop both backend web applications and tools.
+It's primarily used to develop both backend web applications and CLI tools.
 
-During this course, we won't use it directly, but we will use tools that need Node.js to run.
+During this course, we won't use it _directly_, but we will use tools that need Node.js to run.
 
 ### Install Node.js
 
@@ -67,7 +66,7 @@ In this terminal, type the following command:
 $> node --version
 ```
 
-> You should see in return the version number of your node installation (should be `v12.16.1` or above)
+> You should see in return the version number of your node installation (should be `v18.x.x` or above)
 
 ### NPM
 
@@ -93,9 +92,11 @@ Open your **Terminal** (if you closed it before), and type the following command
 $> npm install -g live-server
 ```
 
-> `npm install` allows you to install one or more packages on your system.
+> `npm install -g` allows you to install one or more packages globally on your system.
 
 You should see some activity in your screen, meaning that the package is being installed.
+
+> As long as no `ERR` lines are logged, you are probably fine. If you have any doubt, ask me.
 
 ### Check
 
@@ -115,7 +116,7 @@ A **project directory** is simply a directory where all files for a specific web
 
 You will need a project directory for both **this course** and **the project** you'll have to deliver at the end.
 
-Right now, create an empty directory called `dfa-course` somewhere on your filesystem.
+Right now, create an empty directory called `dfa-course` somewhere on your filesystem (probably in your user directory).
 
 > This `dfa-course` project folder is where we will put most of the examples and exercices that we will see in the course.
 >
@@ -127,8 +128,8 @@ Right now, create an empty directory called `dfa-course` somewhere on your files
 
 Most (_if not all_) web project directories have an `index.html` file endpoint:
 
-- In WebSite, this is the **landing page**.
-- In WebApplication, this is the **page that loads the app**.
+- In web sites, this is the **landing page**.
+- In web applications, this is the **page that loads the app**.
 
 <hr>
 
@@ -136,7 +137,7 @@ For this `dfa-course`, we **provide** you with the **content** of your `index.ht
 
 Go to [this page][index-gist], and **save it** at the root of your project directory, under the name `index.html`.
 
-> Hit `Ctrl + S` while on the page to save it on your file system, or select all the text and copy-paste it on an empty new file.
+> Hit `Ctrl + S` while on the page to save it on your file system, or select all the text and copy-paste it on an empty new file in your project directory.
 
 ## Access your project
 
@@ -156,9 +157,9 @@ $> live-server
 
 Like the last time, your browser should open a new tab at `127.0.0.1:8080`.
 
-But this time, you should see this:
+But this time, you should see something like this:
 
-<p class='shadow'><img src='images/without-bootstrap.jpg' width='100%' /></p>
+<p class='shadow'><img src='images/without-bootstrap.png' width='100%' /></p>
 
 ### What does `live-server` do
 
@@ -168,15 +169,15 @@ But this time, you should see this:
 
 **It's a simple Local Web Server.**
 
-That means it can serve files contained in a directory, here the `index.html` file in your `dfa-course` directory, **as if they were provided through a distant server**.
+That means it can serve files contained in a directory, here the `index.html` file in your `dfa-course` directory, **as if they were provided through a distant server on the web**.
 
-> `live-server` expects an `index.html` file at the root of the directory. If it does not find one, it will display the content of the diretory.
+> `live-server` will automatically serve the `index.html` file at the root of the directory if it exists. Otherwise, it will display the content of the diretory.
 
 <hr>
 
 **It has Live-Reload.**
 
-With Live-Reload, `live-server` is able to activly watch **all files** in the directory it's currently serving.
+With Live-Reload, `live-server` is able to actively watch **all files** in the directory it's currently serving.
 
 Whenever a **save** is detected **on one of these files**, it automatically **reloads the tab** to reflect those changes.
 
@@ -204,21 +205,8 @@ Open `index.html` in your text editor (_if you closed it before_), and change th
 
 **Save** the file and **go back to the tab in your browser** to see that the changes have been detected and **applied**.
 
-**Revert** the line to its previous state, **save again** and see how magically the web page has changed.
+**Revert** the line to its previous state, **save again** and see how ✨_magically_✨ the web page has changed.
 
-## (Optional) VS Code Live Share
-
-For those of you who are using or will use VS Code (which I personally recommand), I advise you to install at least the Live Share plugins expansion pack.
-
-Live Share is a pack of additional plugins for VS Code that allow **a user to start a collaborating session** from VS Code, invite others to **collaborate with him in real-time** (very much like Google Docs does), and share local resources across the network.
-
-It also provides **textual and voiced chat** for people in the same sharing session.
-
-Considering the current Covid-19 situation, those Live Share features might come handy for **advanced distant support** later in the course (and espacially during the project).
-
-To install Live Share, first install [VS Code][vscode], then [the dedicated Expansion Pack][live-share-pack].
-
-> Note that you can [join a session event without VS Code][browser-live-share] (but not start one).
 
 ## Resources
 

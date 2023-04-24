@@ -33,13 +33,13 @@ Hands-on practice on the use of Bootstrap to create a static web page.
 
 1. Create a new project directory in your file system (`bootstrap-practice`)
 2. Download the [basic HTML template][bht] and save it as `index.html`
-3. **Using only Bootstrap classes, recreate the following page**.
+3. **Using only Bootstrap classes** (that is: no custom CSS neither in HTML `style` attributes, nor in dedicated `.css` files), **recreate the following page**.
 
 > Click on the image to see it full-screen.
 
 <a class="center" href="images/final-result.png" target="blank"><img src="images/final-result.png" class="shadow" width="50%" /></a>
 
-> Try to have a result as faithful as possible compared to the example. "The devil is in the details", as one said.
+> Try to have a result as faithful as possible compared to the example.
 
 > Don't hesitate to ask for more details about some particular elements of the page if you can not deduce it from the image.
 
@@ -60,17 +60,7 @@ The steps could be:
 
 This practice was only realised using Bootstrap classes. Try to do the same.
 
-Yes, it could be sometimes easier to just write some custom classes and be done with it. But that would defeat the purpose of this practice :)
-
-The **ONLY** custom CSS needed is the one that adds the margin on the content, due to the navbar being fixed to the top.
-
-```css
-main {
-  margin-top: 70px;
-}
-```
-
-> You can add this CSS directly in a `<script>` tag at the end of your `<head>` element, or create a new CSS file; your choice.
+Yes, it could be sometimes easier to just write some custom classes and be done with it. But that would defeat the purpose of this practice 😉
 
 ## References
 
@@ -97,22 +87,22 @@ This exercice will require you to use:
 
 > **Ask questions before throwing your computer out the window.**
 
-> Bootstrap can be quite frustrating at first ;)
+> Bootstrap can be quite frustrating at first 😉
 
-[flexbox]: https://getbootstrap.com/docs/4.4/utilities/flex/
-[active-list]: https://getbootstrap.com/docs/4.3/components/list-group/#active-items
-[active-nav]: https://getbootstrap.com/docs/4.3/components/navbar/#nav
-[navbar]: https://getbootstrap.com/docs/4.3/components/navbar/
-[lists]: https://getbootstrap.com/docs/4.3/components/list-group/
-[cards]: https://getbootstrap.com/docs/4.3/components/card/
-[badges]: https://getbootstrap.com/docs/4.3/components/badge/
-[forms]: https://getbootstrap.com/docs/4.3/components/forms/
-[grid]: https://getbootstrap.com/docs/4.3/layout/grid/
+[flexbox]: https://getbootstrap.com/docs/5.3/utilities/flex/
+[active-list]: https://getbootstrap.com/docs/5.3/components/list-group/#active-items
+[active-nav]: https://getbootstrap.com/docs/5.3/components/navbar/#nav
+[navbar]: https://getbootstrap.com/docs/5.3/components/navbar/
+[lists]: https://getbootstrap.com/docs/5.3/components/list-group/
+[cards]: https://getbootstrap.com/docs/5.3/components/card/
+[badges]: https://getbootstrap.com/docs/5.3/components/badge/
+[forms]: https://getbootstrap.com/docs/5.3/forms/overview/
+[grid]: https://getbootstrap.com/docs/5.3/layout/grid/
 [bht]: https://gist.githubusercontent.com/Tazaf/420a368389367a83fcfb96ab3a51bf8a/raw/index.html
-[alert]: https://getbootstrap.com/docs/4.4/components/alerts/
-[btn-group]: https://getbootstrap.com/docs/4.3/components/button-group/
+[alert]: https://getbootstrap.com/docs/5.3/components/alerts/
+[btn-group]: https://getbootstrap.com/docs/5.3/components/button-group/
 [nav-text]: http://getbootstrap.com/components/#navbar-text
-[nest]: https://getbootstrap.com/docs/4.3/layout/grid/#nesting
+[nest]: https://getbootstrap.com/docs/5.3/layout/grid/#nesting
 [bb]: ../bootstrap
 [blm]: ../bootstrap-layout-management
 [setup]: ../setup
