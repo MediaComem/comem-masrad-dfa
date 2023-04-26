@@ -82,12 +82,10 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 ## Documentation
 
-- [Citizen Engagement API][citizen-engagement-api-docs]
 - [Travel Log API][travel-log-api-docs]
 
 ## Useful links
 
-- [Citizen Engagement API][citizen-engagement-api] (implementation & docs source)
 - [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
 
 [angular-leafet]: https://mediacomem.github.io/comem-archidep/latest/subjects/angular-leaflet/
@@ -95,8 +93,6 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [bb]: ./subjects/bootstrap
 [blm]: ./subjects/bootstrap-layout-management
 [bex]: ./subjects/bootstrap-practice
-[citizen-engagement-api]: https://github.com/MediaComem/comem-citizen-engagement-api
-[citizen-engagement-api-docs]: https://mediacomem.github.io/comem-citizen-engagement-api/
 [cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [comem]: http://www.heig-vd.ch/comem
 [comem-archioweb]: https://mediacomem.github.io/comem-archioweb/latest/
