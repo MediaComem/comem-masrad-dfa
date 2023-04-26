@@ -32,18 +32,18 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 ## Plan
 
-- [Introduction][dfa]
-- [Setting up your environment][setup]
+- ✔ [Introduction][dfa]
+- ✔ [Setting up your environment][setup]
 
 - Bootstrap
-  - [Getting started][bb]
-  - [Layout management][blm] ([practice][bex])
+  - ✔ [Getting started][bb]
+  - ✔ [Layout management][blm] ([practice][bex])
 
 - JavaScript
-  - [Basics and more][js-bas]
+  - ✔ [Basics and more][js-bas]
 
 - DOM Manipulation
-  - [With JavaScript][js-dom]
+  - ✔ [With JavaScript][js-dom]
   - [With jQuery][jq-dom]
 
 - Web Service and asynchronous operations
