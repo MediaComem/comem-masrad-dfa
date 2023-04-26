@@ -39,4 +39,4 @@ jobs:
       id: deploy
       env:
         DEBUG: courses-md:*
-      run: npm run deploy
+      run: ls && npm run deploy
