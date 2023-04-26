@@ -39,4 +39,6 @@ jobs:
 
     - name: Deploy course
       id: deploy
+      env:
+        DEBUG: courses-md:*
       run: npm run deploy
