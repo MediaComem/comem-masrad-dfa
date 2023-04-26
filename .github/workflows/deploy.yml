@@ -18,8 +18,6 @@ jobs:
     # Checks-out the repository under $GITHUB_WORKSPACE
     - name: Checkout repo
       uses: actions/checkout@v3.5.2
-
-    - run: cd $GITHUB_WORKSPACE
     
     # Install SSH Key to authorize operations by the Runner on the repo
     - name: Install SSH Key
