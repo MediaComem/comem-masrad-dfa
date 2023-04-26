@@ -1,6 +1,7 @@
 name: Deploy latest course version
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
 
