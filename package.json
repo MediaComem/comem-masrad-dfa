@@ -18,7 +18,7 @@
   "homepage": "https://github.com/MediaComem/comem-masrad-dfa#readme",
   "scripts": {
     "build": "courses-md build",
-    "deploy": "courses-md publish",
+    "deploy": "courses-md --config ./config.js publish",
     "doctoc": "doctoc --notitle --github ./subjects && doctoc --notitle --github README.md",
     "start": "courses-md",
     "watch": "courses-md watch"
