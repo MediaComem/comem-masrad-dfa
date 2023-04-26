@@ -24,12 +24,12 @@
     "watch": "courses-md watch"
   },
   "dependencies": {
-    "bootstrap": "^4.4.1",
-    "courses-md": "~0.5.0",
-    "doctoc": "^1.4.0",
+    "bootstrap": "^5.2.3",
+    "courses-md": "^0.7.5",
+    "doctoc": "^2.2.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.21",
-    "micromodal": "^0.4.2",
-    "tippy.js": "^1.4.1"
+    "micromodal": "^0.4.10",
+    "tippy.js": "^6.3.7"
   }
 }
