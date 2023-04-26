@@ -127,7 +127,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [ng-starter]: ./subjects/angular-auth-starter/
 [ng-ui-router]: ./subjects/angular-ui-router
 [ng-ui-router-exercise]: https://github.com/MediaComem/comem-webdev-angular-ui-router-exercise
-[npm]: https://mediacomem.github.io/comem-archioweb/2019-2020/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[npm]: https://mediacomem.github.io/comem-archioweb/latest/subjects/npm/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [project-starter]: https://github.com/Tazaf/masrad-project-starter
 [rest]: https://mediacomem.github.io/comem-archioweb/latest/subjects/rest/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [rest-demo]: https://github.com/MediaComem/comem-webdev-express-rest-demo
