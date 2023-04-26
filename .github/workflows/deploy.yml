@@ -18,14 +18,14 @@ jobs:
     # Checks-out the repository under $GITHUB_WORKSPACE
     - name: Checkout repo
       uses: actions/checkout@v3.5.2
-    
+
     # Install SSH Key to authorize operations by the Runner on the repo
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2.5.1
       with:
         key: ${{ secrets.ACTION_SSH_KEY }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-        
+
     # Configure Git for commits on gh-pages
     - name: Configure Git
       run: |
@@ -37,6 +37,4 @@ jobs:
 
     - name: Deploy course
       id: deploy
-      env:
-        DEBUG: courses-md:*
-      run: ls && npm run deploy
+      run: npm run deploy
