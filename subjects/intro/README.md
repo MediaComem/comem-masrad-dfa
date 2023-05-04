@@ -17,7 +17,6 @@ Everything starts from here: [https://github.com/MediaComem/comem-masrad-dfa][df
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Course deliverable](#course-deliverable)
 - [Back end](#back-end)
 - [Travel Log](#travel-log)

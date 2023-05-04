@@ -24,7 +24,6 @@ Learn how Bootstrap helps you structure your HTML layouts, using both its grid s
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Example file](#example-file)
 - [Default HTML layout](#default-html-layout)
   - [Altering the default layout](#altering-the-default-layout)

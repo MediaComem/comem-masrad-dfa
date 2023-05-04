@@ -20,7 +20,6 @@ Lean about **security measures** when communicating with RESTful APIs from your 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Your request has been blocked](#your-request-has-been-blocked)
   - [I want to see for myself!](#i-want-to-see-for-myself)
 - [Same-origin policy (SOP)](#same-origin-policy-sop)

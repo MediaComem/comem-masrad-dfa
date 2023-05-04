@@ -21,7 +21,6 @@ Get started with the Geolocation API in your Angular application.
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [The API](#the-api)
 - [The service](#the-service)
 - [Getting the position](#getting-the-position)

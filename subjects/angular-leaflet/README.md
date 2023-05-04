@@ -20,7 +20,6 @@ Learn the basics of using the angular-leaflet directive in your project, to disp
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Leaflet](#leaflet)
   - [Importing Leaflet styles](#importing-leaflet-styles)
   - [Importing Leaflet assets](#importing-leaflet-assets)

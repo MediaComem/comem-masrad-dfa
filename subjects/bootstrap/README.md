@@ -20,7 +20,6 @@ Introduction to [Bootstrap][bootstrap], a HTML/CSS framework, useful to quickly 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [What is Bootstrap?](#what-is-bootstrap)
 - [Why Bootstrap?](#why-bootstrap)
   - [CDN](#cdn)

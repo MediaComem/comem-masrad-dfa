@@ -22,7 +22,6 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Setup](#setup)
 - [Include jQuery](#include-jquery)
   - [Script inclusions](#script-inclusions)
@@ -44,7 +43,7 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
 - [Feature : _"Select discussion item"_](#feature--_select-discussion-item_)
   - [Template update N°1](#template-update-n%C2%B01)
   - [Events](#events)
-    - [`this`? `$(this)`?](#this-this)
+    - [Get the event target?](#get-the-event-target)
   - [Add a CSS class](#add-a-css-class)
   - [Remove a CSS class](#remove-a-css-class)
   - [Change the content](#change-the-content)
@@ -53,14 +52,11 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
   - [Template update N°2](#template-update-n%C2%B02)
   - [Attach the events](#attach-the-events)
     - [Buttons in a form](#buttons-in-a-form)
-  - [Prevent default behavior](#prevent-default-behavior)
+  - [Prevent default behavior with HTML](#prevent-default-behavior-with-html)
   - [Change button state](#change-button-state)
-  - [Managing the focus](#managing-the-focus)
-  - [Chaining method calls](#chaining-method-calls)
-    - [Be cautious](#be-cautious)
   - [Planning the logic](#planning-the-logic)
   - [Detect the button](#detect-the-button)
-  - [Do you have _any_ class?](#do-you-have-_any_-class)
+  - [Present your ID...](#present-your-id)
     - [if ... else if ... else](#if--else-if--else)
   - [Finally... change the alignment!](#finally-change-the-alignment)
   - [Complete code](#complete-code-1)
@@ -68,6 +64,7 @@ Learn how to use the jQuery library to manipulate the DOM of a web page and crea
   - [Template update N°3](#template-update-n%C2%B03)
   - [The basics](#the-basics)
   - [Get the value inside `#message`](#get-the-value-inside-message)
+  - [Prevent default behavior with JS](#prevent-default-behavior-with-js)
   - [Validation phase](#validation-phase)
     - [Error! Error! Err...](#error-error-err)
   - [What's your alignment?](#whats-your-alignment)
@@ -111,9 +108,8 @@ To add jQuery in your project, you can include it via a CDN link, in your `index
 ```html
 <body>
   ...
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
     crossorigin="anonymous"></script>
 &lt;/body>
 ```
@@ -171,7 +167,7 @@ console.log($("body").jquery);
 Access your browser's console and you should see the following lines:
 
 ```bash
-3.4.1
+3.6.4
 Live reload enabled.
 ```
 
@@ -424,12 +420,17 @@ $("h4", $("a.list-group-item"));
 
 For **better UI behavior**, we need to tell our browser to show the **click pointer icon** when passing over our discussion list items.
 
-Add this line in the `<style>` tag, after the `main` style:
+Add a new `<style>` tag at the end of your `<head>` tag with the following styles:
 
-```css
-.list-group-item {
-  cursor: pointer;
-}
+```html
+<head>
+  ...
+* <style>
+*   .list-group-item {
+*     cursor: pointer;
+*   }
+* </style>
+</head>
 ```
 
 <!-- slide-front-matter class: middle -->
@@ -440,52 +441,38 @@ Most of the functionnalities we'll implement will rely on things being **clicked
 
 > jQuery can handle more events than just click, [see here][jq-events].
 
-Use the `.click(...)` method to add a click event on an element.
+Use the `.on(...)` method to register a click event handler on an element.
 
-> The `.click(...)` method needs a callback function as its argument, that will be called with **one argument**: the **fired event**
+> The `.on(...)` method needs the name of the event and a callback function as its argument, that will be called with **one argument**: the **fired event**
 
-In order to select another discussion, we need to add a `click` event to the **list elements**.
+In order to select another discussion, we need to listen to `click` events on the **list elements**.
 
 Add this code in your `script.js` file:
 
 ```js
-$("a.list-group-item").click(function (event) {
-  console.log(event);
-});
+$("a.list-group-item").on("click", event => console.log(event));
 ```
 
 Now, go to your page, open your console and try to **click** on one of the list item.
 
 > You should see the object representing the event.
 
-#### `this`? `$(this)`?
+#### Get the event target?
 
 When writing event callback functions you might want to retrieve **the DOM element that triggered the event**.
 
 You can do that with the property `currentTarget` of the event object:
 
 ```js
-$("a.list-group-item").click(function (event) {
-  console.log(`event.currentTarget`);
-});
-```
-
-More simply, use the `this` keyword to achieve the **same purpose**:
-
-```js
-$("a.list-group-item").click(function (event) {
-  console.log(`this`);
-});
+$("a.list-group-item").on("click", event => console.log(`event.currentTarget`));
 ```
 
 Since we are using jQuery, we'd prefer retrieving a **jQuery object** representing this DOM element.
 
-Do that by passing `this` to the `$(...)` function:
+Do that by passing `event.currentTarget` to the `$(...)` function:
 
 ```js
-$("a.list-group-item").click(function (event) {
-  console.log(`$(this)`);
-});
+$("a.list-group-item").on("click", event => console.log(`$(event.currentTarget)`));
 ```
 
 ### Add a CSS class
@@ -500,11 +487,10 @@ This means adding the `.active` CSS class **to the currently clicked element**.
 
 Use the `.addClass(...)` method to do that, and pass it a `string` with the **name of the classes** to be added, separated by a **space**.
 
+> Be sure to type the name of the class **without the starting dot** ; you're writing a class name, not a CSS selector
+
 ```js
-$("a.list-group-item").click(function(event) {
-  // Add the 'active' class to the clicked list item
-* $(this).addClass("active");
-});
+$("a.list-group-item").on("click", event => `$(event.currentTarget).addClass("active")`);
 ```
 
 > Go on your page, and click on your list items.
@@ -522,11 +508,11 @@ Now, we want to remove the active state from the previously selected list elemen
 This element is a `a.list-group-item` with the `.active` class.
 
 ```js
-$("a.list-group-item").click(function(event) {
+$("a.list-group-item").on("click", event => {
   // Remove the 'active' class from the previously selected list item
 * $("a.list-group-item.active").removeClass("active");
   // Add the 'active' class to the clicked list item
-  $(this).addClass("active");
+  $(event.currentTarget).addClass("active");
 });
 ```
 
@@ -536,48 +522,48 @@ Trying to remove a CSS class from an element that **didn't have it** in the firs
 
 ### Change the content
 
-Now that we can changed the selected discussion list item, we want to **remove the notification** about unread messages, that is the badge in the item.
+Now that we can change the selected discussion list item, we want to **remove the notification** about unread messages, that is the badge in the item.
 
 For that we will **change the content** of the `span.badge` inside the list item.
 
-Use the `.text(...)` method to do so, and pass it as argument a `string` that represents the **new content**.
+Use the `.text(...)` method to do so, and pass it a `string` that represents the **new content**.
 
 > Calling the method with **no argument** returns the **current** content.
 
 In our case, since we want to remove the content of the element, we'll use an empty `string` (`""`):
 
 ```js
-$("a.list-group-item").click(function(event) {
+$("a.list-group-item").on("click", event => {
+  const $target = $(event.currentTarget);
   /* Add this after previous code */
 
   // Remove the unread notification
-* $("span.badge", this).text("");
+* $("span.badge", $target).text("");
 });
 ```
 
-> Note that we used the `this` keyword as context when searching for the `span.badge` element, since `this` represents the list item.
+> Note that we used the target of the event as context when searching for the `span.badge` element.
 
 ### Complete code
 
 Here's the complete code for this feature:
 
-> For better readability and structure, we've splitted the **event declaration** from the **function implementation**.
+> For better readability and structure, we've splitted the **event handler declaration** from the **function implementation**.
 
 ```js
-$("a.list-group-item").click(`switchListItem`);
+$("a.list-group-item").on("click", switchListItem);
 
-*function switchListItem() {
-
+*function switchListItem(event) {
+  const $target = $(event.currentTarget);
   // Change the active state to the clicked item
   $("a.list-group-item.active").removeClass("active");
-  $(this).addClass("active");
-
+  $target.addClass('active');
   // Clear the unread notification for the clicked item
-  $("span.badge", this).text("");
+  $('span.badge', $target).text("");
 }
 ```
 
-> Note that we passed the `switchListItem` function as parameter to the `.click(...)` method **without parenthesis**.
+> Note that we passed the `switchListItem` function as parameter to the `.on(...)` method **without parenthesis**.
 
 > We dont' want to **execute the function**, we just want to pass its **reference**.
 
@@ -589,13 +575,13 @@ $("a.list-group-item").click(`switchListItem`);
 
 For the next feature, we will need to **add some `id`** in our `index.html` page.
 
-At the **line 173**, add this `id` to the `<textarea>` element:
+At the **line 174**, add this `id` to the `<textarea>` element:
 
 ```html
 &lt;textarea id="`message`" [...] &gt;&lt;/textarea&gt;
 ```
 
-At the **line 178**, add this `id` to the `<div>` element:
+At the **line 179**, add this `id` to the `<div>` element:
 
 ```html
 <div class="btn-group btn-group-sm" id="`align-btns`"></div>
@@ -618,59 +604,46 @@ $("#align-btns button")...
 > Let's use the second paramter of `$(...)` to retrieve the buttons, and then attach them the event:
 
 ```js
-$("button", $("#align-btns")).click(function (event) {
-  console.log(this);
-});
+$("button", $("#align-btns")).on("click", event => console.log(event.currentTarget));
 ```
 
-> **"What is this strange behavior?"** you might say, **"The page is reload each time a button is clicked. Why?"**
+  > **"What is this strange behavior?"** you might ask, **"The page is reloaded every time a button is clicked. Why?"**
 
 #### Buttons in a form
 
-If you look closely to the HTML structure in which the `button`s are placed, you'll see that they are placed **inside a form**:
+If you look closely at the HTML structure in which the `button`s are placed, you'll see that they are placed **inside a form**:
 
 ```html
 *<form>
   <!-- textarea element -->
-  <div class="btn-group btn-group-sm"
-    id="align-btns">
-    <button class="btn btn-outline-secondary active">
-      <i class="fas fa-align-left"></i>
-    </button>
-    <button class="btn btn-outline-secondary">
-      <i class="fas fa-align-center"></i>
-    </button>
-    <button class="btn btn-outline-secondary">
-      <i class="fas fa-align-right"></i>
-    </button>
+  <div class="btn-group btn-group-sm" id="align-btns">
+    <button class="btn btn-outline-secondary active">...</button>
+    <button class="btn btn-outline-secondary">...</button>
+    <button class="btn btn-outline-secondary">...</button>
   </div>
   <!-- send button -->
 *</form>
 ```
 
-> Clicking on a `<button>` that's placed inside a `<form>` will trigger the submission of said `<form>`.
+> By default, buttons inside a `<form>` and without a `type` attribute are considered `submit` buttons.
+>
+> Clicking on a submit `<button>` inside a `<form>` will trigger the submition of said `<form>`.
+>
+> Since our `form` doesn't have an `action` attribute, its submition will reload the current page.
 
 > **That's a default behavior that we don't want.**
 
-### Prevent default behavior
+### Prevent default behavior with HTML
 
-Remember that the **callback function** called when an event is triggered has one parameter, which is **the triggered event object** ?
+If you have some `<button>`s inside a `<form>` that should not submit it when clicked, you can simple define their `type`:
 
-This event object will **trigger the default behavior** attached to it **after** our code is executed, **unless we say it otherwise**.
-
-The `.preventDefault()` method of the event object is rightly there for this purpose.
-
-Let's call this method at the last line of our callback function:
-
-```js
-$("button", $("#align-btns")).click(function(event) {
-  console.log(this);
-  // Prevent the default submit behavior
-* event.preventDefault();
-});
+```html
+<button type="button">...</button>
 ```
 
-> Clicking on the button will now no longer reload the page.
+This way, the browser will know that this particular button is **NOT** a button that should submit the form.
+
+> Go ahead, and add this attribute to the alignment buttons, but keep the Ssend button without type.
 
 ### Change button state
 
@@ -681,88 +654,14 @@ In the same fashion as the state of the discussion list item, we will want to sw
 This is the code that achieve that:
 
 ```js
-$("button", $("#align-btns")).click(function(event) {
+const $alignButtons = $("#align-btns");
+
+$("button", $alignButtons).on("click", event => {
+  const $target = $(event.currentTarget);
   // Change the active state when a button is clicked
-* $("button.active", $("#align-btns")).removeClass("active");
-* $(this).addClass("active");
-
-  // Prevent the default submit behavior
-  event.preventDefault();
+* $("button.active", $alignButtons).removeClass("active");
+* $target.addClass("active");
 });
-```
-
-> Go on your page, and click on the alignment button, then click somewhere else, and **observe how your button react**.
-
-> You should see that **its style changes**. Thanks to Bootstrap, when a button is clicked, **a border is added**, that disappear when you click elsewhere.
-
-### Managing the focus
-
-This is related to the **focus**, that is an indication of the element in the page that you're currently "using".
-
-Focusing in or out of an element is an **event** to which you can react with JS and/or jQuery.
-
-But you can also **force-activate** those events on elements within your code.
-
-In our case, we want to **focus out of the button** once it has been clicked.
-
-This event of focusing our an element is called `blur`, and can be activated by using the `.blur()` jQuery method:
-
-```js
-$("button", $("#align-btns")).click(function(event) {
-  // Change the active state when a button is clicked
-  $("button.active", $("#align-btns")).removeClass("active");
-  $(this).addClass("active");
-* $(this).blur();
-  // Prevent the default submit behavior
-  event.preventDefault();
-});
-```
-
-### Chaining method calls
-
-In the previous code example, you might have seen that we called, one after the other, **two different methods on the same object**:
-
-```js
-$(this).addClass("active");
-$(this).blur();
-```
-
-jQuery allows you to call **several methods on the same line**.
-
-> This is called **method chaining**.
-
-In our case, we can do that...
-
-```js
-$(this).addClass("active").blur();
-```
-
-...because the `addClass(...)` returns the object that called it, here `$(this)`, on which we can call `.blur()` right away.
-
-> You need to be aware of **what is returned** by each method if you want to use method chaining.
-
-#### Be cautious
-
-Remember what the `.find(...)` method does?
-
-```js
-$("#align-btns").find("button");
-```
-
-> The `.find(...)` method here will return all the `button` elements that it's found inside the `#align-btns` element.
-
-Thus, methods chained after a call to `.find(...)` will **not be applied** to the `$("#align-btns")` object:
-
-```js
-$("#align-btns").find("button")`.addClass("active")`;
-```
-
-> The `active` class will be applied to each objects returned from `.find(...)`.
-
-If you'd want to apply the `.addClass(...)` method to the `$("#align-btns")` object first, you'd need to write it like this:
-
-```js
-$("#align-btns")`.addClass("active")`.find("button");
 ```
 
 ### Planning the logic
@@ -771,9 +670,9 @@ Now that our buttons behave as expected, let's make them concretly **change the 
 
 Bootstrap has **three utility classes** that helps you manage text-alignment:
 
-- `.text-left`
+- `.text-start`
 - `.text-center`
-- `.text-right`
+- `.text-end`
 
 So, all we need to do, in our callback function, is:
 
@@ -783,50 +682,47 @@ So, all we need to do, in our callback function, is:
 
 ### Detect the button
 
-To detect which button has been click we _could_ add an `id` to each button.
-
-But, in the HTML, we can see that there is already something that could help us in that task: the icon.
+To detect which button has been click we will add an `id` to each button.
 
 ```html
 <div class="btn-group btn-group-sm"
   id="align-btns">
-  <button class="btn btn-outline-secondary active">
-*   <i class="fas fa-align-left"></i>
+  <button class="btn btn-outline-secondary active" `id="align-start-btn"`>
+    <i class="fas fa-align-left"></i>
   </button>
-  <button class="btn btn-outline-secondary">
-*   <i class="fas fa-align-center"></i>
+  <button class="btn btn-outline-secondary" `id="align-center-btn"`>
+    <i class="fas fa-align-center"></i>
   </button>
-  <button class="btn btn-outline-secondary">
-*   <i class="fas fa-align-right"></i>
+  <button class="btn btn-outline-secondary" `id="align-end-btn"`>
+    <i class="fas fa-align-right"></i>
   </button>
 </div>
 ```
 
-> We need to retrieve the `<i>` element inside the button, then check what class this `<i>` has.
+### Present your ID...
 
-### Do you have _any_ class?
-
-The `.hasClass(...)` method can detect if the element possesses the class name given as parameter.
-
-> This method returns a boolean (`true`/`false`).
+To check the value of an element attribute with jQuery, call the `attr(...)` method with the name of the attribute.
 
 ```js
-// Will return true
-$("li.active").hasClass("active");
+console.log($("li#active").attr("id"));
+// Will print "active"
 ```
 
-Let's retrieve the `<i>` inside the clicked button and check, for example, if it has the `.fa-align-right` class:
+Let's check what is the `id` of the clicked button :
 
 ```js
-$("button", $("#align-btns")).click(function(event) {
-  /* Previous code */
-  $(this).addClass("active").blur();
+const $alignButtons = $("#align-btns");
 
-* if ($("i", this).hasClass("fa-align-right")) {
-    // The clicked button is the one for align to the right.
+$("button", $alignButtons).on("click", event => {
+  const $target = $(event.currentTarget);
+  // Change the active state when a button is clicked
+  $("button.active", $alignButtons).removeClass("active");
+  $target.addClass("active");
+  // Check what button has been clicked
+  const btnId = $target.attr("id");
+  if (btnId === "align-start-btn") {
+    // We clicked the align left button !
   }
-
-  /* Following code */
 });
 ```
 
@@ -835,26 +731,22 @@ $("button", $("#align-btns")).click(function(event) {
 Using a `if ... else if ... else` structure, we can complete our test:
 
 ```js
-$("button", $("#align-btns")).click(function (event) {
+const $alignButtons = $("#align-btns");
+
+$("button", $alignButtons).on("click", event => {
+  const $target = $(event.currentTarget);
   // Change the active state when a button is clicked
-  $("button", $("#align-btns")).removeClass("active");
-  $(this).addClass("active").blur();
-
-  if (`$("i", this).hasClass("fa-align-right")`) {
-    // The clicked button is the one to align to the right
-    console.log("Align to the right!");
-  } else if (`$("i", this).hasClass("fa-align-center")`) {
-    // The clicked button is the one to align to the center
-    console.log("Align to the center!");
-  } else {
-    // The clicked button is neither the one to align to the right
-    // nor the one to align to the center...
-    // It must be the one to align to the left, then!
-    console.log("Align to the left!");
+  $("button.active", $alignButtons).removeClass("active");
+  $target.addClass("active");
+  // Check what button has been clicked
+  const btnId = $target.attr("id");
+  if (btnId === "align-start-btn") {
+    console.log("Align start button");
+  } else if (btnId === "align-center-btn") {
+    console.log("Align center button");
+  } else if (btnId === "align-end-btn") {
+    console.log("Align end button");
   }
-
-  // Prevent the default submit behavior
-  event.preventDefault();
 });
 ```
 
@@ -862,57 +754,55 @@ $("button", $("#align-btns")).click(function (event) {
 
 ### Finally... change the alignment!
 
+**When the** _align-start_ **button has been clicked:**
+
+```js
+if (btnId === "align-start-btn") {
+* $("#message").removeClass("text-end text-center").addClass("text-start");
+}
+```
+
+**When the** _align-center_ **button has been clicked:**
+
+```js
+else if (btnId === "align-center-btn") {
+* $("#message").removeClass("text-end text-start").addClass("text-center");
+}
+```
+
 **When the** _align-right_ **button has been clicked:**
 
 ```js
-if ($("i", this).hasClass("fa-align-right")) {
-*   $("#message").removeClass("text-left text-center").addClass("text-right");
+else if (btnId === "align-end-btn") {
+* $("#message").removeClass("text-start text-center").addClass("text-end");
 }
 ```
-
-**When the** _align-center_ **button has been clicked:**
-
-```js
-else if ($("i", this).hasClass("fa-align-center")) {
-*   $("#message").removeClass("text-right text-left").addClass("text-center");
-}
-```
-
-**When the** _align-center_ **button has been clicked:**
-
-```js
-else {
-*   $("#message").removeClass("text-right text-center");
-}
-```
-
-> We don't have to add the `.text-left` class because, by default, the text is aligned to the left in HTML elements.
 
 ### Complete code
 
 Here's the complete code for this feature:
 
-> For better readability and structure, we've splitted the **event declaration** from the **function implementation**.
+> For better readability and structure, we've splitted the **event handler declaration** from the **function implementation**.
 
 ```js
-$("button", $("#align-btns")).click(changeAlignment);
+const $alignButtons = $("#align-btns");
+
+$("button", $alignButtons).on("click", changeAlignment);
 
 function changeAlignment(event) {
+  const $target = $(event.currentTarget);
   // Change the active state when a button is clicked
-  $("button", $("#align-btns")).removeClass("active");
-  $(this).addClass("active").blur();
-
-  // React to the adequate clicked button
-  if ($("i", this).hasClass("fa-align-right")) {
-    $("#message").removeClass("text-left text-center").addClass("text-right");
-  } else if ($("i", this).hasClass("fa-align-center")) {
-    $("#message").removeClass("text-right text-left").addClass("text-center");
-  } else {
-    $("#message").removeClass("text-right text-center");
+  $("button.active", $alignButtons).removeClass("active");
+  $target.addClass("active");
+  // Check what button has been clicked
+  const btnId = $target.attr("id");
+  if (btnId === "align-left-btn") {
+    $("#message").removeClass("text-end text-center").addClass("text-start")
+  } else if (btnId === "align-center-btn") {
+    $("#message").removeClass("text-end text-start").addClass("text-center");
+  } else if (btnId === "align-right-btn") {
+    $("#message").removeClass("text-start text-center").addClass("text-end");
   }
-
-  // Prevent the default submit behavior
-  event.preventDefault();
 }
 ```
 
@@ -924,31 +814,21 @@ function changeAlignment(event) {
 
 For the next feature, we will need to **add some `id`** in our `index.html` page.
 
-At the **line 120**, add this `id` to the `<div>` element:
+At the **line 122**, add this `id` to the `<div>` element:
 
 ```html
 <div class="card-body" id="`dialog`"></div>
 ```
 
-At the **line 190**, add this `id` to the `<button>` element:
+At the **line 195**, add this `id` to the `<button>` element:
 
 ```html
-<button class="btn btn-success pull-right btn-sm" id="`send-btn`"></button>
+<button class="btn btn-success btn-sm" id="`send-btn`"></button>
 ```
 
 <!-- slide-front-matter class: middle -->
 
 ### The basics
-
-The "Send" button is **also located inside the form**. So we need to **cancel** its default behavior when it's clicked:
-
-```js
-$("#send-btn").click(function (event) {
-  // Do the thing!
-
-  event.preventDefault();
-});
-```
 
 Now... we'll have to..:
 
@@ -974,22 +854,44 @@ $("#message").val();
 But since we will refer to the `#message` element **several time** in our code, we might as well **cache its reference** in a variable:
 
 ```js
-$("#send-btn").click(function(event) {
-* const $message = $("#message");
-
-  event.preventDefault();
-});
+const $message = $("#message");
 ```
 
 Now, we can get the value:
 
 ```js
-$("#send-btn").click(function(event) {
-  const $message = $("#message");
-* const msgValue = $message.val();
-  event.preventDefault();
+const $message = $("#message");
+
+$("#send-btn").on("click", () => {
+  const msgValue = $message.val();
+  console.log(msgValue);
 });
 ```
+
+> But, wait ! The page is reloading again on each click !
+
+### Prevent default behavior with JS
+
+In this case, we don't want to add a `type="button"` to the Send button, since it is a proper submit button. But we don't want the page to reload still...
+
+Remember that the **callback function** called when an event is triggered has one parameter, which is **the triggered event object** ?
+
+This event object will **trigger the default behavior** attached to it **after** our code is executed, **unless we say it otherwise**.
+
+The `.preventDefault()` method of the event object is rightly there for this purpose.
+
+Let's call this method at the last line of our callback function:
+
+```js
+$("#send-btn").on("click", `event` => {
+  const msgValue = $message.val();
+  console.log(msgValue);
+* event.preventDefault();
+});
+```
+
+> Clicking on the button will now no longer reload the page.
+
 
 ### Validation phase
 
@@ -1000,8 +902,8 @@ In this case, we want to **reject** the creation of the new message if there is 
 Let's prepare the logic structure:
 
 ```js
-$("#send-btn").click(function(event) {
-  /* Get the value */
+$("#send-btn").on("click", event => {
+  const msgValue = $message.val();
 * if (msgValue === "") {
     // No message -> Error handling
 * } else {
@@ -1025,7 +927,7 @@ As a matter of fact, Bootstrap provides you with some classes for this, that you
 The one we'll use is `.is-invalid`:
 
 ```js
-$("#send-btn").click(function(event) {
+$("#send-btn").on("click", event => {
   /* Preceding code */
   if (msgValue === "") {
 *   $message.addClass("is-invalid");
@@ -1036,42 +938,39 @@ $("#send-btn").click(function(event) {
 
 ### What's your alignment?
 
-When the message value **contains something**, we need to retrieve the **correct alignment class** to apply to the future new message in the discussion.
+When the message value **contains something**, we need to retrieve the **correct alignment class** of the textarea to apply to the future new message in the discussion.
 
-Let's create a new **function **that will take **one argument**, a jQuery object, and returns **the name of the correct class**.
+Let's create a new **function** that will take **one argument**, a jQuery object of the textarea, and returns **the name of the correct class**.
 
-> We will use the returned value when creating the new message DOM structure.
+> We will use this returned value when creating the new message DOM structure.
 
 ```js
 // Add this anywhere in your script file.
-function getAlignmentClass($ele) {
-  if ($ele.hasClass("text-right")) {
-    return "text-right";
-  } else if ($ele.hasClass("text-center")) {
+function getTextareaAlignment($textarea) {
+  if ($textarea.hasClass("text-start")) {
+    return "text-class";
+  } else if ($textarea.hasClass("text-center")) {
     return "text-center";
   } else {
-    return null;
+    return "text-end";
   }
 }
 ```
 
-> We don't need to return the `.text-left` class, since it's the by-default alignment if no class is provided.
+> The last `else` covers both the case of the textarea having no alignment class or the `text-end` class.
 
 #### Use the function
 
 Now, we can use our freshly created function to actually retrieve the desired alignment.
 
 ```js
-$("#send-btn").click(function(event) {
-  const $message = $("#message");
+$("#send-btn").on("click", event => {
   const msgValue = $message.val();
-
   if (msgValue === "") {
-    $("#message").addClass("is-invalid");
+    $message.addClass('is-invalid');
   } else {
-*   const alignment = getAlignmentClass($message);
-
-    // Next operations...
+*   const alignment = getTextareaAlignment($message);
+    // Next operations
   }
   event.preventDefault();
 });
@@ -1086,12 +985,12 @@ Since we are using Bootstrap, here is the complete structure we'll have to creat
 ```html
 <div class="col-8 offset-4">
   <div class="alert alert-warning">
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex align-items-center">
 *     <div class="msg-content flex-grow-1 mr-2">
-        <!-- The text goes here -->
+        <!-- Content goes here -->
 *     </div>
-      <div>
-        <small class="text-info"><!-- The time goes here --></small>
+      <div class="d-flex align-items-center">
+        <small class="text-primary"><!-- Time goes here --></small>
         <button class="btn btn-link btn-sm">
           <i class="far fa-trash-alt"></i>
         </button>
@@ -1099,7 +998,6 @@ Since we are using Bootstrap, here is the complete structure we'll have to creat
     </div>
   </div>
 </div>
-
 ```
 
 > The `div.msg-content` will help use insert the message in this tempalte later.
@@ -1125,7 +1023,7 @@ const $html = $("<p>This is a new paragraph with content</p>");
 So... technically... we could create the new message by doing this:
 
 ```js
-const $html = $('<div class="col-md-8 col-md-offset-4"><div class="alert alert-warning"><!-- The text goes here --><div class="pull-right"><small class="text-info"><!-- The time goes here --></small><button class="btn btn-link btn-xs"><span class="glyphicon glyphicon-trash"></span></button></div></div></div>');
+const $html = $('<div class="col-8 offset-4"><div class="alert alert-warning"><div class="d-flex align-items-center"><div class="msg-content flex-grow-1 mr-2"><!-- Content goes here --></div><div class="d-flex align-items-center"><small class="text-primary"><!-- Time goes here --></small><button class="btn btn-link btn-sm"><i class="far fa-trash-alt"></i></button></div></div></div></div>');
 ```
 
 > This is obviously **not** a good solution:
@@ -1147,14 +1045,14 @@ Thankfully, there's a special tag for that in HTML: [the `<template>` tag][templ
   <!-- Content goes here -->
 </template>
 ```
-You can place those templates anywhere on your page, but it's best to regroup them e.g. at the end of your `<body>` tag (but before the `<script>` tags).
+You can place those templates anywhere on your page, but it's best to regroup them for example at the end of your `<body>` tag (but before the `<script>` tags).
 
-> around the **line 203**, in our example
+> around the **line 213**, in our example
 
 We can give it an `id` for future reference, and copy our HTML inside:
 
 ```html
-<template `id="new-sent-message"`>
+<template `id="new-message"`>
   <!-- Content goes here -->
 </template>
 ```
@@ -1166,7 +1064,7 @@ To retrieve a template as a jQuery object, we need to do two operations.
 First get the content of the `<template>` tag:
 
 ```js
-const template = $("#new-sent-message").html();
+const template = $("#new-message").html();
 ```
 
 > This will return the HTML structure as a `string`.
@@ -1188,26 +1086,30 @@ We can manipulate this DOM, and append it to our page.
 With the addition of these lines, our JS code for the new feature should be:
 
 ```js
-$("#send-btn").click(function (event) {
-  // Getting the "New message" input
-  const $message = $("#message");
+const $message = $("#message");
 
-  // Getting the new message text
+$("#send-btn").on("click", event => {
   const msgValue = $message.val();
-
   if (msgValue === "") {
-    // If the new message is emplty, show an error
-    $message.addClass("is-invalid");
+    $message.addClass('is-invalid');
   } else {
-    // Get the correct alignment
-    const alignment = getAlignmentClass($message);
+    const alignment = getTextareaAlignment($message);
 
-    // Get the new message template
-    const template = $("#new-sent-message").html();
-    const $msgTemplate = $(template);
+    const templateHtml = $("#new-message").html();
+    const newMessageTemplate = $(templateHtml);
   }
   event.preventDefault();
 });
+
+function getTextareaAlignment($textarea) {
+  if ($textarea.hasClass("text-start")) {
+    return "text-class";
+  } else if ($textarea.hasClass("text-center")) {
+    return "text-center";
+  } else {
+    return "text-end";
+  }
+}
 ```
 
 ### Fill in the template
@@ -1220,18 +1122,17 @@ Next step is to **insert the values** for this new message. We have two values t
 Adding the new message is simple ; we need to **retrieve the `div.msg-content`** in the template node tree, and **insert the content of the `msgValue` variable**.
 
 ```js
-$("#send-btn").click(function(event) {
-  /* Previous code */
-  else {
-    // Get the correct alignment
-    const alignment = getAlignmentClass($message);
+$("#send-btn").on("click", event => {
+  const msgValue = $message.val();
+  if (msgValue === "") {
+    $message.addClass('is-invalid');
+  } else {
+    const alignment = getTextareaAlignment($message);
 
-    // Get the new message template
-    const template = $("#new-sent-message").html();
-    const $msgTemplate = $(template);
+    const templateHtml = $("#new-message").html();
+    const $newMessageTemplate = $(templateHtml);
 
-*   $("div.msg-content", $msgTemplate).text(msgValue);
-
+*   $("div.msg-content", $newMessageTemplate).text(msgValue);
   }
   event.preventDefault();
 });
@@ -1265,7 +1166,7 @@ Back to our new message function, we get the `small.text-info` element from the 
 
 ```js
 /* Previous code */
-$("small.text-info", $msgTemplate).text(getCurrentTime());
+$("small.text-primary", $msgTemplate).text(getCurrentTime());
 /* Following code */
 ```
 
@@ -1273,20 +1174,15 @@ $("small.text-info", $msgTemplate).text(getCurrentTime());
 
 Remember we retrieved the **correct alignment to apply** to the new message? Now's the time to actually apply it.
 
-For that, we need to **add the class** whose name is stored in the `alignment` variable, if any.
-
-> If the content of the new message should be aligned to the left, `alignment` contains `null`.
+For that, we need to **add the class** whose name is stored in the `alignment` variable.
 
 ```js
-$("#send-btn").click(function(event) {
+$("#send-btn").on("click", event => {
   /* Previous code */
   else {
     /* Previous code */
-    $("small.text-info", $msgTemplate).text(getCurrentTime());
-
-*   if (alignment) $msgTemplate.addClass(alignment);
+*   $newMessageTemplate.addClass(alignment);
   }
-  event.preventDefault();
 });
 ```
 
@@ -1296,42 +1192,43 @@ We have the **complete DOM structure** for our new message stored in **a jQuery 
 
 Let's **insert this new message in our page**. To do this, we'll use the `.append(...)` method.
 
-> This method append the given jQuery object at the end of the jQuery object on which the method is called.
+> This method append the given jQuery object's DOM at the end of DOM of the jQuery object on which the method is called.
 
 ```js
-$("#send-btn").click(function(event) {
+$("#send-btn").on("click", event => {
   /* Previous code */
   else {
     /* Previous code */
-    if (alignment) $msgTemplate.addClass(alignment);
-
-*   $("#dialog").find("div.row").append($msgTemplate);
+*   $("#dialog").find("div.row").append($newMessageTemplate);
   }
-  event.preventDefault();
 });
 ```
 
 Finally, let's clean-up a bit, by adding this at the end of the `else` block:
 
 ```js
-// Remove the content from the #message element.
-$message.val("");
+$("#send-btn").on("click", event => {
+  /* Previous code */
+  else {
+    /* Previous code */
+*   $message.val("")
+  }
+});
 ```
 
 ### Complete code - Functions
 
-**`getAlignmentClass(...)`**
+**`getTextareaAlignment(...)`**
 
 ```js
 // Get the alignment class name applied to the given element.
-// If it's the default alignement (left), returns null.
-function getAlignmentClass($ele) {
-  if ($ele.hasClass("text-right")) {
-    return "text-right";
-  } else if ($ele.hasClass("text-center")) {
+function getTextareaAlignment($textarea) {
+  if ($textarea.hasClass("text-start")) {
+    return "text-class";
+  } else if ($textarea.hasClass("text-center")) {
     return "text-center";
   } else {
-    return null;
+    return "text-end";
   }
 }
 ```
@@ -1352,30 +1249,25 @@ function getCurrentTime() {
 ### Complete code - Event callback
 
 ```js
-$("#send-btn").click(createNewMessage);
+const $message = $("#message");
+
+$("#send-btn").on("click", createNewMessage);
 
 function createNewMessage(event) {
-  // Getting the "New message" value
-  const $message = $("#message");
   const msgValue = $message.val();
-
   if (msgValue === "") {
-    $message.addClass("is-invalid");
+    $message.addClass('is-invalid');
   } else {
-    // Get the correct alignment
-    const alignment = getAlignmentClass($message);
+    const alignment = getTextareaAlignment($message);
 
-    // Get the new message template
-    const template = $("#new-sent-message").html();
-    const $msgTemplate = $(template);
+    const templateHtml = $("#new-message").html();
+    const $newMessageTemplate = $(templateHtml);
 
-    // Insert the value in the tempalte
-    $("div.msg-content", $msgTemplate).text(msgValue);
-    $("small.text-info", $msgTemplate).text(getCurrentTime());
-    if (alignment) $msgTemplate.addClass(alignment);
+    $("div.msg-content", $newMessageTemplate).text(msgValue);
+    $("small.text-primary", $newMessageTemplate).text(getCurrentTime());
+    $newMessageTemplate.addClass(alignment);
 
-    // Add the template to the page
-    $("#dialog").find("div.row").append($msgTemplate);
+    $("#dialog").find("div.row").append($newMessageTemplate);
     $message.val("");
   }
   event.preventDefault();
@@ -1393,18 +1285,18 @@ Removing something in jQuery is quite simple. Just use the `.remove()` method on
 Our event should be attached to all the `button` elements that contains a `i.fa-trash-alt` element:
 
 ```js
-$("i.fa-trash-alt").parent().click(function (event) {});
+$("i.fa-trash-alt").parent().on("click", event => {});
 ```
 
-But since the event is on the `button` element, we need to **travel up the DOM tree** to find the `button`s parent that correspond to the complete message.
+But since the event is on the `button` element, we need to **travel up the DOM tree** to find the `button`s parent that correspond to the complete message we want to remove from the DOM.
 
 We could use the `.parent()` method to travel up step by step, which would give a code like this:
 
 ```js
-$(this).parent().parent().parent().remove();
+$(event.currentTarget).parent().parent().parent().remove();
 ```
 
-> This works... but it's certainly not a good option.
+> This works... but it's certainly not a good option. Any HTML structure change will probably break this code.
 
 <!-- slide-notes -->
 
@@ -1418,9 +1310,9 @@ In our case, the element that we want to access is the `div.col-8`. But there's 
 We can then use the `.closest(...)` method and give it the selector of the element we want to retrieve:
 
 ```js
-$("i.fa-trash-alt").parent().click(function (event) {
-  console.log($(this).closest("div.col-8"));
-});
+$("i.fa-trash-alt").parent().on("click", event =>
+  console.log($(event.currentTarget).closest("div.col-8"));
+)
 ```
 
 > This will correctly return you the `<div>` that contains the complete message to remove.
@@ -1428,9 +1320,9 @@ $("i.fa-trash-alt").parent().click(function (event) {
 Let's remove it!
 
 ```js
-$("i.fa-trash-alt").parent().click(function (event) {
-  $(this).closest("div.col-8").remove();
-});
+$("i.fa-trash-alt").parent().on("click", event =>
+  $(event.currentTarget).closest("div.col-8");
+)
 ```
 
 > Go on your page, and try to remove a message.
@@ -1466,14 +1358,12 @@ The `.on(...)` method allows you to register an event on a node that can only be
 
 In our case, we want to register an event on the `#dialog` element, but trigger it only when a child `button` is clicked:
 
-> The arguments are : the `name` of the event, the `selector` of the descendant element, and the callbakc `function`.
+> The arguments are : the `name` of the event, the `selector` of the descendant element, and the callback `function`.
 
 ```js
-$("#dialog").on("click", "button", function (event) {
-  // 'this' still represent the clicked button
-  // So we can reuse the same code as before.
-  $(this).closest("div.col-8").remove();
-});
+$("#dialog").on("click", "button", event =>
+  $(event.currentTarget).closest("div.col-8").remove()
+);
 ```
 
 > You can register other events than `click`.
@@ -1484,13 +1374,12 @@ Here's the complete code for this feature:
 
 ```js
 // Feature : "Remove message"
-$("#dialog").on("click", "button", removeMessage);
+$("#dialog").on("click", "button", removeMessage)
 
 function removeMessage(event) {
-  // 'this' still represent the clicked button
-  // So we can reuse the same code as before.
-  $(this).closest("div.col-8").remove();
+  $(event.currentTarget).closest("div.col-8").remove()
 }
+
 ```
 
 ## Complete App
@@ -1498,10 +1387,6 @@ function removeMessage(event) {
 <!-- slide-front-matter class: center, middle -->
 
 The complete JS code for this example can be found [here][complete].
-
-> In this complete code, note that the event declarations have been put at the top of the file, and that the function comes after.
->
-> This allows a better file structure.
 
 ## Resources
 
@@ -1518,16 +1403,16 @@ The complete JS code for this example can be found [here][complete].
 [chrome]: https://www.google.com/chrome/
 [js]: ../js
 [bs]: ../bootstrap
-[dl-jquery]: https://code.jquery.com/jquery-3.1.1.min.js
-[ex-file]: https://gist.githubusercontent.com/Tazaf/2ca35d60688eec1281fd9546abe1f76a/raw/index.html
+[dl-jquery]: https://code.jquery.com/jquery-3.6.4.min.js
+[ex-file]: https://gist.githubusercontent.com/Tazaf/2ca35d60688eec1281fd9546abe1f76a/raw/82cec5ee0cacacc2dcc2d945ff6737055cd30495/index.html
 [jq-doc]: http://api.jquery.com/
 [ls]: https://www.npmjs.com/package/live-server
 [local-bs]: ../bootstrap-basics/#5
 [css-select]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
 [5-tips-selec]: https://www.sitepoint.com/efficient-jquery-selectors/
 [jq-events]: https://api.jquery.com/category/events/
-[complete]: https://gist.githubusercontent.com/Tazaf/1eb7e4d4b2bd6a5508b6e2c88f6739c0/raw/script.js
-[bs-validation]: https://getbootstrap.com/docs/4.3/components/forms/#supported-elements
+[complete]: https://gist.githubusercontent.com/Tazaf/1eb7e4d4b2bd6a5508b6e2c88f6739c0/raw/9034cfa457f00ec24671a7d24d203b1f7efc2179/script.js
+[bs-validation]: https://getbootstrap.com/docs/5.3/forms/validation/#supported-elements
 [js-in-body]: https://www.google.com/search?q=js+script+in+head+or+body
 [template]: https://developer.mozilla.org/fr/docs/Web/HTML/Element/template
 [ajax]: https://developer.mozilla.org/fr/docs/Web/Guide/AJAX

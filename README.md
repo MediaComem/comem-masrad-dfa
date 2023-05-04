@@ -3,7 +3,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Prerequisite](#prerequisite)
 - [Plan](#plan)
 - [Additional concepts and tools](#additional-concepts-and-tools)
@@ -44,16 +43,16 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 - DOM Manipulation
   - ✔ [With JavaScript][js-dom]
-  - [With jQuery][jq-dom]
+  - ✔ [With jQuery][jq-dom]
 
 - Web Service and asynchronous operations
-  - [RESTful APIs][rest]
-  - [Basic Promises][js-prom-basic]
-  - [Observables with Rxjs][rxjs]
+  - ✔ [RESTful APIs][rest]
+  - ✔ [Basic Promises][js-prom-basic]
+  - ✔ [Observables with Rxjs][rxjs]
 
-- [Modular JavaScript][js-modules] ([practice][js-mod-practice])
+- ✔ [Modular JavaScript][js-modules] (✔ [practice][js-mod-practice])
 
-- [TypeScript][ts]
+- ✔ [TypeScript][ts]
 
 - Angular
   - [Angular CLI][ng-cli]

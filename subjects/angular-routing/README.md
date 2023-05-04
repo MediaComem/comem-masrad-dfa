@@ -24,7 +24,6 @@ This subject is heavily inspired by the Angular's ["In-app navigation: routing t
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [Getting started](#getting-started)
 - [Why a router](#why-a-router)
 - [Angular router](#angular-router)
