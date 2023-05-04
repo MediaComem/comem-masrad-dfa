@@ -105,8 +105,6 @@ Each person or group's GitHub repository will be cloned locally on **monday morn
   - Presents your application (what does it do, how does it work, what are the features), like a user manual
   - Explains the choices your made while developing (did your follow any style guidelines? architectural principles? did you use other packages not seen during the cours? etc.)
 
-[citizen-api]: https://mediacomem.github.io/comem-citizen-engagement-api/
-[citizen-video]: https://www.youtube.com/watch?v=wki0t178x2k&feature=youtu.be
 [dfa-site]: https://github.com/MediaComem/comem-masrad-dfa
 [fixmystreet]: https://www.fixmystreet.com/
 [ms-team]: https://teams.microsoft.com/l/team/19%3afcbfad4d3c8b409b8f683132c5fe527c%40thread.tacv2/conversations?groupId=b475ad95-6078-4856-bbd6-fa6e64316983&tenantId=a372f724-c0b2-4ea0-abfb-0eb8c6f84e40
