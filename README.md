@@ -70,22 +70,25 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
 ## Additional concepts and tools
 
-- [Node Package Manager (npm)][npm]
+- ✔ [Code and architecture principles][code-principles]
 
-- [JavaScript Closures][js-clos]
-- [JavaScript Prototypes][js-prot]
-- [JavaScript ES6 Classes][js-classes]
-- [Advanced Promises][js-prom]
+- ✔ [Node Package Manager (npm)][npm]
 
-- [SOP & CORS][sop-cors]
+- ✔ [JavaScript Closures][js-clos]
+- ✔ [JavaScript Prototypes][js-prot]
+- ✔ [JavaScript ES6 Classes][js-classes]
+
+- ✔ [Advanced Promises][js-prom]
+
+- ✔ [SOP & CORS][sop-cors]
 
 ## Documentation
 
-- [Travel Log API][travel-log-api-docs]
+- ✔ [Travel Log API][travel-log-api-docs]
 
 ## Useful links
 
-- [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
+- ✔ [REST demonstration API][rest-demo] (implementation & docs source) used in the RESTful APIs exercise
 
 [angular-leafet]: https://mediacomem.github.io/comem-archidep/latest/subjects/angular-leaflet/
 [api-call]: ./subjects/api-call
@@ -93,6 +96,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [blm]: ./subjects/bootstrap-layout-management
 [bex]: ./subjects/bootstrap-practice
 [cli]: https://mediacomem.github.io/comem-archidep/latest/subjects/cli/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
+[code-principles]: https://tazaf.github.io/heig-mdt-gio1/latest/subjects/basic-principles/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [comem]: http://www.heig-vd.ch/comem
 [comem-archioweb]: https://mediacomem.github.io/comem-archioweb/latest/
 [comem-archidep]: https://mediacomem.github.io/comem-archidep/latest/
