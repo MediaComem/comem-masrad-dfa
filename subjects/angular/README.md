@@ -115,7 +115,6 @@ To do so, in the directory where you want to generate the application folder, ex
 
 ```bash
 $> npx @angular/cli new angular-starter
-# If asked, accept to install the package
 ? Would you like to add Angular routing? `No`
 ? Which stylesheet format would you like to use? `SCSS`
 ```
@@ -199,15 +198,15 @@ Take a look at the [`@NgModule`][angular-docs-ng-module] annotation:
 })
 ```
 
-- The **declarations** array is a list of components (also directives and pipes) which belong to this module.
-- The **imports** array is a list of other modules whose exported components should be available in this module.
-  It allows you to express a dependency on another module.
+- The **declarations** array is the list of components/directives/pipes that belongs to this module.
+- They can also declares an **exports** array, with the list of components/directives/pipes that this module can provide to other modules.
+- The **imports** array is a list of other modules whose exported elements are required by this module's elements.
 - The **providers** array is a list of service providers (more about that later).
 - **bootstrap** is the root component that Angular creates and inserts into `index.html`
 
 ### Components
 
-Components are the most basic **building block** of an UI in an Angular application.
+Components are the most common **building block** of an UI in an Angular application.
 An Angular application is a tree of Angular components.
 
 You will find a component in `src/app/app.component.ts` in the starter project:
@@ -229,7 +228,7 @@ A component is primarily a [JavaScript class][js-classes] annotated with the [`@
 
 Let's dig into that line by line.
 
-> **Angular CLI**: Use `ng generate component <ComponentName>` to create all the files for a new component in a new directory
+> **Angular CLI**: Use `ng generate component <ComponentName>` to create all the files for a new component in a new directory, and update the closest module so that it declares it.
 
 #### Component selector
 
@@ -278,7 +277,7 @@ For very simple components, you can also use `template` instead of `templateUrl`
 
 #### Component styles
 
-Similarly, the `styleUrls` property is a list of CSS files to apply to the component :
+Similarly, the `styleUrls` property is a list of CSS files that apply to this component :
 
 ```ts
 @Component({
@@ -352,7 +351,7 @@ You can do this in `src/app/app.component.html`:
 
 Note the two syntax when binding to attributes.
 
-Below, as in the previous example, the `[...]` syntax **binds the the `title` attribute** to the `titleComment` variable:
+Below, as in the previous example, the `[...]` syntax **binds the `title` attribute** to the `titleComment` variable:
 
 ```html
 <h1 `[title]="titleComment" `>Welcome to {{ title }}!</h1>
@@ -365,8 +364,8 @@ The result will effectively be the same as the previous example:
 <h1 title="`{{ titleComment }}`">Welcome to {{ title }}!</h1>
 ```
 
-> Here, we made a **mistake**.
-> We neither bound the attribute, nor used interpolation in its value,
+> Below, we made a **mistake**.
+> We neither bound the attribute, nor used interpolation for its value,
 > so the value of the attribute will be the string `"titleComment"`,
 > not the value of the corresponding variable:
   ```html
@@ -385,7 +384,7 @@ Basically, if you want to use a component's property **as the exact value** of a
 ```
 > The **actual value** of `title` will always be **exactly** the value of `titleComment` and will have the **same type**.
 
-If you want to use a component's property **as part of the value** of an element attribute, you use curly braces:
+If you want to use a component's property **as part of the string value** of an element attribute, you use curly braces:
 
 ```html
 <h1 title="Custom Title: {{ titleComment }}">...</h1>
@@ -407,7 +406,7 @@ export class AppComponent {
 }
 ```
 
-Angular's `(...)` syntax allows you to **bind functions to events** occurring on a DOM element.
+Angular's `(<eventName>)` syntax allows you to **bind functions to events** occurring on a DOM element.
 
 Let's bind the function we just created to `click` events on the `<h1>` tag in `src/app/app.component.html`:
 
@@ -423,7 +422,7 @@ You should now see the message being logged in the console when clicking on the 
 
 You might need the actual [event object][dom-event] to get some data out of it (for example, the click coordinates).
 
-Let's update `onTitleClicked()` in `src/app/app.component.ts` to accept an event parameter and log it:
+Let's update `onTitleClicked()` in `src/app/app.component.ts` so it requires an event parameter and log it:
 
 ```ts
 export class AppComponent {
@@ -472,7 +471,7 @@ Now use that function in the template in `src/app/app.component.html`:
 
 ## User input
 
-One of the things you will need to do is **react to user input** (for example, through forms).
+One of the things you will often need to do in your app is **react to user input** (for example, through forms).
 
 Let's make our greeting **dynamic** by adding an input field to customize the name.
 Make the following changes to the component in `src/app/app.component.ts`:
@@ -558,7 +557,7 @@ The developer has to write code that constantly syncs the view with the model an
 
 <!-- slide-column -->
 
-With Angular, changes are **immediately reflected** in both view and model.
+With Angular (and any two-way binding system), changes are **immediately reflected** in both view and model.
 
 Also note that our **component** is **isolated from and unaware of the view**:
 it does not care about DOM manipulation or rendering concerns.
@@ -750,7 +749,7 @@ It's a good practice to create **types, interfaces or classes** to define the st
 
 Let's start with a very simple one.
 
-Create a new file at `src/app/models/joke.ts` with the following content:
+Create a new file at `src/app/jokes/joke.ts` with the following content:
 
 ```ts
 export type Joke = {
@@ -758,7 +757,7 @@ export type Joke = {
 }
 ```
 
-> **Angular CLI**: Use `ng generate class <ClassName>` to create the files for a new model class
+> **Angular CLI**: Use `ng generate class <ClassName>` to create the files for a new model class... but that's not very helpful in this case...
 
 ### Using models
 
@@ -766,7 +765,7 @@ Let's add some jokes to our component in `src/app/app.component.ts`:
 
 ```ts
 // Other imports...
-`import { Joke } from './models/joke';`
+`import { Joke } from './jokes/joke';`
 
 @Component({
   selector: 'app-root',
@@ -833,13 +832,13 @@ Let's do something more interesting: fetch those jokes from the internet rather 
 To do it "The Angular Way", we'll encapsulate that functionality into a **Service**.
 
 Why?
-- **Components** should not try to do too much;
+- **Components** should not try to do very much;
 they should focus on **presenting data** and **delegate data access** to specialized classes.
 **Services** are here to fill that role.
 
   > This helps your components remain as simple as possible while services handle your business logic.
 
-- **Services** can be used by multiples Components, Directives, Pipes, etc, which helps in repeating the same logic.
+- **Services** can be used by multiples Components, Directives, Pipes, Services, etc, which helps in repeating the same logic.
 
 
 > **Angular CLI**: Use `ng generate service <ServiceName>` to create all the files for a new service
@@ -848,11 +847,11 @@ they should focus on **presenting data** and **delegate data access** to special
 
 Once again, a service is simply a JavaScript class, annotated with the [`@Injectable`][angular-docs-injectable] decorator (more about that later).
 
-Create a new `src/app/services/joke.service.ts` file with the following content:
+Create a new `src/app/jokes/joke.service.ts` file with the following content:
 
 ```ts
 import { Injectable } from '@angular/core';
-`import { Joke } from '../models/joke';`
+`import { Joke } from './joke';`
 
 @Injectable({ providedIn: 'root' })
 export class JokeService {
@@ -895,7 +894,7 @@ While you're at it, also create a **method to add a joke**:
 
 ```ts
 // Other imports...
-*import { JokeService } from './services/joke.service';
+*import { JokeService } from './jokes/joke.service';
 
 export class AppComponent {
   // ...
@@ -1009,13 +1008,13 @@ This will **not** work when fetching jokes from a **remote server**, which is in
 The `getJoke()` method must be modified to not immediately return a joke, but to have an asynchronous signature instead.
 It could take a **callback** or return a [**Promise**][js-promise].
 
-Since Angular uses the [RxJS][rxjs] library internally when handling HTTP requests, our service method should return an `OBservable` of a `Joke`.
+Since Angular uses the [RxJS][rxjs] library internally when handling HTTP requests, our service method should return an `Observable` of a `Joke`.
 
 > To learn more about `Observables` and the `RxJS` library, see [the corresponding subject][rxjs-subject].
 
 ### Making `getJoke()` observable
 
-For now, let's modify the signature of our `getJoke()` method in `JokeService` in `src/app/services/joke.service.ts` to return an `Observable` of a `Joke`, without actually making an HTTP call yet:
+For now, let's modify the signature of our `getJoke()` method in `JokeService` in `src/app/jokes/joke.service.ts` to return an `Observable` of a `Joke`, without actually making an HTTP call yet:
 
 ```ts
 // Other imports...
@@ -1030,7 +1029,7 @@ export class JokeService {
 }
 ```
 
-> Note the `<>` in `Observable<Joke>`. This is syntax used by TypeScript to specify a type when using a generic type. Here, it says that not only the method returns an `Observable`, but its emitted values will be instances of `Joke`.
+> Note the `<>` in `Observable<Joke>`. `Observable` is what is called a **Generic Type** ; a type that accepts one or more other types to better express what they represent. In this case, it allows us to define that `getJoke()` returns an `Observable` that will emits `Joke` events.
 
 `of` allows us to create an `Observable` which will simply emit the specified values (here, the `Joke`), then complete.
 
@@ -1049,9 +1048,8 @@ In `AppComponent` in `src/app/app.component.ts`, use the `subscribe()` method of
 
 ```ts
 addJoke() {
-* this.jokeService.getJoke().subscribe(joke => {
-*   this.jokes.push(joke);
-* });
+* this.jokeService.getJoke()
+*   .subscribe(joke => this.jokes.push(joke));
 }
 ```
 
@@ -1090,7 +1088,7 @@ Earlier we annotated `JokeService` with the [`@Injectable`][angular-docs-injecta
 This not only makes it available to the **injector** for creation,
 but also allows it to **have dependencies of its own**.
 
-Now that `HttpClientModule` is available, you can inject `HttpClient` into `JokeService` in `src/app/services/joke.service.ts`, by adding it to the constructor parameters:
+Now that `HttpClientModule` is available, you can inject `HttpClient` into `JokeService` in `src/app/jokes/joke.service.ts`, by adding it to the constructor parameters:
 
 ```ts
 // Other imports...
@@ -1126,7 +1124,7 @@ Let's create a new `JokeResponse` model that we can use with this API.
 
 Since it's a nested structure, we'll need **2 classes**.
 
-Create a new file at `src/app/models/joke-response.ts` with the following content:
+Create a new file at `src/app/jokes/joke-response.ts` with the following content:
 
 ```ts
 export type JokeResponse = {
@@ -1143,11 +1141,11 @@ export type JokeResponseValue = {
 
 ### Making a GET call
 
-We can now update `getJoke()` in `src/app/services/joke.service.ts` to make an actual HTTP call:
+We can now update `getJoke()` in `src/app/jokes/joke.service.ts` to make an actual HTTP call:
 
 ```ts
 // Other imports...
-*import { JokeResponse } from '../models/joke-response';
+*import { JokeResponse } from './joke-response';
 
 @Injectable()
 export class JokeService {
@@ -1159,7 +1157,8 @@ export class JokeService {
 }
 ```
 
-As you can see by the use of the `<>`, we also specified that the [`HttpClient`][angular-docs-http-client]'s `get` method is supposed to receive data matching the `JokeResponse` model after the call completes. This helps TypeScript understand our code better.
+> The `HttpClient#get()` method is a **Generic Method** that accepts a type argument between `<...>` to specify the type expected data, here a value matching our `JokeResponse` model.
+
 But we're still left with one problem: we need an Observable of `Joke` objects, and have one of `JokeResponse` objects instead:
 
 ```
@@ -1172,7 +1171,7 @@ ERROR in src/app/services/joke.service.ts(15,5): error TS2322:
 ### Transforming data
 
 We need to be able to transform a `JokeResponse` object into a `Joke`.
-Let's add a utility function at the bottom of the file in `src/app/services/joke.service.ts`:
+Let's add a utility function at the bottom of the file in `src/app/jokes/joke.service.ts`:
 
 ```ts
 function convertJokeResponseToJoke(response: JokeResponse): Joke {
@@ -1215,7 +1214,7 @@ addJoke() {
 }
 ```
 
-You can produce an error by changing the URL in `JokeService`in `src/app/services/joke.service.ts`,
+You can produce an error by changing the URL in `JokeService`in `src/app/jokes/joke.service.ts`,
 so that the call fails.
 
 ```ts
@@ -1253,7 +1252,7 @@ it's good practice to **isolate each part into a component**:
 
 ### Adding votes to the model
 
-Update the `Joke` model in `src/app/models/joke.ts` to have a `votes` property:
+Update the `Joke` model in `src/app/jokes/joke.ts` to have a `votes` property:
 
 ```ts
 export type Joke = {
@@ -1271,7 +1270,7 @@ this.jokes = [
 ];
 ```
 
-You also need to update the `convertJokeResponseToJoke` function in `src/app/services/joke.service.ts`:
+You also need to update the `convertJokeResponseToJoke` function in `src/app/jokes/joke.service.ts`:
 
 ```ts
 function convertJokeResponseToJoke(response: JokeResponse): Joke {
@@ -1287,19 +1286,19 @@ function convertJokeResponseToJoke(response: JokeResponse): Joke {
 Let's generate a **new component**, `JokeComponent`, whose responsibility will be to properly display a `Joke` object in the page, and provide a button to vote for the joke:
 
 ```ts
-$> npm run ng generate component components/joke --skip-tests
+$> npm run ng generate component jokes/joke --skip-tests
 ```
 
-This will create a component in the `src/app/components/joke` directory,
+This will create a component in the `src/app/jokes/joke` directory,
 with its own TypeScript definition, HTML template and CSS styles.
 
 #### The `JokeComponent`
 
-Let's add an optional `joke` property to the new component in `src/app/components/joke/joke.component.ts`:
+Let's add an optional `joke` property to the new component in `src/app/jokes/joke/joke.component.ts`:
 
 ```ts
 // Other imports...
-*import { Joke } from 'src/app/models/joke';
+*import { Joke } from 'src/app/jokes/joke';
 
 @Component({
   selector: 'app-joke',
@@ -1311,9 +1310,9 @@ export class JokeComponent implements OnInit {
   // ...
 }
 ```
-> Remember that a property defined with a `?` can be `undefined`.
+> Remember that a property defined with a `?` is `undefined` in addition to its defined type.
 
-And update the component's template in `src/app/components/joke/joke.component.html` to display the joke's text (if there is a joke to display):
+And update the component's template in `src/app/jokes/joke/joke.component.html` to display the joke's text (if there is a joke to display):
 
 ```html
 <div *ngIf="joke">{{ joke.text }}</div>
@@ -1343,7 +1342,7 @@ Indeed, we told our `JokeComponent` to display the `joke.text` property in its t
 We want the joke to be provided to the `JokeComponent` as an **input**.
 
 Annotating a component's property with the [`@Input`][angular-docs-input] decorator marks it as an **input property**.
-You can do this in `src/app/components/joke/joke.component.ts`:
+You can do this in `src/app/jokes/joke/joke.component.ts`:
 
 ```ts
 // Other imports...
@@ -1370,7 +1369,7 @@ Now, update the main component's template in `src/app/app.component.html` so tha
 
 Now that `JokeComponent` is working, we can use it to **handle the logic related to one joke**, like voting.
 
-Add a `vote()` method to `JokeComponent` in `src/app/components/joke/joke.component.ts`:
+Add a `vote()` method to `JokeComponent` in `src/app/jokes/joke/joke.component.ts`:
 
 ```ts
 vote() {
@@ -1380,7 +1379,7 @@ vote() {
 }
 ```
 
-Add these 2 lines to the component's template in `src/app/components/joke/joke.component.html`:
+Add these 2 lines to the component's template in `src/app/jokes/joke/joke.component.html`:
 
 ```html
 <div *ngIf="joke">
@@ -1428,7 +1427,7 @@ Instead, we need our `JokeComponent` to have an **output** that its parent can l
 
 Annotating a component's property with the [`@Output`][angular-docs-output] decorator marks it as an **output property**.
 It must be an [`EventEmitter`][angular-docs-event-emitter] (or an Observable).
-Let's add one to `JokeComponent` in `src/app/components/joke/joke.component.ts` now:
+Let's add one to `JokeComponent` in `src/app/jokes/joke/joke.component.ts` now:
 
 ```ts
 import { Component, `EventEmitter`, Input, OnInit, `Output` } from '@angular/core';
@@ -1528,6 +1527,7 @@ Read the [documentation][angular-component-interaction] to learn more.
 [angular]: https://angular.io
 [angular-guide]: https://angular.io/guide/architecture
 [angular-tour-of-heroes]: https://angular.io/tutorial
+[angular-docs-pipes]: https://angular.io/guide/pipes
 [chrome]: https://www.google.com/chrome/
 [js]: ../js/
 [js-modules]: ../js-modules/

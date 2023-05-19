@@ -55,8 +55,8 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 - ✔ [TypeScript][ts]
 
 - Angular
-  - [Angular CLI][ng-cli]
-  - [Getting started][ng]
+  - ✔ [Angular CLI][ng-cli]
+  - ✔ [Getting started][ng]
   - [Angular Forms][ng-forms]
   - [Hands-On exercise][ng-exercise]
 

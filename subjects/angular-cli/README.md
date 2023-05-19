@@ -45,7 +45,7 @@ Doing so requires the use and configuration of many tools that can be (very) ted
 
 The [Angular CLI][ng-cli] has a command to **create a blank startup project** that has all this config ready to go.
 
-> It also adds several very useful utilities (like code generation), wether you're developping a web application of an Angular library.
+> It also adds several very useful utilities (like code generation), whether you're developping a web application or an Angular library.
 
 ## Install the CLI
 
@@ -59,7 +59,7 @@ Once installed, you should be able to call the Angular CLI from any location on 
 ```bash
 $> ng version
 ```
-> If you don't want to install it globally, since the CLI itself is a dependency of any Angular project, you could just use `npx` to create a blank project, then use `npm run ng` inside the project directory to call the locally installed CLI.
+> If you don't want to install it globally, since the CLI itself is a dependency of any Angular project, you could just use `npx ng new` to create a blank project, then use `npx ng <command>` inside the project directory to call the locally installed CLI.
 
 > We will not use this method in this subject
 
@@ -72,12 +72,12 @@ $> ng new <ApplicationName>
 ```
 > Let's use `Playground` as our test application name
 
-You'll then be asked to:
-- wether you want to use [Angular routing][ng-router] (let's say `y`es)
+You'll then be asked:
+- whether you want to use [Angular routing][ng-router] (let's say `y`es)
   > See the subject on [Angular routing][ng-routing]
 - which CSS preprocessor you want to work with, or none (let's select `SCSS`)
 
-The CLI will create the project directory, its default arborescence and all the necessary files to get you up and running, then all the project dependencies.
+The CLI will create the project directory and all the necessary files to get you up and running, then install all its dependencies.
 
 Once its done, you can go to your new project directory (`cd Playground`) and start working.
 
@@ -85,7 +85,7 @@ Once its done, you can go to your new project directory (`cd Playground`) and st
 
 ## Run the application
 
-Run the following command from and Angular project to:
+Run the following command from an Angular project to:
 - Compile the different files into standard HTML/CSS/JS
 - Bundle the compiled files
 - Serve them through a local server
@@ -148,10 +148,13 @@ By default, the `generate` command always generates barebones `.spec.ts` test fi
 
 They contains the minimal setup for testing the generated element, on which you can expand.
 
-If you **don't want** Angular CLI to generate those files, simply pass the `--skipTests` argument to the `generate` command
+If you **don't want** Angular CLI to generate those files, you can use the `--skip-tests` argument, either with:
+- the `new` command to skip test files for the **whole app**
+- the `generate` command to skip them for specific elements.
+
 
 ```bash
-$> ng generate directive --skipTests Untested
+$> ng generate directive --skip-tests Untested
 ```
 
 ### Dry Run
@@ -169,9 +172,9 @@ You'll probably need to **install external packages** to use in your application
 
 Since those packages will certainly be `npm` packages, you might be tempted to simply use `npm install` to get them.
 
-**Do not.**
+**It's not that simple.**
 
-When working with Angular, you should use the following command as **a complete replacement**:
+When working with Angular, you should use the following command **when supported by the package** _(its documentation should mention it)_:
 
 ```bash
 $> ng add <package>
@@ -195,9 +198,11 @@ It does many things under the hood to prepare your app for a deployment on a dis
 - gathering static assets (such as images)
 - packaging your app for different ECMAscript versions, to maximize compatibility with older browsers
 
-> The resulting build can be found in the `dist/` directory
+> The resulting build can be found in the `dist/` directory.
 
-> See [`ng build` documentation][ng-build]
+> See [`ng build` documentation][ng-build].
+
+> You don't need to ever call this command during development.
 
 ## Update core Angular packages
 
@@ -208,7 +213,7 @@ $> ng update
 ```
 Using this command, Angular CLI will scan your project and tell you which core Angular packages could be updated to newer version.
 
-You'll then be able to tell the CLI to propertly update those packages along with your project configuration.
+You'll then be able to tell the CLI to properly update those packages along with your project configuration.
 
 > This method is safer than manually doing `npm update` on the core packages yourself.
 

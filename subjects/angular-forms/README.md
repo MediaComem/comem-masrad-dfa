@@ -729,8 +729,8 @@ import { `FormBuilder, FormGroup` } from '@angular/forms';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  greeting: string;
-  displayedGreeting: string;
+  greeting?: string;
+  displayedGreeting?: string;
   `greetingForm: FormGroup;`
 
   constructor(`private formBuilder: FormBuilder`) {
