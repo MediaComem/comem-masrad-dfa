@@ -722,60 +722,60 @@ When working with lazy loaded modules...
 
 ## Guards
 
-`Guards` are services that you can use to prevent unwanted routes activations, _e.g._ prevent an anonymous user to access restricted part of your app.
+`Guards` are special functions that you can use to prevent unwanted routes activations, _for example_ prevent an anonymous user to access restricted part of your app.
 
-The **Angular CLI** can help you generate such a service with `ng generate guard <Name>`.
+The **Angular CLI** can help you generate them with `ng generate guard <Name>`.
 
-It will ask you which interface(s) you want to implement. Those interfaces will define the context in which your guard can be used:
+It will ask you which type of function you want to implement. Those type of functions will define the context in which your guard will be run:
 
-- [`CanActivate`][can-activate] - A service implementing it can be used to **prevent access** to a specific route
-- [`CanActivateChild`][can-activate-child] - A service implementing it can be used to **prevent access to all `children`** of a specific route
-- [`CanLoad`][can-load] - A service implementing it can be used to **prevent the loading** of a lazy loaded module
-- [`CanDeactivate`][can-deactivate] - A service implementing it can be used to **prevent leaving** a specific route
+- [`CanActivate`][can-activate] - A `CanActivateFn` can be used to **prevent access** to the route it's being applied to
+- [`CanActivateChild`][can-activate-child] - A `CanActivateChildFn` function can be used to **prevent access to any `children`** of the route it's being applied to
+- [`CanMatch`][can-match] - A `CanMatchFn` function can be used to **prevent the matching** of the route it's being applied to
+- [`CanDeactivate`][can-deactivate] - A `CanDeactivateFn` function can be used to **prevent leaving** a specific route
 
-> A `Guard` can implement more than one interface
+> A function (and thus guard) can only implements one interface. If you need a single function to be used in several type of guard, you'll need to create one guard for each required type.
 
 ### Random Access Guard
 
-Let's create a `Guard` that randomly prevent access to a route with `ng generate guard guards/Random --skip-tests`, and select the `CanActivate` interface.
+Let's create a `Guard` that randomly prevent access to a route with `ng generate guard Random --skip-tests`, and select the `CanActivate` type.
 
-In the generated `src/app/guards/random.guard.ts` file, add the following code in the `canActivate` method's body:
+In the generated `src/app/random.guard.ts` file, add the following code in the function's body:
 
 ```ts
-// ...
-canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): `boolean` {
-* const authorized = Math.random() >= 0.5;
-* console.log(!authorized ? 'NOPE!' : 'GRANTED...');
-* return authorized;
-}
-// ...
+import { CanActivateFn } from '@angular/router';
+
+export const randomGuard: CanActivateFn = () => {
+  const authorized = Math.random() >= 0.5;
+  console.log(!authorized ? 'NOPE!' : 'GRANTED...');
+  return authorized;
+};
 ```
-Apply this to a `Route` by adding it the `canActivate` property array:
+Apply this to a `Route` by adding it to the `canActivate` property array:
 
 ```ts
 // page-routing.module.ts
-{ path: 'a', component: PageAComponent, `canActivate: [RandomGuard]` }
+{ path: 'a', component: PageAComponent, `canActivate: [randomGuard]` }
 ```
-> There are also `canActivateChild`, `canLoad` and `canDeactive` properties
+> There are also `canActivateChild`, `canMatch` and `canDeactivate` properties
 
 > All guards in an array **must pass** for the route to be activated
 
 ## Resources
 
-- [In-app navigation: routing to views][router-guide]
+- [Common routing tasks][router-guide]
 - [Lazy-loading feature modules][lazy-loading-guide]
 
-[can-activate]: https://angular.io/api/router/CanActivate
-[can-deactivate]: https://angular.io/api/router/CanDeactivate
-[can-activate-child]: https://angular.io/api/router/CanActivateChild
-[can-load]: https://angular.io/api/router/CanLoad
+[can-activate]: https://angular.io/api/router/CanActivateFn
+[can-deactivate]: https://angular.io/api/router/CanDeactivateFn
+[can-activate-child]: https://angular.io/api/router/CanActivateChildFn
+[can-match]: https://angular.io/api/router/CanMatchFn
 [es6-import]: https://caniuse.com/#feat=es6-module-dynamic-import
 [router-link-active]: https://angular.io/api/router/RouterLinkActive
 [angular-router-class]: https://angular.io/api/router/Router
 [angular-activated-route]: https://angular.io/api/router/ActivatedRoute
 [angular-router-link]: https://angular.io/api/router/RouterLink
 [angular]: https://angular.io
-[router-guide]: https://angular.io/guide/router#in-app-navigation-routing-to-views
+[router-guide]: https://angular.io/guide/router
 [vscode]: https://code.visualstudio.com/
 [chrome]: https://www.google.com/chrome/
 [ng]: ../angular

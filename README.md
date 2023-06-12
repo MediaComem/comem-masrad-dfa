@@ -60,13 +60,13 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
   - [Angular Forms][ng-forms]
   - ✔ [Hands-On exercise][ng-exercise]
 
-  - [Navigation & Routing][ng-router]
+  - ✔ [Navigation & Routing][ng-router]
 
 - ✔ [Project Starter][project-starter]
 
 - Geolocation & map features
   - ✔ [Geolocation][geo-api]
-  - [Angular Leaflet][ng-leaflet]
+  - ✔ [Angular Leaflet][ng-leaflet]
 
 ## Additional concepts and tools
 

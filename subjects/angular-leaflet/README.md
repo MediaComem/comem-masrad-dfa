@@ -1,21 +1,19 @@
-# Angular Leaflet
+# Leaflet with Angular
 
 <!-- slide-front-matter class: center, middle -->
 
 ## Summary
 
-Learn the basics of using the angular-leaflet directive in your project, to display and manipulate maps.
-
-<!-- slide-include ../../BANNER.md -->
+How to integrate Leaflet in your angular application
 
 **You will need**
 
-- [Google Chrome][chrome] (recommended, any browser with developer tools will do)
-- [Visual Studio Code][vscode] (recommended, although any editor could do)
+- A running [Angular][angular] application
 
-**Recommanded readings**
+**Recommended reading**
 
-- [Angular][ng]
+- [Angular](../angular/)
+- [Geolocation](../geolocation)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -26,6 +24,7 @@ Learn the basics of using the angular-leaflet directive in your project, to disp
   - [Registering the Leaflet module with Angular](#registering-the-leaflet-module-with-angular)
   - [Displaying a map](#displaying-a-map)
     - [Adding the map to the component's template](#adding-the-map-to-the-components-template)
+    - [Troubleshooting](#troubleshooting)
   - [Markers](#markers)
     - [Define](#define)
     - [Adding the markers to the map](#adding-the-markers-to-the-map)
@@ -59,7 +58,7 @@ $> npm install --save-dev @types/leaflet
 
 For the map to display correctly, you need to add Leaflet CSS to your project.
 
-To do so, open your `angular.json` file that should sit at the root of your project's files, and add the path to the leaflet css file to the `projects/<your_project_name>/architect/build/options/styles` array, like so:
+To do so, open your `angular.json` file that should sit at the root of your project's files, and add the path to the leaflet css file to the `projects.<project-name>.architect.build.options.styles` array, like so:
 
 ```json
 {
@@ -78,45 +77,57 @@ Along with the styles, you'll also need to import the Leaflet's assets (e.g. the
 
 This is also done in `angular.json`.
 
-Add the following object to the `projects/<your_project_name>/architect/build/options/assets` array:
+Add the following object to the `projects.<project-name>.architect.build.options.assets` array:
 
 ```json
 {
   // ...
   "assets": [
     // Previous assets definition
-*   {
+    {
 *     "glob": "**/*",
 *     "input": "node_modules/leaflet/dist/images",
 *     "output": "leaflet/"
-*   }
+    }
   ],
   // ...
 }
 ```
-> You'll need to kill and relaunch any `ng server` you might have to take those changes into account
 
 ### Registering the Leaflet module with Angular
 
 To use the [ngx-leaflet][ngx-leaflet] library, you must add its `LeafletModule` to your application's module in `src/app/app.module.ts`:
 
 ```ts
-// Other imports
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+// Other imports...
+*import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   // ...
-  imports: [BrowserModule, `LeafletModule`],
+  imports: [ /* Other imports... */, `LeafletModule` ]
   // ...
 })
 export class AppModule {}
 ```
-> You'll also need to import this same module in the module that declares the component **actually** displaying the map.
+
+And also import it in the angular module that declares the page actually displaying your map:
+
+```ts
+// Other imports...
+*import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
+@NgModule({
+  // ...
+  imports: [ /* Other imports... */, `LeafletModule` ]
+  // ...
+})
+export class ExamplePageModule {}
+```
 
 ### Displaying a map
 
-To display map, you need to define some basic map options.
-Here's how you could add them to your component (the `AppComponent` in our case):
+To display a map, you need to define some basic map options.
+Here's how you could add them to a fake `ExamplePage` component:
 
 ```ts
 // Other imports...
@@ -144,34 +155,62 @@ export class ExamplePage {
 
 #### Adding the map to the component's template
 
-To display the map in your component's template, you need to add the `leaflet` directive to a `<div>` on the template.
+To display the map in your component's template, you need to add the `leaflet` directive to a `<div>` on the page. You can pass the options to this map by binding an object to the `leafletOptions` directive:
 
 ```html
 <div class="map" leaflet [leafletOptions]="mapOptions"></div>
 ```
 
-<!-- slide-column 70 -->
+<!-- slide-column -->
 
-The `leaflet` attribute instructs the ngx-leaflet library to create a map in this DOM element,
-with our previously defined `mapOptions` bound through the `[leafletOptions]` attribute.
+The `leaflet` directive instructs the `ngx-leaflet` library to create a map in this DOM element,
+with our previously defined `mapOptions` bound through the `[leafletOptions]` directive.
 
 The map will have no height by default,
 so add the following to the component's stylesheet to make it visible:
 
 ```scss
 .map {
-  height: 500px;
+  height: 100%;
 }
 ```
-> Of course, you'll need to adapt this height to your needs.
+
+You should now have a working Leaflet map!
 
 <!-- slide-column 30 -->
 
 <img src='images/leaflet-map.png' class='w100' />
 
-<!-- slide-column 100 -->
+#### Troubleshooting
 
-You should now have a working Leaflet map!
+If you do **not** have a working Leaflet map, but instead have some kind of broken map like the one below, then you'll need to add a little bit of code to fix this issue.
+
+<!--slide-column 30 -->
+
+<img src='images/leaflet-display-bug.png' class='w100' />
+
+<!-- slide-column 70 -->
+
+> Note that this "issue" is [well](https://stackoverflow.com/questions/38832273/leafletjs-not-loading-all-tiles-until-moving-map) [known](https://github.com/Asymmetrik/ngx-leaflet/issues/104), but it's very hard to pinpoint what exactly causes it in your app.
+
+In your page's class, add the following method:
+
+```ts
+onMapReady(map: Map) {
+  setTimeout(() => map.invalidateSize(), 0);
+}
+```
+
+And in your page's template, trigger this new method with the `leafletMapReady` event:
+
+```html
+<div
+  class="leaflet-map"
+  leaflet
+  [leafletOptions]="options"
+  (leafletMapReady)="onMapReady($event)"
+></div>
+```
 
 ### Markers
 
@@ -182,18 +221,18 @@ First, you need to create an icon configuration for the markers.
 Do that by creating a file that exports this marker configuration. Let's call it, for example, `default-marker.ts` and add it this content:
 
 ```ts
-import { Icon, IconOptions, icon } from 'leaflet';
+import { Icon, IconOptions, icon } from "leaflet";
 
 export const defaultIcon: Icon<IconOptions> = icon({
   // This define the displayed icon size, in pixel
-  iconSize: [ 25, 41 ],
+  iconSize: [25, 41],
   // This defines the pixel that should be placed right above the location
   // If not provided, the image center will be used, and that could be awkward
-  iconAnchor: [ 13, 41 ],
+  iconAnchor: [13, 41],
   // The path to the image to display. In this case, it's a Leaflet asset
-  iconUrl: 'leaflet/marker-icon.png',
+  iconUrl: "leaflet/marker-icon.png",
   // The path to the image's shadow to display. Also a leaflet asset
-  shadowUrl: 'leaflet/marker-shadow.png'
+  shadowUrl: "leaflet/marker-shadow.png",
 });
 ```
 
@@ -204,11 +243,11 @@ Then, let's create some markers and add them to the component:
 ```ts
 // Other imports...
 // Import the file with the default icon configuration
-import { `defaultIcon` } from '<path/to/default-marker.ts>';
+import { `defaultIcon` } from 'path/to/default/icon/file';
 import { latLng, MapOptions, `marker, Marker`, tileLayer } from 'leaflet';
 
 // ...
-export class AppComponent {
+export class ExamplePage {
   // ...
 * mapMarkers: Marker[];
 
@@ -223,21 +262,19 @@ export class AppComponent {
 }
 ```
 
-> See [here][marker-options] for the list of options that can be passed to the `marker(...)` function.
-
 #### Adding the markers to the map
 
 <!-- slide-column -->
 
-Now all you need to do is bind the array of markers you just defined to the `Leaflet` map in the component's template with the `leafletLayers` directive:
+Now all you need to do is bind the array of markers you just defined to the `leaflet` directive in the component's template with `[leafletLayers]`:
 
 ```html
 <div
   class="map"
   leaflet
   [leafletOptions]="mapOptions"
-  `[leafletLayers]="mapMarkers"`>
-</div>
+  `[leafletLayers]="mapMarkers"`
+></div>
 ```
 
 <!-- slide-column 30 -->
@@ -264,7 +301,7 @@ For example, you could add a [Tooltip][leaflet-tooltip]:
 this.mapMarkers = [
   marker([46.778186, 6.641524])`.bindTooltip('Hello')`,
   marker([46.780796, 6.647395]),
-  marker([46.784992, 6.652267])
+  marker([46.784992, 6.652267]),
 ];
 ```
 
@@ -275,9 +312,13 @@ The `leaflet` directive will emit a `leafletMapReady` event when it's done initi
 You can bind to this event to retrieve the map object created by Leaflet:
 
 ```html
-<div class="map" leaflet [leafletOptions]="mapOptions"
-  [leafletLayers]="mapMarkers" `(leafletMapReady)="onMapReady($event)"`>
-</div>
+<div
+  class="map"
+  leaflet
+  [leafletOptions]="mapOptions"
+  [leafletLayers]="mapMarkers"
+  `(leafletMapReady)="onMapReady($event)"`
+></div>
 ```
 
 Now all you need to do is retrieve the map in your component:
@@ -287,15 +328,14 @@ Now all you need to do is retrieve the map in your component:
 import { latLng, `Map`, MapOptions, marker, Marker, tileLayer } from 'leaflet';
 
 // ...
-export class AppComponent {
-* map: Map;
+export class ExamplePage {
+* #map: Map;
   // ...
 * onMapReady(map: Map) {
-*   this.map = map;
+*   this.#map = map;
 * }
 }
 ```
-> Beware this is an **asynchronous** operation!
 
 ### Listening to map events
 
@@ -309,9 +349,9 @@ For example, you could listen to its `moveend` event to check the new coordinate
 export class ExamplePage {
   // ...
   onMapReady(map: Map) {
-    this.map = map;
-*   this.map.on('moveend', () => {
-*     const center = this.map.getCenter();
+    this.#map = map;
+*   this.#map.on('moveend', () => {
+*     const center = this.#map.getCenter();
 *     console.log(\`Map moved to ${center.lng}, ${center.lat}`);
 *   });
   }
@@ -325,19 +365,21 @@ See both documentation for more information and examples:
 - [`ngx-leaflet`][ngx-leaflet-api]
 - [Leaflet API][leaflet-api]
 
-Using the [Geolocation API][ng-geolocation] allows you to access the user's location to use it whatever way you want in the Leaflet map.
+> Using the [Geolocation API][geolocation] allows you to access the user's location and use any way you want in the Leaflet map.
 
+[angular]: https://angular.io
 [chrome]: https://www.google.com/chrome/
 [vscode]: https://code.visualstudio.com/
 [ng]: ../angular
-[ng-geolocation]: ../angular-geolocation
-[leaflet]: http://leafletjs.com
-[leaflet-api]: https://leafletjs.com/reference-1.6.0.html
+[leaflet-api]: https://leafletjs.com/reference.html
 [ngx-leaflet]: https://github.com/Asymmetrik/ngx-leaflet#readme
 [definitely-typed]: http://definitelytyped.org
-[marker-options]: https://leafletjs.com/reference-1.6.0.html#marker-option
-[leaflet-marker]: http://leafletjs.com/reference-1.3.0.html#marker
-[leaflet-tooltip]: http://leafletjs.com/reference-1.3.0.html#tooltip
+[html-geolocation]: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation
+[leaflet]: http://leafletjs.com
 [leaflet-map]: http://leafletjs.com/reference-1.3.0.html#map-example
 [leaflet-map-events]: http://leafletjs.com/reference-1.3.0.html#map-event
+[leaflet-marker]: http://leafletjs.com/reference-1.3.0.html#marker
+[leaflet-tooltip]: http://leafletjs.com/reference-1.3.0.html#tooltip
+[geolocation]: ../geolocation
+[marker-options]: https://leafletjs.com/reference-1.6.0.html#marker-option
 [ngx-leaflet-api]: https://github.com/Asymmetrik/ngx-leaflet#api
