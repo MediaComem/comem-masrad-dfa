@@ -62,10 +62,10 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 
   - [Navigation & Routing][ng-router]
 
-- [Project Starter][project-starter]
+- ✔ [Project Starter][project-starter]
 
-- Angular & Map features
-  - [Angular Geolocation][geo-api]
+- Geolocation & map features
+  - ✔ [Geolocation][geo-api]
   - [Angular Leaflet][ng-leaflet]
 
 ## Additional concepts and tools
@@ -105,7 +105,7 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [dfa]: ./subjects/intro
 [git]: https://mediacomem.github.io/comem-archidep/latest/subjects/git/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [git-b]: https://mediacomem.github.io/comem-archidep/latest/subjects/git-branching?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
-[geo-api]: ./subjects/angular-geolocation/
+[geo-api]: ./subjects/geolocation/
 [heig]: http://www.heig-vd.ch
 [im]: https://heig-vd.ch/formations/bachelor/filieres/ingenierie-des-medias
 [jq-dom]: ./subjects/jquery-dom
