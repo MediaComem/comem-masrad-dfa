@@ -108,5 +108,5 @@ Each person or group's GitHub repository will be cloned locally on **monday morn
 [dfa-site]: https://github.com/MediaComem/comem-masrad-dfa
 [fixmystreet]: https://www.fixmystreet.com/
 [ms-team]: https://teams.microsoft.com/l/team/19%3afcbfad4d3c8b409b8f683132c5fe527c%40thread.tacv2/conversations?groupId=b475ad95-6078-4856-bbd6-fa6e64316983&tenantId=a372f724-c0b2-4ea0-abfb-0eb8c6f84e40
-[travel-api]: https://comem-travel-log-api.onrender.com/
+[travel-api]: https://demo-travel-log-api.onrender.com/
 [tripadvisor]: https://fr.tripadvisor.ch/Trips/

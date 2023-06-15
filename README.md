@@ -137,5 +137,5 @@ _This course uses subjects from or based on [COMEM+][comem] [architecture & depl
 [rxjs]: https://mediacomem.github.io/comem-devmobil/latest/subjects/rxjs/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
 [setup]: ./subjects/setup
 [sop-cors]: ./subjects/sop-cors
-[travel-log-api-docs]: https://comem-travel-log-api.onrender.com/
+[travel-log-api-docs]: https://demo-travel-log-api.onrender.com/
 [ts]: https://mediacomem.github.io/comem-devmobil/latest/subjects/ts/?home=https%3A%2F%2Fmediacomem.github.io%2Fcomem-masrad-dfa%2Flatest
