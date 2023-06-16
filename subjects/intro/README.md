@@ -76,7 +76,6 @@ In your case, a Travel Log application must allow users to:
 - **see places on a map** for one or all trips and **see the details** of those places
 - **filter places and/or trips** so as to see only some of them somewhere in the app
 - **search places and/or trips** somewhere in the app
-- **post comments** on places and **see comments** for them somewhere in the app
 
 ### Implementation requirements
 
